@@ -1,7 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "Gestion_constantes.h"
-#include "CalculatriceModele.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -11,6 +10,9 @@ MainWindow::MainWindow(QWidget *parent) :
     model = new CalculatriceModele;
     buffer = "";
     connect(this, SIGNAL(pressEntrerN(QString,int)), model, SLOT(getNombre(QString,int)));
+    connect(model, SIGNAL(finOp(QString), this, SLOT(rafraichissement(QString)));
+    connect(this, SIGNAL(pressEval(), model, SLOT(getExpression()}
+
     connect(this, SIGNAL(pressAdd()), model, SLOT(getAdd()));
     connect(this, SIGNAL(pressSous()), model, SLOT(getSous()));
     connect(this, SIGNAL(pressMult()), model, SLOT(getMult()));
@@ -56,99 +58,92 @@ void MainWindow::on_num0pressed_clicked()
 {
     buffer += "0";
     aff = "0";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_num1pressed_clicked()
 {
     buffer += "1";
     aff = "1";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_num2pressed_clicked()
 {
     buffer += "2";
     aff = "2";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_num3pressed_clicked()
 {
     buffer += "3";
     aff = "3";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_num4pressed_clicked()
 {
     buffer += "4";
     aff = "4";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_num5pressed_clicked()
 {
     buffer += "5";
     aff = "5";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_num6pressed_clicked()
 {
     buffer += "6";
     aff = "6";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_num7pressed_clicked()
 {
     buffer += "7";
     aff = "7";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_num8pressed_clicked()
 {
     buffer += "8";
     aff = "8";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_num9pressed_clicked()
 {
     buffer += "9";
     aff = "9";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_numComaPressed_clicked()
 {
     buffer += ".";
     aff = ".";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_numCompPressed_clicked()
 {
     buffer += "$";
     aff = "$";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
-/*
-//void MainWindow::on_opDivPressed_clicked()
-//{
-//    // 2 possibilités
-//    //      - on cherche à diviser (la file de nombres est vide)
-//    //      - on cherche à écrire un rationnel (on veut alors le mettre dans la file)
-//    if(!file_nb.empty()){
-//        affichage.push("/");
-//        ui->lineEdit->insert(affichage.top());
-//        file_nb.enqueue("/");
-//    }
-//}
-*/
+void MainWindow::on_EspacePressed_clicked()
+{
+    buffer += " ";
+    aff = " ";
+    ui->lineEdit->insert(aff);
+}
 
 
 void MainWindow::on_buttonEntier_clicked(){
@@ -207,9 +202,28 @@ void MainWindow::on_buttonComplexe_clicked(){
 //ui->opTanhPressed->setVisible(false);
 //ui->opTanPressed->setVisible(false);
 
+//void MainWindow::typeComplexe(){
+
+//        ui->opCoshPressed->setVisible(false);
+//        ui->opCosPressed->setVisible(false);
+//        ui->opFactPressed->setVisible(false);
+//        ui->opInvPressed->setVisible(false);
+//        ui->opLnPressed->setVisible(false);
+//        ui->opLogPressed->setVisible(false);
+//        ui->opModPressed->setVisible(false);
+//        ui->opPowPressed->setVisible(false);
+//        ui->opSinhPressed->setVisible(false);
+//        ui->opSinPressed->setVisible(false);
+//        ui->opTanhPressed->setVisible(false);
+//        ui->opTanPressed->setVisible(false);
+
+//}
+
 //opérations essentielles
 void MainWindow::on_EnterPressed_clicked()
 {
+    ui->lineEdit->insert(" ");
+
     if(FormuleValide(buffer)){
         emit pressEntrerN(buffer, typeNombre);
         buffer = "";
@@ -252,21 +266,29 @@ void MainWindow::on_EnterPressed_clicked()
     }
 }
 
-void pressEntrerN(QString s, int type){}
+void MainWindow::on_EvalPressed_clicked(){
+    emit pressEval();
+}
+
+void MainWindow::rafraichissement(QString s)
+{
+    aff = "";
+    ui->lineEdit->insert(aff);
+}
 
 //opérations
 void MainWindow::on_opPlusPressed_clicked()
 {
     buffer += "+";
     aff = "+";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_opMoinsPressed_clicked()
 {
     buffer += "-";
     aff = "-";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 
@@ -274,7 +296,7 @@ void MainWindow::on_opMultPressed_clicked()
 {
     buffer += "*";
     aff = "*";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 
@@ -282,119 +304,119 @@ void MainWindow::on_opDivPressed_clicked()
 {
     buffer += "/";
     aff = "/";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_opPowPressed_clicked()
 {
     buffer += "exp";
     aff = "exp";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_opModPressed_clicked()
 {
     buffer += "mod";
     aff = "mod";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_opFactPressed_clicked()
 {
     buffer += "fact";
     aff = "fact";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_opSignPressed_clicked()
 {
     buffer += "sign";
     aff = "sign";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_opSinPressed_clicked()
 {
     buffer += "sin";
     aff = "sin";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_opCosPressed_clicked()
 {
     buffer += "cos";
     aff = "cos";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_opTanPressed_clicked()
 {
     buffer += "tan";
     aff = "tan";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_opSinhPressed_clicked()
 {
     buffer += "sinh";
     aff = "sinh";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_opCoshPressed_clicked()
 {
     buffer += "cosh";
     aff = "cosh";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_opTanhPressed_clicked()
 {
     buffer += "tanh";
     aff = "tanh";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_opLnPressed_clicked()
 {
     buffer += "ln";
     aff = "ln";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_opLogPressed_clicked()
 {
     buffer += "log";
     aff = "log";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_opInvPressed_clicked()
 {
     buffer += "inv";
     aff = "inv";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_opSqrtPressed_clicked()
 {
     buffer += "sqrt";
     aff = "sqrt";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_opSqrPressed_clicked()
 {
     buffer += "sqr";
     aff = "sqr";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_opCubePressed_clicked()
 {
     buffer += "cube";
     aff = "cube";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 
@@ -402,40 +424,40 @@ void MainWindow::on_opSwapPressed_clicked()
 {
     buffer += "swap";
     aff = "swap";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_opSumPressed_clicked()
 {
     buffer += "sum";
     aff = "sum";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_opMeanPressed_clicked()
 {
     buffer += "mean";
     aff = "mean";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_opClearPressed_clicked()
 {
     buffer += "clear";
     aff = "clear";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_opDupPressed_clicked()
 {
     buffer += "dup";
     aff = "dup";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }
 
 void MainWindow::on_opDropPressed_clicked()
 {
     buffer += "drop";
     aff = "drop";
-    ui->textEdit->insertHtml(aff);
+    ui->lineEdit->insert(aff);
 }

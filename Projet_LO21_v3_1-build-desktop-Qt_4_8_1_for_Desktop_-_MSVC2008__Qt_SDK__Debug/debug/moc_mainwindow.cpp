@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Thu 7. Jun 23:23:30 2012
+** Created: Sat 9. Jun 21:30:02 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_MainWindow[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      70,   14, // methods
+      72,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -73,36 +73,38 @@ static const uint qt_meta_data_MainWindow[] = {
      594,   11,   11,   11, 0x08,
      622,   11,   11,   11, 0x08,
      650,   11,   11,   11, 0x08,
-     676,   11,   11,   11, 0x08,
-     703,   11,   11,   11, 0x08,
+     677,   11,   11,   11, 0x08,
+     705,  703,   11,   11, 0x08,
      731,   11,   11,   11, 0x08,
      758,   11,   11,   11, 0x08,
-     784,   11,   11,   11, 0x08,
-     810,   11,   11,   11, 0x08,
-     836,   11,   11,   11, 0x08,
-     863,   11,   11,   11, 0x08,
-     890,   11,   11,   11, 0x08,
-     916,   11,   11,   11, 0x08,
-     942,   11,   11,   11, 0x08,
-     968,   11,   11,   11, 0x08,
-     995,   11,   11,   11, 0x08,
-    1022,   11,   11,   11, 0x08,
-    1049,   11,   11,   11, 0x08,
-    1074,   11,   11,   11, 0x08,
-    1100,   11,   11,   11, 0x08,
-    1126,   11,   11,   11, 0x08,
-    1153,   11,   11,   11, 0x08,
-    1179,   11,   11,   11, 0x08,
-    1206,   11,   11,   11, 0x08,
-    1232,   11,   11,   11, 0x08,
-    1256,   11,   11,   11, 0x08,
-    1285,   11,   11,   11, 0x08,
-    1313,   11,   11,   11, 0x08,
+     786,   11,   11,   11, 0x08,
+     813,   11,   11,   11, 0x08,
+     839,   11,   11,   11, 0x08,
+     865,   11,   11,   11, 0x08,
+     891,   11,   11,   11, 0x08,
+     918,   11,   11,   11, 0x08,
+     945,   11,   11,   11, 0x08,
+     971,   11,   11,   11, 0x08,
+     997,   11,   11,   11, 0x08,
+    1023,   11,   11,   11, 0x08,
+    1050,   11,   11,   11, 0x08,
+    1077,   11,   11,   11, 0x08,
+    1104,   11,   11,   11, 0x08,
+    1129,   11,   11,   11, 0x08,
+    1155,   11,   11,   11, 0x08,
+    1181,   11,   11,   11, 0x08,
+    1208,   11,   11,   11, 0x08,
+    1234,   11,   11,   11, 0x08,
+    1261,   11,   11,   11, 0x08,
+    1287,   11,   11,   11, 0x08,
+    1311,   11,   11,   11, 0x08,
     1340,   11,   11,   11, 0x08,
-    1366,   11,   11,   11, 0x08,
-    1393,   11,   11,   11, 0x08,
+    1368,   11,   11,   11, 0x08,
+    1395,   11,   11,   11, 0x08,
     1421,   11,   11,   11, 0x08,
-    1447,   11,   11,   11, 0x08,
+    1448,   11,   11,   11, 0x08,
+    1476,   11,   11,   11, 0x08,
+    1502,   11,   11,   11, 0x08,
 
        0        // eod
 };
@@ -129,7 +131,9 @@ static const char qt_meta_stringdata_MainWindow[] = {
     "on_num9pressed_clicked()\0"
     "on_numComaPressed_clicked()\0"
     "on_numCompPressed_clicked()\0"
-    "on_EnterPressed_clicked()\0"
+    "on_EspacePressed_clicked()\0"
+    "on_EnterPressed_clicked()\0s\0"
+    "rafraichissement(QString)\0"
     "on_opPlusPressed_clicked()\0"
     "on_opMoinsPressed_clicked()\0"
     "on_opMultPressed_clicked()\0"
@@ -207,37 +211,39 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 36: _t->on_num9pressed_clicked(); break;
         case 37: _t->on_numComaPressed_clicked(); break;
         case 38: _t->on_numCompPressed_clicked(); break;
-        case 39: _t->on_EnterPressed_clicked(); break;
-        case 40: _t->on_opPlusPressed_clicked(); break;
-        case 41: _t->on_opMoinsPressed_clicked(); break;
-        case 42: _t->on_opMultPressed_clicked(); break;
-        case 43: _t->on_opDivPressed_clicked(); break;
-        case 44: _t->on_opPowPressed_clicked(); break;
-        case 45: _t->on_opModPressed_clicked(); break;
-        case 46: _t->on_opFactPressed_clicked(); break;
-        case 47: _t->on_opSignPressed_clicked(); break;
-        case 48: _t->on_opSinPressed_clicked(); break;
-        case 49: _t->on_opCosPressed_clicked(); break;
-        case 50: _t->on_opTanPressed_clicked(); break;
-        case 51: _t->on_opSinhPressed_clicked(); break;
-        case 52: _t->on_opCoshPressed_clicked(); break;
-        case 53: _t->on_opTanhPressed_clicked(); break;
-        case 54: _t->on_opLnPressed_clicked(); break;
-        case 55: _t->on_opLogPressed_clicked(); break;
-        case 56: _t->on_opInvPressed_clicked(); break;
-        case 57: _t->on_opSqrtPressed_clicked(); break;
-        case 58: _t->on_opSqrPressed_clicked(); break;
-        case 59: _t->on_opCubePressed_clicked(); break;
-        case 60: _t->on_buttonEntier_clicked(); break;
-        case 61: _t->on_buttonReel_clicked(); break;
-        case 62: _t->on_buttonRationnel_clicked(); break;
-        case 63: _t->on_buttonComplexe_clicked(); break;
-        case 64: _t->on_opSwapPressed_clicked(); break;
-        case 65: _t->on_opSumPressed_clicked(); break;
-        case 66: _t->on_opMeanPressed_clicked(); break;
-        case 67: _t->on_opClearPressed_clicked(); break;
-        case 68: _t->on_opDupPressed_clicked(); break;
-        case 69: _t->on_opDropPressed_clicked(); break;
+        case 39: _t->on_EspacePressed_clicked(); break;
+        case 40: _t->on_EnterPressed_clicked(); break;
+        case 41: _t->rafraichissement((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 42: _t->on_opPlusPressed_clicked(); break;
+        case 43: _t->on_opMoinsPressed_clicked(); break;
+        case 44: _t->on_opMultPressed_clicked(); break;
+        case 45: _t->on_opDivPressed_clicked(); break;
+        case 46: _t->on_opPowPressed_clicked(); break;
+        case 47: _t->on_opModPressed_clicked(); break;
+        case 48: _t->on_opFactPressed_clicked(); break;
+        case 49: _t->on_opSignPressed_clicked(); break;
+        case 50: _t->on_opSinPressed_clicked(); break;
+        case 51: _t->on_opCosPressed_clicked(); break;
+        case 52: _t->on_opTanPressed_clicked(); break;
+        case 53: _t->on_opSinhPressed_clicked(); break;
+        case 54: _t->on_opCoshPressed_clicked(); break;
+        case 55: _t->on_opTanhPressed_clicked(); break;
+        case 56: _t->on_opLnPressed_clicked(); break;
+        case 57: _t->on_opLogPressed_clicked(); break;
+        case 58: _t->on_opInvPressed_clicked(); break;
+        case 59: _t->on_opSqrtPressed_clicked(); break;
+        case 60: _t->on_opSqrPressed_clicked(); break;
+        case 61: _t->on_opCubePressed_clicked(); break;
+        case 62: _t->on_buttonEntier_clicked(); break;
+        case 63: _t->on_buttonReel_clicked(); break;
+        case 64: _t->on_buttonRationnel_clicked(); break;
+        case 65: _t->on_buttonComplexe_clicked(); break;
+        case 66: _t->on_opSwapPressed_clicked(); break;
+        case 67: _t->on_opSumPressed_clicked(); break;
+        case 68: _t->on_opMeanPressed_clicked(); break;
+        case 69: _t->on_opClearPressed_clicked(); break;
+        case 70: _t->on_opDupPressed_clicked(); break;
+        case 71: _t->on_opDropPressed_clicked(); break;
         default: ;
         }
     }
@@ -275,9 +281,9 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 70)
+        if (_id < 72)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 70;
+        _id -= 72;
     }
     return _id;
 }

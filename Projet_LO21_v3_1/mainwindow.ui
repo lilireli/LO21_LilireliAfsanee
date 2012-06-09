@@ -6,48 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>688</width>
-    <height>443</height>
+    <width>715</width>
+    <height>449</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="EvalPressed">
-    <property name="geometry">
-     <rect>
-      <x>580</x>
-      <y>190</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>EVAL</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="num4pressed">
-    <property name="geometry">
-     <rect>
-      <x>490</x>
-      <y>270</y>
-      <width>31</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>4</string>
-    </property>
-    <property name="shortcut">
-     <string>4</string>
-    </property>
-   </widget>
    <widget class="QRadioButton" name="buttonRationnel">
     <property name="geometry">
      <rect>
-      <x>520</x>
-      <y>140</y>
+      <x>550</x>
+      <y>30</y>
       <width>71</width>
       <height>17</height>
      </rect>
@@ -56,139 +27,11 @@
      <string>Rationnel</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="opLogPressed">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>320</y>
-      <width>41</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>log</string>
-    </property>
-    <property name="shortcut">
-     <string>L, O, G</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="opSumPressed">
-    <property name="geometry">
-     <rect>
-      <x>330</x>
-      <y>80</y>
-      <width>51</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>SUM</string>
-    </property>
-    <property name="shortcut">
-     <string>S, U, M</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="num8pressed">
-    <property name="geometry">
-     <rect>
-      <x>530</x>
-      <y>240</y>
-      <width>31</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>8</string>
-    </property>
-    <property name="shortcut">
-     <string>8</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="clickAnnul">
-    <property name="geometry">
-     <rect>
-      <x>470</x>
-      <y>360</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Annuler</string>
-    </property>
-    <property name="shortcut">
-     <string>Ctrl+Z</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="num1pressed">
-    <property name="geometry">
-     <rect>
-      <x>490</x>
-      <y>300</y>
-      <width>31</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>1</string>
-    </property>
-    <property name="shortcut">
-     <string>1</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="num3pressed">
-    <property name="geometry">
-     <rect>
-      <x>570</x>
-      <y>300</y>
-      <width>31</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>3</string>
-    </property>
-    <property name="shortcut">
-     <string>3</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="num7pressed">
-    <property name="geometry">
-     <rect>
-      <x>490</x>
-      <y>240</y>
-      <width>31</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>7</string>
-    </property>
-    <property name="shortcut">
-     <string>7</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="opSinPressed">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>260</y>
-      <width>41</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>sin</string>
-    </property>
-    <property name="shortcut">
-     <string>S, I, N</string>
-    </property>
-   </widget>
    <widget class="QRadioButton" name="buttonReel">
     <property name="geometry">
      <rect>
-      <x>600</x>
-      <y>140</y>
+      <x>630</x>
+      <y>30</y>
       <width>51</width>
       <height>17</height>
      </rect>
@@ -197,258 +40,11 @@
      <string>Réel</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="opMoinsPressed">
-    <property name="geometry">
-     <rect>
-      <x>450</x>
-      <y>270</y>
-      <width>31</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>-</string>
-    </property>
-    <property name="shortcut">
-     <string>-</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="numParenthesisPressed">
-    <property name="geometry">
-     <rect>
-      <x>490</x>
-      <y>330</y>
-      <width>31</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>'</string>
-    </property>
-    <property name="shortcut">
-     <string>'</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="num2pressed">
-    <property name="geometry">
-     <rect>
-      <x>530</x>
-      <y>300</y>
-      <width>31</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>2</string>
-    </property>
-    <property name="shortcut">
-     <string>2</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>440</x>
-      <y>180</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>DEL</string>
-    </property>
-   </widget>
-   <widget class="QTextEdit" name="textEdit">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>20</y>
-      <width>231</width>
-      <height>361</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="opModPressed">
-    <property name="geometry">
-     <rect>
-      <x>310</x>
-      <y>230</y>
-      <width>31</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>%</string>
-    </property>
-    <property name="shortcut">
-     <string>%</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="opFactPressed">
-    <property name="geometry">
-     <rect>
-      <x>350</x>
-      <y>230</y>
-      <width>31</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>!</string>
-    </property>
-    <property name="shortcut">
-     <string>!</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="opMultPressed">
-    <property name="geometry">
-     <rect>
-      <x>450</x>
-      <y>300</y>
-      <width>31</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>*</string>
-    </property>
-    <property name="shortcut">
-     <string>*</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="num5pressed">
-    <property name="geometry">
-     <rect>
-      <x>530</x>
-      <y>270</y>
-      <width>31</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>5</string>
-    </property>
-    <property name="shortcut">
-     <string>5</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="opCubePressed">
-    <property name="geometry">
-     <rect>
-      <x>370</x>
-      <y>350</y>
-      <width>41</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>CUBE</string>
-    </property>
-    <property name="shortcut">
-     <string>C, U, B, E</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="opLnPressed">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>320</y>
-      <width>41</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>ln</string>
-    </property>
-    <property name="shortcut">
-     <string>L, N</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="opInvPressed">
-    <property name="geometry">
-     <rect>
-      <x>370</x>
-      <y>320</y>
-      <width>41</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>INV</string>
-    </property>
-    <property name="shortcut">
-     <string>I, N, V</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="EnterPressed">
-    <property name="geometry">
-     <rect>
-      <x>620</x>
-      <y>280</y>
-      <width>51</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Enter</string>
-    </property>
-    <property name="shortcut">
-     <string>Return</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="opMeanPressed">
-    <property name="geometry">
-     <rect>
-      <x>390</x>
-      <y>80</y>
-      <width>51</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>MEAN</string>
-    </property>
-    <property name="shortcut">
-     <string>M, E, A, N</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="opCoshPressed">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>290</y>
-      <width>41</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>cosh</string>
-    </property>
-    <property name="shortcut">
-     <string>C, O, S, H</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="numComaPressed">
-    <property name="geometry">
-     <rect>
-      <x>570</x>
-      <y>330</y>
-      <width>31</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>,</string>
-    </property>
-    <property name="shortcut">
-     <string>,</string>
-    </property>
-   </widget>
    <widget class="QRadioButton" name="buttonEntier">
     <property name="geometry">
      <rect>
-      <x>460</x>
-      <y>140</y>
+      <x>490</x>
+      <y>30</y>
       <width>51</width>
       <height>17</height>
      </rect>
@@ -460,107 +56,11 @@
      <bool>true</bool>
     </property>
    </widget>
-   <widget class="QPushButton" name="clickRetablir">
-    <property name="geometry">
-     <rect>
-      <x>550</x>
-      <y>360</y>
-      <width>75</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Rétablir</string>
-    </property>
-    <property name="shortcut">
-     <string>Ctrl+Y</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="opPowPressed">
-    <property name="geometry">
-     <rect>
-      <x>270</x>
-      <y>230</y>
-      <width>31</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>^</string>
-    </property>
-    <property name="shortcut">
-     <string>P, O, W</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="opCosPressed">
-    <property name="geometry">
-     <rect>
-      <x>320</x>
-      <y>260</y>
-      <width>41</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>cos</string>
-    </property>
-    <property name="shortcut">
-     <string>C, O, S</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="num9pressed">
-    <property name="geometry">
-     <rect>
-      <x>570</x>
-      <y>240</y>
-      <width>31</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>9</string>
-    </property>
-    <property name="shortcut">
-     <string>9</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="opDropPressed">
-    <property name="geometry">
-     <rect>
-      <x>570</x>
-      <y>80</y>
-      <width>51</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>DROP</string>
-    </property>
-    <property name="shortcut">
-     <string>D, R, O, P</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="opSignPressed">
-    <property name="geometry">
-     <rect>
-      <x>390</x>
-      <y>230</y>
-      <width>41</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>SIGN</string>
-    </property>
-    <property name="shortcut">
-     <string>S, I, G, N</string>
-    </property>
-   </widget>
    <widget class="QCheckBox" name="buttonComplexe">
     <property name="geometry">
      <rect>
-      <x>580</x>
-      <y>160</y>
+      <x>610</x>
+      <y>50</y>
       <width>70</width>
       <height>17</height>
      </rect>
@@ -569,27 +69,11 @@
      <string>Complexe</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="num6pressed">
-    <property name="geometry">
-     <rect>
-      <x>570</x>
-      <y>270</y>
-      <width>31</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>6</string>
-    </property>
-    <property name="shortcut">
-     <string>6</string>
-    </property>
-   </widget>
    <widget class="QPushButton" name="opSqrPressed">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>350</y>
+      <x>330</x>
+      <y>310</y>
       <width>41</width>
       <height>23</height>
      </rect>
@@ -601,107 +85,107 @@
      <string>S, Q, R</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="num0pressed">
+   <widget class="QPushButton" name="opCosPressed">
     <property name="geometry">
      <rect>
-      <x>530</x>
-      <y>330</y>
-      <width>31</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>0</string>
-    </property>
-    <property name="shortcut">
-     <string>0</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="opPlusPressed">
-    <property name="geometry">
-     <rect>
-      <x>450</x>
-      <y>240</y>
-      <width>31</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>+</string>
-    </property>
-    <property name="shortcut">
-     <string>+</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="opDivPressed">
-    <property name="geometry">
-     <rect>
-      <x>450</x>
-      <y>330</y>
-      <width>31</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>/</string>
-    </property>
-    <property name="shortcut">
-     <string>/</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="opTanPressed">
-    <property name="geometry">
-     <rect>
-      <x>370</x>
-      <y>260</y>
+      <x>330</x>
+      <y>220</y>
       <width>41</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>tan</string>
+     <string>cos</string>
     </property>
     <property name="shortcut">
-     <string>T, A, N</string>
+     <string>C, O, S</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="opSinhPressed">
+   <widget class="QPushButton" name="opInvPressed">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>290</y>
+      <x>380</x>
+      <y>280</y>
       <width>41</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>sinh</string>
+     <string>INV</string>
     </property>
     <property name="shortcut">
-     <string>S, I, N, H</string>
+     <string>I, N, V</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="opDupPressed">
+   <widget class="QPushButton" name="onClearPressed">
     <property name="geometry">
      <rect>
-      <x>510</x>
-      <y>80</y>
+      <x>460</x>
+      <y>90</y>
+      <width>51</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>CLEAR</string>
+    </property>
+    <property name="shortcut">
+     <string>C, L, E, A</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="num8pressed">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>200</y>
+      <width>31</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>8</string>
+    </property>
+    <property name="shortcut">
+     <string>8</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="opModPressed">
+    <property name="geometry">
+     <rect>
+      <x>320</x>
+      <y>190</y>
+      <width>31</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>%</string>
+    </property>
+    <property name="shortcut">
+     <string>%</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="opDropPressed">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>90</y>
       <width>51</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>DUP</string>
+     <string>DROP</string>
     </property>
     <property name="shortcut">
-     <string>D, U, P</string>
+     <string>D, R, O, P</string>
     </property>
    </widget>
    <widget class="QPushButton" name="opTanhPressed">
     <property name="geometry">
      <rect>
-      <x>370</x>
-      <y>290</y>
+      <x>380</x>
+      <y>250</y>
       <width>41</width>
       <height>23</height>
      </rect>
@@ -713,27 +197,59 @@
      <string>T, A, N, H</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="opSqrtPressed">
+   <widget class="QPushButton" name="opLogPressed">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>350</y>
+      <x>330</x>
+      <y>280</y>
       <width>41</width>
       <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>SQRT</string>
+     <string>log</string>
     </property>
     <property name="shortcut">
-     <string>S, Q, R, T</string>
+     <string>L, O, G</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="num3pressed">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>260</y>
+      <width>31</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>3</string>
+    </property>
+    <property name="shortcut">
+     <string>3</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="opPowPressed">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>190</y>
+      <width>31</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>^</string>
+    </property>
+    <property name="shortcut">
+     <string>P, O, W</string>
     </property>
    </widget>
    <widget class="QPushButton" name="opSwapPressed">
     <property name="geometry">
      <rect>
-      <x>270</x>
-      <y>80</y>
+      <x>280</x>
+      <y>90</y>
       <width>51</width>
       <height>23</height>
      </rect>
@@ -745,37 +261,537 @@
      <string>S, W, A, P</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton">
+   <widget class="QPushButton" name="EspacePressed">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>130</y>
-      <width>82</width>
-      <height>17</height>
+      <x>630</x>
+      <y>280</y>
+      <width>51</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="text">
-     <string>Degré</string>
+     <string>Espace</string>
+    </property>
+    <property name="shortcut">
+     <string>Space</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_2">
+   <widget class="QPushButton" name="numParenthesisPressed">
     <property name="geometry">
      <rect>
-      <x>300</x>
-      <y>160</y>
-      <width>82</width>
-      <height>17</height>
+      <x>500</x>
+      <y>290</y>
+      <width>31</width>
+      <height>23</height>
      </rect>
     </property>
     <property name="text">
-     <string>Radians</string>
+     <string>'</string>
+    </property>
+    <property name="shortcut">
+     <string>'</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="clickAnnul">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>320</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Annuler</string>
+    </property>
+    <property name="shortcut">
+     <string>Ctrl+Z</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="opMoinsPressed">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>230</y>
+      <width>31</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>-</string>
+    </property>
+    <property name="shortcut">
+     <string>-</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="num4pressed">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>230</y>
+      <width>31</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>4</string>
+    </property>
+    <property name="shortcut">
+     <string>4</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="num9pressed">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>200</y>
+      <width>31</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>9</string>
+    </property>
+    <property name="shortcut">
+     <string>9</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="opCoshPressed">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>250</y>
+      <width>41</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>cosh</string>
+    </property>
+    <property name="shortcut">
+     <string>C, O, S, H</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="opDupPressed">
+    <property name="geometry">
+     <rect>
+      <x>520</x>
+      <y>90</y>
+      <width>51</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>DUP</string>
+    </property>
+    <property name="shortcut">
+     <string>D, U, P</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>440</x>
+      <y>150</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>DEL</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="opSumPressed">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>90</y>
+      <width>51</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>SUM</string>
+    </property>
+    <property name="shortcut">
+     <string>S, U, M</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="opFactPressed">
+    <property name="geometry">
+     <rect>
+      <x>360</x>
+      <y>190</y>
+      <width>31</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>!</string>
+    </property>
+    <property name="shortcut">
+     <string>!</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="opLnPressed">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>280</y>
+      <width>41</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>ln</string>
+    </property>
+    <property name="shortcut">
+     <string>L, N</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="clickRetablir">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
+      <y>320</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Rétablir</string>
+    </property>
+    <property name="shortcut">
+     <string>Ctrl+Y</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="opSqrtPressed">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>310</y>
+      <width>41</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>SQRT</string>
+    </property>
+    <property name="shortcut">
+     <string>S, Q, R, T</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="opDivPressed">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>290</y>
+      <width>31</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>/</string>
+    </property>
+    <property name="shortcut">
+     <string>/</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="num1pressed">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>260</y>
+      <width>31</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>1</string>
+    </property>
+    <property name="shortcut">
+     <string>1</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="num2pressed">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>260</y>
+      <width>31</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>2</string>
+    </property>
+    <property name="shortcut">
+     <string>2</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="opMeanPressed">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>90</y>
+      <width>51</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>MEAN</string>
+    </property>
+    <property name="shortcut">
+     <string>M, E, A, N</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="opSinhPressed">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>250</y>
+      <width>41</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>sinh</string>
+    </property>
+    <property name="shortcut">
+     <string>S, I, N, H</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="opSinPressed">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>220</y>
+      <width>41</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>sin</string>
+    </property>
+    <property name="shortcut">
+     <string>S, I, N</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="numComaPressed">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>290</y>
+      <width>31</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>.</string>
+    </property>
+    <property name="shortcut">
+     <string>.</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="opPlusPressed">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>200</y>
+      <width>31</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>+</string>
+    </property>
+    <property name="shortcut">
+     <string>+</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="EnterPressed">
+    <property name="geometry">
+     <rect>
+      <x>630</x>
+      <y>240</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Enter</string>
+    </property>
+    <property name="shortcut">
+     <string>Return</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="opTanPressed">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>220</y>
+      <width>41</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>tan</string>
+    </property>
+    <property name="shortcut">
+     <string>T, A, N</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="num6pressed">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>230</y>
+      <width>31</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>6</string>
+    </property>
+    <property name="shortcut">
+     <string>6</string>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>40</y>
+      <width>231</width>
+      <height>331</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="num5pressed">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>230</y>
+      <width>31</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>5</string>
+    </property>
+    <property name="shortcut">
+     <string>5</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="opMultPressed">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>260</y>
+      <width>31</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>*</string>
+    </property>
+    <property name="shortcut">
+     <string>*</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="num0pressed">
+    <property name="geometry">
+     <rect>
+      <x>540</x>
+      <y>290</y>
+      <width>31</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>0</string>
+    </property>
+    <property name="shortcut">
+     <string>0</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>380</y>
+      <width>651</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="opCubePressed">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>310</y>
+      <width>41</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>CUBE</string>
+    </property>
+    <property name="shortcut">
+     <string>C, U, B, E</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="num7pressed">
+    <property name="geometry">
+     <rect>
+      <x>500</x>
+      <y>200</y>
+      <width>31</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>7</string>
+    </property>
+    <property name="shortcut">
+     <string>7</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="opSignPressed">
+    <property name="geometry">
+     <rect>
+      <x>400</x>
+      <y>190</y>
+      <width>41</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>SIGN</string>
+    </property>
+    <property name="shortcut">
+     <string>S, I, G, N</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="EvalPressed">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>150</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>EVAL</string>
     </property>
    </widget>
    <widget class="QPushButton" name="numCompPressed">
     <property name="geometry">
      <rect>
-      <x>620</x>
-      <y>240</y>
+      <x>630</x>
+      <y>200</y>
       <width>31</width>
       <height>23</height>
      </rect>
@@ -787,29 +803,13 @@
      <string>$</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="opClearPressed">
-    <property name="geometry">
-     <rect>
-      <x>450</x>
-      <y>80</y>
-      <width>51</width>
-      <height>23</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>CLEAR</string>
-    </property>
-    <property name="shortcut">
-     <string>C, L, E, A</string>
-    </property>
-   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>688</width>
+     <width>715</width>
      <height>21</height>
     </rect>
    </property>

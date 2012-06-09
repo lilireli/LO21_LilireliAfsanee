@@ -6,6 +6,9 @@
 #include "Constantes.h"
 #include "Gestion_constantes.h"
 
+//class CalculatriceModele;
+//#include "mainwindow.h"
+
 using namespace Calcul;
 
 class CalculatriceModele : public QObject
@@ -21,9 +24,12 @@ public:
     Constante* CreerObjet(const Constante *d);
 
 signals:
+     void finOp(QString s);
 
 public slots:
      void getNombre(QString s, int type);  // mettre la constante dans pile
+     void getExpression();
+
      void getAdd();
      void getSous();
      void getMult();
@@ -56,8 +62,6 @@ public slots:
      void getClear();
      void getDup();
      void getDrop();
-
-
 
 };
 

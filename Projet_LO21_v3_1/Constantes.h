@@ -23,6 +23,7 @@ class Nombre : public Constante{
 public:
     virtual Complexe toComplexe() = 0;
     virtual Nombre* operator +(Nombre* r1)=0;
+    virtual QString ConvertChaine() = 0;
 };
 
 
@@ -30,13 +31,17 @@ class Complexe : public Constante{
     Nombre* re;
     Nombre* im;
 public:
-    Complexe(QString s="0");
+    Complexe(QString s="0$0");
     Complexe(Nombre* reel, Nombre* imaginaire=NULL);
-    QString ConvertChaine() {return re->ConvertChaine()+'$'/*+im->ConvertChaine()*/;}
+    Nombre* GetRe(){return re;}
+    Nombre* GetIm(){return im;}
+    QString ConvertChaine() {return re->ConvertChaine()+'$'+im->ConvertChaine();}
 
     // opérations de base
     Complexe operator + (Complexe r1);
-    Complexe operator + (Nombre* r1);
+    Complexe operator + (Entier r1);
+    Complexe operator + (Reel r1);
+    Complexe operator + (Rationnel r1);
     Constante* operator + (Constante* r1);
 
 //    Complexe operator - (Complexe r1);
@@ -53,8 +58,6 @@ public:
 //    Constante* operator * (Constante* r1);
 };
 
-
-
 class Reel : public Nombre{
     double n;
 public:
@@ -65,6 +68,8 @@ public:
     QString ConvertChaine() {return QString::number(n);}
 
     // opérations de base
+    Reel operator = (Reel r1);
+
     Reel operator + (Reel r1);
     Reel operator + (Entier r1);
     Reel operator + (Rationnel r1);
@@ -82,9 +87,15 @@ public:
     Reel operator * (Rationnel r1);
     Constante* operator * (Constante* r1);
 
+    Reel operator / (Reel r1);
+    Reel operator / (Entier r1);
+    Reel operator / (Rationnel r1);
+    Constante* operator / (Constante* r1);
 
-//    Reel operator / (Reel r1);
-//    Reel exposant();
+    Reel puissance (Reel r1);
+    Reel puissance (Entier r1);
+    Reel puissance (Rationnel r1);
+    Constante* puissance (Constante* r1);
 
     Reel sinus();
     Reel cosinus();
@@ -92,12 +103,13 @@ public:
     Reel sinush();
     Reel cosinush();
     Reel tangenteh();
-//    Reel ln();
-//    Reel logdix();
-//    Reel inv();
-//    Reel sqrt();
-//    Reel sqr();
-//    Reel cube();
+
+    Reel ln();
+    Reel logdix();
+    Reel inv();
+    Reel rsqr();
+    Reel sqr();
+    Reel cube();
 
 };
 
@@ -119,6 +131,8 @@ public:
         den = m.toInt(); if(den==0) den=1;
     }
     Rationnel(int n, int m=1): num(n), den(m){if(den == 0) den=1;}
+    void SetNum(int n){num=n;}
+    void SetDen(int n){den=n;}
     int GetNum(){return num;}
     int GetDen(){return den;}
     double GetRationnel(){return double(num)/den;}
@@ -128,6 +142,8 @@ public:
     QString ConvertChaine() {return QString::number(num)+'/'+QString::number(den);}
 
     // opérations de base
+    Rationnel operator = (Rationnel r1);
+
     Rationnel operator + (Rationnel r1);
     Rationnel operator + (Entier r1);
     Reel operator + (Reel r1);
@@ -145,12 +161,15 @@ public:
     Reel operator * (Reel r1);
     Constante* operator * (Constante* r1);
 
+    Rationnel operator / (Rationnel r1);
+    Rationnel operator / (Entier r1);
+    Reel operator / (Reel r1);
+    Constante* operator / (Constante* r1);
 
-//    Rationnel operator - (Rationnel r1);
-//    Rationnel operator - ();
-//    Rationnel operator * (Rationnel r1);
-    // Rationnel operator / (Rationnel r1);
-//    Rationnel exposant();
+    Reel puissance (Reel r1);
+    Rationnel puissance (Entier r1);
+    Reel puissance (Rationnel r1);
+    Constante* puissance (Constante* r1);
 
     Reel sinus();
     Reel cosinus();
@@ -159,12 +178,12 @@ public:
     Reel cosinush();
     Reel tangenteh();
 
-//    Reel ln();
-//    Reel logdix();
-//    Rationnel inv();
-//    Reel sqrt();
-//    Rationnel sqr();
-//    Rationnel cube();
+    Reel ln();
+    Reel logdix();
+    Rationnel inv();
+    Reel rsqr();
+    Rationnel sqr();
+    Rationnel cube();
 };
 
 class Entier : public Nombre{
@@ -180,6 +199,8 @@ public:
     QString ConvertChaine() {return QString::number(n);}
 
     // opérations de base
+    Entier operator = (Entier r1);
+
     Entier operator + (Entier r1);
     Reel operator + (Reel r1);
     Rationnel operator +(Rationnel r1);
@@ -197,10 +218,17 @@ public:
     Rationnel operator *(Rationnel r1);
     Constante* operator * (Constante* r1);
 
+    Reel operator / (Reel r1);
+    Rationnel operator / (Entier r1);
+    Rationnel operator / (Rationnel r1);
+    Constante* operator / (Constante* r1);
 
-//    Entier operator / (Entier r1);
-//    Rationnel exposant();  // si la puissance est négative retournera 1/x^n
+    Reel puissance (Reel r1);
+    Rationnel puissance (Entier r1);
+    Reel puissance (Rationnel r1);
+    Constante* puissance (Constante* r1);
 
+    // retournent des réels
     Reel sinus();
     Reel cosinus();
     Reel tangente();
@@ -208,21 +236,24 @@ public:
     Reel cosinush();
     Reel tangenteh();
 
-//    Reel ln();
-//    Reel logdix();
-//    Rationnel inv();  // retourne 1/x
-//    Reel sqrt();
-//    Entier sqr();
-//    Entier cube();
+    Reel ln();
+    Reel logdix();
+    Rationnel inv();  // retourne 1/x donc ne peut pas retourner un entier, retourne un rationnel car moins de pertes
+    Reel rsqr();
+    Entier sqr();
+    Entier cube();
 
     Entier mod(Entier e);
-//    Entier fact();
+    Entier fact();
 };
 
 
-//class Expression : public Constante{
-//    QString exp;
-//};
+class Expression : public Constante{
+    QString exp;
+public:
+    QString ConvertChaine(){return exp;}
+    Constante* EvalExpression(QString s);
+};
 
 }
 

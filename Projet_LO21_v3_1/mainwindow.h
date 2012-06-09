@@ -34,9 +34,12 @@ private slots:
     void on_num9pressed_clicked();
     void on_numComaPressed_clicked();
     void on_numCompPressed_clicked();
+    void on_EspacePressed_clicked();
 
     //opérations essentielles
     void on_EnterPressed_clicked();  // on vérifie que l'expression rentrée est valide
+    void on_EvalPressed_clicked();
+    void rafraichissement(QString s);
 
     //opérations
     void on_opPlusPressed_clicked();
@@ -84,6 +87,8 @@ private slots:
 
 signals:
     void pressEntrerN(QString s, int type);
+    void pressEval();
+
     void pressAdd();
     void pressSous();
     void pressMult();
@@ -120,11 +125,10 @@ signals:
 
 private:
     Ui::MainWindow *ui;
-    QStack<QString> pile;
-    // unuseful
     QStack<QString> affichage;
     int typeNombre;
     int complexe;
+
     CalculatriceModele *model;
     QString buffer;
     QString aff;

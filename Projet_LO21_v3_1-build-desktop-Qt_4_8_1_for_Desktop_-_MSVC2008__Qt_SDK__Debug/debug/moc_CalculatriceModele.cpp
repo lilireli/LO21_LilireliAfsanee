@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'CalculatriceModele.h'
 **
-** Created: Thu 7. Jun 23:23:31 2012
+** Created: Sat 9. Jun 21:30:03 2012
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.1)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,48 +23,51 @@ static const uint qt_meta_data_CalculatriceModele[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      27,   14, // methods
+      28,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       0,       // signalCount
+       1,       // signalCount
+
+ // signals: signature, parameters, type, tag, flags
+      22,   20,   19,   19, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-      27,   20,   19,   19, 0x0a,
-      50,   19,   19,   19, 0x0a,
-      59,   19,   19,   19, 0x0a,
-      69,   19,   19,   19, 0x0a,
-      79,   19,   19,   19, 0x0a,
-      88,   19,   19,   19, 0x0a,
-      97,   19,   19,   19, 0x0a,
-     106,   19,   19,   19, 0x0a,
-     116,   19,   19,   19, 0x0a,
-     126,   19,   19,   19, 0x0a,
-     135,   19,   19,   19, 0x0a,
-     144,   19,   19,   19, 0x0a,
-     153,   19,   19,   19, 0x0a,
-     163,   19,   19,   19, 0x0a,
-     173,   19,   19,   19, 0x0a,
-     183,   19,   19,   19, 0x0a,
-     191,   19,   19,   19, 0x0a,
+      44,   37,   19,   19, 0x0a,
+      67,   19,   19,   19, 0x0a,
+      76,   19,   19,   19, 0x0a,
+      86,   19,   19,   19, 0x0a,
+      96,   19,   19,   19, 0x0a,
+     105,   19,   19,   19, 0x0a,
+     114,   19,   19,   19, 0x0a,
+     123,   19,   19,   19, 0x0a,
+     133,   19,   19,   19, 0x0a,
+     143,   19,   19,   19, 0x0a,
+     152,   19,   19,   19, 0x0a,
+     161,   19,   19,   19, 0x0a,
+     170,   19,   19,   19, 0x0a,
+     180,   19,   19,   19, 0x0a,
+     190,   19,   19,   19, 0x0a,
      200,   19,   19,   19, 0x0a,
-     209,   19,   19,   19, 0x0a,
-     219,   19,   19,   19, 0x0a,
-     228,   19,   19,   19, 0x0a,
-     238,   19,   19,   19, 0x0a,
-     248,   19,   19,   19, 0x0a,
-     257,   19,   19,   19, 0x0a,
-     267,   19,   19,   19, 0x0a,
-     278,   19,   19,   19, 0x0a,
-     287,   19,   19,   19, 0x0a,
+     208,   19,   19,   19, 0x0a,
+     217,   19,   19,   19, 0x0a,
+     226,   19,   19,   19, 0x0a,
+     236,   19,   19,   19, 0x0a,
+     245,   19,   19,   19, 0x0a,
+     255,   19,   19,   19, 0x0a,
+     265,   19,   19,   19, 0x0a,
+     274,   19,   19,   19, 0x0a,
+     284,   19,   19,   19, 0x0a,
+     295,   19,   19,   19, 0x0a,
+     304,   19,   19,   19, 0x0a,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_CalculatriceModele[] = {
-    "CalculatriceModele\0\0s,type\0"
-    "getNombre(QString,int)\0getAdd()\0"
+    "CalculatriceModele\0\0s\0finOp(QString)\0"
+    "s,type\0getNombre(QString,int)\0getAdd()\0"
     "getSous()\0getMult()\0getDiv()\0getPow()\0"
     "getMod()\0getFact()\0getSign()\0getSin()\0"
     "getCos()\0getTan()\0getSinh()\0getCosh()\0"
@@ -80,33 +83,34 @@ void CalculatriceModele::qt_static_metacall(QObject *_o, QMetaObject::Call _c, i
         Q_ASSERT(staticMetaObject.cast(_o));
         CalculatriceModele *_t = static_cast<CalculatriceModele *>(_o);
         switch (_id) {
-        case 0: _t->getNombre((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 1: _t->getAdd(); break;
-        case 2: _t->getSous(); break;
-        case 3: _t->getMult(); break;
-        case 4: _t->getDiv(); break;
-        case 5: _t->getPow(); break;
-        case 6: _t->getMod(); break;
-        case 7: _t->getFact(); break;
-        case 8: _t->getSign(); break;
-        case 9: _t->getSin(); break;
-        case 10: _t->getCos(); break;
-        case 11: _t->getTan(); break;
-        case 12: _t->getSinh(); break;
-        case 13: _t->getCosh(); break;
-        case 14: _t->getTanh(); break;
-        case 15: _t->getLn(); break;
-        case 16: _t->getLog(); break;
-        case 17: _t->getInv(); break;
-        case 18: _t->getSqrt(); break;
-        case 19: _t->getSqr(); break;
-        case 20: _t->getCube(); break;
-        case 21: _t->getSwap(); break;
-        case 22: _t->getSum(); break;
-        case 23: _t->getMean(); break;
-        case 24: _t->getClear(); break;
-        case 25: _t->getDup(); break;
-        case 26: _t->getDrop(); break;
+        case 0: _t->finOp((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 1: _t->getNombre((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 2: _t->getAdd(); break;
+        case 3: _t->getSous(); break;
+        case 4: _t->getMult(); break;
+        case 5: _t->getDiv(); break;
+        case 6: _t->getPow(); break;
+        case 7: _t->getMod(); break;
+        case 8: _t->getFact(); break;
+        case 9: _t->getSign(); break;
+        case 10: _t->getSin(); break;
+        case 11: _t->getCos(); break;
+        case 12: _t->getTan(); break;
+        case 13: _t->getSinh(); break;
+        case 14: _t->getCosh(); break;
+        case 15: _t->getTanh(); break;
+        case 16: _t->getLn(); break;
+        case 17: _t->getLog(); break;
+        case 18: _t->getInv(); break;
+        case 19: _t->getSqrt(); break;
+        case 20: _t->getSqr(); break;
+        case 21: _t->getCube(); break;
+        case 22: _t->getSwap(); break;
+        case 23: _t->getSum(); break;
+        case 24: _t->getMean(); break;
+        case 25: _t->getClear(); break;
+        case 26: _t->getDup(); break;
+        case 27: _t->getDrop(); break;
         default: ;
         }
     }
@@ -144,10 +148,17 @@ int CalculatriceModele::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 27)
+        if (_id < 28)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 27;
+        _id -= 28;
     }
     return _id;
+}
+
+// SIGNAL 0
+void CalculatriceModele::finOp(QString _t1)
+{
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_END_MOC_NAMESPACE
