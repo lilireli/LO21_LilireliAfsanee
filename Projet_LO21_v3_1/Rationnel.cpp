@@ -24,8 +24,6 @@ void Rationnel::Simplification()
 
 Rationnel Rationnel::operator = (Rationnel r1){Rationnel ret(r1.num, r1.den); return ret;}
 
-
-// fin reprise
 Rationnel Rationnel::operator + (Rationnel r1){
     Rationnel somme(num*r1.den + den*r1.num, den*r1.den);
     somme.Simplification();
@@ -42,36 +40,45 @@ Reel Rationnel::operator + (Reel r1)
 Nombre* Rationnel::operator + (Nombre* r1){
     if(typeid (*r1).name()==typeid (Entier).name()){
         Entier* e = dynamic_cast<Entier*>(r1);
-        return &(*this+*e);
+        Nombre* res = new Rationnel(*this + *e);
+        return res;
     }
     else if (typeid (*r1).name()==typeid (Rationnel).name()){
          Rationnel* e = dynamic_cast<Rationnel*>(r1);
-         return &(*this+*e);
+         Nombre* res = new Rationnel(*this + *e);
+         return res;
     }
     else if (typeid (*r1).name()==typeid (Reel).name()){
          Reel* e = dynamic_cast<Reel*>(r1);
-         return &(*this+*e);
+         Nombre* res = new Reel(*this + *e);
+         return res;
     }
 }
 
 Constante* Rationnel::operator + (Constante* r1){
     if(typeid (*r1).name()==typeid (Entier).name()){
         Entier* e = dynamic_cast<Entier*>(r1);
-        Rationnel res = *this + *e;
-        return &res;
+        Constante* res = new Rationnel(*this + *e);
+        return res;
     }
     else if (typeid (*r1).name()==typeid (Rationnel).name()){
          Rationnel* e = dynamic_cast<Rationnel*>(r1);
-         Rationnel res = *this+*e;
-         return &res;
+         Constante* res = new Rationnel(*this + *e);
+         return res;
     }
     else if (typeid (*r1).name()==typeid (Reel).name()){
          Reel* e = dynamic_cast<Reel*>(r1);
-         Reel res = *this+*e;
-         return &res;
+         Constante* res = new Reel(*this + *e);
+         return res;
+    }
+    else if (typeid (*r1).name()==typeid (Complexe).name()){
+         Complexe* e = dynamic_cast<Complexe*>(r1);
+         Constante* res = new Complexe(*e + *this);
+         return res;
     }
 }
 
+// voir opérateurs unaires
 Rationnel Rationnel::operator - (Rationnel r1){
     Rationnel somme(num*r1.den - den*r1.num, den*r1.den);
     somme.Simplification();
@@ -92,23 +99,47 @@ Reel Rationnel::operator - (Reel r1)
     return this->toReel()-r1;
 }
 
-Constante* Rationnel::operator - (Constante* r1){
+Nombre* Rationnel::operator - (Nombre* r1){
     if(typeid (*r1).name()==typeid (Entier).name()){
         Entier* e = dynamic_cast<Entier*>(r1);
-        Rationnel res = *this - *e;
-        return &res;
+        Nombre* res = new Rationnel(*this  - *e);
+        return res;
     }
     else if (typeid (*r1).name()==typeid (Rationnel).name()){
          Rationnel* e = dynamic_cast<Rationnel*>(r1);
-         Rationnel res = *this - *e;
-         return &res;
+         Nombre* res = new Rationnel(*this  - *e);
+         return res;
     }
     else if (typeid (*r1).name()==typeid (Reel).name()){
          Reel* e = dynamic_cast<Reel*>(r1);
-         Reel res = *this - *e;
-         return &res;
+         Nombre* res = new Reel(*this  - *e);
+         return res;
     }
 }
+
+Constante* Rationnel::operator - (Constante* r1){
+    if(typeid (*r1).name()==typeid (Entier).name()){
+        Entier* e = dynamic_cast<Entier*>(r1);
+        Constante* res = new Rationnel(*this  - *e);
+        return res;
+    }
+    else if (typeid (*r1).name()==typeid (Rationnel).name()){
+         Rationnel* e = dynamic_cast<Rationnel*>(r1);
+         Constante* res = new Rationnel(*this  - *e);
+         return res;
+    }
+    else if (typeid (*r1).name()==typeid (Reel).name()){
+         Reel* e = dynamic_cast<Reel*>(r1);
+         Constante* res = new Reel(*this  - *e);
+         return res;
+    }
+    else if (typeid (*r1).name()==typeid (Complexe).name()){
+         Complexe* e = dynamic_cast<Complexe*>(r1);
+         Constante* res = new Complexe(-(*e - *this));
+         return res;
+    }
+}
+
 
 Rationnel Rationnel::operator * (Rationnel r1){
     Rationnel somme(num*r1.num, den*r1.den);
@@ -123,20 +154,47 @@ Reel Rationnel::operator * (Reel r1)
     return this->toReel()*r1;
 }
 
-Constante* Rationnel::operator * (Constante* r1){
+Nombre* Rationnel::operator * (Nombre* r1){
     if(typeid (*r1).name()==typeid (Entier).name()){
         Entier* e = dynamic_cast<Entier*>(r1);
-        return &(*this**e);
+        Nombre* res = new Rationnel(*this  * *e);
+        return res;
     }
     else if (typeid (*r1).name()==typeid (Rationnel).name()){
          Rationnel* e = dynamic_cast<Rationnel*>(r1);
-         return &(*this**e);
+         Nombre* res = new Rationnel(*this  * *e);
+         return res;
     }
     else if (typeid (*r1).name()==typeid (Reel).name()){
          Reel* e = dynamic_cast<Reel*>(r1);
-         return &(*this**e);
+         Nombre* res = new Reel(*this  * *e);
+         return res;
     }
 }
+
+Constante* Rationnel::operator * (Constante* r1){
+    if(typeid (*r1).name()==typeid (Entier).name()){
+        Entier* e = dynamic_cast<Entier*>(r1);
+        Constante* res = new Rationnel(*this  * *e);
+        return res;
+    }
+    else if (typeid (*r1).name()==typeid (Rationnel).name()){
+         Rationnel* e = dynamic_cast<Rationnel*>(r1);
+         Constante* res = new Rationnel(*this  * *e);
+         return res;
+    }
+    else if (typeid (*r1).name()==typeid (Reel).name()){
+         Reel* e = dynamic_cast<Reel*>(r1);
+         Constante* res = new Reel(*this  * *e);
+         return res;
+    }
+    else if (typeid (*r1).name()==typeid (Complexe).name()){
+         Complexe* e = dynamic_cast<Complexe*>(r1);
+         Constante* res = new Complexe(*e * *this);
+         return res;
+    }
+}
+
 
 
 Rationnel Rationnel::operator / (Rationnel r1){
@@ -168,20 +226,47 @@ Reel Rationnel::operator / (Reel r1){
     return div;
 }
 
-Constante* Rationnel::operator / (Constante* r1){
+Nombre* Rationnel::operator / (Nombre* r1){
     if(typeid (*r1).name()==typeid (Entier).name()){
         Entier* e = dynamic_cast<Entier*>(r1);
-        return &(*this/ *e);
+        Nombre* res = new Rationnel(*this  / *e);
+        return res;
     }
     else if (typeid (*r1).name()==typeid (Rationnel).name()){
          Rationnel* e = dynamic_cast<Rationnel*>(r1);
-         return &(*this/ *e);
+         Nombre* res = new Rationnel(*this  / *e);
+         return res;
     }
     else if (typeid (*r1).name()==typeid (Reel).name()){
          Reel* e = dynamic_cast<Reel*>(r1);
-         return &(*this/ *e);
+         Nombre* res = new Reel(*this  / *e);
+         return res;
     }
 }
+
+Constante* Rationnel::operator / (Constante* r1){
+    if(typeid (*r1).name()==typeid (Entier).name()){
+        Entier* e = dynamic_cast<Entier*>(r1);
+        Constante* res = new Rationnel(*this  / *e);
+        return res;
+    }
+    else if (typeid (*r1).name()==typeid (Rationnel).name()){
+         Rationnel* e = dynamic_cast<Rationnel*>(r1);
+         Constante* res = new Rationnel(*this  / *e);
+         return res;
+    }
+    else if (typeid (*r1).name()==typeid (Reel).name()){
+         Reel* e = dynamic_cast<Reel*>(r1);
+         Constante* res = new Reel(*this  / *e);
+         return res;
+    }
+    else if (typeid (*r1).name()==typeid (Complexe).name()){
+         Complexe* e = dynamic_cast<Complexe*>(r1);
+         Constante* res = new Complexe(*e / *this);
+         return res;
+    }
+}
+
 
 Reel Rationnel::puissance (Reel r1){return pow(this->GetRationnel(), r1.GetReel());}
 
@@ -208,15 +293,18 @@ Reel Rationnel::puissance (Rationnel r1){return pow(this->GetRationnel(), r1.Get
 Constante* Rationnel::puissance (Constante* r1){
     if(typeid (*r1).name()==typeid (Entier).name()){
         Entier* e = dynamic_cast<Entier*>(r1);
-        return &(this->puissance(*e));
+        Constante* res = new Rationnel(this->puissance(*e));
+        return res;
     }
     else if (typeid (*r1).name()==typeid (Rationnel).name()){
          Rationnel* e = dynamic_cast<Rationnel*>(r1);
-         return &(this->puissance(*e));
+         Constante* res = new Reel(this->puissance(*e));
+         return res;
     }
     else if (typeid (*r1).name()==typeid (Reel).name()){
          Reel* e = dynamic_cast<Reel*>(r1);
-         return &(this->puissance(*e));
+         Constante* res = new Reel(this->puissance(*e));
+         return res;
     }
 }
 

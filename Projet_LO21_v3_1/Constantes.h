@@ -22,7 +22,6 @@ class Entier;
 class Nombre : public Constante{
 public:
     virtual Complexe toComplexe() = 0;
-    virtual Nombre* operator +(Nombre* r1)=0;
     virtual QString ConvertChaine() = 0;
 };
 
@@ -44,18 +43,24 @@ public:
     Complexe operator + (Rationnel r1);
     Constante* operator + (Constante* r1);
 
-//    Complexe operator - (Complexe r1);
-//    Complexe operator - ();
-//    Complexe operator - (Entier r1);
-//    Complexe operator - (Reel r1);
-//    Complexe operator - (Rationnel r1);
-//    Constante* operator - (Constante* r1);
+    Complexe operator - (Complexe r1);
+    Complexe operator - ();
+    Complexe operator - (Entier r1);
+    Complexe operator - (Reel r1);
+    Complexe operator - (Rationnel r1);
+    Constante* operator - (Constante* r1);
 
-//    Complexe operator * (Complexe r1);
-//    Complexe operator * (Entier r1);
-//    Complexe operator * (Reel r1);
-//    Complexe operator * (Rationnel r1);
-//    Constante* operator * (Constante* r1);
+    Complexe operator * (Complexe r1);
+    Complexe operator * (Entier r1);
+    Complexe operator * (Reel r1);
+    Complexe operator * (Rationnel r1);
+    Constante* operator * (Constante* r1);
+
+    Complexe operator / (Complexe r1);
+    Complexe operator / (Entier r1);
+    Complexe operator / (Reel r1);
+    Complexe operator / (Rationnel r1);
+    Constante* operator / (Constante* r1);
 };
 
 class Reel : public Nombre{
@@ -80,16 +85,19 @@ public:
     Reel operator - ();
     Reel operator - (Entier r1);
     Reel operator - (Rationnel r1);
+    Nombre* operator -(Nombre* r1);
     Constante* operator - (Constante* r1);
 
     Reel operator * (Reel r1);
     Reel operator * (Entier r1);
     Reel operator * (Rationnel r1);
+    Nombre* operator *(Nombre* r1);
     Constante* operator * (Constante* r1);
 
     Reel operator / (Reel r1);
     Reel operator / (Entier r1);
     Reel operator / (Rationnel r1);
+    Nombre* operator / (Nombre* r1);
     Constante* operator / (Constante* r1);
 
     Reel puissance (Reel r1);
@@ -154,16 +162,19 @@ public:
     Rationnel operator - ();
     Rationnel operator - (Entier r1);
     Reel operator - (Reel r1);
+    Nombre* operator - (Nombre* r1);
     Constante* operator - (Constante* r1);
 
     Rationnel operator * (Rationnel r1);
     Rationnel operator * (Entier r1);
     Reel operator * (Reel r1);
+    Nombre* operator * (Nombre* r1);
     Constante* operator * (Constante* r1);
 
     Rationnel operator / (Rationnel r1);
     Rationnel operator / (Entier r1);
     Reel operator / (Reel r1);
+    Nombre* operator / (Nombre* r1);
     Constante* operator / (Constante* r1);
 
     Reel puissance (Reel r1);
@@ -211,16 +222,19 @@ public:
     Entier operator - ();
     Reel operator - (Reel r1);
     Rationnel operator -(Rationnel r1);
+    Nombre* operator - (Nombre* r1);
     Constante* operator - (Constante* r1);
 
     Entier operator * (Entier r1);
     Reel operator * (Reel r1);
     Rationnel operator *(Rationnel r1);
+    Nombre* operator * (Nombre* r1);
     Constante* operator * (Constante* r1);
 
     Reel operator / (Reel r1);
     Rationnel operator / (Entier r1);
     Rationnel operator / (Rationnel r1);
+    Nombre* operator / (Nombre* r1);
     Constante* operator / (Constante* r1);
 
     Reel puissance (Reel r1);

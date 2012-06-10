@@ -40,7 +40,7 @@ private slots:
     void on_EnterPressed_clicked();  // on vérifie que l'expression rentrée est valide
     void on_EvalPressed_clicked();
     void rafraichissement();
-    void affichePile(QString s, int j);
+    void affichePile(Constante* cte, int j);
 
     //opérations
     void on_opPlusPressed_clicked();
@@ -127,7 +127,7 @@ signals:
 
 private:
     Ui::MainWindow *ui;
-    QStack<QString> affichage;
+    Stack affichage;
     int typeNombre;
     int complexe;
     int taille_pile;

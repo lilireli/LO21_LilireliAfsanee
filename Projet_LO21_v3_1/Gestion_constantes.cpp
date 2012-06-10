@@ -14,16 +14,16 @@ int NombreValide(QString chaine)
         }
         else if(chaine.at(i) == '/') {
             if(chaine.length()==1){return 0;}
-            if(trouve==0){ trouve==1; if(type<3) type=3;}
+            if(trouve==0){ trouve=1; if(type<3) type=3;}
             else return 0;
         }
         else if(chaine.at(i) == '.') {
-            if(trouve==0){ trouve==1; if(type<2) type=2;}
+            if(trouve==0){ trouve=1; if(type<2) type=2;}
             else return 0;
         }
         else if(chaine.at(i) == '-') {
             if(chaine.length()==1){return 0;}
-            if(moins==0){ moins==1;}
+            if(moins==0){ moins=1;}
             else return 0;
         }
         else

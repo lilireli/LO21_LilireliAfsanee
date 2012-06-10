@@ -21,10 +21,10 @@ class CalculatriceModele : public QObject
 public:
     explicit CalculatriceModele(QObject *parent = 0);
     void affichePileTaille();
-    Constante* CreerObjet(const Constante *d);
+  //  Constante* CreerObjet(const Constante *d);
 
 signals:
-     void finOp(QString s, int i);
+     void finOp(Constante* cte, int i);
 
 public slots:
      void getNombre(QString s);  // mettre la constante dans pile

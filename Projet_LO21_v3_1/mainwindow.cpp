@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
     taille_pile = 6;
     connect(this, SIGNAL(pressEntrerN(QString)), model, SLOT(getNombre(QString)));
     connect(this, SIGNAL(finEntree()), this, SLOT(rafraichissement()));
-    connect(model, SIGNAL(finOp(QString, int)), this, SLOT(affichePile(QString, int)));
+    connect(model, SIGNAL(finOp(Constante*, int)), this, SLOT(affichePile(Constante*, int)));
     connect(this, SIGNAL(pressEval()), model, SLOT(getExpression()));
 
     connect(this, SIGNAL(pressAdd()), model, SLOT(getAdd()));
@@ -262,30 +262,34 @@ void MainWindow::rafraichissement()
     ui->lineEdit->clear();
 }
 
-void MainWindow::affichePile(QString s, int j)
+void MainWindow::affichePile(Constante *cte, int j)
 {
+    // afficher selon mode (convertEnt, convertReel ...)
+    ui->textEdit->clear();
+
     for(int k=0; k<j; k++){ affichage.pop();}
     int t=0;
+
+    ui->textEdit->insertPlainText(cte->ConvertChaine()+"\n");
 
     if(affichage.size()>=taille_pile){ t=taille_pile;}
     else {t=affichage.size();}
 
     if(t!=0){
-        ui->textEdit->clear();  // clear au mauvais endroit
-        QString* tmp = new QString[t];
 
-        for(int i=0; i<=t-1; i++){tmp[t-i-1] = affichage.pop();}
-
-        while(!affichage.empty()) {affichage.pop();}
+        Constante** tmp = new Constante*[t];
 
         for(int i=0; i<=t-1; i++){
-            affichage.push(tmp[i]); qDebug()<<"it"<<tmp[i];
-            ui->textEdit->insertPlainText(tmp[i]+"\n");
+            tmp[t-i-1] = affichage.pop();
+            ui->textEdit->insertPlainText(tmp[t-i-1]->ConvertChaine()+"\n");
         }
+
+        while(!affichage.isEmpty()) {affichage.pop();}
+
+        for(int i=0; i<=t-1; i++){affichage.push(tmp[i]);}
         delete[] tmp;
     }
-    affichage.push(s);  // faire défiler dans l'autre ordre
-    ui->textEdit->insertPlainText(s+"\n");
+    affichage.push(cte);
 }
 
 //opérations

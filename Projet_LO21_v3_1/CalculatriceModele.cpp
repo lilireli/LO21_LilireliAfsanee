@@ -29,7 +29,7 @@ void CalculatriceModele::getNombre(QString s){
     Constante* val = cte.getConstante(s);
     if(val!=NULL) {pile.push(val);
     this->affichePileTaille();
-    emit finOp(val->ConvertChaine(), 0);
+    emit finOp(val, 0);
     }
 
 //    qDebug() << typeid (*val).name();
@@ -64,12 +64,12 @@ void CalculatriceModele::getAdd(){
              res = *e + b;
         }
         else if (typeid (*a).name()==typeid (Complexe).name()){
-            Complexe* e = dynamic_cast<Complexe*>(a);
-            res = *e + b;
+             Complexe* e = dynamic_cast<Complexe*>(a);
+             res = *e + b;
         }
 
         pile.push(res);
-        emit finOp(res->ConvertChaine(), 2);
+        emit finOp(res, 2);
     }
 }
 
@@ -91,8 +91,14 @@ void CalculatriceModele::getSous(){
              Reel* e = dynamic_cast<Reel*>(a);
              res = *e - b;
         }
-        qDebug() << "res : " << res->ConvertChaine();
+        else if (typeid (*a).name()==typeid (Complexe).name()){
+             Complexe* e = dynamic_cast<Complexe*>(a);
+             res = *e - b;
+        }
+
         pile.push(res);
+        qDebug() << "res : " << res->ConvertChaine();
+        emit finOp(res, 2);
     }
 }
 
@@ -114,8 +120,13 @@ void CalculatriceModele::getMult(){
              Reel* e = dynamic_cast<Reel*>(a);
              res = *e * b;
         }
-        qDebug() << "res : " << res->ConvertChaine();
+        else if (typeid (*a).name()==typeid (Complexe).name()){
+             Complexe* e = dynamic_cast<Complexe*>(a);
+             res = *e * b;
+        }
+
         pile.push(res);
+        emit finOp(res, 2);
     }
 }
 
@@ -137,8 +148,13 @@ void CalculatriceModele::getDiv(){
              Reel* e = dynamic_cast<Reel*>(a);
              res = *e / b;
         }
-        qDebug() << "res : " << res->ConvertChaine();
+        else if (typeid (*a).name()==typeid (Complexe).name()){
+             Complexe* e = dynamic_cast<Complexe*>(a);
+             res = *e / b;
+        }
+
         pile.push(res);
+        emit finOp(res, 2);
     }
 }
 
@@ -160,8 +176,9 @@ void CalculatriceModele::getPow(){
              Reel* e = dynamic_cast<Reel*>(a);
              res = e->puissance(b);
         }
-        qDebug() << "res : " << res->ConvertChaine();
+
         pile.push(res);
+        emit finOp(res, 2);
     }
 }
 
