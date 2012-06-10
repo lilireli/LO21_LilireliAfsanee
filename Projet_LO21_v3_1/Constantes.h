@@ -252,7 +252,7 @@ class Expression : public Constante{
     QString exp;
 public:
     QString ConvertChaine(){return exp;}
-    Constante* EvalExpression(QString s);
+    Constante* EvalExpression();
 };
 
 }

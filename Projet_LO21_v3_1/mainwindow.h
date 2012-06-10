@@ -39,7 +39,8 @@ private slots:
     //opérations essentielles
     void on_EnterPressed_clicked();  // on vérifie que l'expression rentrée est valide
     void on_EvalPressed_clicked();
-    void rafraichissement(QString s);
+    void rafraichissement();
+    void affichePile(QString s, int j);
 
     //opérations
     void on_opPlusPressed_clicked();
@@ -86,7 +87,8 @@ private slots:
 
 
 signals:
-    void pressEntrerN(QString s, int type);
+    void pressEntrerN(QString s);
+    void finEntree();
     void pressEval();
 
     void pressAdd();
@@ -128,6 +130,7 @@ private:
     QStack<QString> affichage;
     int typeNombre;
     int complexe;
+    int taille_pile;
 
     CalculatriceModele *model;
     QString buffer;

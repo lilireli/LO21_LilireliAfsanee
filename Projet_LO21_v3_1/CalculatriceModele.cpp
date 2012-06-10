@@ -24,11 +24,13 @@ void CalculatriceModele::affichePileTaille(){
     */
 }
 
-void CalculatriceModele::getNombre(QString s, int type){
+void CalculatriceModele::getNombre(QString s){
     FabriqueConstante cte;
     Constante* val = cte.getConstante(s);
-    if(val!=NULL) pile.push(val);
+    if(val!=NULL) {pile.push(val);
     this->affichePileTaille();
+    emit finOp(val->ConvertChaine(), 0);
+    }
 
 //    qDebug() << typeid (*val).name();
 }
@@ -37,8 +39,8 @@ void CalculatriceModele::getExpression(){
     if(pile.size()>=1){
         Constante *a = pile.pop();
         if (typeid (*a).name() == typeid (Expression).name()){
-            Expression* e = dynamic_cast<Entier*>(a);
-            return EvalExpression(*e);
+            Expression* e = dynamic_cast<Expression*>(a);
+            e->EvalExpression();
         }
     }
 }
@@ -64,12 +66,10 @@ void CalculatriceModele::getAdd(){
         else if (typeid (*a).name()==typeid (Complexe).name()){
             Complexe* e = dynamic_cast<Complexe*>(a);
             res = *e + b;
-            qDebug() << "res : " << res->ConvertChaine();
         }
 
-        qDebug() << "res : " << res->ConvertChaine();
         pile.push(res);
-        emit finOp(res->ConvertChaine());
+        emit finOp(res->ConvertChaine(), 2);
     }
 }
 

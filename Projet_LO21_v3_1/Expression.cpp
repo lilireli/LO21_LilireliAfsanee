@@ -2,10 +2,12 @@
 
 namespace Calcul{
 
-Constante* Expression::EvalExpression(QString s){
-    for(int i=0; i<s.length(); i++){
-        if(s)
+Constante* Expression::EvalExpression(){
+    for(int i=0; i<exp.length(); i++){
+
     }
+    Entier e(1);
+    return &e;
 }
 
 }

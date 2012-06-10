@@ -24,10 +24,10 @@ public:
     Constante* CreerObjet(const Constante *d);
 
 signals:
-     void finOp(QString s);
+     void finOp(QString s, int i);
 
 public slots:
-     void getNombre(QString s, int type);  // mettre la constante dans pile
+     void getNombre(QString s);  // mettre la constante dans pile
      void getExpression();
 
      void getAdd();

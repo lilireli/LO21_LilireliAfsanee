@@ -389,7 +389,7 @@
      <string>D, U, P</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="opClearPressed">
     <property name="geometry">
      <rect>
       <x>440</x>
@@ -832,6 +832,8 @@
     </property>
     <addaction name="actionDegr"/>
     <addaction name="actionRadians"/>
+    <addaction name="separator"/>
+    <addaction name="actionTaille_Affich"/>
    </widget>
    <addaction name="menuFichier"/>
    <addaction name="menuEdition"/>
@@ -869,15 +871,29 @@
    <property name="text">
     <string>Annuler</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+Z</string>
+   </property>
   </action>
   <action name="actionR_tablir">
    <property name="text">
     <string>Rétablir</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+Y</string>
+   </property>
   </action>
   <action name="actionQuitter">
    <property name="text">
     <string>Quitter</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionTaille_Affich">
+   <property name="text">
+    <string>Taille pile d'affichage</string>
    </property>
   </action>
  </widget>

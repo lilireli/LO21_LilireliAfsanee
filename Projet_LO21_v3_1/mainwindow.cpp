@@ -9,9 +9,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     model = new CalculatriceModele;
     buffer = "";
-    connect(this, SIGNAL(pressEntrerN(QString,int)), model, SLOT(getNombre(QString,int)));
-    connect(model, SIGNAL(finOp(QString), this, SLOT(rafraichissement(QString)));
-    connect(this, SIGNAL(pressEval(), model, SLOT(getExpression()}
+    taille_pile = 6;
+    connect(this, SIGNAL(pressEntrerN(QString)), model, SLOT(getNombre(QString)));
+    connect(this, SIGNAL(finEntree()), this, SLOT(rafraichissement()));
+    connect(model, SIGNAL(finOp(QString, int)), this, SLOT(affichePile(QString, int)));
+    connect(this, SIGNAL(pressEval()), model, SLOT(getExpression()));
 
     connect(this, SIGNAL(pressAdd()), model, SLOT(getAdd()));
     connect(this, SIGNAL(pressSous()), model, SLOT(getSous()));
@@ -45,7 +47,6 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(this, SIGNAL(pressClear()), model, SLOT(getClear()));
     connect(this, SIGNAL(pressDup()), model, SLOT(getDup()));
     connect(this, SIGNAL(pressDrop()), model, SLOT(getDrop()));
-
 }
 
 MainWindow::~MainWindow()
@@ -202,22 +203,6 @@ void MainWindow::on_buttonComplexe_clicked(){
 //ui->opTanhPressed->setVisible(false);
 //ui->opTanPressed->setVisible(false);
 
-//void MainWindow::typeComplexe(){
-
-//        ui->opCoshPressed->setVisible(false);
-//        ui->opCosPressed->setVisible(false);
-//        ui->opFactPressed->setVisible(false);
-//        ui->opInvPressed->setVisible(false);
-//        ui->opLnPressed->setVisible(false);
-//        ui->opLogPressed->setVisible(false);
-//        ui->opModPressed->setVisible(false);
-//        ui->opPowPressed->setVisible(false);
-//        ui->opSinhPressed->setVisible(false);
-//        ui->opSinPressed->setVisible(false);
-//        ui->opTanhPressed->setVisible(false);
-//        ui->opTanPressed->setVisible(false);
-
-//}
 
 //opérations essentielles
 void MainWindow::on_EnterPressed_clicked()
@@ -225,9 +210,9 @@ void MainWindow::on_EnterPressed_clicked()
     ui->lineEdit->insert(" ");
 
     if(FormuleValide(buffer)){
-        emit pressEntrerN(buffer, typeNombre);
+        emit pressEntrerN(buffer);
         buffer = "";
-        ui->textEdit->setText(buffer);
+        ui->lineEdit->setText(buffer);
     }
     else{
         if(buffer=="+"){emit pressAdd();}
@@ -264,16 +249,43 @@ void MainWindow::on_EnterPressed_clicked()
         if(buffer=="drop"){emit pressDrop();}
         buffer = "";
     }
+    emit finEntree();
 }
 
 void MainWindow::on_EvalPressed_clicked(){
     emit pressEval();
 }
 
-void MainWindow::rafraichissement(QString s)
+void MainWindow::rafraichissement()
 {
-    aff = "";
-    ui->lineEdit->insert(aff);
+
+    ui->lineEdit->clear();
+}
+
+void MainWindow::affichePile(QString s, int j)
+{
+    for(int k=0; k<j; k++){ affichage.pop();}
+    int t=0;
+
+    if(affichage.size()>=taille_pile){ t=taille_pile;}
+    else {t=affichage.size();}
+
+    if(t!=0){
+        ui->textEdit->clear();  // clear au mauvais endroit
+        QString* tmp = new QString[t];
+
+        for(int i=0; i<=t-1; i++){tmp[t-i-1] = affichage.pop();}
+
+        while(!affichage.empty()) {affichage.pop();}
+
+        for(int i=0; i<=t-1; i++){
+            affichage.push(tmp[i]); qDebug()<<"it"<<tmp[i];
+            ui->textEdit->insertPlainText(tmp[i]+"\n");
+        }
+        delete[] tmp;
+    }
+    affichage.push(s);  // faire défiler dans l'autre ordre
+    ui->textEdit->insertPlainText(s+"\n");
 }
 
 //opérations
@@ -291,7 +303,6 @@ void MainWindow::on_opMoinsPressed_clicked()
     ui->lineEdit->insert(aff);
 }
 
-
 void MainWindow::on_opMultPressed_clicked()
 {
     buffer += "*";
@@ -299,13 +310,13 @@ void MainWindow::on_opMultPressed_clicked()
     ui->lineEdit->insert(aff);
 }
 
-
 void MainWindow::on_opDivPressed_clicked()
 {
     buffer += "/";
     aff = "/";
     ui->lineEdit->insert(aff);
 }
+
 
 void MainWindow::on_opPowPressed_clicked()
 {
@@ -334,6 +345,7 @@ void MainWindow::on_opSignPressed_clicked()
     aff = "sign";
     ui->lineEdit->insert(aff);
 }
+
 
 void MainWindow::on_opSinPressed_clicked()
 {
@@ -377,6 +389,7 @@ void MainWindow::on_opTanhPressed_clicked()
     ui->lineEdit->insert(aff);
 }
 
+
 void MainWindow::on_opLnPressed_clicked()
 {
     buffer += "ln";
@@ -419,7 +432,7 @@ void MainWindow::on_opCubePressed_clicked()
     ui->lineEdit->insert(aff);
 }
 
-
+// opérations sur la pile
 void MainWindow::on_opSwapPressed_clicked()
 {
     buffer += "swap";
