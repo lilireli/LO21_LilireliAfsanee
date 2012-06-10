@@ -146,62 +146,157 @@ void MainWindow::on_EspacePressed_clicked()
     ui->lineEdit->insert(aff);
 }
 
-
 void MainWindow::on_buttonEntier_clicked(){
-    typeNombre = 0;
+    if (typeNombre != 0){
+        typeNombre = 0;
+        if (complexe == 1){
+            ui->opCoshPressed->setVisible(false);
+            ui->opCosPressed->setVisible(false);
+            ui->opFactPressed->setVisible(false);
+            ui->opInvPressed->setVisible(false);
+            ui->opLnPressed->setVisible(false);
+            ui->opLogPressed->setVisible(false);
+            ui->opModPressed->setVisible(false);
+            ui->opPowPressed->setVisible(false);
+            ui->opSinhPressed->setVisible(false);
+            ui->opSinPressed->setVisible(false);
+            ui->opTanhPressed->setVisible(false);
+            ui->opTanPressed->setVisible(false);
+        }
+        else {
+            ui->opCoshPressed->setVisible(true);
+            ui->opCosPressed->setVisible(true);
+            ui->opFactPressed->setVisible(true);
+            ui->opInvPressed->setVisible(true);
+            ui->opLnPressed->setVisible(true);
+            ui->opLogPressed->setVisible(true);
+            ui->opModPressed->setVisible(true);
+            ui->opPowPressed->setVisible(true);
+            ui->opSinhPressed->setVisible(true);
+            ui->opSinPressed->setVisible(true);
+            ui->opTanhPressed->setVisible(true);
+            ui->opTanPressed->setVisible(true);
+        }
+    }
 }
 
-//entier :
-//ui->opCoshPressed->setVisible(true);
-//ui->opCosPressed->setVisible(true);
-//ui->opFactPressed->setVisible(true);
-//ui->opInvPressed->setVisible(true);
-//ui->opLnPressed->setVisible(true);
-//ui->opLogPressed->setVisible(true);
-//ui->opModPressed->setVisible(true);
-//ui->opPowPressed->setVisible(true);
-//ui->opSinhPressed->setVisible(true);
-//ui->opSinPressed->setVisible(true);
-//ui->opTanhPressed->setVisible(true);
-//ui->opTanPressed->setVisible(true);
-
 void MainWindow::on_buttonReel_clicked(){
-    typeNombre = 1;
+    if (typeNombre != 1) {
+        typeNombre = 1;
+        if (complexe == 1){
+            ui->opCoshPressed->setVisible(false);
+            ui->opCosPressed->setVisible(false);
+            ui->opFactPressed->setVisible(false);
+            ui->opInvPressed->setVisible(false);
+            ui->opLnPressed->setVisible(false);
+            ui->opLogPressed->setVisible(false);
+            ui->opModPressed->setVisible(false);
+            ui->opPowPressed->setVisible(false);
+            ui->opSinhPressed->setVisible(false);
+            ui->opSinPressed->setVisible(false);
+            ui->opTanhPressed->setVisible(false);
+            ui->opTanPressed->setVisible(false);
+        }
+        else {
+            ui->opCoshPressed->setVisible(true);
+            ui->opCosPressed->setVisible(true);
+            ui->opFactPressed->setVisible(false);
+            ui->opInvPressed->setVisible(true);
+            ui->opLnPressed->setVisible(true);
+            ui->opLogPressed->setVisible(true);
+            ui->opModPressed->setVisible(false);
+            ui->opPowPressed->setVisible(true);
+            ui->opSinhPressed->setVisible(true);
+            ui->opSinPressed->setVisible(true);
+            ui->opTanhPressed->setVisible(true);
+            ui->opTanPressed->setVisible(true);
+        }
+    }
 }
 
 void MainWindow::on_buttonRationnel_clicked(){
-    typeNombre = 2;
+    if (typeNombre != 2) {
+        typeNombre = 2;
+
+        if (complexe == 1){
+            ui->opCoshPressed->setVisible(false);
+            ui->opCosPressed->setVisible(false);
+            ui->opFactPressed->setVisible(false);
+            ui->opInvPressed->setVisible(false);
+            ui->opLnPressed->setVisible(false);
+            ui->opLogPressed->setVisible(false);
+            ui->opModPressed->setVisible(false);
+            ui->opPowPressed->setVisible(false);
+            ui->opSinhPressed->setVisible(false);
+            ui->opSinPressed->setVisible(false);
+            ui->opTanhPressed->setVisible(false);
+            ui->opTanPressed->setVisible(false);
+        }
+        else{
+            ui->opCoshPressed->setVisible(true);
+            ui->opCosPressed->setVisible(true);
+            ui->opFactPressed->setVisible(false);
+            ui->opInvPressed->setVisible(true);
+            ui->opLnPressed->setVisible(true);
+            ui->opLogPressed->setVisible(true);
+            ui->opModPressed->setVisible(false);
+            ui->opPowPressed->setVisible(true);
+            ui->opSinhPressed->setVisible(true);
+            ui->opSinPressed->setVisible(true);
+            ui->opTanhPressed->setVisible(true);
+            ui->opTanPressed->setVisible(true);
+        }
+    }
 }
-//Rationnel et réel
-//ui->opCoshPressed->setVisible(true);
-//ui->opCosPressed->setVisible(true);
-//ui->opFactPressed->setVisible(false);
-//ui->opInvPressed->setVisible(true);
-//ui->opLnPressed->setVisible(true);
-//ui->opLogPressed->setVisible(true);
-//ui->opModPressed->setVisible(false);
-//ui->opPowPressed->setVisible(true);
-//ui->opSinhPressed->setVisible(true);
-//ui->opSinPressed->setVisible(true);
-//ui->opTanhPressed->setVisible(true);
-//ui->opTanPressed->setVisible(true);
 
 void MainWindow::on_buttonComplexe_clicked(){
-    complexe = 1;
+    if (complexe != 1){
+        complexe = 1;
+        ui->opCoshPressed->setVisible(false);
+        ui->opCosPressed->setVisible(false);
+        ui->opFactPressed->setVisible(false);
+        ui->opInvPressed->setVisible(false);
+        ui->opLnPressed->setVisible(false);
+        ui->opLogPressed->setVisible(false);
+        ui->opModPressed->setVisible(false);
+        ui->opPowPressed->setVisible(false);
+        ui->opSinhPressed->setVisible(false);
+        ui->opSinPressed->setVisible(false);
+        ui->opTanhPressed->setVisible(false);
+        ui->opTanPressed->setVisible(false);
+    }
+    else {
+        complexe = 0;
+        if (typeNombre == 0){
+            ui->opCoshPressed->setVisible(true);
+            ui->opCosPressed->setVisible(true);
+            ui->opFactPressed->setVisible(true);
+            ui->opInvPressed->setVisible(true);
+            ui->opLnPressed->setVisible(true);
+            ui->opLogPressed->setVisible(true);
+            ui->opModPressed->setVisible(true);
+            ui->opPowPressed->setVisible(true);
+            ui->opSinhPressed->setVisible(true);
+            ui->opSinPressed->setVisible(true);
+            ui->opTanhPressed->setVisible(true);
+            ui->opTanPressed->setVisible(true);
+        }
+        else {
+            ui->opCoshPressed->setVisible(true);
+            ui->opCosPressed->setVisible(true);
+            ui->opFactPressed->setVisible(false);
+            ui->opInvPressed->setVisible(true);
+            ui->opLnPressed->setVisible(true);
+            ui->opLogPressed->setVisible(true);
+            ui->opModPressed->setVisible(false);
+            ui->opPowPressed->setVisible(true);
+            ui->opSinhPressed->setVisible(true);
+            ui->opSinPressed->setVisible(true);
+            ui->opTanhPressed->setVisible(true);
+            ui->opTanPressed->setVisible(true);
+        }
+    }
 }
-//complexe :
-//ui->opCoshPressed->setVisible(false);
-//ui->opCosPressed->setVisible(false);
-//ui->opFactPressed->setVisible(false);
-//ui->opInvPressed->setVisible(false);
-//ui->opLnPressed->setVisible(false);
-//ui->opLogPressed->setVisible(false);
-//ui->opModPressed->setVisible(false);
-//ui->opPowPressed->setVisible(false);
-//ui->opSinhPressed->setVisible(false);
-//ui->opSinPressed->setVisible(false);
-//ui->opTanhPressed->setVisible(false);
-//ui->opTanPressed->setVisible(false);
 
 
 //opérations essentielles

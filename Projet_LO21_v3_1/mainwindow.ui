@@ -825,6 +825,8 @@
     </property>
     <addaction name="actionAnnuler"/>
     <addaction name="actionR_tablir"/>
+    <addaction name="separator"/>
+    <addaction name="actionAfficher_clavier"/>
    </widget>
    <widget class="QMenu" name="menuParam_tres">
     <property name="title">
@@ -896,8 +898,46 @@
     <string>Taille pile d'affichage</string>
    </property>
   </action>
+  <action name="actionAfficher_clavier">
+   <property name="text">
+    <string>Afficher clavier</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
- <connections/>
+ <connections>
+  <connection>
+   <sender>actionAfficher_clavier</sender>
+   <signal>activated()</signal>
+   <receiver>EnterPressed</receiver>
+   <slot>lower()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>655</x>
+     <y>288</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionQuitter</sender>
+   <signal>triggered()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>357</x>
+     <y>224</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

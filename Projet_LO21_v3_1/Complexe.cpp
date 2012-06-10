@@ -367,5 +367,8 @@ Constante* Complexe::operator / (Constante* r1)
     }
 }
 
+Complexe Complexe::sqr(){return *this* *this;}
+Complexe Complexe::cube(){return *this * *this * *this;}
+
 
 }

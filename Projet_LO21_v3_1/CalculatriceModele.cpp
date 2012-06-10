@@ -69,6 +69,7 @@ void CalculatriceModele::getAdd(){
         }
 
         pile.push(res);
+        qDebug() << "res : " << res->ConvertChaine();
         emit finOp(res, 2);
     }
 }
@@ -126,6 +127,7 @@ void CalculatriceModele::getMult(){
         }
 
         pile.push(res);
+        qDebug() << "res : " << res->ConvertChaine();
         emit finOp(res, 2);
     }
 }
@@ -154,6 +156,7 @@ void CalculatriceModele::getDiv(){
         }
 
         pile.push(res);
+        qDebug() << "res : " << res->ConvertChaine();
         emit finOp(res, 2);
     }
 }
@@ -178,6 +181,7 @@ void CalculatriceModele::getPow(){
         }
 
         pile.push(res);
+        qDebug() << "res : " << res->ConvertChaine();
         emit finOp(res, 2);
     }
 }
@@ -192,8 +196,9 @@ void CalculatriceModele::getMod(){
             Entier* e1 = dynamic_cast<Entier*>(b);
             Entier* e2 = dynamic_cast<Entier*>(a);
             res = &(e2->mod(*e1));
-        qDebug() << "res : " << res->ConvertChaine();
-        pile.push(res);
+            pile.push(res);
+            qDebug() << "res : " << res->ConvertChaine();
+            emit finOp(res, 2);
         }
     }
 }
@@ -205,8 +210,9 @@ void CalculatriceModele::getFact(){
         if(typeid (*a).name()==typeid (Entier).name()){
             Entier* e = dynamic_cast<Entier*>(a);
             res = &(e->fact());
-            qDebug() << "res : " << res->ConvertChaine();
             pile.push(res);
+            qDebug() << "res : " << res->ConvertChaine();
+            emit finOp(res, 2);
         }
     }
 }
@@ -228,8 +234,13 @@ void CalculatriceModele::getSign(){
              Reel* e = dynamic_cast<Reel*>(a);
              res = &(-*e);
         }
-        qDebug() << "res : " << res->ConvertChaine();
+        else if (typeid (*a).name()==typeid (Complexe).name()){
+             Complexe* e = dynamic_cast<Complexe*>(a);
+             res = &(-*e);
+        }
         pile.push(res);
+        qDebug() << "res : " << res->ConvertChaine();
+        emit finOp(res, 2);
     }
 }
 
@@ -251,8 +262,9 @@ void CalculatriceModele::getSin(){
              res = &(e->sinus());
         }
 
-        qDebug() << "res : " << res->ConvertChaine();
         pile.push(res);
+        qDebug() << "res : " << res->ConvertChaine();
+        emit finOp(res, 2);
     }
 }
 
@@ -273,8 +285,9 @@ void CalculatriceModele::getCos(){
              Reel* e = dynamic_cast<Reel*>(a);
              res = &(e->cosinus());
         }
-        qDebug() << "res : " << res->ConvertChaine();
         pile.push(res);
+        qDebug() << "res : " << res->ConvertChaine();
+        emit finOp(res, 2);
     }
 }
 
@@ -295,8 +308,9 @@ void CalculatriceModele::getTan(){
              Reel* e = dynamic_cast<Reel*>(a);
              res = &(e->tangente());
         }
-        qDebug() << "res : " << res->ConvertChaine();
         pile.push(res);
+        qDebug() << "res : " << res->ConvertChaine();
+        emit finOp(res, 2);
     }
 }
 
@@ -317,8 +331,9 @@ void CalculatriceModele::getSinh(){
              Reel* e = dynamic_cast<Reel*>(a);
              res = &(e->sinush());
         }
-        qDebug() << "res : " << res->ConvertChaine();
         pile.push(res);
+        qDebug() << "res : " << res->ConvertChaine();
+        emit finOp(res, 2);
     }
 }
 
@@ -339,8 +354,9 @@ void CalculatriceModele::getCosh(){
              Reel* e = dynamic_cast<Reel*>(a);
              res = &(e->cosinush());
         }
-        qDebug() << "res : " << res->ConvertChaine();
         pile.push(res);
+        qDebug() << "res : " << res->ConvertChaine();
+        emit finOp(res, 2);
     }
 }
 
@@ -361,8 +377,9 @@ void CalculatriceModele::getTanh(){
              Reel* e = dynamic_cast<Reel*>(a);
              res = &(e->tangenteh());
         }
-        qDebug() << "res : " << res->ConvertChaine();
         pile.push(res);
+        qDebug() << "res : " << res->ConvertChaine();
+        emit finOp(res, 2);
     }
 }
 
@@ -384,8 +401,9 @@ void CalculatriceModele::getLn(){
              Reel* e = dynamic_cast<Reel*>(a);
              res = &(e->ln());
         }
-        qDebug() << "res : " << res->ConvertChaine();
         pile.push(res);
+        qDebug() << "res : " << res->ConvertChaine();
+        emit finOp(res, 2);
     }
 }
 
@@ -407,8 +425,9 @@ void CalculatriceModele::getLog(){
              Reel* e = dynamic_cast<Reel*>(a);
              res = &(e->logdix());
         }
-        qDebug() << "res : " << res->ConvertChaine();
         pile.push(res);
+        qDebug() << "res : " << res->ConvertChaine();
+        emit finOp(res, 2);
     }
 }
 
@@ -429,8 +448,9 @@ void CalculatriceModele::getInv(){
              Reel* e = dynamic_cast<Reel*>(a);
              res = &(e->inv());
         }
-        qDebug() << "res : " << res->ConvertChaine();
         pile.push(res);
+        qDebug() << "res : " << res->ConvertChaine();
+        emit finOp(res, 2);
     }
 }
 
@@ -452,8 +472,9 @@ void CalculatriceModele::getSqrt(){
              Reel* e = dynamic_cast<Reel*>(a);
              res = &(e->rsqr());
         }
-        qDebug() << "res : " << res->ConvertChaine();
         pile.push(res);
+        qDebug() << "res : " << res->ConvertChaine();
+        emit finOp(res, 2);
     }
 }
 
@@ -474,8 +495,13 @@ void CalculatriceModele::getSqr(){
              Reel* e = dynamic_cast<Reel*>(a);
              res = &(e->sqr());
         }
-        qDebug() << "res : " << res->ConvertChaine();
+        else if (typeid (*a).name()==typeid (Complexe).name()){
+             Complexe* e = dynamic_cast<Complexe*>(a);
+             res = &(e->sqr());
+        }
         pile.push(res);
+        qDebug() << "res : " << res->ConvertChaine();
+        emit finOp(res, 2);
     }
 }
 
@@ -496,8 +522,14 @@ void CalculatriceModele::getCube(){
              Reel* e = dynamic_cast<Reel*>(a);
              res = &(e->cube());
         }
-        qDebug() << "res : " << res->ConvertChaine();
+        else if (typeid (*a).name()==typeid (Complexe).name()){
+             Complexe* e = dynamic_cast<Complexe*>(a);
+             res = &(e->cube());
+        }
+
         pile.push(res);
+        qDebug() << "res : " << res->ConvertChaine();
+        emit finOp(res, 2);
     }
 }
 

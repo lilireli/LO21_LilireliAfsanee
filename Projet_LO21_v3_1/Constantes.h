@@ -61,6 +61,9 @@ public:
     Complexe operator / (Reel r1);
     Complexe operator / (Rationnel r1);
     Constante* operator / (Constante* r1);
+
+    Complexe sqr();
+    Complexe cube();
 };
 
 class Reel : public Nombre{
