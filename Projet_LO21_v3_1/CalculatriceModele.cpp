@@ -31,6 +31,7 @@ void CalculatriceModele::getNombre(QString s){
     this->affichePileTaille();
     emit finOp(val, 0);
     }
+    // sinon lever exception
 
 //    qDebug() << typeid (*val).name();
 }
@@ -38,9 +39,27 @@ void CalculatriceModele::getNombre(QString s){
 void CalculatriceModele::getExpression(){
     if(pile.size()>=1){
         Constante *a = pile.pop();
+        emit finOp(a, 1);
         if (typeid (*a).name() == typeid (Expression).name()){
             Expression* e = dynamic_cast<Expression*>(a);
-            e->EvalExpression();
+            emit finOp(a, 1);
+            QString expression = e->ConvertChaine();
+            if(expression.at(0)!='\'' || expression.at(expression.length()-1)!='\''){/*/ lever exception*/}
+
+            QString chaine;
+
+            for(int i=1; i<expression.length()-1; i++){
+                if(expression.at(i)==' '){
+                    emit evalExp(chaine);
+                    chaine.clear();
+                }else{
+                    chaine+=expression.at(i);
+                }
+            }
+            emit evalExp(chaine);
+        }else{
+            // la constante n'est pas une expression, on la remet dans la pile
+            pile.push(a);
         }
     }
 }
@@ -202,6 +221,7 @@ void CalculatriceModele::getMod(){
         }
     }
 }
+
 void CalculatriceModele::getFact(){
     if(pile.size()>=1){
         Constante* a = pile.pop();
@@ -209,10 +229,10 @@ void CalculatriceModele::getFact(){
 
         if(typeid (*a).name()==typeid (Entier).name()){
             Entier* e = dynamic_cast<Entier*>(a);
-            res = &(e->fact());
+            res = new Entier(e->fact());
             pile.push(res);
             qDebug() << "res : " << res->ConvertChaine();
-            emit finOp(res, 2);
+            emit finOp(res, 1);
         }
     }
 }
@@ -224,25 +244,26 @@ void CalculatriceModele::getSign(){
 
         if(typeid (*a).name()==typeid (Entier).name()){
             Entier* e = dynamic_cast<Entier*>(a);
-            res = &(-*e);
+            res = new Entier(-*e);
         }
         else if (typeid (*a).name()==typeid (Rationnel).name()){
              Rationnel* e = dynamic_cast<Rationnel*>(a);
-             res = &(-*e);
+             res = new Rationnel(-*e);
         }
         else if (typeid (*a).name()==typeid (Reel).name()){
              Reel* e = dynamic_cast<Reel*>(a);
-             res = &(-*e);
+             res = new Reel(-*e);
         }
         else if (typeid (*a).name()==typeid (Complexe).name()){
              Complexe* e = dynamic_cast<Complexe*>(a);
-             res = &(-*e);
+             res = new Complexe(-*e);
         }
         pile.push(res);
         qDebug() << "res : " << res->ConvertChaine();
-        emit finOp(res, 2);
+        emit finOp(res, 1);
     }
 }
+
 
 void CalculatriceModele::getSin(){
     if(pile.size()>=1){
@@ -250,21 +271,21 @@ void CalculatriceModele::getSin(){
         Constante* res;
 
         if(typeid (*a).name()==typeid (Entier).name()){
-            Entier* e = dynamic_cast<Entier*>(a);
-            res = &(e->sinus());
+             Entier* e = dynamic_cast<Entier*>(a);
+             res = new Reel(e->sinus());
         }
         else if (typeid (*a).name()==typeid (Rationnel).name()){
              Rationnel* e = dynamic_cast<Rationnel*>(a);
-             res = &(e->sinus());
+             res = new Reel(e->sinus());
         }
         else if (typeid (*a).name()==typeid (Reel).name()){
              Reel* e = dynamic_cast<Reel*>(a);
-             res = &(e->sinus());
+             res = new Reel(e->sinus());
         }
 
         pile.push(res);
         qDebug() << "res : " << res->ConvertChaine();
-        emit finOp(res, 2);
+        emit finOp(res, 1);
     }
 }
 
@@ -275,19 +296,19 @@ void CalculatriceModele::getCos(){
 
         if(typeid (*a).name()==typeid (Entier).name()){
             Entier* e = dynamic_cast<Entier*>(a);
-            res = &(e->cosinus());
+            res = new Reel(e->cosinus());
         }
         else if (typeid (*a).name()==typeid (Rationnel).name()){
              Rationnel* e = dynamic_cast<Rationnel*>(a);
-             res = &(e->cosinus());
+             res = new Reel(e->cosinus());
         }
         else if (typeid (*a).name()==typeid (Reel).name()){
              Reel* e = dynamic_cast<Reel*>(a);
-             res = &(e->cosinus());
+             res = new Reel(e->cosinus());
         }
         pile.push(res);
         qDebug() << "res : " << res->ConvertChaine();
-        emit finOp(res, 2);
+        emit finOp(res, 1);
     }
 }
 
@@ -298,19 +319,19 @@ void CalculatriceModele::getTan(){
 
         if(typeid (*a).name()==typeid (Entier).name()){
             Entier* e = dynamic_cast<Entier*>(a);
-            res = &(e->tangente());
+            res = new Reel(e->tangente());
         }
         else if (typeid (*a).name()==typeid (Rationnel).name()){
              Rationnel* e = dynamic_cast<Rationnel*>(a);
-             res = &(e->tangente());
+             res = new Reel(e->tangente());
         }
         else if (typeid (*a).name()==typeid (Reel).name()){
              Reel* e = dynamic_cast<Reel*>(a);
-             res = &(e->tangente());
+             res = new Reel(e->tangente());
         }
         pile.push(res);
         qDebug() << "res : " << res->ConvertChaine();
-        emit finOp(res, 2);
+        emit finOp(res, 1);
     }
 }
 
@@ -321,19 +342,19 @@ void CalculatriceModele::getSinh(){
 
         if(typeid (*a).name()==typeid (Entier).name()){
             Entier* e = dynamic_cast<Entier*>(a);
-            res = &(e->sinush());
+            res = new Reel(e->sinush());
         }
         else if (typeid (*a).name()==typeid (Rationnel).name()){
              Rationnel* e = dynamic_cast<Rationnel*>(a);
-             res = &(e->sinush());
+             res = new Reel(e->sinush());
         }
         else if (typeid (*a).name()==typeid (Reel).name()){
              Reel* e = dynamic_cast<Reel*>(a);
-             res = &(e->sinush());
+             res = new Reel(e->sinush());
         }
         pile.push(res);
         qDebug() << "res : " << res->ConvertChaine();
-        emit finOp(res, 2);
+        emit finOp(res, 1);
     }
 }
 
@@ -344,19 +365,19 @@ void CalculatriceModele::getCosh(){
 
         if(typeid (*a).name()==typeid (Entier).name()){
             Entier* e = dynamic_cast<Entier*>(a);
-            res = &(e->cosinush());
+            res = new Reel(e->cosinush());
         }
         else if (typeid (*a).name()==typeid (Rationnel).name()){
              Rationnel* e = dynamic_cast<Rationnel*>(a);
-             res = &(e->cosinush());
+             res = new Reel(e->cosinush());
         }
         else if (typeid (*a).name()==typeid (Reel).name()){
              Reel* e = dynamic_cast<Reel*>(a);
-             res = &(e->cosinush());
+             res = new Reel(e->cosinush());
         }
         pile.push(res);
         qDebug() << "res : " << res->ConvertChaine();
-        emit finOp(res, 2);
+        emit finOp(res, 1);
     }
 }
 
@@ -367,19 +388,19 @@ void CalculatriceModele::getTanh(){
 
         if(typeid (*a).name()==typeid (Entier).name()){
             Entier* e = dynamic_cast<Entier*>(a);
-            res = &(e->tangenteh());
+            res = new Reel(e->tangenteh());
         }
         else if (typeid (*a).name()==typeid (Rationnel).name()){
              Rationnel* e = dynamic_cast<Rationnel*>(a);
-             res = &(e->tangenteh());
+             res = new Reel(e->tangenteh());
         }
         else if (typeid (*a).name()==typeid (Reel).name()){
              Reel* e = dynamic_cast<Reel*>(a);
-             res = &(e->tangenteh());
+             res = new Reel(e->tangenteh());
         }
         pile.push(res);
         qDebug() << "res : " << res->ConvertChaine();
-        emit finOp(res, 2);
+        emit finOp(res, 1);
     }
 }
 
@@ -391,19 +412,19 @@ void CalculatriceModele::getLn(){
 
         if(typeid (*a).name()==typeid (Entier).name()){
             Entier* e = dynamic_cast<Entier*>(a);
-            res = &(e->ln());
+            res = new Reel(e->ln());
         }
         else if (typeid (*a).name()==typeid (Rationnel).name()){
              Rationnel* e = dynamic_cast<Rationnel*>(a);
-             res = &(e->ln());
+             res = new Reel(e->ln());
         }
         else if (typeid (*a).name()==typeid (Reel).name()){
              Reel* e = dynamic_cast<Reel*>(a);
-             res = &(e->ln());
+             res = new Reel(e->ln());
         }
         pile.push(res);
         qDebug() << "res : " << res->ConvertChaine();
-        emit finOp(res, 2);
+        emit finOp(res, 1);
     }
 }
 
@@ -415,19 +436,19 @@ void CalculatriceModele::getLog(){
 
         if(typeid (*a).name()==typeid (Entier).name()){
             Entier* e = dynamic_cast<Entier*>(a);
-            res = &(e->logdix());
+            res = new Reel(e->logdix());
         }
         else if (typeid (*a).name()==typeid (Rationnel).name()){
              Rationnel* e = dynamic_cast<Rationnel*>(a);
-             res = &(e->logdix());
+             res = new Reel(e->logdix());
         }
         else if (typeid (*a).name()==typeid (Reel).name()){
              Reel* e = dynamic_cast<Reel*>(a);
-             res = &(e->logdix());
+             res = new Reel(e->logdix());
         }
         pile.push(res);
         qDebug() << "res : " << res->ConvertChaine();
-        emit finOp(res, 2);
+        emit finOp(res, 1);
     }
 }
 
@@ -438,19 +459,19 @@ void CalculatriceModele::getInv(){
 
         if(typeid (*a).name()==typeid (Entier).name()){
             Entier* e = dynamic_cast<Entier*>(a);
-            res = &(e->inv());
+            res = new Rationnel(e->inv());
         }
         else if (typeid (*a).name()==typeid (Rationnel).name()){
              Rationnel* e = dynamic_cast<Rationnel*>(a);
-             res = &(e->inv());
+             res = new Rationnel(e->inv());
         }
         else if (typeid (*a).name()==typeid (Reel).name()){
              Reel* e = dynamic_cast<Reel*>(a);
-             res = &(e->inv());
+             res = new Reel(e->inv());
         }
         pile.push(res);
         qDebug() << "res : " << res->ConvertChaine();
-        emit finOp(res, 2);
+        emit finOp(res, 1);
     }
 }
 
@@ -462,19 +483,19 @@ void CalculatriceModele::getSqrt(){
 
         if(typeid (*a).name()==typeid (Entier).name()){
             Entier* e = dynamic_cast<Entier*>(a);
-            res = &(e->rsqr());
+            res = new Reel(e->rsqr());
         }
         else if (typeid (*a).name()==typeid (Rationnel).name()){
              Rationnel* e = dynamic_cast<Rationnel*>(a);
-             res = &(e->rsqr());
+             res = new Reel(e->rsqr());
         }
         else if (typeid (*a).name()==typeid (Reel).name()){
              Reel* e = dynamic_cast<Reel*>(a);
-             res = &(e->rsqr());
+             res = new Reel(e->rsqr());
         }
         pile.push(res);
         qDebug() << "res : " << res->ConvertChaine();
-        emit finOp(res, 2);
+        emit finOp(res, 1);
     }
 }
 
@@ -485,23 +506,23 @@ void CalculatriceModele::getSqr(){
 
         if(typeid (*a).name()==typeid (Entier).name()){
             Entier* e = dynamic_cast<Entier*>(a);
-            res = &(e->sqr());
+            res = new Entier(e->sqr());
         }
         else if (typeid (*a).name()==typeid (Rationnel).name()){
              Rationnel* e = dynamic_cast<Rationnel*>(a);
-             res = &(e->sqr());
+             res = new Rationnel(e->sqr());
         }
         else if (typeid (*a).name()==typeid (Reel).name()){
              Reel* e = dynamic_cast<Reel*>(a);
-             res = &(e->sqr());
+             res = new Reel(e->sqr());
         }
         else if (typeid (*a).name()==typeid (Complexe).name()){
              Complexe* e = dynamic_cast<Complexe*>(a);
-             res = &(e->sqr());
+             res = new Complexe(e->sqr());
         }
         pile.push(res);
         qDebug() << "res : " << res->ConvertChaine();
-        emit finOp(res, 2);
+        emit finOp(res, 1);
     }
 }
 
@@ -512,24 +533,24 @@ void CalculatriceModele::getCube(){
 
         if(typeid (*a).name()==typeid (Entier).name()){
             Entier* e = dynamic_cast<Entier*>(a);
-            res = &(e->cube());
+            res = new Entier(e->cube());
         }
         else if (typeid (*a).name()==typeid (Rationnel).name()){
              Rationnel* e = dynamic_cast<Rationnel*>(a);
-             res = &(e->cube());
+             res = new Rationnel(e->cube());
         }
         else if (typeid (*a).name()==typeid (Reel).name()){
              Reel* e = dynamic_cast<Reel*>(a);
-             res = &(e->cube());
+             res = new Reel(e->cube());
         }
         else if (typeid (*a).name()==typeid (Complexe).name()){
              Complexe* e = dynamic_cast<Complexe*>(a);
-             res = &(e->cube());
+             res = new Complexe(e->cube());
         }
 
         pile.push(res);
         qDebug() << "res : " << res->ConvertChaine();
-        emit finOp(res, 2);
+        emit finOp(res, 1);
     }
 }
 

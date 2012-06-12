@@ -18,7 +18,7 @@ Constante* FabriqueConstante::getConstante(QString chaine)
     else if(type==2) {return new Reel(chaine);}
     else if(type==3) {return new Rationnel(chaine);}
     else if(type==4) {return new Complexe(chaine);}
-    else if(type==5) {return NULL;}
+    else if(type==5) {return new Expression(chaine);}
     else {return NULL;}
 
     // faire expression

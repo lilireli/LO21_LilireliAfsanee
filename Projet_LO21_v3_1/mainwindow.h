@@ -34,11 +34,14 @@ private slots:
     void on_num9pressed_clicked();
     void on_numComaPressed_clicked();
     void on_numCompPressed_clicked();
+    void on_numParenthesisPressed_clicked();
     void on_EspacePressed_clicked();
 
     //opérations essentielles
     void on_EnterPressed_clicked();  // on vérifie que l'expression rentrée est valide
+    void EnterAction(QString s);
     void on_EvalPressed_clicked();
+    void on_opDelPressed_clicked();
     void rafraichissement();
     void affichePile(Constante* cte, int j);
 
@@ -133,6 +136,7 @@ private:
     int taille_pile;
 
     CalculatriceModele *model;
+    Expression *expression;
     QString buffer;
     QString aff;
 };

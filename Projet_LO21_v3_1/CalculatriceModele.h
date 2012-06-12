@@ -25,6 +25,7 @@ public:
 
 signals:
      void finOp(Constante* cte, int i);
+     void evalExp(QString s);
 
 public slots:
      void getNombre(QString s);  // mettre la constante dans pile

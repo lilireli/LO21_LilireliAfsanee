@@ -262,26 +262,8 @@ Constante* Complexe::operator * (Constante* r1)
 
 Complexe Complexe::operator / (Complexe r1)
 {
- /*   // z/z' = z * 1/z' = z * conjugue(z')/module(z')²
+    // z/z' = z * 1/z' = z * conjugue(z')/module(z')²
     Complexe res;
-
-    // conjugue de r1
-    Complexe conjugue = r1;
-
-        // inverse de la partie imaginaire
-    if(typeid (*conjugue.im).name()==typeid (Entier).name()){
-        Entier* e = dynamic_cast<Entier*>(conjugue.im);
-        b = new Entier(-*e);
-    }
-    else if (typeid (*conjugue.im).name()==typeid (Rationnel).name()){
-        Rationnel* e = dynamic_cast<Rationnel*>(conjugue.im);
-        b = new Rationnel(-*e);
-    }
-    else if (typeid (*conjugue.im).name()==typeid (Reel).name()){
-        Reel* e = dynamic_cast<Reel*>(conjugue.im);
-        b = new Reel(-*e);
-    }
-
 
     // module de r1    |z| = racine(a² + b²)
     Nombre *module, *a, *b;
@@ -300,7 +282,7 @@ Complexe Complexe::operator / (Complexe r1)
          a = new Reel(e->sqr());
     }
 
-        // carré de b
+        // carré de b et b²+a²
     if(typeid (*r1.im).name()==typeid (Entier).name()){
          Entier* e = dynamic_cast<Entier*>(r1.im);
          b = new Entier(e->sqr());
@@ -318,7 +300,6 @@ Complexe Complexe::operator / (Complexe r1)
     if(typeid (*a).name()==typeid (Entier).name()){
          Entier* e = dynamic_cast<Entier*>(a);
          module = *e + b;
-         conjuge.re = conjuge.re / &module
     }
     else if (typeid (*a).name()==typeid (Rationnel).name()){
          Rationnel* e = dynamic_cast<Rationnel*>(a);
@@ -329,12 +310,39 @@ Complexe Complexe::operator / (Complexe r1)
          module = *e + b;
     }
 
-    Complexe inverse = conjugue/module;
+    // conjugue de r1 / |r1|
+        // division de la partie réelle par le module
+    if(typeid (*r1.re).name()==typeid (Entier).name()){
+        Entier* e = dynamic_cast<Entier*>(r1.re);
+        res.re = *e / module;
+    }
+    else if (typeid (*r1.re).name()==typeid (Rationnel).name()){
+        Rationnel* e = dynamic_cast<Rationnel*>(r1.re);
+        res.re = *e / module;
+    }
+    else if (typeid (*r1.re).name()==typeid (Reel).name()){
+        Reel* e = dynamic_cast<Reel*>(r1.re);
+        res.re = *e / module;
+    }
 
+        // inverse de la partie imaginaire + division par le module
+    if(typeid (*r1.im).name()==typeid (Entier).name()){
+        Entier* e = dynamic_cast<Entier*>(r1.im);
+        res.im = (-*e) / module;
+    }
+    else if (typeid (*r1.im).name()==typeid (Rationnel).name()){
+        Rationnel* e = dynamic_cast<Rationnel*>(r1.im);
+        res.im = (-*e) / module;
+    }
+    else if (typeid (*r1.im).name()==typeid (Reel).name()){
+        Reel* e = dynamic_cast<Reel*>(r1.im);
+        res.im = (-*e) / module;
+    }
+
+    res = *this * res;
 
     qDebug()<<"Complexe"<<res.ConvertChaine();
-    return res;*/
-    return r1;
+    return res;
 }
 
 Complexe Complexe::operator / (Entier r1) {return *this/r1.toComplexe();}

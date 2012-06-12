@@ -10,7 +10,10 @@ MainWindow::MainWindow(QWidget *parent) :
     model = new CalculatriceModele;
     buffer = "";
     taille_pile = 6;
+    //connect(ActionAfficherClavie, SIGNAL(ac));
+
     connect(this, SIGNAL(pressEntrerN(QString)), model, SLOT(getNombre(QString)));
+    connect(model, SIGNAL(evalExp(QString)), this, SLOT(EnterAction(QString)));
     connect(this, SIGNAL(finEntree()), this, SLOT(rafraichissement()));
     connect(model, SIGNAL(finOp(Constante*, int)), this, SLOT(affichePile(Constante*, int)));
     connect(this, SIGNAL(pressEval()), model, SLOT(getExpression()));
@@ -139,13 +142,20 @@ void MainWindow::on_numCompPressed_clicked()
     ui->lineEdit->insert(aff);
 }
 
-void MainWindow::on_EspacePressed_clicked()
+void MainWindow::on_numParenthesisPressed_clicked()
 {
-    buffer += " ";
-    aff = " ";
+    buffer += "\'";
+    aff = "\'";
     ui->lineEdit->insert(aff);
 }
 
+void MainWindow::on_EspacePressed_clicked()
+{
+    buffer += " ";
+    ui->lineEdit->insert(" ");
+}
+
+// boutons de type
 void MainWindow::on_buttonEntier_clicked(){
     if (typeNombre != 0){
         typeNombre = 0;
@@ -304,56 +314,64 @@ void MainWindow::on_EnterPressed_clicked()
 {
     ui->lineEdit->insert(" ");
 
-    if(FormuleValide(buffer)){
-        emit pressEntrerN(buffer);
-        buffer = "";
-        ui->lineEdit->setText(buffer);
+    EnterAction(buffer);
+    emit finEntree();
+}
+
+void MainWindow::EnterAction(QString s)
+{
+    if(FormuleValide(s)){
+        emit pressEntrerN(s);
     }
     else{
-        if(buffer=="+"){emit pressAdd();}
-        if(buffer=="-"){emit pressSous();}
-        if(buffer=="*"){emit pressMult();}
-        if(buffer=="/"){emit pressDiv();}
+        if(s=="+"){emit pressAdd();}
+        if(s=="-"){emit pressSous();}
+        if(s=="*"){emit pressMult();}
+        if(s=="/"){emit pressDiv();}
 
-        if(buffer=="pow"){emit pressPow();}
-        if(buffer=="mod"){emit pressMod();}
-        if(buffer=="fact"){emit pressFact();}
-        if(buffer=="sign"){emit pressSign();}
+        if(s=="pow"){emit pressPow();}
+        if(s=="mod"){emit pressMod();}
+        if(s=="fact"){emit pressFact();}
+        if(s=="sign"){emit pressSign();}
 
-        if(buffer=="sin"){emit pressSin();}
-        if(buffer=="cos"){emit pressCos();}
-        if(buffer=="tan"){emit pressTan();}
+        if(s=="sin"){emit pressSin();}
+        if(s=="cos"){emit pressCos();}
+        if(s=="tan"){emit pressTan();}
 
-        if(buffer=="sinh"){emit pressSinh();}
-        if(buffer=="cosh"){emit pressCosh();}
-        if(buffer=="tanh"){emit pressTanh();}
+        if(s=="sinh"){emit pressSinh();}
+        if(s=="cosh"){emit pressCosh();}
+        if(s=="tanh"){emit pressTanh();}
 
-        if(buffer=="ln"){emit pressLn();}
-        if(buffer=="log"){emit pressLog();}
-        if(buffer=="inv"){emit pressInv();}
+        if(s=="ln"){emit pressLn();}
+        if(s=="log"){emit pressLog();}
+        if(s=="inv"){emit pressInv();}
 
-        if(buffer=="sqrt"){emit pressSqrt();}
-        if(buffer=="sqr"){emit pressSqr();}
-        if(buffer=="cube"){emit pressCube();}
+        if(s=="sqrt"){emit pressSqrt();}
+        if(s=="sqr"){emit pressSqr();}
+        if(s=="cube"){emit pressCube();}
 
-        if(buffer=="swap"){emit pressSwap();}
-        if(buffer=="sum"){emit pressSum();}
-        if(buffer=="mean"){emit pressMean();}
-        if(buffer=="clear"){emit pressClear();}
-        if(buffer=="dup"){emit pressDup();}
-        if(buffer=="drop"){emit pressDrop();}
-        buffer = "";
+        if(s=="swap"){emit pressSwap();}
+        if(s=="sum"){emit pressSum();}
+        if(s=="mean"){emit pressMean();}
+        if(s=="clear"){emit pressClear();}
+        if(s=="dup"){emit pressDup();}
+        if(s=="drop"){emit pressDrop();}
     }
-    emit finEntree();
 }
 
 void MainWindow::on_EvalPressed_clicked(){
     emit pressEval();
 }
 
+void MainWindow::on_opDelPressed_clicked(){
+    buffer.remove(buffer.length()-1, 1);
+    ui->lineEdit->clear();
+    ui->lineEdit->insert(buffer);
+}
+
 void MainWindow::rafraichissement()
 {
-
+    buffer.clear();
     ui->lineEdit->clear();
 }
 
@@ -362,7 +380,7 @@ void MainWindow::affichePile(Constante *cte, int j)
     // afficher selon mode (convertEnt, convertReel ...)
     ui->textEdit->clear();
 
-    for(int k=0; k<j; k++){ affichage.pop();}
+    for(int k=0; k<j; k++){ affichage.pop();/*supprimer ce que l'on viens de popper*/}
     int t=0;
 
     ui->textEdit->insertPlainText(cte->ConvertChaine()+"\n");
@@ -371,7 +389,6 @@ void MainWindow::affichePile(Constante *cte, int j)
     else {t=affichage.size();}
 
     if(t!=0){
-
         Constante** tmp = new Constante*[t];
 
         for(int i=0; i<=t-1; i++){
@@ -384,6 +401,7 @@ void MainWindow::affichePile(Constante *cte, int j)
         for(int i=0; i<=t-1; i++){affichage.push(tmp[i]);}
         delete[] tmp;
     }
+
     affichage.push(cte);
 }
 

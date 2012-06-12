@@ -38,6 +38,8 @@ int FormuleValide(QString s)
     int trouve=0;
     QString n, m;
 
+    if(s.at(0)=='\'' && s.at(s.length()-1)=='\''){return  5;}
+
     for(int i = 0; i<s.length(); i++){
         if(s.at(i) != '$') {
             if(trouve==0) n=n+s.at(i);
