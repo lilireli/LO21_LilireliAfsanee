@@ -963,7 +963,7 @@
   </connection>
   <connection>
    <sender>actionAfficher_clavier</sender>
-   <signal>activated()</signal>
+   <signal>triggered(bool)</signal>
    <receiver>Clavier</receiver>
    <slot>show()</slot>
    <hints>

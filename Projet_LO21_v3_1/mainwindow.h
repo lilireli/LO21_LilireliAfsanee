@@ -134,11 +134,10 @@ private:
     int typeNombre;
     int complexe;
     int taille_pile;
+    int degre;
 
     CalculatriceModele *model;
-    Expression *expression;
     QString buffer;
-    QString aff;
 };
 
 #endif // MAINWINDOW_H

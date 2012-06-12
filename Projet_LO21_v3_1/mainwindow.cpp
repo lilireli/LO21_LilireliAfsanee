@@ -61,92 +61,79 @@ MainWindow::~MainWindow()
 void MainWindow::on_num0pressed_clicked()
 {
     buffer += "0";
-    aff = "0";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("0");
 }
 
 void MainWindow::on_num1pressed_clicked()
 {
     buffer += "1";
-    aff = "1";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("1");
 }
 
 void MainWindow::on_num2pressed_clicked()
 {
     buffer += "2";
-    aff = "2";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("2");
 }
 
 void MainWindow::on_num3pressed_clicked()
 {
     buffer += "3";
-    aff = "3";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("3");
 }
 
 void MainWindow::on_num4pressed_clicked()
 {
     buffer += "4";
-    aff = "4";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("4");
 }
 
 void MainWindow::on_num5pressed_clicked()
 {
     buffer += "5";
-    aff = "5";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("5");
 }
 
 void MainWindow::on_num6pressed_clicked()
 {
     buffer += "6";
-    aff = "6";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("6");
 }
 
 void MainWindow::on_num7pressed_clicked()
 {
     buffer += "7";
-    aff = "7";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("7");
 }
 
 void MainWindow::on_num8pressed_clicked()
 {
     buffer += "8";
-    aff = "8";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("8");
 }
 
 void MainWindow::on_num9pressed_clicked()
 {
     buffer += "9";
-    aff = "9";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("9");
 }
 
 void MainWindow::on_numComaPressed_clicked()
 {
     buffer += ".";
-    aff = ".";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert(".");
 }
 
 void MainWindow::on_numCompPressed_clicked()
 {
     buffer += "$";
-    aff = "$";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("$");
 }
 
 void MainWindow::on_numParenthesisPressed_clicked()
 {
     buffer += "\'";
-    aff = "\'";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("\'");
 }
 
 void MainWindow::on_EspacePressed_clicked()
@@ -413,185 +400,159 @@ void MainWindow::affichePile(Constante *cte, int j)
 void MainWindow::on_opPlusPressed_clicked()
 {
     buffer += "+";
-    aff = "+";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("+");
 }
 
 void MainWindow::on_opMoinsPressed_clicked()
 {
     buffer += "-";
-    aff = "-";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("-");
 }
 
 void MainWindow::on_opMultPressed_clicked()
 {
     buffer += "*";
-    aff = "*";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("*");
 }
 
 void MainWindow::on_opDivPressed_clicked()
 {
     buffer += "/";
-    aff = "/";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("/");
 }
 
 
 void MainWindow::on_opPowPressed_clicked()
 {
     buffer += "exp";
-    aff = "exp";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("exp");
 }
 
 void MainWindow::on_opModPressed_clicked()
 {
     buffer += "mod";
-    aff = "mod";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("mod");
 }
 
 void MainWindow::on_opFactPressed_clicked()
 {
     buffer += "fact";
-    aff = "fact";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("fact");
 }
 
 void MainWindow::on_opSignPressed_clicked()
 {
     buffer += "sign";
-    aff = "sign";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("sign");
 }
 
 
 void MainWindow::on_opSinPressed_clicked()
 {
     buffer += "sin";
-    aff = "sin";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("sin");
 }
 
 void MainWindow::on_opCosPressed_clicked()
 {
     buffer += "cos";
-    aff = "cos";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("cos");
 }
 
 void MainWindow::on_opTanPressed_clicked()
 {
     buffer += "tan";
-    aff = "tan";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("tan");
 }
 
 void MainWindow::on_opSinhPressed_clicked()
 {
     buffer += "sinh";
-    aff = "sinh";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("sinh");
 }
 
 void MainWindow::on_opCoshPressed_clicked()
 {
     buffer += "cosh";
-    aff = "cosh";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("cosh");
 }
 
 void MainWindow::on_opTanhPressed_clicked()
 {
     buffer += "tanh";
-    aff = "tanh";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("tanh");
 }
 
 
 void MainWindow::on_opLnPressed_clicked()
 {
     buffer += "ln";
-    aff = "ln";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("ln");
 }
 
 void MainWindow::on_opLogPressed_clicked()
 {
     buffer += "log";
-    aff = "log";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("log");
 }
 
 void MainWindow::on_opInvPressed_clicked()
 {
     buffer += "inv";
-    aff = "inv";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("inv");
 }
 
 void MainWindow::on_opSqrtPressed_clicked()
 {
     buffer += "sqrt";
-    aff = "sqrt";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("sqrt");
 }
 
 void MainWindow::on_opSqrPressed_clicked()
 {
     buffer += "sqr";
-    aff = "sqr";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("sqr");
 }
 
 void MainWindow::on_opCubePressed_clicked()
 {
     buffer += "cube";
-    aff = "cube";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("cube");
 }
 
 // opérations sur la pile
 void MainWindow::on_opSwapPressed_clicked()
 {
     buffer += "swap";
-    aff = "swap";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("swap");
 }
 
 void MainWindow::on_opSumPressed_clicked()
 {
     buffer += "sum";
-    aff = "sum";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("sum");
 }
 
 void MainWindow::on_opMeanPressed_clicked()
 {
     buffer += "mean";
-    aff = "mean";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("mean");
 }
 
 void MainWindow::on_opClearPressed_clicked()
 {
     buffer += "clear";
-    aff = "clear";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("clear");
 }
 
 void MainWindow::on_opDupPressed_clicked()
 {
     buffer += "dup";
-    aff = "dup";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("dup");
 }
 
 void MainWindow::on_opDropPressed_clicked()
 {
     buffer += "drop";
-    aff = "drop";
-    ui->lineEdit->insert(aff);
+    ui->lineEdit->insert("drop");
 }
