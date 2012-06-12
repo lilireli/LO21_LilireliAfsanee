@@ -39,10 +39,10 @@ void CalculatriceModele::getNombre(QString s){
 void CalculatriceModele::getExpression(){
     if(pile.size()>=1){
         Constante *a = pile.pop();
-        emit finOp(a, 1);
+
         if (typeid (*a).name() == typeid (Expression).name()){
             Expression* e = dynamic_cast<Expression*>(a);
-            emit finOp(a, 1);
+            emit finOp(NULL, 1);
             QString expression = e->ConvertChaine();
             if(expression.at(0)!='\'' || expression.at(expression.length()-1)!='\''){/*/ lever exception*/}
 

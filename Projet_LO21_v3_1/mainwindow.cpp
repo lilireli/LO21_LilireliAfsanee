@@ -383,7 +383,9 @@ void MainWindow::affichePile(Constante *cte, int j)
     for(int k=0; k<j; k++){ affichage.pop();/*supprimer ce que l'on viens de popper*/}
     int t=0;
 
-    ui->textEdit->insertPlainText(cte->ConvertChaine()+"\n");
+    if(cte!= NULL){
+        ui->textEdit->insertPlainText(cte->ConvertChaine()+"\n");
+    }
 
     if(affichage.size()>=taille_pile){ t=taille_pile;}
     else {t=affichage.size();}
@@ -402,7 +404,9 @@ void MainWindow::affichePile(Constante *cte, int j)
         delete[] tmp;
     }
 
-    affichage.push(cte);
+    if(cte != NULL){
+        affichage.push(cte);
+    }
 }
 
 //opérations
