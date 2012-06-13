@@ -90,14 +90,14 @@ private slots:
 
 
 signals:
-    void pressEntrerN(QString s);
+    void pressEntrerN(QString s, int complexe);
     void finEntree();
     void pressEval();
 
     void pressAdd();
     void pressSous();
     void pressMult();
-    void pressDiv();
+    void pressDiv(int typeNombre);
 
     void pressPow();
     void pressMod();
@@ -131,8 +131,8 @@ signals:
 private:
     Ui::MainWindow *ui;
     Stack affichage;
-    int typeNombre;
-    int complexe;
+    int typeNombre;  // =0 si entier, =1 si réel, =2 si rationnel
+    int complexe;  // =0 si non activé, =1 si activé
     int taille_pile;
     int degre;
 

@@ -10,6 +10,7 @@ namespace Calcul {
 
 class Constante{
 public:
+    virtual ~Constante(){}
     virtual QString ConvertChaine() = 0;   // fonction pour l'affichage
 };
 
@@ -21,6 +22,7 @@ class Entier;
 
 class Nombre : public Constante{
 public:
+    virtual ~Nombre(){}
     virtual Complexe toComplexe() = 0;
     virtual QString ConvertChaine() = 0;
 };
@@ -32,6 +34,8 @@ class Complexe : public Constante{
 public:
     Complexe(QString s="0$0");
     Complexe(Nombre* reel, Nombre* imaginaire=NULL);
+    Complexe(Complexe* comp);
+    ~Complexe() {delete re; delete im;}
     Nombre* GetRe(){return re;}
     Nombre* GetIm(){return im;}
     QString ConvertChaine() {return re->ConvertChaine()+'$'+im->ConvertChaine();}
@@ -71,6 +75,8 @@ class Reel : public Nombre{
 public:
     Reel(QString r="0"): n(r.toDouble()){}
     Reel(double r): n(r){}
+    Reel(Reel* r): n(r->n){}
+    ~Reel(){}
     int GetReel(){return n;}
     Complexe toComplexe(){Complexe c(this); return c;}
     QString ConvertChaine() {return QString::number(n);}
@@ -142,6 +148,8 @@ public:
         den = m.toInt(); if(den==0) den=1;
     }
     Rationnel(int n, int m=1): num(n), den(m){if(den == 0) den=1;}
+    Rationnel(Rationnel* r):num(r->num), den(r->den){}
+    ~Rationnel(){}
     void SetNum(int n){num=n;}
     void SetDen(int n){den=n;}
     int GetNum(){return num;}
@@ -205,6 +213,8 @@ class Entier : public Nombre{
 public:
     Entier(QString e="0"): n(e.toInt()){}
     Entier(int e): n(e){}
+    Entier(Entier* e): n(e->n){}
+    ~Entier(){}
     int GetEntier(){return n;}
     double GetReel() {return n;}
     Reel toReel(){Reel r(n); return r;}
@@ -269,6 +279,8 @@ class Expression : public Constante{
     QString exp;
 public:
     Expression(QString s): exp(s){}
+    Expression(Expression* e): exp(e->exp){}
+    ~Expression(){}
     QString ConvertChaine(){return exp;}
 };
 

@@ -1,8 +1,6 @@
 #include "Constantes.h"
 
 namespace Calcul{
-Reel Reel::operator = (Reel r1){Reel ret(r1.n); return ret;}
-
 Reel Reel::operator + (Reel r1){return n+r1.n;}
 
 Reel Reel::operator + (Entier r1){return *this+r1.toReel();}

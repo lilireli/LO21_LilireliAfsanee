@@ -9,11 +9,14 @@ using namespace Calcul;
 class FabriqueNombre{
 public:
     Nombre* getNombre(QString chaine);
+    Nombre* newNombre(Nombre* a);
 };
 
 class FabriqueConstante{
 public:
     Constante* getConstante(QString chaine);
+    Constante* getComplexe(QString chaine);
+    Constante* newConstante(Constante* a);
 };
 
 #endif // CONSTANTE_FACTORY_H

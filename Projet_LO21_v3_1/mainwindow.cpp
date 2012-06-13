@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "Gestion_constantes.h"
+#include "Constante_Factory.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -12,7 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
     taille_pile = 6;
     //connect(ActionAfficherClavie, SIGNAL(ac));
 
-    connect(this, SIGNAL(pressEntrerN(QString)), model, SLOT(getNombre(QString)));
+    connect(this, SIGNAL(pressEntrerN(QString, int)), model, SLOT(getNombre(QString, int)));
     connect(model, SIGNAL(evalExp(QString)), this, SLOT(EnterAction(QString)));
     connect(this, SIGNAL(finEntree()), this, SLOT(rafraichissement()));
     connect(model, SIGNAL(finOp(Constante*, int)), this, SLOT(affichePile(Constante*, int)));
@@ -21,7 +22,7 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(this, SIGNAL(pressAdd()), model, SLOT(getAdd()));
     connect(this, SIGNAL(pressSous()), model, SLOT(getSous()));
     connect(this, SIGNAL(pressMult()), model, SLOT(getMult()));
-    connect(this, SIGNAL(pressDiv()), model, SLOT(getDiv()));
+    connect(this, SIGNAL(pressDiv(int)), model, SLOT(getDiv(int)));
 
     connect(this, SIGNAL(pressPow()), model, SLOT(getPow()));
     connect(this, SIGNAL(pressMod()), model, SLOT(getMod()));
@@ -308,13 +309,13 @@ void MainWindow::on_EnterPressed_clicked()
 void MainWindow::EnterAction(QString s)
 {
     if(FormuleValide(s)){
-        emit pressEntrerN(s);
+        emit pressEntrerN(s, complexe);
     }
     else{
         if(s=="+"){emit pressAdd();}
         if(s=="-"){emit pressSous();}
         if(s=="*"){emit pressMult();}
-        if(s=="/"){emit pressDiv();}
+        if(s=="/"){emit pressDiv(typeNombre);}
 
         if(s=="pow"){emit pressPow();}
         if(s=="mod"){emit pressMod();}
@@ -367,13 +368,14 @@ void MainWindow::affichePile(Constante *cte, int j)
     // afficher selon mode (convertEnt, convertReel ...)
     ui->textEdit->clear();
 
-    for(int k=0; k<j; k++){ affichage.pop();/*supprimer ce que l'on viens de popper*/}
-    int t=0;
-
-    if(cte!= NULL){
-        ui->textEdit->insertPlainText(cte->ConvertChaine()+"\n");
+    for(int k=0; k<j; k++){
+        Constante* del = affichage.pop();
+        delete del;
     }
 
+    if(cte!= NULL){ui->textEdit->insertPlainText(cte->ConvertChaine()+"\n");}
+
+    int t=0;
     if(affichage.size()>=taille_pile){ t=taille_pile;}
     else {t=affichage.size();}
 
@@ -392,7 +394,9 @@ void MainWindow::affichePile(Constante *cte, int j)
     }
 
     if(cte != NULL){
-        affichage.push(cte);
+        FabriqueConstante fab;
+        Constante* to_push = fab.newConstante(cte);
+        affichage.push(to_push);
     }
 }
 

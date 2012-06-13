@@ -28,13 +28,13 @@ signals:
      void evalExp(QString s);
 
 public slots:
-     void getNombre(QString s);  // mettre la constante dans pile
+     void getNombre(QString s, int complexe);
      void getExpression();
 
      void getAdd();
      void getSous();
      void getMult();
-     void getDiv();
+     void getDiv(int type);
 
      void getPow();
      void getMod();

@@ -23,6 +23,12 @@ Complexe::Complexe(Nombre* reel, Nombre* imaginaire): re(reel), im(imaginaire){
     if(im==NULL) im = new Entier;
 }
 
+Complexe::Complexe(Complexe* comp){
+    FabriqueNombre cte;
+    re = cte.newNombre(comp->re);
+    im = cte.newNombre(comp->im);
+}
+
 Complexe Complexe::operator + (Complexe r1)
 {
     Complexe res;

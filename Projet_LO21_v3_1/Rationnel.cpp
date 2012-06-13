@@ -22,8 +22,6 @@ void Rationnel::Simplification()
     if(num<0 && den<0) { num=-num; den=-den; }
 }
 
-Rationnel Rationnel::operator = (Rationnel r1){Rationnel ret(r1.num, r1.den); return ret;}
-
 Rationnel Rationnel::operator + (Rationnel r1){
     Rationnel somme(num*r1.den + den*r1.num, den*r1.den);
     somme.Simplification();
@@ -222,7 +220,7 @@ Reel Rationnel::operator / (Reel r1){
         Reel div(this->GetRationnel()/r1.GetReel());
         return div;
     }
-    Reel div(0);
+    Reel div("0");
     return div;
 }
 

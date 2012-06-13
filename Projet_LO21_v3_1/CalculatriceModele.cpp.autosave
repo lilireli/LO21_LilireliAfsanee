@@ -191,6 +191,9 @@ void CalculatriceModele::getDiv(int type){
              res = *e / b;
         }
 
+        if(type==1){ // type réel
+        }
+
         pile.push(res);
         qDebug() << "res : " << res->ConvertChaine();
         emit finOp(res, 2);
