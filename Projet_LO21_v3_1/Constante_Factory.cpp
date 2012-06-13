@@ -25,6 +25,28 @@ Nombre* FabriqueNombre::newNombre(Nombre* a){
     }
 }
 
+Nombre* FabriqueNombre::getType(Nombre* a, int type){
+    if(typeid (*a).name()==typeid (Entier).name()){
+        Entier* e = dynamic_cast<Entier*>(a);
+        if(type==1){Reel* res = new Reel(e->toReel()); delete e; return res;}
+        else if(type==2){Rationnel* res = new Rationnel(e->toRationnel()); delete e; return res;}
+        else{return e;}
+    }
+    else if (typeid (*a).name()==typeid (Rationnel).name()){
+         Rationnel* e = dynamic_cast<Rationnel*>(a);
+         if(type==1){Reel* res = new Reel(e->toReel()); delete e; return res;}
+         else if(type==2){return e;}
+         else{Entier* res = new Entier(e->toEntier()); delete e; return res;}
+    }
+    else if (typeid (*a).name()==typeid (Reel).name()){
+            qDebug()<<"aqui12";
+         Reel* e = dynamic_cast<Reel*>(a);
+         if(type==1){return e;}
+         else if(type==2){Rationnel* res = new Rationnel(e->toRationnel()); delete e; return res;}
+         else{Entier* res = new Entier(e->toEntier()); delete e; return res;}
+    }
+}
+
 Constante* FabriqueConstante::getConstante(QString chaine)
 {
     int type = FormuleValide(chaine);
@@ -70,3 +92,31 @@ Constante* FabriqueConstante::newConstante(Constante* a){
     }
 }
 
+Constante* FabriqueConstante::getType(Constante* a, int type){
+    if(typeid (*a).name()==typeid (Entier).name()){
+        Entier* e = dynamic_cast<Entier*>(a);
+        if(type==1){Reel* res = new Reel(e->toReel()); delete e; return res;}
+        else if(type==2){Rationnel* res = new Rationnel(e->toRationnel()); delete e; return res;}
+        else{return e;}
+    }
+    else if (typeid (*a).name()==typeid (Rationnel).name()){
+         Rationnel* e = dynamic_cast<Rationnel*>(a);
+         if(type==1){Reel* res = new Reel(e->toReel()); delete e; return res;}
+         else if(type==2){return e;}
+         else{Entier* res = new Entier(e->toEntier()); delete e; return res;}
+    }
+    else if (typeid (*a).name()==typeid (Reel).name()){
+            qDebug()<<"aqui12";
+         Reel* e = dynamic_cast<Reel*>(a);
+         if(type==1){return e;}
+         else if(type==2){Rationnel* res = new Rationnel(e->toRationnel()); delete e; return res;}
+         else{Entier* res = new Entier(e->toEntier()); delete e; return res;}
+    }
+    else if (typeid (*a).name()==typeid (Complexe).name()){
+        FabriqueNombre fab;
+        Complexe* e = dynamic_cast<Complexe*>(a);
+        e->SetRe(fab.getType(e->GetRe(), type));
+        e->SetIm(fab.getType(e->GetIm(), type));
+        return e;
+    }
+}

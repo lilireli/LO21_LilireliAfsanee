@@ -191,6 +191,9 @@ void CalculatriceModele::getDiv(int type){
              res = *e / b;
         }
 
+        FabriqueConstante fab;
+        res = fab.getType(res, type);
+
         pile.push(res);
         qDebug() << "res : " << res->ConvertChaine();
         emit finOp(res, 2);

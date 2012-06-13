@@ -398,6 +398,9 @@
      <property name="text">
       <string>DEL</string>
      </property>
+     <property name="shortcut">
+      <string>Backspace</string>
+     </property>
     </widget>
     <widget class="QPushButton" name="opSumPressed">
      <property name="geometry">

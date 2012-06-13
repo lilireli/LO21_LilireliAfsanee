@@ -5,6 +5,7 @@
 #include <QUrl>
 #include <cmath>
 #include <typeinfo>
+#include <QDebug>
 
 namespace Calcul {
 
@@ -38,6 +39,8 @@ public:
     ~Complexe() {delete re; delete im;}
     Nombre* GetRe(){return re;}
     Nombre* GetIm(){return im;}
+    void SetRe(Nombre* r){re = r;}
+    void SetIm(Nombre* i){im = i;}
     QString ConvertChaine() {return re->ConvertChaine()+'$'+im->ConvertChaine();}
 
     // opérations de base
@@ -77,7 +80,10 @@ public:
     Reel(double r): n(r){}
     Reel(Reel* r): n(r->n){}
     ~Reel(){}
-    int GetReel(){return n;}
+    double GetReel(){return n;}
+    int GetEntier(){return static_cast<int>(n);}
+    Entier toEntier();
+    Rationnel toRationnel();
     Complexe toComplexe(){Complexe c(this); return c;}
     QString ConvertChaine() {return QString::number(n);}
 
@@ -156,6 +162,7 @@ public:
     int GetDen(){return den;}
     double GetRationnel(){return double(num)/den;}
     void Simplification();
+    Entier toEntier();
     Reel toReel(){Reel r(double(num)/den); return r;}
     Complexe toComplexe(){Complexe c(this); return c;}
     QString ConvertChaine() {return QString::number(num)+'/'+QString::number(den);}

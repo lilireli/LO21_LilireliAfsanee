@@ -10,12 +10,14 @@ class FabriqueNombre{
 public:
     Nombre* getNombre(QString chaine);
     Nombre* newNombre(Nombre* a);
+    Nombre* getType(Nombre* a, int type);
 };
 
 class FabriqueConstante{
 public:
     Constante* getConstante(QString chaine);
     Constante* getComplexe(QString chaine);
+    Constante* getType(Constante* a, int type);
     Constante* newConstante(Constante* a);
 };
 

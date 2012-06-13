@@ -1,6 +1,10 @@
 #include "Constantes.h"
 
 namespace Calcul{
+Entier Reel::toEntier(){Entier e(this->GetEntier()); return e;}
+
+Rationnel Reel::toRationnel(){Rationnel r(this->GetEntier()); return r;}
+
 Reel Reel::operator + (Reel r1){return n+r1.n;}
 
 Reel Reel::operator + (Entier r1){return *this+r1.toReel();}
