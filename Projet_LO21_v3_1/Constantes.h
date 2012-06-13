@@ -13,6 +13,7 @@ class Constante{
 public:
     virtual ~Constante(){}
     virtual QString ConvertChaine() = 0;   // fonction pour l'affichage
+    virtual QString ConvertChaineType(int type) = 0;   // affichage selon le type
 };
 
 class Complexe;
@@ -26,6 +27,7 @@ public:
     virtual ~Nombre(){}
     virtual Complexe toComplexe() = 0;
     virtual QString ConvertChaine() = 0;
+    virtual QString ConvertChaineType(int type) = 0;
 };
 
 
@@ -42,6 +44,7 @@ public:
     void SetRe(Nombre* r){re = r;}
     void SetIm(Nombre* i){im = i;}
     QString ConvertChaine() {return re->ConvertChaine()+'$'+im->ConvertChaine();}
+    QString ConvertChaineType(int type) {return re->ConvertChaineType(type)+'$'+im->ConvertChaineType(type);}
 
     // opérations de base
     Complexe operator + (Complexe r1);
@@ -86,6 +89,7 @@ public:
     Rationnel toRationnel();
     Complexe toComplexe(){Complexe c(this); return c;}
     QString ConvertChaine() {return QString::number(n);}
+    QString ConvertChaineType(int type);
 
     // opérations de base
     Reel operator = (Reel r1);
@@ -166,6 +170,7 @@ public:
     Reel toReel(){Reel r(double(num)/den); return r;}
     Complexe toComplexe(){Complexe c(this); return c;}
     QString ConvertChaine() {return QString::number(num)+'/'+QString::number(den);}
+    QString ConvertChaineType(int type);
 
     // opérations de base
     Rationnel operator = (Rationnel r1);
@@ -228,6 +233,7 @@ public:
     Rationnel toRationnel(){Rationnel r(n); return r;}
     Complexe toComplexe(){Complexe c(this); return c;}
     QString ConvertChaine() {return QString::number(n);}
+    QString ConvertChaineType(int type);
 
     // opérations de base
     Entier operator = (Entier r1);
@@ -289,6 +295,7 @@ public:
     Expression(Expression* e): exp(e->exp){}
     ~Expression(){}
     QString ConvertChaine(){return exp;}
+    QString ConvertChaineType(int type){return exp;}
 };
 
 }

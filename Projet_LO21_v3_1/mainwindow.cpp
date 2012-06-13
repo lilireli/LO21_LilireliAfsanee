@@ -365,7 +365,7 @@ void MainWindow::rafraichissement()
 
 void MainWindow::affichePile(Constante *cte, int j)
 {
-    // afficher selon mode (convertEnt, convertReel ...)
+    FabriqueConstante fab;// afficher selon mode (convertEnt, convertReel ...)
     ui->textEdit->clear();
 
     for(int k=0; k<j; k++){
@@ -373,7 +373,7 @@ void MainWindow::affichePile(Constante *cte, int j)
         delete del;
     }
 
-    if(cte!= NULL){ui->textEdit->insertPlainText(cte->ConvertChaine()+"\n");}
+    if(cte!= NULL){ui->textEdit->insertPlainText(cte->ConvertChaineType(typeNombre)+"\n");}
 
     int t=0;
     if(affichage.size()>=taille_pile){ t=taille_pile;}
@@ -384,7 +384,7 @@ void MainWindow::affichePile(Constante *cte, int j)
 
         for(int i=0; i<=t-1; i++){
             tmp[t-i-1] = affichage.pop();
-            ui->textEdit->insertPlainText(tmp[t-i-1]->ConvertChaine()+"\n");
+            ui->textEdit->insertPlainText(tmp[t-i-1]->ConvertChaineType(typeNombre)+"\n");
         }
 
         while(!affichage.isEmpty()) {affichage.pop();}

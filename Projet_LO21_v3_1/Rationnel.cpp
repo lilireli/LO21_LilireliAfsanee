@@ -24,6 +24,12 @@ void Rationnel::Simplification()
 
 Entier Rationnel::toEntier(){Entier e(this->toReel().GetEntier()); return e;}
 
+QString Rationnel::ConvertChaineType(int type){
+    if(type==1){return this->toReel().ConvertChaine();}
+    else if(type==2){return this->ConvertChaine();}
+    else{return this->toEntier().ConvertChaine();}
+}
+
 Rationnel Rationnel::operator + (Rationnel r1){
     Rationnel somme(num*r1.den + den*r1.num, den*r1.den);
     somme.Simplification();
