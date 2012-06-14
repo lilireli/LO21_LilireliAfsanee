@@ -2,12 +2,6 @@
 #include <qDebug>
 
 namespace Calcul{
-QString Entier::ConvertChaineType(int type){
-    if(type==1){return this->toReel().ConvertChaine();}
-    else if(type==2){return this->toRationnel().ConvertChaine();}
-    else{return this->ConvertChaine();}
-}
-
 Entier Entier::operator + (Entier r1){return n+r1.n;}
 
 Reel Entier::operator + (Reel r1){return this->toReel()+r1;}

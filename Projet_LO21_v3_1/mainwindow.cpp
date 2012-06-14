@@ -10,10 +10,15 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     model = new CalculatriceModele;
     buffer = "";
+    ui->numCompPressed->setEnabled(false);
+    degre=true;
+    complexe=false;
     taille_pile = 6;
     //connect(ActionAfficherClavie, SIGNAL(ac));
+    connect(ui->actionDegres, SIGNAL(triggered()), this, SLOT(degreActif()));
+    connect(ui->actionRadians, SIGNAL(triggered()), this, SLOT(radianActif()));
 
-    connect(this, SIGNAL(pressEntrerN(QString, int)), model, SLOT(getNombre(QString, int)));
+    connect(this, SIGNAL(pressEntrerN(QString, bool)), model, SLOT(getNombre(QString, bool)));
     connect(model, SIGNAL(evalExp(QString)), this, SLOT(EnterAction(QString)));
     connect(this, SIGNAL(finEntree()), this, SLOT(rafraichissement()));
     connect(model, SIGNAL(finOp(Constante*, int)), this, SLOT(affichePile(Constante*, int)));
@@ -29,13 +34,13 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(this, SIGNAL(pressFact()), model, SLOT(getFact()));
     connect(this, SIGNAL(pressSign()), model, SLOT(getSign()));
 
-    connect(this, SIGNAL(pressSin()), model, SLOT(getSin()));
-    connect(this, SIGNAL(pressCos()), model, SLOT(getCos()));
-    connect(this, SIGNAL(pressTan()), model, SLOT(getTan()));
+    connect(this, SIGNAL(pressSin(bool)), model, SLOT(getSin(bool)));
+    connect(this, SIGNAL(pressCos(bool)), model, SLOT(getCos(bool)));
+    connect(this, SIGNAL(pressTan(bool)), model, SLOT(getTan(bool)));
 
-    connect(this, SIGNAL(pressSinh()), model, SLOT(getSinh()));
-    connect(this, SIGNAL(pressCosh()), model, SLOT(getCosh()));
-    connect(this, SIGNAL(pressTanh()), model, SLOT(getTanh()));
+    connect(this, SIGNAL(pressSinh(bool)), model, SLOT(getSinh(bool)));
+    connect(this, SIGNAL(pressCosh(bool)), model, SLOT(getCosh(bool)));
+    connect(this, SIGNAL(pressTanh(bool)), model, SLOT(getTanh(bool)));
 
     connect(this, SIGNAL(pressLn()), model, SLOT(getLn()));
     connect(this, SIGNAL(pressLog()), model, SLOT(getLog()));
@@ -248,8 +253,9 @@ void MainWindow::on_buttonRationnel_clicked(){
 }
 
 void MainWindow::on_buttonComplexe_clicked(){
-    if (complexe != 1){
-        complexe = 1;
+    if (!complexe){
+        complexe = true;
+        ui->numCompPressed->setEnabled(true);
         ui->opCoshPressed->setVisible(false);
         ui->opCosPressed->setVisible(false);
         ui->opFactPressed->setVisible(false);
@@ -264,38 +270,39 @@ void MainWindow::on_buttonComplexe_clicked(){
         ui->opTanPressed->setVisible(false);
     }
     else {
-        complexe = 0;
+        complexe = false;
+        ui->numCompPressed->setEnabled(false);
+        ui->opCoshPressed->setVisible(true);
+        ui->opCosPressed->setVisible(true);
+        ui->opInvPressed->setVisible(true);
+        ui->opLnPressed->setVisible(true);
+        ui->opLogPressed->setVisible(true);
+        ui->opPowPressed->setVisible(true);
+        ui->opSinhPressed->setVisible(true);
+        ui->opSinPressed->setVisible(true);
+        ui->opTanhPressed->setVisible(true);
+        ui->opTanPressed->setVisible(true);
+
         if (typeNombre == 0){
-            ui->opCoshPressed->setVisible(true);
-            ui->opCosPressed->setVisible(true);
             ui->opFactPressed->setVisible(true);
-            ui->opInvPressed->setVisible(true);
-            ui->opLnPressed->setVisible(true);
-            ui->opLogPressed->setVisible(true);
             ui->opModPressed->setVisible(true);
-            ui->opPowPressed->setVisible(true);
-            ui->opSinhPressed->setVisible(true);
-            ui->opSinPressed->setVisible(true);
-            ui->opTanhPressed->setVisible(true);
-            ui->opTanPressed->setVisible(true);
         }
         else {
-            ui->opCoshPressed->setVisible(true);
-            ui->opCosPressed->setVisible(true);
             ui->opFactPressed->setVisible(false);
-            ui->opInvPressed->setVisible(true);
-            ui->opLnPressed->setVisible(true);
-            ui->opLogPressed->setVisible(true);
             ui->opModPressed->setVisible(false);
-            ui->opPowPressed->setVisible(true);
-            ui->opSinhPressed->setVisible(true);
-            ui->opSinPressed->setVisible(true);
-            ui->opTanhPressed->setVisible(true);
-            ui->opTanPressed->setVisible(true);
         }
     }
 }
 
+void MainWindow::degreActif(){
+    ui->actionRadians->setChecked(false);
+    degre=true;
+}
+
+void MainWindow::radianActif(){
+    ui->actionDegres->setChecked(false);
+    degre=false;
+}
 
 //opérations essentielles
 void MainWindow::on_EnterPressed_clicked()
@@ -322,13 +329,13 @@ void MainWindow::EnterAction(QString s)
         if(s=="fact"){emit pressFact();}
         if(s=="sign"){emit pressSign();}
 
-        if(s=="sin"){emit pressSin();}
-        if(s=="cos"){emit pressCos();}
-        if(s=="tan"){emit pressTan();}
+        if(s=="sin"){emit pressSin(degre);}
+        if(s=="cos"){emit pressCos(degre);}
+        if(s=="tan"){emit pressTan(degre);}
 
-        if(s=="sinh"){emit pressSinh();}
-        if(s=="cosh"){emit pressCosh();}
-        if(s=="tanh"){emit pressTanh();}
+        if(s=="sinh"){emit pressSinh(degre);}
+        if(s=="cosh"){emit pressCosh(degre);}
+        if(s=="tanh"){emit pressTanh(degre);}
 
         if(s=="ln"){emit pressLn();}
         if(s=="log"){emit pressLog();}
@@ -365,7 +372,6 @@ void MainWindow::rafraichissement()
 
 void MainWindow::affichePile(Constante *cte, int j)
 {
-    FabriqueConstante fab;// afficher selon mode (convertEnt, convertReel ...)
     ui->textEdit->clear();
 
     for(int k=0; k<j; k++){
@@ -373,7 +379,7 @@ void MainWindow::affichePile(Constante *cte, int j)
         delete del;
     }
 
-    if(cte!= NULL){ui->textEdit->insertPlainText(cte->ConvertChaineType(typeNombre)+"\n");}
+    if(cte!= NULL){ui->textEdit->insertPlainText(cte->ConvertChaine()+"\n");}
 
     int t=0;
     if(affichage.size()>=taille_pile){ t=taille_pile;}
@@ -384,7 +390,7 @@ void MainWindow::affichePile(Constante *cte, int j)
 
         for(int i=0; i<=t-1; i++){
             tmp[t-i-1] = affichage.pop();
-            ui->textEdit->insertPlainText(tmp[t-i-1]->ConvertChaineType(typeNombre)+"\n");
+            ui->textEdit->insertPlainText(tmp[t-i-1]->ConvertChaine()+"\n");
         }
 
         while(!affichage.isEmpty()) {affichage.pop();}

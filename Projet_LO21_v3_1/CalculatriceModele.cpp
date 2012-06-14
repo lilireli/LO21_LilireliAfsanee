@@ -22,11 +22,11 @@ void CalculatriceModele::affichePileTaille(){
     */
 }
 
-void CalculatriceModele::getNombre(QString s, int complexe){
+void CalculatriceModele::getNombre(QString s, bool complexe){
     FabriqueConstante cte;
     Constante* val;
 
-    if(complexe!=1){
+    if(!complexe){
         val = cte.getConstante(s);
 
         if (typeid (*val).name()==typeid (Complexe).name()){
@@ -36,6 +36,9 @@ void CalculatriceModele::getNombre(QString s, int complexe){
         }
     }else{//si mode complexe activé
         val = cte.getComplexe(s);
+        // on décide d'allouer quand même le nombre si il n'est pas complexe,
+        // la conversion est possible et l'utilisateur peut oublier de rentrer tout le nombre si il est réel
+        // on convertit cependant le nombre en complexe
     }
 
     if(val!=NULL) {pile.push(val);
@@ -78,6 +81,24 @@ void CalculatriceModele::getAdd(){
     if(pile.size()>=2){
         Constante* b = pile.pop();
         Constante* a = pile.pop();
+
+        if (typeid (*a).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(a);
+             e->addCalcul(b->ConvertChaine()+" +");
+             pile.push(e);
+             emit finOp(e, 2);
+             delete b;
+             return;
+        }
+        if (typeid (*b).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(b);
+             e->addCalcul(a->ConvertChaine()+" +");
+             pile.push(e);
+             emit finOp(e, 2);
+             delete a;
+             return;
+        }
+
         Constante* res;
 
         if(typeid (*a).name()==typeid (Entier).name()){
@@ -109,6 +130,24 @@ void CalculatriceModele::getSous(){
     if(pile.size()>=2){
         Constante* b = pile.pop();
         Constante* a = pile.pop();
+
+        if (typeid (*a).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(a);
+             e->addCalcul(b->ConvertChaine()+" -");
+             pile.push(e);
+             emit finOp(e, 2);
+             delete b;
+             return;
+        }
+        if (typeid (*b).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(b);
+             e->addCalcul(a->ConvertChaine()+" -");
+             pile.push(e);
+             emit finOp(e, 2);
+             delete a;
+             return;
+        }
+
         Constante* res;
 
         if(typeid (*a).name()==typeid (Entier).name()){
@@ -140,6 +179,24 @@ void CalculatriceModele::getMult(){
     if(pile.size()>=2){
         Constante* b = pile.pop();
         Constante* a = pile.pop();
+
+        if (typeid (*a).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(a);
+             e->addCalcul(b->ConvertChaine()+" *");
+             pile.push(e);
+             emit finOp(e, 2);
+             delete b;
+             return;
+        }
+        if (typeid (*b).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(b);
+             e->addCalcul(a->ConvertChaine()+" *");
+             pile.push(e);
+             emit finOp(e, 2);
+             delete a;
+             return;
+        }
+
         Constante* res;
 
         if(typeid (*a).name()==typeid (Entier).name()){
@@ -172,7 +229,41 @@ void CalculatriceModele::getDiv(int type){
     if(pile.size()>=2){
         Constante* b = pile.pop();
         Constante* a = pile.pop();
+
+        if (typeid (*a).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(a);
+             e->addCalcul(b->ConvertChaine()+" /");
+             pile.push(e);
+             emit finOp(e, 2);
+             delete b;
+             return;
+        }
+        if (typeid (*b).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(b);
+             e->addCalcul(a->ConvertChaine()+" /");
+             pile.push(e);
+             emit finOp(e, 2);
+             delete a;
+             return;
+        }
+
         Constante* res;
+        if(type==2)// si le type est rationnel on converti les réels en entier avant la division
+                   // afin de limiter les pertes d'infos de la division
+        {
+            if (typeid (*a).name()==typeid (Reel).name()){
+                Reel* e = dynamic_cast<Reel*>(a);
+                Entier *en = new Entier (e->toEntier());
+                delete a;
+                a = en;
+            }
+            if (typeid (*b).name()==typeid (Reel).name()){
+                Reel* e = dynamic_cast<Reel*>(b);
+                Entier *en = new Entier (e->toEntier());
+                delete b;
+                b = en;
+            }
+        }
 
         if(typeid (*a).name()==typeid (Entier).name()){
             Entier* e = dynamic_cast<Entier*>(a);
@@ -206,6 +297,24 @@ void CalculatriceModele::getPow(){
     if(pile.size()>=2){
         Constante* b = pile.pop();
         Constante* a = pile.pop();
+
+        if (typeid (*a).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(a);
+             e->addCalcul(b->ConvertChaine()+" pow");
+             pile.push(e);
+             emit finOp(e, 2);
+             delete b;
+             return;
+        }
+        if (typeid (*b).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(b);
+             e->addCalcul(a->ConvertChaine()+" pow");
+             pile.push(e);
+             emit finOp(e, 2);
+             delete a;
+             return;
+        }
+
         Constante* res;
 
         if(typeid (*a).name()==typeid (Entier).name()){
@@ -233,6 +342,24 @@ void CalculatriceModele::getMod(){
     if(pile.size()>=2){
         Constante* b = pile.pop();
         Constante* a = pile.pop();
+
+        if (typeid (*a).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(a);
+             e->addCalcul(b->ConvertChaine()+" mod");
+             pile.push(e);
+             emit finOp(e, 2);
+             delete b;
+             return;
+        }
+        if (typeid (*b).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(b);
+             e->addCalcul(a->ConvertChaine()+" mod");
+             pile.push(e);
+             emit finOp(e, 2);
+             delete a;
+             return;
+        }
+
         Constante* res;
 
         if(typeid (*a).name()==typeid (Entier).name() && typeid (*b).name()==typeid (Entier).name()){
@@ -254,6 +381,15 @@ void CalculatriceModele::getMod(){
 void CalculatriceModele::getFact(){
     if(pile.size()>=1){
         Constante* a = pile.pop();
+
+        if (typeid (*a).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(a);
+             e->addCalcul(" fact");
+             pile.push(e);
+             emit finOp(e, 1);
+             return;
+        }
+
         Constante* res;
 
         if(typeid (*a).name()==typeid (Entier).name()){
@@ -272,6 +408,15 @@ void CalculatriceModele::getFact(){
 void CalculatriceModele::getSign(){
     if(pile.size()>=1){
         Constante* a = pile.pop();
+
+        if (typeid (*a).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(a);
+             e->addCalcul(" sign");
+             pile.push(e);
+             emit finOp(e, 1);
+             return;
+        }
+
         Constante* res;
 
         if(typeid (*a).name()==typeid (Entier).name()){
@@ -298,10 +443,21 @@ void CalculatriceModele::getSign(){
 }
 
 
-void CalculatriceModele::getSin(){
+void CalculatriceModele::getSin(bool degre){
     if(pile.size()>=1){
         Constante* a = pile.pop();
+
+        if (typeid (*a).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(a);
+             e->addCalcul(" sin");
+             pile.push(e);
+             emit finOp(e, 1);
+             return;
+        }
+
         Constante* res;
+
+        if(degre){Reel rad(PI/180); a = rad*a;}
 
         if(typeid (*a).name()==typeid (Entier).name()){
              Entier* e = dynamic_cast<Entier*>(a);
@@ -315,7 +471,6 @@ void CalculatriceModele::getSin(){
              Reel* e = dynamic_cast<Reel*>(a);
              res = new Reel(e->sinus());
         }
-
         pile.push(res);
         qDebug() << "res : " << res->ConvertChaine();
         emit finOp(res, 1);
@@ -323,10 +478,21 @@ void CalculatriceModele::getSin(){
     }
 }
 
-void CalculatriceModele::getCos(){
+void CalculatriceModele::getCos(bool degre){
     if(pile.size()>=1){
         Constante* a = pile.pop();
+
+        if (typeid (*a).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(a);
+             e->addCalcul(" cos");
+             pile.push(e);
+             emit finOp(e, 1);
+             return;
+        }
+
         Constante* res;
+
+        if(degre){Reel rad(PI/180); a = rad*a;}
 
         if(typeid (*a).name()==typeid (Entier).name()){
             Entier* e = dynamic_cast<Entier*>(a);
@@ -347,10 +513,21 @@ void CalculatriceModele::getCos(){
     }
 }
 
-void CalculatriceModele::getTan(){
+void CalculatriceModele::getTan(bool degre){
     if(pile.size()>=1){
         Constante* a = pile.pop();
+
+        if (typeid (*a).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(a);
+             e->addCalcul(" tan");
+             pile.push(e);
+             emit finOp(e, 1);
+             return;
+        }
+
         Constante* res;
+
+        if(degre){Reel rad(PI/180); a = rad*a;}
 
         if(typeid (*a).name()==typeid (Entier).name()){
             Entier* e = dynamic_cast<Entier*>(a);
@@ -364,6 +541,7 @@ void CalculatriceModele::getTan(){
              Reel* e = dynamic_cast<Reel*>(a);
              res = new Reel(e->tangente());
         }
+
         pile.push(res);
         qDebug() << "res : " << res->ConvertChaine();
         emit finOp(res, 1);
@@ -371,10 +549,21 @@ void CalculatriceModele::getTan(){
     }
 }
 
-void CalculatriceModele::getSinh(){
+void CalculatriceModele::getSinh(bool degre){
     if(pile.size()>=1){
         Constante* a = pile.pop();
+
+        if (typeid (*a).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(a);
+             e->addCalcul(" sinh");
+             pile.push(e);
+             emit finOp(e, 1);
+             return;
+        }
+
         Constante* res;
+
+        if(degre){Reel rad(PI/180); a = rad*a;}
 
         if(typeid (*a).name()==typeid (Entier).name()){
             Entier* e = dynamic_cast<Entier*>(a);
@@ -388,6 +577,7 @@ void CalculatriceModele::getSinh(){
              Reel* e = dynamic_cast<Reel*>(a);
              res = new Reel(e->sinush());
         }
+
         pile.push(res);
         qDebug() << "res : " << res->ConvertChaine();
         emit finOp(res, 1);
@@ -395,10 +585,21 @@ void CalculatriceModele::getSinh(){
     }
 }
 
-void CalculatriceModele::getCosh(){
+void CalculatriceModele::getCosh(bool degre){
     if(pile.size()>=1){
         Constante* a = pile.pop();
+
+        if (typeid (*a).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(a);
+             e->addCalcul(" cosh");
+             pile.push(e);
+             emit finOp(e, 1);
+             return;
+        }
+
         Constante* res;
+
+        if(degre){Reel rad(PI/180); a = rad*a;}
 
         if(typeid (*a).name()==typeid (Entier).name()){
             Entier* e = dynamic_cast<Entier*>(a);
@@ -412,6 +613,7 @@ void CalculatriceModele::getCosh(){
              Reel* e = dynamic_cast<Reel*>(a);
              res = new Reel(e->cosinush());
         }
+
         pile.push(res);
         qDebug() << "res : " << res->ConvertChaine();
         emit finOp(res, 1);
@@ -419,10 +621,21 @@ void CalculatriceModele::getCosh(){
     }
 }
 
-void CalculatriceModele::getTanh(){
+void CalculatriceModele::getTanh(bool degre){
     if(pile.size()>=1){
         Constante* a = pile.pop();
+
+        if (typeid (*a).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(a);
+             e->addCalcul(" tanh");
+             pile.push(e);
+             emit finOp(e, 1);
+             return;
+        }
+
         Constante* res;
+
+        if(degre){Reel rad(PI/180); a = rad*a;}
 
         if(typeid (*a).name()==typeid (Entier).name()){
             Entier* e = dynamic_cast<Entier*>(a);
@@ -436,6 +649,7 @@ void CalculatriceModele::getTanh(){
              Reel* e = dynamic_cast<Reel*>(a);
              res = new Reel(e->tangenteh());
         }
+
         pile.push(res);
         qDebug() << "res : " << res->ConvertChaine();
         emit finOp(res, 1);
@@ -447,6 +661,15 @@ void CalculatriceModele::getTanh(){
 void CalculatriceModele::getLn(){
     if(pile.size()>=1){
         Constante* a = pile.pop();
+
+        if (typeid (*a).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(a);
+             e->addCalcul(" ln");
+             pile.push(e);
+             emit finOp(e, 1);
+             return;
+        }
+
         Constante* res;
 
         if(typeid (*a).name()==typeid (Entier).name()){
@@ -468,10 +691,18 @@ void CalculatriceModele::getLn(){
     }
 }
 
-
 void CalculatriceModele::getLog(){
     if(pile.size()>=1){
         Constante* a = pile.pop();
+
+        if (typeid (*a).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(a);
+             e->addCalcul(" log");
+             pile.push(e);
+             emit finOp(e, 1);
+             return;
+        }
+
         Constante* res;
 
         if(typeid (*a).name()==typeid (Entier).name()){
@@ -496,6 +727,15 @@ void CalculatriceModele::getLog(){
 void CalculatriceModele::getInv(){
     if(pile.size()>=1){
         Constante* a = pile.pop();
+
+        if (typeid (*a).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(a);
+             e->addCalcul(" inv");
+             pile.push(e);
+             emit finOp(e, 1);
+             return;
+        }
+
         Constante* res;
 
         if(typeid (*a).name()==typeid (Entier).name()){
@@ -521,6 +761,15 @@ void CalculatriceModele::getInv(){
 void CalculatriceModele::getSqrt(){
     if(pile.size()>=1){
         Constante* a = pile.pop();
+
+        if (typeid (*a).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(a);
+             e->addCalcul(" sqrt");
+             pile.push(e);
+             emit finOp(e, 1);
+             return;
+        }
+
         Constante* res;
 
         if(typeid (*a).name()==typeid (Entier).name()){
@@ -545,6 +794,15 @@ void CalculatriceModele::getSqrt(){
 void CalculatriceModele::getSqr(){
     if(pile.size()>=1){
         Constante* a = pile.pop();
+
+        if (typeid (*a).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(a);
+             e->addCalcul(" sqr");
+             pile.push(e);
+             emit finOp(e, 1);
+             return;
+        }
+
         Constante* res;
 
         if(typeid (*a).name()==typeid (Entier).name()){
@@ -573,6 +831,15 @@ void CalculatriceModele::getSqr(){
 void CalculatriceModele::getCube(){
     if(pile.size()>=1){
         Constante* a = pile.pop();
+
+        if (typeid (*a).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(a);
+             e->addCalcul(" cube");
+             pile.push(e);
+             emit finOp(e, 1);
+             return;
+        }
+
         Constante* res;
 
         if(typeid (*a).name()==typeid (Entier).name()){

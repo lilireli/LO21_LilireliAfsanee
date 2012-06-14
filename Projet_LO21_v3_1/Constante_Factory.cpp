@@ -90,6 +90,10 @@ Constante* FabriqueConstante::newConstante(Constante* a){
          Complexe* e = dynamic_cast<Complexe*>(a);
          return new Complexe(e);
     }
+    else if (typeid (*a).name()==typeid (Expression).name()){
+         Expression* e = dynamic_cast<Expression*>(a);
+         return new Expression(e);
+    }
 }
 
 Constante* FabriqueConstante::getType(Constante* a, int type){

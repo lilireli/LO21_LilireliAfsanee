@@ -7,13 +7,14 @@
 #include <typeinfo>
 #include <QDebug>
 
+#define PI 3.14159265
+
 namespace Calcul {
 
 class Constante{
 public:
     virtual ~Constante(){}
-    virtual QString ConvertChaine() = 0;   // fonction pour l'affichage
-    virtual QString ConvertChaineType(int type) = 0;   // affichage selon le type
+    virtual const QString ConvertChaine() const = 0;   // fonction pour l'affichage
 };
 
 class Complexe;
@@ -26,8 +27,7 @@ class Nombre : public Constante{
 public:
     virtual ~Nombre(){}
     virtual Complexe toComplexe() = 0;
-    virtual QString ConvertChaine() = 0;
-    virtual QString ConvertChaineType(int type) = 0;
+    virtual const QString ConvertChaine() const = 0;
 };
 
 
@@ -39,12 +39,11 @@ public:
     Complexe(Nombre* reel, Nombre* imaginaire=NULL);
     Complexe(Complexe* comp);
     ~Complexe() {delete re; delete im;}
-    Nombre* GetRe(){return re;}
-    Nombre* GetIm(){return im;}
+    Nombre* GetRe()const {return re;}
+    Nombre* GetIm()const{return im;}
     void SetRe(Nombre* r){re = r;}
     void SetIm(Nombre* i){im = i;}
-    QString ConvertChaine() {return re->ConvertChaine()+'$'+im->ConvertChaine();}
-    QString ConvertChaineType(int type) {return re->ConvertChaineType(type)+'$'+im->ConvertChaineType(type);}
+    const QString ConvertChaine()const {return re->ConvertChaine()+'$'+im->ConvertChaine();}
 
     // opérations de base
     Complexe operator + (Complexe r1);
@@ -83,16 +82,15 @@ public:
     Reel(double r): n(r){}
     Reel(Reel* r): n(r->n){}
     ~Reel(){}
-    double GetReel(){return n;}
-    int GetEntier(){return static_cast<int>(n);}
+    double GetReel()const{return n;}
+    int GetEntier()const{return static_cast<int>(n);}
     Entier toEntier();
     Rationnel toRationnel();
     Complexe toComplexe(){Complexe c(this); return c;}
-    QString ConvertChaine() {return QString::number(n);}
-    QString ConvertChaineType(int type);
+    const QString ConvertChaine()const {return QString::number(n);}
 
     // opérations de base
-    Reel operator = (Reel r1);
+    Reel operator = (Reel r1){return r1;}
 
     Reel operator + (Reel r1);
     Reel operator + (Entier r1);
@@ -162,19 +160,16 @@ public:
     ~Rationnel(){}
     void SetNum(int n){num=n;}
     void SetDen(int n){den=n;}
-    int GetNum(){return num;}
-    int GetDen(){return den;}
-    double GetRationnel(){return double(num)/den;}
+    int GetNum()const{return num;}
+    int GetDen()const{return den;}
+    double GetRationnel()const{return double(num)/den;}
     void Simplification();
     Entier toEntier();
     Reel toReel(){Reel r(double(num)/den); return r;}
     Complexe toComplexe(){Complexe c(this); return c;}
-    QString ConvertChaine() {return QString::number(num)+'/'+QString::number(den);}
-    QString ConvertChaineType(int type);
+    const QString ConvertChaine()const {return QString::number(num)+'/'+QString::number(den);}
 
     // opérations de base
-    Rationnel operator = (Rationnel r1);
-
     Rationnel operator + (Rationnel r1);
     Rationnel operator + (Entier r1);
     Reel operator + (Reel r1);
@@ -227,17 +222,14 @@ public:
     Entier(int e): n(e){}
     Entier(Entier* e): n(e->n){}
     ~Entier(){}
-    int GetEntier(){return n;}
-    double GetReel() {return n;}
+    int GetEntier()const{return n;}
+    double GetReel()const {return n;}
     Reel toReel(){Reel r(n); return r;}
     Rationnel toRationnel(){Rationnel r(n); return r;}
     Complexe toComplexe(){Complexe c(this); return c;}
-    QString ConvertChaine() {return QString::number(n);}
-    QString ConvertChaineType(int type);
+    const QString ConvertChaine()const {return QString::number(n);}
 
     // opérations de base
-    Entier operator = (Entier r1);
-
     Entier operator + (Entier r1);
     Reel operator + (Reel r1);
     Rationnel operator +(Rationnel r1);
@@ -294,8 +286,8 @@ public:
     Expression(QString s): exp(s){}
     Expression(Expression* e): exp(e->exp){}
     ~Expression(){}
-    QString ConvertChaine(){return exp;}
-    QString ConvertChaineType(int type){return exp;}
+    const QString ConvertChaine()const {return exp;}
+    void addCalcul(QString s){exp.remove(exp.length()-1, 1); exp+=" "+s+"'";}
 };
 
 }

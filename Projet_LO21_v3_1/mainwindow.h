@@ -79,6 +79,8 @@ private slots:
     void on_buttonReel_clicked();
     void on_buttonRationnel_clicked();
     void on_buttonComplexe_clicked();
+    void degreActif();
+    void radianActif();
 
     //pile
     void on_opSwapPressed_clicked();
@@ -90,7 +92,7 @@ private slots:
 
 
 signals:
-    void pressEntrerN(QString s, int complexe);
+    void pressEntrerN(QString s, bool complexe);
     void finEntree();
     void pressEval();
 
@@ -104,13 +106,13 @@ signals:
     void pressFact();
     void pressSign();
 
-    void pressSin();
-    void pressCos();
-    void pressTan();
+    void pressSin(bool degre);
+    void pressCos(bool degre);
+    void pressTan(bool degre);
 
-    void pressSinh();
-    void pressCosh();
-    void pressTanh();
+    void pressSinh(bool degre);
+    void pressCosh(bool degre);
+    void pressTanh(bool degre);
 
     void pressLn();
     void pressLog();
@@ -132,9 +134,9 @@ private:
     Ui::MainWindow *ui;
     Stack affichage;
     int typeNombre;  // =0 si entier, =1 si réel, =2 si rationnel
-    int complexe;  // =0 si non activé, =1 si activé
+    bool complexe;  // =0 si non activé, =1 si activé
+    bool degre;
     int taille_pile;
-    int degre;
 
     CalculatriceModele *model;
     QString buffer;

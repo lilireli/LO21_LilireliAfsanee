@@ -5,12 +5,6 @@ Entier Reel::toEntier(){Entier e(this->GetEntier()); return e;}
 
 Rationnel Reel::toRationnel(){Rationnel r(this->GetEntier()); return r;}
 
-QString Reel::ConvertChaineType(int type){
-    if(type==1){return this->ConvertChaine();}
-    else if(type==2){return this->toRationnel().ConvertChaine();}
-    else{return this->toEntier().ConvertChaine();}
-}
-
 Reel Reel::operator + (Reel r1){return n+r1.n;}
 
 Reel Reel::operator + (Entier r1){return *this+r1.toReel();}

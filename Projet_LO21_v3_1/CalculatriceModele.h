@@ -28,7 +28,7 @@ signals:
      void evalExp(QString s);
 
 public slots:
-     void getNombre(QString s, int complexe);
+     void getNombre(QString s, bool complexe);
      void getExpression();
 
      void getAdd();
@@ -41,13 +41,13 @@ public slots:
      void getFact();
      void getSign();
 
-     void getSin();
-     void getCos();
-     void getTan();
+     void getSin(bool degre);
+     void getCos(bool degre);
+     void getTan(bool degre);
 
-     void getSinh();
-     void getCosh();
-     void getTanh();
+     void getSinh(bool degre);
+     void getCosh(bool degre);
+     void getTanh(bool degre);
 
      void getLn();
      void getLog();
