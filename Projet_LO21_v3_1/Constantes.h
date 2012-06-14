@@ -287,7 +287,9 @@ public:
     Expression(Expression* e): exp(e->exp){}
     ~Expression(){}
     const QString ConvertChaine()const {return exp;}
+    const QString Tronque(){exp.remove(0, 1); exp.remove(exp.length()-1, 1); return exp;}
     void addCalcul(QString s){exp.remove(exp.length()-1, 1); exp+=" "+s+"'";}
+    void calculAdd(QString s){exp.remove(0, 1); exp="'"+s+" "+exp;} // ajoute avant expression une constante
 };
 
 }

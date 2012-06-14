@@ -82,6 +82,15 @@ void CalculatriceModele::getAdd(){
         Constante* b = pile.pop();
         Constante* a = pile.pop();
 
+        if (typeid (*a).name()==typeid (Expression).name() && typeid (*b).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(a);
+             Expression* f = dynamic_cast<Expression*>(b);
+             e->addCalcul(f->Tronque()+" +");
+             pile.push(e);
+             emit finOp(e, 2);
+             delete b;
+             return;
+        }
         if (typeid (*a).name()==typeid (Expression).name()){
              Expression* e = dynamic_cast<Expression*>(a);
              e->addCalcul(b->ConvertChaine()+" +");
@@ -92,7 +101,7 @@ void CalculatriceModele::getAdd(){
         }
         if (typeid (*b).name()==typeid (Expression).name()){
              Expression* e = dynamic_cast<Expression*>(b);
-             e->addCalcul(a->ConvertChaine()+" +");
+             e->calculAdd(a->ConvertChaine()+" +");
              pile.push(e);
              emit finOp(e, 2);
              delete a;
@@ -131,6 +140,15 @@ void CalculatriceModele::getSous(){
         Constante* b = pile.pop();
         Constante* a = pile.pop();
 
+        if (typeid (*a).name()==typeid (Expression).name() && typeid (*b).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(a);
+             Expression* f = dynamic_cast<Expression*>(b);
+             e->addCalcul(f->Tronque()+" -");
+             pile.push(e);
+             emit finOp(e, 2);
+             delete b;
+             return;
+        }
         if (typeid (*a).name()==typeid (Expression).name()){
              Expression* e = dynamic_cast<Expression*>(a);
              e->addCalcul(b->ConvertChaine()+" -");
@@ -141,7 +159,7 @@ void CalculatriceModele::getSous(){
         }
         if (typeid (*b).name()==typeid (Expression).name()){
              Expression* e = dynamic_cast<Expression*>(b);
-             e->addCalcul(a->ConvertChaine()+" -");
+             e->calculAdd(a->ConvertChaine()+" -");
              pile.push(e);
              emit finOp(e, 2);
              delete a;
@@ -180,6 +198,15 @@ void CalculatriceModele::getMult(){
         Constante* b = pile.pop();
         Constante* a = pile.pop();
 
+        if (typeid (*a).name()==typeid (Expression).name() && typeid (*b).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(a);
+             Expression* f = dynamic_cast<Expression*>(b);
+             e->addCalcul(f->Tronque()+" *");
+             pile.push(e);
+             emit finOp(e, 2);
+             delete b;
+             return;
+        }
         if (typeid (*a).name()==typeid (Expression).name()){
              Expression* e = dynamic_cast<Expression*>(a);
              e->addCalcul(b->ConvertChaine()+" *");
@@ -190,7 +217,7 @@ void CalculatriceModele::getMult(){
         }
         if (typeid (*b).name()==typeid (Expression).name()){
              Expression* e = dynamic_cast<Expression*>(b);
-             e->addCalcul(a->ConvertChaine()+" *");
+             e->calculAdd(a->ConvertChaine()+" *");
              pile.push(e);
              emit finOp(e, 2);
              delete a;
@@ -230,6 +257,15 @@ void CalculatriceModele::getDiv(int type){
         Constante* b = pile.pop();
         Constante* a = pile.pop();
 
+        if (typeid (*a).name()==typeid (Expression).name() && typeid (*b).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(a);
+             Expression* f = dynamic_cast<Expression*>(b);
+             e->addCalcul(f->Tronque()+" /");
+             pile.push(e);
+             emit finOp(e, 2);
+             delete b;
+             return;
+        }
         if (typeid (*a).name()==typeid (Expression).name()){
              Expression* e = dynamic_cast<Expression*>(a);
              e->addCalcul(b->ConvertChaine()+" /");
@@ -240,7 +276,7 @@ void CalculatriceModele::getDiv(int type){
         }
         if (typeid (*b).name()==typeid (Expression).name()){
              Expression* e = dynamic_cast<Expression*>(b);
-             e->addCalcul(a->ConvertChaine()+" /");
+             e->calculAdd(a->ConvertChaine()+" /");
              pile.push(e);
              emit finOp(e, 2);
              delete a;
@@ -298,6 +334,15 @@ void CalculatriceModele::getPow(){
         Constante* b = pile.pop();
         Constante* a = pile.pop();
 
+        if (typeid (*a).name()==typeid (Expression).name() && typeid (*b).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(a);
+             Expression* f = dynamic_cast<Expression*>(b);
+             e->addCalcul(f->Tronque()+" -");
+             pile.push(e);
+             emit finOp(e, 2);
+             delete b;
+             return;
+        }
         if (typeid (*a).name()==typeid (Expression).name()){
              Expression* e = dynamic_cast<Expression*>(a);
              e->addCalcul(b->ConvertChaine()+" pow");
@@ -308,7 +353,7 @@ void CalculatriceModele::getPow(){
         }
         if (typeid (*b).name()==typeid (Expression).name()){
              Expression* e = dynamic_cast<Expression*>(b);
-             e->addCalcul(a->ConvertChaine()+" pow");
+             e->calculAdd(a->ConvertChaine()+" pow");
              pile.push(e);
              emit finOp(e, 2);
              delete a;
@@ -343,6 +388,15 @@ void CalculatriceModele::getMod(){
         Constante* b = pile.pop();
         Constante* a = pile.pop();
 
+        if (typeid (*a).name()==typeid (Expression).name() && typeid (*b).name()==typeid (Expression).name()){
+             Expression* e = dynamic_cast<Expression*>(a);
+             Expression* f = dynamic_cast<Expression*>(b);
+             e->addCalcul(f->Tronque()+" -");
+             pile.push(e);
+             emit finOp(e, 2);
+             delete b;
+             return;
+        }
         if (typeid (*a).name()==typeid (Expression).name()){
              Expression* e = dynamic_cast<Expression*>(a);
              e->addCalcul(b->ConvertChaine()+" mod");
@@ -353,7 +407,7 @@ void CalculatriceModele::getMod(){
         }
         if (typeid (*b).name()==typeid (Expression).name()){
              Expression* e = dynamic_cast<Expression*>(b);
-             e->addCalcul(a->ConvertChaine()+" mod");
+             e->calculAdd(a->ConvertChaine()+" mod");
              pile.push(e);
              emit finOp(e, 2);
              delete a;
