@@ -5,6 +5,8 @@
 #include <QWidget>
 #include <QDebug>
 #include <QStack>
+#include <QApplication>
+#include <QtGui>
 #include "Gestion_constantes.h"
 #include "CalculatriceModele.h"
 
@@ -15,6 +17,7 @@ class MainWindow;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
+    QDialog FenetrePile;
 
 public:
     explicit MainWindow(QWidget *parent = 0);
@@ -44,6 +47,7 @@ private slots:
     void on_opDelPressed_clicked();
     void rafraichissement();
     void affichePile(Constante* cte, int j);
+    void setTaillePile(int n);
 
     //opérations
     void on_opPlusPressed_clicked();

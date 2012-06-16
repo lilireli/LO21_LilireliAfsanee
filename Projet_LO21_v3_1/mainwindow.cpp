@@ -14,6 +14,27 @@ MainWindow::MainWindow(QWidget *parent) :
     degre=true;
     complexe=false;
     taille_pile = 6;
+
+    FenetrePile.setFixedSize(200, 150);
+    QGroupBox *groupPile = new QGroupBox("Taille de la pile d'affichage", &FenetrePile);
+
+    QSpinBox *taille = new QSpinBox(&FenetrePile);
+        taille->setMaximum(20);
+    QPushButton *valid = new QPushButton("Valider", &FenetrePile);
+        valid->setCheckable(true);
+
+    QVBoxLayout *vbox = new QVBoxLayout;
+        vbox->addWidget(taille);
+        vbox->addWidget(valid);
+
+        groupPile->setLayout(vbox);
+        groupPile->setFixedSize(160, 110);
+        groupPile->move(10,10);
+
+    connect(taille, SIGNAL(valueChanged(int)), this, SLOT(setTaillePile(int)));
+    connect(valid, SIGNAL(clicked()), &FenetrePile, SLOT(close()));
+    connect(ui->actionTaille_Affich, SIGNAL(triggered()), &FenetrePile, SLOT(exec()));
+
     //connect(ActionAfficherClavie, SIGNAL(ac));
     connect(ui->actionDegres, SIGNAL(triggered()), this, SLOT(degreActif()));
     connect(ui->actionRadians, SIGNAL(triggered()), this, SLOT(radianActif()));
@@ -382,7 +403,7 @@ void MainWindow::affichePile(Constante *cte, int j)
     if(cte!= NULL){ui->textEdit->insertPlainText(cte->ConvertChaine()+"\n");}
 
     int t=0;
-    if(affichage.size()>=taille_pile){ t=taille_pile;}
+    if(affichage.size()>=taille_pile-1){ t=taille_pile-1;}
     else {t=affichage.size();}
 
     if(t!=0){
@@ -393,8 +414,6 @@ void MainWindow::affichePile(Constante *cte, int j)
             ui->textEdit->insertPlainText(tmp[t-i-1]->ConvertChaine()+"\n");
         }
 
-        while(!affichage.isEmpty()) {affichage.pop();}
-
         for(int i=0; i<=t-1; i++){affichage.push(tmp[i]);}
         delete[] tmp;
     }
@@ -404,6 +423,11 @@ void MainWindow::affichePile(Constante *cte, int j)
         Constante* to_push = fab.newConstante(cte);
         affichage.push(to_push);
     }
+}
+
+void MainWindow::setTaillePile(int n)
+{
+    taille_pile = n;
 }
 
 //opérations

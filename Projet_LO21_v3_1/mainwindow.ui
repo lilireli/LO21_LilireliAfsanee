@@ -529,13 +529,6 @@
       <string>C, L, E, A</string>
      </property>
     </widget>
-    <zorder>opDropPressed</zorder>
-    <zorder>opSwapPressed</zorder>
-    <zorder>opDupPressed</zorder>
-    <zorder>opMeanPressed</zorder>
-    <zorder>opSumPressed</zorder>
-    <zorder>opClearPressed</zorder>
-    <zorder>groupBox_3</zorder>
    </widget>
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
@@ -645,13 +638,6 @@
       <string>T, A, N</string>
      </property>
     </widget>
-    <zorder>opSinhPressed</zorder>
-    <zorder>opCoshPressed</zorder>
-    <zorder>opSinPressed</zorder>
-    <zorder>opTanhPressed</zorder>
-    <zorder>opCosPressed</zorder>
-    <zorder>opTanPressed</zorder>
-    <zorder>groupBox</zorder>
    </widget>
    <widget class="QGroupBox" name="groupBox_3">
     <property name="geometry">
@@ -809,16 +795,6 @@
       <string>S, Q, R, T</string>
      </property>
     </widget>
-    <zorder>opLogPressed</zorder>
-    <zorder>opPowPressed</zorder>
-    <zorder>opFactPressed</zorder>
-    <zorder>opLnPressed</zorder>
-    <zorder>opCubePressed</zorder>
-    <zorder>opSignPressed</zorder>
-    <zorder>opSqrPressed</zorder>
-    <zorder>opInvPressed</zorder>
-    <zorder>opSqrtPressed</zorder>
-    <zorder>groupBox_4</zorder>
    </widget>
    <widget class="QGroupBox" name="groupBox_4">
     <property name="geometry">
