@@ -29,6 +29,12 @@ Nombre* Entier::operator + (Nombre* r1){
          Nombre* res = new Reel(*this + *e);
          return res;
     }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        Nombre* res = NULL;
+        return res;
+    }
 }
 
 Constante* Entier::operator + (Constante* r1){
@@ -52,11 +58,16 @@ Constante* Entier::operator + (Constante* r1){
          Constante* res = new Complexe(*e + *this);
          return res;
     }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        Constante* res = NULL;
+        return res;
+    }
 }
 
 Entier Entier::operator - (Entier r1){return n-r1.n;}
 
-// voir opérateurs unaires
 Entier Entier::operator - (){return -n;}
 
 Reel Entier::operator - (Reel r1){return this->toReel()-r1;}
@@ -78,6 +89,12 @@ Nombre* Entier::operator - (Nombre* r1){
          Reel* e = dynamic_cast<Reel*>(r1);
          Nombre* res = new Reel(*this  - *e);
          return res;
+    }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        Nombre* res = NULL;
+        return res;
     }
 }
 
@@ -101,6 +118,12 @@ Constante* Entier::operator - (Constante* r1){
          Complexe* e = dynamic_cast<Complexe*>(r1);
          Constante* res = new Complexe(-(*e - *this));
          return res;
+    }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        Constante* res = NULL;
+        return res;
     }
 }
 
@@ -126,6 +149,12 @@ Nombre* Entier::operator * (Nombre* r1){
          Nombre* res = new Reel(*this  * *e);
          return res;
     }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        Nombre* res = NULL;
+        return res;
+    }
 }
 
 Constante* Entier::operator * (Constante* r1){
@@ -149,14 +178,28 @@ Constante* Entier::operator * (Constante* r1){
          Constante* res = new Complexe(*e * *this);
          return res;
     }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        Constante* res = NULL;
+        return res;
+    }
 }
 
 Reel Entier::operator / (Reel r1){return this->GetReel()/r1.GetReel();}
 
 Rationnel Entier::operator / (Entier r1){
-    Rationnel res(n, r1.n);
-    res.Simplification();
-    return res;
+    if(r1.n!=0){
+        Rationnel res(n, r1.n);
+        res.Simplification();
+        return res;
+    }
+    else{
+        logger1->Write(&LogMessage(WARNING,"division par 0"));
+        logger2->Write(&LogMessage(WARNING,"division par 0"));
+        Rationnel res(0, 1);
+        return res;
+    }
 }
 
 Rationnel Entier::operator / (Rationnel r1){
@@ -181,6 +224,12 @@ Nombre* Entier::operator / (Nombre* r1){
          Nombre* res = new Reel(*this / *e);
          return res;
     }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        Nombre* res = NULL;
+        return res;
+    }
 }
 
 Constante* Entier::operator / (Constante* r1){
@@ -203,6 +252,12 @@ Constante* Entier::operator / (Constante* r1){
          Complexe* e = dynamic_cast<Complexe*>(r1);
          Constante* res = new Complexe(*e / *this);
          return res;
+    }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        Constante* res = NULL;
+        return res;
     }
 }
 
@@ -239,6 +294,12 @@ Constante* Entier::puissance (Constante* r1){
          Reel* e = dynamic_cast<Reel*>(r1);
          Constante* res = new Reel(this->puissance(*e));
          return res;
+    }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        Constante* res = NULL;
+        return res;
     }
 }
 

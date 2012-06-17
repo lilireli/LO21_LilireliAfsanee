@@ -24,6 +24,7 @@ class Constante{
 public:
     virtual ~Constante(){}
     virtual const QString ConvertChaine() const = 0;   // fonction pour l'affichage
+    virtual bool isNull() = 0;
 };
 
 class Complexe;
@@ -37,6 +38,8 @@ public:
     virtual ~Nombre(){}
     virtual Complexe toComplexe() = 0;
     virtual const QString ConvertChaine() const = 0;
+    virtual bool isNull() = 0;
+    virtual bool isPositif() = 0;
 };
 
 
@@ -52,6 +55,7 @@ public:
     Nombre* GetIm()const{return im;}
     void SetRe(Nombre* r){re = r;}
     void SetIm(Nombre* i){im = i;}
+    bool isNull() { return (re->isNull() && im->isNull());}
     const QString ConvertChaine()const {return re->ConvertChaine()+'$'+im->ConvertChaine();}
 
     // opérations de base
@@ -97,6 +101,8 @@ public:
     Rationnel toRationnel();
     Complexe toComplexe(){Complexe c(this); return c;}
     const QString ConvertChaine()const {return QString::number(n);}
+    bool isNull() {return(n==0);}
+    bool isPositif() {return(n>0);}
 
     // opérations de base
     Reel operator = (Reel r1){return r1;}
@@ -162,9 +168,22 @@ public:
             }else trouve=1;
         }
         num = n.toInt();
-        den = m.toInt(); if(den==0) den=1;
+        den = m.toInt();
+        if(den == 0){
+            logger1->Write(&LogMessage(WARNING,"division par zéro, remplacé par 0"));
+            logger2->Write(&LogMessage(WARNING,"division par zéro, remplacé par 0"));
+            den=1;
+            num=0;
+        }
     }
-    Rationnel(int n, int m=1): num(n), den(m){if(den == 0) den=1;}
+    Rationnel(int n, int m=1): num(n), den(m){
+        if(den == 0){
+            logger1->Write(&LogMessage(WARNING,"division par zéro, remplacé par 0"));
+            logger2->Write(&LogMessage(WARNING,"division par zéro, remplacé par 0"));
+            den=1;
+            num=0;
+        }
+    }
     Rationnel(Rationnel* r):num(r->num), den(r->den){}
     ~Rationnel(){}
     void SetNum(int n){num=n;}
@@ -177,6 +196,8 @@ public:
     Reel toReel(){Reel r(double(num)/den); return r;}
     Complexe toComplexe(){Complexe c(this); return c;}
     const QString ConvertChaine()const {return QString::number(num)+'/'+QString::number(den);}
+    bool isNull() { return(num==0) ;}
+    bool isPositif(){return((num > 0 && den > 0) || (num < 0 && den < 0));}
 
     // opérations de base
     Rationnel operator + (Rationnel r1);
@@ -237,6 +258,8 @@ public:
     Rationnel toRationnel(){Rationnel r(n); return r;}
     Complexe toComplexe(){Complexe c(this); return c;}
     const QString ConvertChaine()const {return QString::number(n);}
+    bool isNull() {return(n==0);}
+    bool isPositif(){return(n>0);}
 
     // opérations de base
     Entier operator + (Entier r1);

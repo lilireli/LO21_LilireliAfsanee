@@ -41,7 +41,8 @@ void CalculatriceModele::getNombre(QString s, bool complexe){
 
         if (typeid (*val).name()==typeid (Complexe).name()){
             delete val;
-            // exception on ne peut créer un complexe (message d'erreur)
+            logger1->Write(&LogMessage(ERROR,"type complexe non autorise"));
+            logger2->Write(&LogMessage(ERROR,"type complexe non autorise"));
             return;
         }
     }else{//si mode complexe activé
@@ -52,11 +53,12 @@ void CalculatriceModele::getNombre(QString s, bool complexe){
     }
 
     if(val!=NULL) {pile.push(val);
-    this->affichePileTaille();
-//    emit finOp(val, 0);
-    finOp(&pile);
+        this->affichePileTaille();
+        emit finOp(&pile);
+    }else{
+        logger1->Write(&LogMessage(ERROR,"type non pris en compte"));
+        logger2->Write(&LogMessage(ERROR,"type non pris en compte"));
     }
-    // sinon lever exception
 }
 
 void CalculatriceModele::getExpression(){
@@ -65,7 +67,6 @@ void CalculatriceModele::getExpression(){
 
         if (typeid (*a).name() == typeid (Expression).name()){
             Expression* e = dynamic_cast<Expression*>(a);
-//            emit finOp(NULL, 1);
             QString expression = e->ConvertChaine();
             if(expression.at(0)!='\'' || expression.at(expression.length()-1)!='\''){/*/ lever exception*/}
 
@@ -83,6 +84,8 @@ void CalculatriceModele::getExpression(){
             delete a;
         }else{
             // la constante n'est pas une expression, on la remet dans la pile
+            logger1->Write(&LogMessage(WARNING,"la constante n'est pas de type expression"));
+            logger2->Write(&LogMessage(WARNING,"la constante n'est pas de type expression"));
             pile.push(a);
         }
     }

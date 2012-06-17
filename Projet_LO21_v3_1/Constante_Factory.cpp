@@ -12,7 +12,11 @@ Nombre* FabriqueNombre::getNombre(QString chaine)
     if(type==1) {return new Entier(chaine);}
     else if(type==2) {return new Reel(chaine);}
     else if(type==3) {return new Rationnel(chaine);}
-    else {return NULL;}
+    else {
+        logger1->Write(&LogMessage(WARNING,"type non conforme, non pris en compte"));
+        logger2->Write(&LogMessage(WARNING,"type non conforme, non pris en compte"));
+        return NULL;
+    }
 }
 
 Nombre* FabriqueNombre::newNombre(Nombre* a){
@@ -27,6 +31,11 @@ Nombre* FabriqueNombre::newNombre(Nombre* a){
     else if (typeid (*a).name()==typeid (Reel).name()){
          Reel* e = dynamic_cast<Reel*>(a);
          return new Reel(e);
+    }
+    else {
+        logger1->Write(&LogMessage(WARNING,"type non conforme, non pris en compte"));
+        logger2->Write(&LogMessage(WARNING,"type non conforme, non pris en compte"));
+        return NULL;
     }
 }
 
@@ -50,6 +59,11 @@ Nombre* FabriqueNombre::getType(Nombre* a, int type){
          else if(type==2){Rationnel* res = new Rationnel(e->toRationnel()); delete e; return res;}
          else{Entier* res = new Entier(e->toEntier()); delete e; return res;}
     }
+    else {
+        logger1->Write(&LogMessage(WARNING,"type non conforme, non pris en compte"));
+        logger2->Write(&LogMessage(WARNING,"type non conforme, non pris en compte"));
+        return NULL;
+    }
 }
 
 Constante* FabriqueConstante::getConstante(QString chaine)
@@ -62,7 +76,11 @@ Constante* FabriqueConstante::getConstante(QString chaine)
     }
     else if(type==4) {return new Complexe(chaine);}
     else if(type==5) {return new Expression(chaine);}
-    else {return NULL;}
+    else {
+        logger1->Write(&LogMessage(WARNING,"type non conforme, non pris en compte"));
+        logger2->Write(&LogMessage(WARNING,"type non conforme, non pris en compte"));
+        return NULL;
+    }
 }
 
 Constante* FabriqueConstante::getComplexe(QString chaine){
@@ -75,7 +93,11 @@ Constante* FabriqueConstante::getComplexe(QString chaine){
     }
     else if(type==4) {return new Complexe(chaine);}
     else if(type==5) {return new Expression(chaine);}
-    else {return NULL;}
+    else {
+        logger1->Write(&LogMessage(WARNING,"type non conforme, non pris en compte"));
+        logger2->Write(&LogMessage(WARNING,"type non conforme, non pris en compte"));
+        return NULL;
+    }
 }
 
 Constante* FabriqueConstante::newConstante(Constante* a){
@@ -98,6 +120,11 @@ Constante* FabriqueConstante::newConstante(Constante* a){
     else if (typeid (*a).name()==typeid (Expression).name()){
          Expression* e = dynamic_cast<Expression*>(a);
          return new Expression(e);
+    }
+    else {
+        logger1->Write(&LogMessage(WARNING,"type non conforme, non pris en compte"));
+        logger2->Write(&LogMessage(WARNING,"type non conforme, non pris en compte"));
+        return NULL;
     }
 }
 
@@ -127,5 +154,10 @@ Constante* FabriqueConstante::getType(Constante* a, int type){
         e->SetRe(fab.getType(e->GetRe(), type));
         e->SetIm(fab.getType(e->GetIm(), type));
         return e;
+    }
+    else {
+        logger1->Write(&LogMessage(WARNING,"type non conforme, non pris en compte"));
+        logger2->Write(&LogMessage(WARNING,"type non conforme, non pris en compte"));
+        return NULL;
     }
 }

@@ -58,6 +58,12 @@ Nombre* Rationnel::operator + (Nombre* r1){
          Nombre* res = new Reel(*this + *e);
          return res;
     }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        Nombre* res = NULL;
+        return res;
+    }
 }
 
 Constante* Rationnel::operator + (Constante* r1){
@@ -81,9 +87,14 @@ Constante* Rationnel::operator + (Constante* r1){
          Constante* res = new Complexe(*e + *this);
          return res;
     }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        Constante* res = NULL;
+        return res;
+    }
 }
 
-// voir opérateurs unaires
 Rationnel Rationnel::operator - (Rationnel r1){
     Rationnel somme(num*r1.den - den*r1.num, den*r1.den);
     somme.Simplification();
@@ -120,6 +131,12 @@ Nombre* Rationnel::operator - (Nombre* r1){
          Nombre* res = new Reel(*this  - *e);
          return res;
     }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        Nombre* res = NULL;
+        return res;
+    }
 }
 
 Constante* Rationnel::operator - (Constante* r1){
@@ -142,6 +159,12 @@ Constante* Rationnel::operator - (Constante* r1){
          Complexe* e = dynamic_cast<Complexe*>(r1);
          Constante* res = new Complexe(-(*e - *this));
          return res;
+    }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        Constante* res = NULL;
+        return res;
     }
 }
 
@@ -175,6 +198,12 @@ Nombre* Rationnel::operator * (Nombre* r1){
          Nombre* res = new Reel(*this  * *e);
          return res;
     }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        Nombre* res = NULL;
+        return res;
+    }
 }
 
 Constante* Rationnel::operator * (Constante* r1){
@@ -198,6 +227,12 @@ Constante* Rationnel::operator * (Constante* r1){
          Constante* res = new Complexe(*e * *this);
          return res;
     }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        Constante* res = NULL;
+        return res;
+    }
 }
 
 
@@ -208,6 +243,8 @@ Rationnel Rationnel::operator / (Rationnel r1){
         div.Simplification();
         return div;
     }
+    logger1->Write(&LogMessage(WARNING,"division par 0"));
+    logger2->Write(&LogMessage(WARNING,"division par 0"));
     Rationnel div(0,1);
     return div;
 }
@@ -218,16 +255,14 @@ Rationnel Rationnel::operator / (Entier r1){
         div.Simplification();
         return div;
     }
+    logger1->Write(&LogMessage(WARNING,"division par 0"));
+    logger2->Write(&LogMessage(WARNING,"division par 0"));
     Rationnel div(0,1);
     return div;
 }
 
 Reel Rationnel::operator / (Reel r1){
-    if(r1.GetReel()!=0){
-        Reel div(this->GetRationnel()/r1.GetReel());
-        return div;
-    }
-    Reel div("0");
+    Reel div(this->GetRationnel()/r1.GetReel());
     return div;
 }
 
@@ -246,6 +281,12 @@ Nombre* Rationnel::operator / (Nombre* r1){
          Reel* e = dynamic_cast<Reel*>(r1);
          Nombre* res = new Reel(*this  / *e);
          return res;
+    }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        Nombre* res = NULL;
+        return res;
     }
 }
 
@@ -269,6 +310,12 @@ Constante* Rationnel::operator / (Constante* r1){
          Complexe* e = dynamic_cast<Complexe*>(r1);
          Constante* res = new Complexe(*e / *this);
          return res;
+    }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        Constante* res = NULL;
+        return res;
     }
 }
 
@@ -310,6 +357,12 @@ Constante* Rationnel::puissance (Constante* r1){
          Reel* e = dynamic_cast<Reel*>(r1);
          Constante* res = new Reel(this->puissance(*e));
          return res;
+    }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        Constante* res = NULL;
+        return res;
     }
 }
 

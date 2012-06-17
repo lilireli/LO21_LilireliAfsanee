@@ -32,6 +32,12 @@ Nombre* Reel::operator + (Nombre* r1){
          Nombre* res = new Reel(*this + *e);
          return res;
     }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        Nombre* res = NULL;
+        return res;
+    }
 }
 
 Constante* Reel::operator + (Constante* r1){
@@ -55,8 +61,14 @@ Constante* Reel::operator + (Constante* r1){
          Constante* res = new Complexe(*e + *this);
          return res;
     }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        Constante* res = NULL;
+        return res;
+    }
 }
-// fin reprise
+
 Reel Reel::operator - (Reel r1){return n-r1.n;}
 
 Reel Reel::operator - (){return -n;}
@@ -81,6 +93,12 @@ Nombre* Reel::operator - (Nombre* r1){
          Nombre* res = new Reel(*this  - *e);
          return res;
     }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        Nombre* res = NULL;
+        return res;
+    }
 }
 
 Constante* Reel::operator - (Constante* r1){
@@ -103,6 +121,12 @@ Constante* Reel::operator - (Constante* r1){
          Complexe* e = dynamic_cast<Complexe*>(r1);
          Constante* res = new Complexe(*e - *this);
          return res;
+    }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        Constante* res = NULL;
+        return res;
     }
 }
 
@@ -128,6 +152,12 @@ Nombre* Reel::operator * (Nombre* r1){
          Nombre* res = new Reel(*this  * *e);
          return res;
     }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        Nombre* res = NULL;
+        return res;
+    }
 }
 
 Constante* Reel::operator * (Constante* r1){
@@ -151,9 +181,24 @@ Constante* Reel::operator * (Constante* r1){
          Constante* res = new Complexe(*e * *this);
          return res;
     }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        Constante* res = NULL;
+        return res;
+    }
 }
 
-Reel Reel::operator / (Reel r1){return n/r1.n;}
+Reel Reel::operator / (Reel r1){
+    if(r1.n != 0){return n/r1.n;}
+    else{
+        logger1->Write(&LogMessage(WARNING,"division par 0"));
+        logger2->Write(&LogMessage(WARNING,"division par 0"));
+        Reel res("0");
+        return res;
+    }
+}
+
 Reel Reel::operator / (Entier r1){return n/r1.GetReel();}
 Reel Reel::operator / (Rationnel r1){return n/r1.GetRationnel();}
 Nombre* Reel::operator / (Nombre* r1){
@@ -171,6 +216,12 @@ Nombre* Reel::operator / (Nombre* r1){
          Reel* e = dynamic_cast<Reel*>(r1);
          Nombre* res = new Reel(*this  / *e);
          return res;
+    }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        Nombre* res = NULL;
+        return res;
     }
 }
 
@@ -195,6 +246,12 @@ Constante* Reel::operator / (Constante* r1){
          Constante* res = new Complexe(*e / *this);
          return res;
     }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        Constante* res = NULL;
+        return res;
+    }
 }
 
 Reel Reel::puissance (Reel r1){return pow(n, r1.n);}
@@ -216,6 +273,12 @@ Constante* Reel::puissance (Constante* r1){
          Reel* e = dynamic_cast<Reel*>(r1);
          Constante* res = new Reel(this->puissance(*e));
          return res;
+    }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        Constante* res = NULL;
+        return res;
     }
 }
 

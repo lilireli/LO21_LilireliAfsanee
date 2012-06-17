@@ -60,19 +60,29 @@ void CalculatriceModele::getAdd(int type){
              Complexe* e = dynamic_cast<Complexe*>(a);
              res = *e + b;
         }
-        // else log message "type non reconnu";
+        else {res = NULL;}
 
-        FabriqueConstante fab;
-        res = fab.getType(res, type);
+        if(res==NULL){
+            logger1->Write(&LogMessage(ERROR,"type non conforme"));
+            logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        }
+        else{
+            FabriqueConstante fab;
+            res = fab.getType(res, type);
 
-        pile.push(res);
+            pile.push(res);
+        }
+
         qDebug() << "res : " << res->ConvertChaine();
 
         emit finOp(&pile);
         delete a;
         delete b;
     }
-    // else log message "taille pile insuffisante"
+    else{
+        logger1->Write(&LogMessage(ERROR,"taille pile insuffisante"));
+        logger2->Write(&LogMessage(ERROR,"taille pile insuffisante"));
+    }
 }
 
 void CalculatriceModele::getSous(int type){
@@ -85,7 +95,7 @@ void CalculatriceModele::getSous(int type){
              Expression* f = dynamic_cast<Expression*>(b);
              e->addCalcul(f->Tronque()+" -");
              pile.push(e);
-//             emit finOp(e, 2);
+             emit finOp(&pile);
              delete b;
              return;
         }
@@ -93,7 +103,7 @@ void CalculatriceModele::getSous(int type){
              Expression* e = dynamic_cast<Expression*>(a);
              e->addCalcul(b->ConvertChaine()+" -");
              pile.push(e);
-//             emit finOp(e, 2);
+             emit finOp(&pile);
              delete b;
              return;
         }
@@ -101,7 +111,7 @@ void CalculatriceModele::getSous(int type){
              Expression* e = dynamic_cast<Expression*>(b);
              e->calculAdd(a->ConvertChaine()+" -");
              pile.push(e);
-//             emit finOp(e, 2);
+             emit finOp(&pile);
              delete a;
              return;
         }
@@ -124,16 +134,28 @@ void CalculatriceModele::getSous(int type){
              Complexe* e = dynamic_cast<Complexe*>(a);
              res = *e - b;
         }
+        else {res = NULL;}
 
-        FabriqueConstante fab;
-        res = fab.getType(res, type);
+        if(res==NULL){
+            logger1->Write(&LogMessage(ERROR,"type non conforme"));
+            logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        }
+        else{
+            FabriqueConstante fab;
+            res = fab.getType(res, type);
 
-        pile.push(res);
+            pile.push(res);
+        }
+
         qDebug() << "res : " << res->ConvertChaine();
-//        emit finOp(res, 2);
-        finOp(&pile);
+
+        emit finOp(&pile);
         delete a;
         delete b;
+    }
+    else{
+        logger1->Write(&LogMessage(ERROR,"taille pile insuffisante"));
+        logger2->Write(&LogMessage(ERROR,"taille pile insuffisante"));
     }
 }
 
@@ -147,7 +169,7 @@ void CalculatriceModele::getMult(int type){
              Expression* f = dynamic_cast<Expression*>(b);
              e->addCalcul(f->Tronque()+" *");
              pile.push(e);
-//             emit finOp(e, 2);
+             emit finOp(&pile);
              delete b;
              return;
         }
@@ -155,7 +177,7 @@ void CalculatriceModele::getMult(int type){
              Expression* e = dynamic_cast<Expression*>(a);
              e->addCalcul(b->ConvertChaine()+" *");
              pile.push(e);
-//             emit finOp(e, 2);
+             emit finOp(&pile);
              delete b;
              return;
         }
@@ -163,7 +185,7 @@ void CalculatriceModele::getMult(int type){
              Expression* e = dynamic_cast<Expression*>(b);
              e->calculAdd(a->ConvertChaine()+" *");
              pile.push(e);
-//             emit finOp(e, 2);
+             emit finOp(&pile);
              delete a;
              return;
         }
@@ -186,16 +208,28 @@ void CalculatriceModele::getMult(int type){
              Complexe* e = dynamic_cast<Complexe*>(a);
              res = *e * b;
         }
+        else {res = NULL;}
 
-        FabriqueConstante fab;
-        res = fab.getType(res, type);
+        if(res==NULL){
+            logger1->Write(&LogMessage(ERROR,"type non conforme"));
+            logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        }
+        else{
+            FabriqueConstante fab;
+            res = fab.getType(res, type);
 
-        pile.push(res);
+            pile.push(res);
+        }
+
         qDebug() << "res : " << res->ConvertChaine();
-//        emit finOp(res, 2);
-        finOp(&pile);
+
+        emit finOp(&pile);
         delete a;
         delete b;
+    }
+    else{
+        logger1->Write(&LogMessage(ERROR,"taille pile insuffisante"));
+        logger2->Write(&LogMessage(ERROR,"taille pile insuffisante"));
     }
 }
 
@@ -210,7 +244,7 @@ void CalculatriceModele::getDiv(int type){
              Expression* f = dynamic_cast<Expression*>(b);
              e->addCalcul(f->Tronque()+" /");
              pile.push(e);
-//             emit finOp(e, 2);
+             emit finOp(&pile);
              delete b;
              return;
         }
@@ -218,7 +252,7 @@ void CalculatriceModele::getDiv(int type){
              Expression* e = dynamic_cast<Expression*>(a);
              e->addCalcul(b->ConvertChaine()+" /");
              pile.push(e);
-//             emit finOp(e, 2);
+             emit finOp(&pile);
              delete b;
              return;
         }
@@ -226,7 +260,7 @@ void CalculatriceModele::getDiv(int type){
              Expression* e = dynamic_cast<Expression*>(b);
              e->calculAdd(a->ConvertChaine()+" /");
              pile.push(e);
-//             emit finOp(e, 2);
+             emit finOp(&pile);
              delete a;
              return;
         }
@@ -265,16 +299,28 @@ void CalculatriceModele::getDiv(int type){
              Complexe* e = dynamic_cast<Complexe*>(a);
              res = *e / b;
         }
+        else {res = NULL;}
 
-        FabriqueConstante fab;
-        res = fab.getType(res, type);
+        if(res==NULL){
+            logger1->Write(&LogMessage(ERROR,"type non conforme"));
+            logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        }
+        else{
+            FabriqueConstante fab;
+            res = fab.getType(res, type);
 
-        pile.push(res);
+            pile.push(res);
+        }
+
         qDebug() << "res : " << res->ConvertChaine();
-//        emit finOp(res, 2);
-        finOp(&pile);
+
+        emit finOp(&pile);
         delete a;
         delete b;
+    }
+    else{
+        logger1->Write(&LogMessage(ERROR,"taille pile insuffisante"));
+        logger2->Write(&LogMessage(ERROR,"taille pile insuffisante"));
     }
 }
 
@@ -288,7 +334,7 @@ void CalculatriceModele::getPow(int type){
              Expression* f = dynamic_cast<Expression*>(b);
              e->addCalcul(f->Tronque()+" -");
              pile.push(e);
-//             emit finOp(e, 2);
+             emit finOp(&pile);
              delete b;
              return;
         }
@@ -296,7 +342,7 @@ void CalculatriceModele::getPow(int type){
              Expression* e = dynamic_cast<Expression*>(a);
              e->addCalcul(b->ConvertChaine()+" pow");
              pile.push(e);
-//             emit finOp(e, 2);
+             emit finOp(&pile);
              delete b;
              return;
         }
@@ -304,7 +350,7 @@ void CalculatriceModele::getPow(int type){
              Expression* e = dynamic_cast<Expression*>(b);
              e->calculAdd(a->ConvertChaine()+" pow");
              pile.push(e);
-//             emit finOp(e, 2);
+             emit finOp(&pile);
              delete a;
              return;
         }
@@ -323,16 +369,28 @@ void CalculatriceModele::getPow(int type){
              Reel* e = dynamic_cast<Reel*>(a);
              res = e->puissance(b);
         }
+        else {res = NULL;}
 
-        FabriqueConstante fab;
-        res = fab.getType(res, type);
+        if(res==NULL){
+            logger1->Write(&LogMessage(ERROR,"type non conforme"));
+            logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        }
+        else{
+            FabriqueConstante fab;
+            res = fab.getType(res, type);
 
-        pile.push(res);
+            pile.push(res);
+        }
+
         qDebug() << "res : " << res->ConvertChaine();
-//        emit finOp(res, 2);
-        finOp(&pile);
+
+        emit finOp(&pile);
         delete a;
         delete b;
+    }
+    else{
+        logger1->Write(&LogMessage(ERROR,"taille pile insuffisante"));
+        logger2->Write(&LogMessage(ERROR,"taille pile insuffisante"));
     }
 }
 
@@ -344,9 +402,9 @@ void CalculatriceModele::getMod(){
         if (typeid (*a).name()==typeid (Expression).name() && typeid (*b).name()==typeid (Expression).name()){
              Expression* e = dynamic_cast<Expression*>(a);
              Expression* f = dynamic_cast<Expression*>(b);
-             e->addCalcul(f->Tronque()+" -");
+             e->addCalcul(f->Tronque()+" mod");
              pile.push(e);
-//             emit finOp(e, 2);
+             emit finOp(&pile);
              delete b;
              return;
         }
@@ -354,7 +412,7 @@ void CalculatriceModele::getMod(){
              Expression* e = dynamic_cast<Expression*>(a);
              e->addCalcul(b->ConvertChaine()+" mod");
              pile.push(e);
-//             emit finOp(e, 2);
+             emit finOp(&pile);
              delete b;
              return;
         }
@@ -362,7 +420,7 @@ void CalculatriceModele::getMod(){
              Expression* e = dynamic_cast<Expression*>(b);
              e->calculAdd(a->ConvertChaine()+" mod");
              pile.push(e);
-//             emit finOp(e, 2);
+             emit finOp(&pile);
              delete a;
              return;
         }
@@ -372,17 +430,25 @@ void CalculatriceModele::getMod(){
         if(typeid (*a).name()==typeid (Entier).name() && typeid (*b).name()==typeid (Entier).name()){
             Entier* e1 = dynamic_cast<Entier*>(b);
             Entier* e2 = dynamic_cast<Entier*>(a);
-            res = &(e2->mod(*e1));
+            res = new Entier(e2->mod(*e1));
             pile.push(res);
+
             qDebug() << "res : " << res->ConvertChaine();
-//            emit finOp(res, 2);
+
             delete a;
             delete b;
         }else{
+            logger1->Write(&LogMessage(ERROR,"type non conforme, entier attendu"));
+            logger2->Write(&LogMessage(ERROR,"type non conforme, entier attendu"));
+
             pile.push(a);
             pile.push(b);
         }
         finOp(&pile);
+    }
+    else{
+        logger1->Write(&LogMessage(ERROR,"taille pile insuffisante"));
+        logger2->Write(&LogMessage(ERROR,"taille pile insuffisante"));
     }
 }
 
@@ -394,8 +460,7 @@ void CalculatriceModele::getFact(){
              Expression* e = dynamic_cast<Expression*>(a);
              e->addCalcul(" fact");
              pile.push(e);
-//             emit finOp(e, 1);
-             finOp(&pile);
+             emit finOp(&pile);
              return;
         }
 
@@ -406,12 +471,17 @@ void CalculatriceModele::getFact(){
             res = new Entier(e->fact());
             pile.push(res);
             qDebug() << "res : " << res->ConvertChaine();
-//            emit finOp(res, 1);
             delete a;
         }else{
+            logger1->Write(&LogMessage(ERROR,"type non conforme, entier attendu"));
+            logger2->Write(&LogMessage(ERROR,"type non conforme, entier attendu"));
             pile.push(a);
         }
         finOp(&pile);
+    }
+    else{
+        logger1->Write(&LogMessage(ERROR,"taille pile insuffisante"));
+        logger2->Write(&LogMessage(ERROR,"taille pile insuffisante"));
     }
 }
 
@@ -423,7 +493,7 @@ void CalculatriceModele::getSign(int type){
              Expression* e = dynamic_cast<Expression*>(a);
              e->addCalcul(" sign");
              pile.push(e);
-//             emit finOp(e, 1);
+             emit finOp(&pile);
              return;
         }
 
@@ -445,14 +515,27 @@ void CalculatriceModele::getSign(int type){
              Complexe* e = dynamic_cast<Complexe*>(a);
              res = new Complexe(-*e);
         }
+        else {res = NULL;}
 
-        FabriqueConstante fab;
-        res = fab.getType(res, type);
+        if(res==NULL){
+            logger1->Write(&LogMessage(ERROR,"type non conforme"));
+            logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        }
+        else{
+            FabriqueConstante fab;
+            res = fab.getType(res, type);
 
-        pile.push(res);
+            pile.push(res);
+        }
+
         qDebug() << "res : " << res->ConvertChaine();
-//        emit finOp(res, 1);
+
+        emit finOp(&pile);
         delete a;
+    }
+    else{
+        logger1->Write(&LogMessage(ERROR,"taille pile insuffisante"));
+        logger2->Write(&LogMessage(ERROR,"taille pile insuffisante"));
     }
 }
 
@@ -465,7 +548,7 @@ void CalculatriceModele::getSin(bool degre){
              Expression* e = dynamic_cast<Expression*>(a);
              e->addCalcul(" sin");
              pile.push(e);
-//             emit finOp(e, 1);
+             emit finOp(&pile);
              return;
         }
 
@@ -485,10 +568,24 @@ void CalculatriceModele::getSin(bool degre){
              Reel* e = dynamic_cast<Reel*>(a);
              res = new Reel(e->sinus());
         }
-        pile.push(res);
+        else {res = NULL;}
+
+        if(res==NULL){
+            logger1->Write(&LogMessage(ERROR,"type non conforme"));
+            logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        }
+        else{
+            pile.push(res);
+        }
+
         qDebug() << "res : " << res->ConvertChaine();
-//        emit finOp(res, 1);
+
+        emit finOp(&pile);
         delete a;
+    }
+    else{
+        logger1->Write(&LogMessage(ERROR,"taille pile insuffisante"));
+        logger2->Write(&LogMessage(ERROR,"taille pile insuffisante"));
     }
 }
 
@@ -500,7 +597,7 @@ void CalculatriceModele::getCos(bool degre){
              Expression* e = dynamic_cast<Expression*>(a);
              e->addCalcul(" cos");
              pile.push(e);
-//             emit finOp(e, 1);
+             emit finOp(&pile);
              return;
         }
 
@@ -520,10 +617,24 @@ void CalculatriceModele::getCos(bool degre){
              Reel* e = dynamic_cast<Reel*>(a);
              res = new Reel(e->cosinus());
         }
-        pile.push(res);
+        else {res = NULL;}
+
+        if(res==NULL){
+            logger1->Write(&LogMessage(ERROR,"type non conforme"));
+            logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        }
+        else{
+            pile.push(res);
+        }
+
         qDebug() << "res : " << res->ConvertChaine();
-//        emit finOp(res, 1);
+
+        emit finOp(&pile);
         delete a;
+    }
+    else{
+        logger1->Write(&LogMessage(ERROR,"taille pile insuffisante"));
+        logger2->Write(&LogMessage(ERROR,"taille pile insuffisante"));
     }
 }
 
@@ -535,7 +646,7 @@ void CalculatriceModele::getTan(bool degre){
              Expression* e = dynamic_cast<Expression*>(a);
              e->addCalcul(" tan");
              pile.push(e);
-//             emit finOp(e, 1);
+             emit finOp(&pile);
              return;
         }
 
@@ -555,11 +666,24 @@ void CalculatriceModele::getTan(bool degre){
              Reel* e = dynamic_cast<Reel*>(a);
              res = new Reel(e->tangente());
         }
+        else {res = NULL;}
 
-        pile.push(res);
+        if(res==NULL){
+            logger1->Write(&LogMessage(ERROR,"type non conforme"));
+            logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        }
+        else{
+            pile.push(res);
+        }
+
         qDebug() << "res : " << res->ConvertChaine();
-//        emit finOp(res, 1);
+
+        emit finOp(&pile);
         delete a;
+    }
+    else{
+        logger1->Write(&LogMessage(ERROR,"taille pile insuffisante"));
+        logger2->Write(&LogMessage(ERROR,"taille pile insuffisante"));
     }
 }
 
@@ -571,7 +695,7 @@ void CalculatriceModele::getSinh(bool degre){
              Expression* e = dynamic_cast<Expression*>(a);
              e->addCalcul(" sinh");
              pile.push(e);
-//             emit finOp(e, 1);
+             emit finOp(&pile);
              return;
         }
 
@@ -591,11 +715,24 @@ void CalculatriceModele::getSinh(bool degre){
              Reel* e = dynamic_cast<Reel*>(a);
              res = new Reel(e->sinush());
         }
+        else {res = NULL;}
 
-        pile.push(res);
+        if(res==NULL){
+            logger1->Write(&LogMessage(ERROR,"type non conforme"));
+            logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        }
+        else{
+            pile.push(res);
+        }
+
         qDebug() << "res : " << res->ConvertChaine();
-//        emit finOp(res, 1);
+
+        emit finOp(&pile);
         delete a;
+    }
+    else{
+        logger1->Write(&LogMessage(ERROR,"taille pile insuffisante"));
+        logger2->Write(&LogMessage(ERROR,"taille pile insuffisante"));
     }
 }
 
@@ -607,7 +744,7 @@ void CalculatriceModele::getCosh(bool degre){
              Expression* e = dynamic_cast<Expression*>(a);
              e->addCalcul(" cosh");
              pile.push(e);
-//             emit finOp(e, 1);
+             emit finOp(&pile);
              return;
         }
 
@@ -627,11 +764,24 @@ void CalculatriceModele::getCosh(bool degre){
              Reel* e = dynamic_cast<Reel*>(a);
              res = new Reel(e->cosinush());
         }
+        else {res = NULL;}
 
-        pile.push(res);
+        if(res==NULL){
+            logger1->Write(&LogMessage(ERROR,"type non conforme"));
+            logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        }
+        else{
+            pile.push(res);
+        }
+
         qDebug() << "res : " << res->ConvertChaine();
-//        emit finOp(res, 1);
+
+        emit finOp(&pile);
         delete a;
+    }
+    else{
+        logger1->Write(&LogMessage(ERROR,"taille pile insuffisante"));
+        logger2->Write(&LogMessage(ERROR,"taille pile insuffisante"));
     }
 }
 
@@ -643,7 +793,7 @@ void CalculatriceModele::getTanh(bool degre){
              Expression* e = dynamic_cast<Expression*>(a);
              e->addCalcul(" tanh");
              pile.push(e);
-//             emit finOp(e, 1);
+             emit finOp(&pile);
              return;
         }
 
@@ -663,11 +813,24 @@ void CalculatriceModele::getTanh(bool degre){
              Reel* e = dynamic_cast<Reel*>(a);
              res = new Reel(e->tangenteh());
         }
+        else {res = NULL;}
 
-        pile.push(res);
+        if(res==NULL){
+            logger1->Write(&LogMessage(ERROR,"type non conforme"));
+            logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        }
+        else{
+            pile.push(res);
+        }
+
         qDebug() << "res : " << res->ConvertChaine();
-//        emit finOp(res, 1);
+
+        emit finOp(&pile);
         delete a;
+    }
+    else{
+        logger1->Write(&LogMessage(ERROR,"taille pile insuffisante"));
+        logger2->Write(&LogMessage(ERROR,"taille pile insuffisante"));
     }
 }
 
@@ -680,7 +843,7 @@ void CalculatriceModele::getLn(){
              Expression* e = dynamic_cast<Expression*>(a);
              e->addCalcul(" ln");
              pile.push(e);
-//             emit finOp(e, 1);
+             emit finOp(&pile);
              return;
         }
 
@@ -698,10 +861,24 @@ void CalculatriceModele::getLn(){
              Reel* e = dynamic_cast<Reel*>(a);
              res = new Reel(e->ln());
         }
-        pile.push(res);
+        else {res = NULL;}
+
+        if(res==NULL){
+            logger1->Write(&LogMessage(ERROR,"type non conforme"));
+            logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        }
+        else{
+            pile.push(res);
+        }
+
         qDebug() << "res : " << res->ConvertChaine();
-//        emit finOp(res, 1);
+
+        emit finOp(&pile);
         delete a;
+    }
+    else{
+        logger1->Write(&LogMessage(ERROR,"taille pile insuffisante"));
+        logger2->Write(&LogMessage(ERROR,"taille pile insuffisante"));
     }
 }
 
@@ -713,7 +890,7 @@ void CalculatriceModele::getLog(){
              Expression* e = dynamic_cast<Expression*>(a);
              e->addCalcul(" log");
              pile.push(e);
-//             emit finOp(e, 1);
+             emit finOp(&pile);
              return;
         }
 
@@ -731,10 +908,24 @@ void CalculatriceModele::getLog(){
              Reel* e = dynamic_cast<Reel*>(a);
              res = new Reel(e->logdix());
         }
-        pile.push(res);
+        else {res = NULL;}
+
+        if(res==NULL){
+            logger1->Write(&LogMessage(ERROR,"type non conforme"));
+            logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        }
+        else{
+            pile.push(res);
+        }
+
         qDebug() << "res : " << res->ConvertChaine();
-//        emit finOp(res, 1);
+
+        emit finOp(&pile);
         delete a;
+    }
+    else{
+        logger1->Write(&LogMessage(ERROR,"taille pile insuffisante"));
+        logger2->Write(&LogMessage(ERROR,"taille pile insuffisante"));
     }
 }
 
@@ -746,7 +937,7 @@ void CalculatriceModele::getInv(int type){
              Expression* e = dynamic_cast<Expression*>(a);
              e->addCalcul(" inv");
              pile.push(e);
-//             emit finOp(e, 1);
+             emit finOp(&pile);
              return;
         }
 
@@ -767,13 +958,24 @@ void CalculatriceModele::getInv(int type){
              if(type==1){res = new Reel(e->inv());}
              else{res = new Rationnel(e->toRationnel().inv());}
         }
+        else {res = NULL;}
 
+        if(res==NULL){
+            logger1->Write(&LogMessage(ERROR,"type non conforme"));
+            logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        }
+        else{
+           pile.push(res);
+        }
 
-        pile.push(res);
         qDebug() << "res : " << res->ConvertChaine();
-//        emit finOp(res, 1);
-        finOp(&pile);
+
+        emit finOp(&pile);
         delete a;
+    }
+    else{
+        logger1->Write(&LogMessage(ERROR,"taille pile insuffisante"));
+        logger2->Write(&LogMessage(ERROR,"taille pile insuffisante"));
     }
 }
 
@@ -786,8 +988,7 @@ void CalculatriceModele::getSqrt(){
              Expression* e = dynamic_cast<Expression*>(a);
              e->addCalcul(" sqrt");
              pile.push(e);
-//             emit finOp(e, 1);
-             finOp(&pile);
+             emit finOp(&pile);
              return;
         }
 
@@ -805,11 +1006,24 @@ void CalculatriceModele::getSqrt(){
              Reel* e = dynamic_cast<Reel*>(a);
              res = new Reel(e->rsqr());
         }
-        pile.push(res);
+        else {res = NULL;}
+
+        if(res==NULL){
+            logger1->Write(&LogMessage(ERROR,"type non conforme"));
+            logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        }
+        else{
+            pile.push(res);
+        }
+
         qDebug() << "res : " << res->ConvertChaine();
-//        emit finOp(res, 1);
-        finOp(&pile);
+
+        emit finOp(&pile);
         delete a;
+    }
+    else{
+        logger1->Write(&LogMessage(ERROR,"taille pile insuffisante"));
+        logger2->Write(&LogMessage(ERROR,"taille pile insuffisante"));
     }
 }
 
@@ -821,7 +1035,7 @@ void CalculatriceModele::getSqr(int type){
              Expression* e = dynamic_cast<Expression*>(a);
              e->addCalcul(" sqr");
              pile.push(e);
-//             emit finOp(e, 1);
+             emit finOp(&pile);
              return;
         }
 
@@ -843,15 +1057,27 @@ void CalculatriceModele::getSqr(int type){
              Complexe* e = dynamic_cast<Complexe*>(a);
              res = new Complexe(e->sqr());
         }
+        else {res = NULL;}
 
-        FabriqueConstante fab;
-        res = fab.getType(res, type);
+        if(res==NULL){
+            logger1->Write(&LogMessage(ERROR,"type non conforme"));
+            logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        }
+        else{
+            FabriqueConstante fab;
+            res = fab.getType(res, type);
 
-        pile.push(res);
+            pile.push(res);
+        }
+
         qDebug() << "res : " << res->ConvertChaine();
-//        emit finOp(res, 1);
-        finOp(&pile);
+
+        emit finOp(&pile);
         delete a;
+    }
+    else{
+        logger1->Write(&LogMessage(ERROR,"taille pile insuffisante"));
+        logger2->Write(&LogMessage(ERROR,"taille pile insuffisante"));
     }
 }
 
@@ -863,8 +1089,7 @@ void CalculatriceModele::getCube(int type){
              Expression* e = dynamic_cast<Expression*>(a);
              e->addCalcul(" cube");
              pile.push(e);
-//             emit finOp(e, 1);
-             finOp(&pile);
+             emit finOp(&pile);
              return;
         }
 
@@ -886,16 +1111,26 @@ void CalculatriceModele::getCube(int type){
              Complexe* e = dynamic_cast<Complexe*>(a);
              res = new Complexe(e->cube());
         }
+        else {res = NULL;}
 
-        FabriqueConstante fab;
-        res = fab.getType(res, type);
+        if(res==NULL){
+            logger1->Write(&LogMessage(ERROR,"type non conforme"));
+            logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        }
+        else{
+            FabriqueConstante fab;
+            res = fab.getType(res, type);
 
-        pile.push(res);
+            pile.push(res);
+        }
+
         qDebug() << "res : " << res->ConvertChaine();
 
-        //historique.push(pile.clone());
-//        emit finOp(res, 1);
-        finOp(&pile);
-        //delete a;
+        emit finOp(&pile);
+        delete a;
+    }
+    else{
+        logger1->Write(&LogMessage(ERROR,"taille pile insuffisante"));
+        logger2->Write(&LogMessage(ERROR,"taille pile insuffisante"));
     }
 }

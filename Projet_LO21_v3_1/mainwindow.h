@@ -14,6 +14,10 @@
 #include <QtGui>
 #include "Gestion_constantes.h"
 #include "CalculatriceModele.h"
+#include "Logger.h"
+
+extern LoggerConsole* logger1;
+extern LoggerFile* logger2;
 
 namespace Ui {
 class MainWindow;

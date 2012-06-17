@@ -11,6 +11,10 @@
 #include <cmath>
 #include <typeinfo>
 #include <QDebug>
+#include "Logger.h"
+
+extern LoggerConsole* logger1;
+extern LoggerFile* logger2;
 
 #define PI 3.14159265
 
@@ -158,9 +162,22 @@ public:
             }else trouve=1;
         }
         num = n.toInt();
-        den = m.toInt(); if(den==0) den=1;
+        den = m.toInt();
+        if(den == 0){
+            logger1->Write(&LogMessage(WARNING,"division par zéro, remplacé par 0"));
+            logger2->Write(&LogMessage(WARNING,"division par zéro, remplacé par 0"));
+            den=1;
+            num=0;
+        }
     }
-    Rationnel(int n, int m=1): num(n), den(m){if(den == 0) den=1;}
+    Rationnel(int n, int m=1): num(n), den(m){
+        if(den == 0){
+            logger1->Write(&LogMessage(WARNING,"division par zéro, remplacé par 0"));
+            logger2->Write(&LogMessage(WARNING,"division par zéro, remplacé par 0"));
+            den=1;
+            num=0;
+        }
+    }
     Rationnel(Rationnel* r):num(r->num), den(r->den){}
     ~Rationnel(){}
     void SetNum(int n){num=n;}

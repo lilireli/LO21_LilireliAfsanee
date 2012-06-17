@@ -25,7 +25,11 @@ Complexe::Complexe(QString s){
 }
 
 Complexe::Complexe(Nombre* reel, Nombre* imaginaire): re(reel), im(imaginaire){
-    if(im==NULL) im = new Entier;
+    if(im==NULL){
+        logger1->Write(&LogMessage(WARNING,"partie imaginaire nulle"));
+        logger2->Write(&LogMessage(WARNING,"partie imaginaire nulle"));
+        im = new Entier;
+    }
 }
 
 Complexe::Complexe(Complexe* comp){
@@ -51,6 +55,12 @@ Complexe Complexe::operator + (Complexe r1)
          Reel* e = dynamic_cast<Reel*>(re);
          res.re = *e + r1.re;
     }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        res.re = new Entier(0);    res.im = new Entier(0);
+        return &res;
+    }
 
     // partie imaginaire
     if(typeid (*im).name()==typeid (Entier).name()){
@@ -65,7 +75,12 @@ Complexe Complexe::operator + (Complexe r1)
          Reel* e = dynamic_cast<Reel*>(im);
          res.im = *e + r1.im;
     }
-    qDebug()<<"Complexe"<<res.ConvertChaine();
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        res.re = new Entier(0);    res.im = new Entier(0);
+        return &res;
+    }
     return res;
 }
 
@@ -77,26 +92,30 @@ Complexe Complexe::operator + (Rationnel r1) {return *this+r1.toComplexe();}
 
 Constante* Complexe::operator + (Constante* r1)
 {
+    Complexe* res;
+
     if(typeid (*r1).name()==typeid (Entier).name()){
         Entier* e = dynamic_cast<Entier*>(r1);
-        Complexe* res = new Complexe(*this + *e);
-        return res;
+        res = new Complexe(*this + *e);
     }
     else if (typeid (*r1).name()==typeid (Rationnel).name()){
          Rationnel* e = dynamic_cast<Rationnel*>(r1);
-         Complexe* res = new Complexe(*this + *e);
-         return res;
+         res = new Complexe(*this + *e);
     }
     else if (typeid (*r1).name()==typeid (Reel).name()){
          Reel* e = dynamic_cast<Reel*>(r1);
-         Complexe* res = new Complexe(*this + *e);
-         return res;
+         res = new Complexe(*this + *e);
     }
     else if (typeid (*r1).name()==typeid (Complexe).name()){
          Complexe* e = dynamic_cast<Complexe*>(r1);
-         Complexe* res = new Complexe(*this + *e);
-         return res;
+         res = new Complexe(*this + *e);
     }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        res = NULL;
+    }
+    return res;
 }
 
 Complexe Complexe::operator - (Complexe r1)
@@ -116,6 +135,12 @@ Complexe Complexe::operator - (Complexe r1)
          Reel* e = dynamic_cast<Reel*>(re);
          res.re = *e - r1.re;
     }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        res.re = new Entier(0);    res.im = new Entier(0);
+        return &res;
+    }
 
     // partie imaginaire
     if(typeid (*im).name()==typeid (Entier).name()){
@@ -130,7 +155,13 @@ Complexe Complexe::operator - (Complexe r1)
          Reel* e = dynamic_cast<Reel*>(im);
          res.im = *e - r1.im;
     }
-    qDebug()<<"Complexe"<<res.ConvertChaine();
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        res.re = new Entier(0);    res.im = new Entier(0);
+        return &res;
+    }
+
     return res;
 }
 
@@ -144,26 +175,30 @@ Complexe Complexe::operator - (Rationnel r1) {return *this-r1.toComplexe();}
 
 Constante* Complexe::operator - (Constante* r1)
 {
+    Complexe* res;
+
     if(typeid (*r1).name()==typeid (Entier).name()){
         Entier* e = dynamic_cast<Entier*>(r1);
-        Complexe* res = new Complexe(*this - *e);
-        return res;
+        res = new Complexe(*this - *e);
     }
     else if (typeid (*r1).name()==typeid (Rationnel).name()){
          Rationnel* e = dynamic_cast<Rationnel*>(r1);
-         Complexe* res = new Complexe(*this - *e);
-         return res;
+         res = new Complexe(*this - *e);
     }
     else if (typeid (*r1).name()==typeid (Reel).name()){
          Reel* e = dynamic_cast<Reel*>(r1);
-         Complexe* res = new Complexe(*this - *e);
-         return res;
+         res = new Complexe(*this - *e);
     }
     else if (typeid (*r1).name()==typeid (Complexe).name()){
          Complexe* e = dynamic_cast<Complexe*>(r1);
-         Complexe* res = new Complexe(*this - *e);
-         return res;
+         res = new Complexe(*this - *e);
     }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        res = NULL;
+    }
+    return res;
 }
 
 Complexe Complexe::operator * (Complexe r1)
@@ -189,6 +224,12 @@ Complexe Complexe::operator * (Complexe r1)
          re_1 = *e * r1.re;
          im_1 = *e * r1.im;
     }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        res.re = new Entier(0);    res.im = new Entier(0);
+        return &res;
+    }
 
     // partie imaginaire de this
     if(typeid (*im).name()==typeid (Entier).name()){
@@ -206,6 +247,12 @@ Complexe Complexe::operator * (Complexe r1)
          re_2 = *e * r1.im;
          im_2 = *e * r1.re;
     }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        res.re = new Entier(0);    res.im = new Entier(0);
+        return &res;
+    }
 
     // partie réelle
     if(typeid (*re_1).name()==typeid (Entier).name()){
@@ -220,6 +267,12 @@ Complexe Complexe::operator * (Complexe r1)
          Reel* e = dynamic_cast<Reel*>(re_1);
          res.re = *e - re_2;
     }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        res.re = new Entier(0);    res.im = new Entier(0);
+        return &res;
+    }
 
     // partie imaginaire
     if(typeid (*im_1).name()==typeid (Entier).name()){
@@ -233,6 +286,12 @@ Complexe Complexe::operator * (Complexe r1)
     else if (typeid (*im_1).name()==typeid (Reel).name()){
          Reel* e = dynamic_cast<Reel*>(im_1);
          res.im = *e + im_2;
+    }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        res.re = new Entier(0);    res.im = new Entier(0);
+        return &res;
     }
 
 
@@ -249,26 +308,30 @@ Complexe Complexe::operator * (Rationnel r1) {return *this*r1.toComplexe();}
 
 Constante* Complexe::operator * (Constante* r1)
 {
+    Complexe* res;
+
     if(typeid (*r1).name()==typeid (Entier).name()){
         Entier* e = dynamic_cast<Entier*>(r1);
-        Complexe* res = new Complexe(*this * *e);
-        return res;
+        res = new Complexe(*this * *e);
     }
     else if (typeid (*r1).name()==typeid (Rationnel).name()){
          Rationnel* e = dynamic_cast<Rationnel*>(r1);
-         Complexe* res = new Complexe(*this * *e);
-         return res;
+         res = new Complexe(*this * *e);
     }
     else if (typeid (*r1).name()==typeid (Reel).name()){
          Reel* e = dynamic_cast<Reel*>(r1);
-         Complexe* res = new Complexe(*this * *e);
-         return res;
+         res = new Complexe(*this * *e);
     }
     else if (typeid (*r1).name()==typeid (Complexe).name()){
          Complexe* e = dynamic_cast<Complexe*>(r1);
-         Complexe* res = new Complexe(*this * *e);
-         return res;
+         res = new Complexe(*this * *e);
     }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        res = NULL;
+    }
+    return res;
 }
 
 Complexe Complexe::operator / (Complexe r1)
@@ -292,6 +355,12 @@ Complexe Complexe::operator / (Complexe r1)
          Reel* e = dynamic_cast<Reel*>(r1.re);
          a = new Reel(e->sqr());
     }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        res.re = new Entier(0);    res.im = new Entier(0);
+        return &res;
+    }
 
         // carré de b et b²+a²
     if(typeid (*r1.im).name()==typeid (Entier).name()){
@@ -306,6 +375,12 @@ Complexe Complexe::operator / (Complexe r1)
          Reel* e = dynamic_cast<Reel*>(r1.im);
          b = new Reel(e->sqr());
     }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        res.re = new Entier(0);    res.im = new Entier(0);
+        return &res;
+    }
 
         // a² + b²
     if(typeid (*a).name()==typeid (Entier).name()){
@@ -319,6 +394,12 @@ Complexe Complexe::operator / (Complexe r1)
     else if (typeid (*a).name()==typeid (Reel).name()){
          Reel* e = dynamic_cast<Reel*>(a);
          module = *e + b;
+    }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        res.re = new Entier(0);    res.im = new Entier(0);
+        return &res;
     }
 
     // conjugue de r1 / |r1|
@@ -335,6 +416,12 @@ Complexe Complexe::operator / (Complexe r1)
         Reel* e = dynamic_cast<Reel*>(r1.re);
         res.re = *e / module;
     }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        res.re = new Entier(0);    res.im = new Entier(0);
+        return &res;
+    }
 
         // inverse de la partie imaginaire + division par le module
     if(typeid (*r1.im).name()==typeid (Entier).name()){
@@ -348,6 +435,12 @@ Complexe Complexe::operator / (Complexe r1)
     else if (typeid (*r1.im).name()==typeid (Reel).name()){
         Reel* e = dynamic_cast<Reel*>(r1.im);
         res.im = (-*e) / module;
+    }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        res.re = new Entier(0);    res.im = new Entier(0);
+        return &res;
     }
 
     res = *this * res;
@@ -364,26 +457,30 @@ Complexe Complexe::operator / (Rationnel r1) {return *this/r1.toComplexe();}
 
 Constante* Complexe::operator / (Constante* r1)
 {
+    Complexe* res;
+
     if(typeid (*r1).name()==typeid (Entier).name()){
         Entier* e = dynamic_cast<Entier*>(r1);
-        Complexe* res = new Complexe(*this / *e);
-        return res;
+        res = new Complexe(*this / *e);
     }
     else if (typeid (*r1).name()==typeid (Rationnel).name()){
          Rationnel* e = dynamic_cast<Rationnel*>(r1);
-         Complexe* res = new Complexe(*this / *e);
-         return res;
+         res = new Complexe(*this / *e);
     }
     else if (typeid (*r1).name()==typeid (Reel).name()){
          Reel* e = dynamic_cast<Reel*>(r1);
-         Complexe* res = new Complexe(*this / *e);
-         return res;
+         res = new Complexe(*this / *e);
     }
     else if (typeid (*r1).name()==typeid (Complexe).name()){
          Complexe* e = dynamic_cast<Complexe*>(r1);
-         Complexe* res = new Complexe(*this / *e);
-         return res;
+         res = new Complexe(*this / *e);
     }
+    else {
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        res = NULL;
+    }
+    return res;
 }
 
 Complexe Complexe::sqr(){return *this* *this;}

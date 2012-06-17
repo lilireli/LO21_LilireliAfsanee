@@ -63,9 +63,14 @@ void CalculatriceModele::getSum(int type){
             emit finOp(&pile);
 //            historique.push(pile.clone());
         }
-        // else log message("type non conforme");
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+
     }
-    // else log message("taille pile insuffisante");
+    else{
+    logger1->Write(&LogMessage(ERROR,"taille pile insuffisante"));
+    logger2->Write(&LogMessage(ERROR,"taille pile insuffisante"));
+    }
 }
 
 
@@ -93,12 +98,16 @@ void CalculatriceModele::getMean(int type){
                 pile.push(a);
                 // log message("taille pile insuffisante");
             }
-            emit finOp(&pile);
-//            historique.push(pile.clone());
         }
-        // else log message("type non conforme");
+        emit finOp(&pile);
+//      historique.push(pile.clone());
+        logger1->Write(&LogMessage(ERROR,"type non conforme"));
+        logger2->Write(&LogMessage(ERROR,"type non conforme"));
     }
-    // else log message("taille pile insuffisante");
+    else{
+    logger1->Write(&LogMessage(ERROR,"taille pile insuffisante"));
+    logger2->Write(&LogMessage(ERROR,"taille pile insuffisante"));
+    }
 }
 
 void CalculatriceModele::getClear(){
@@ -120,7 +129,10 @@ void CalculatriceModele::getDup(){
         //afficherHistorique();
         emit finOp(&pile);
     }
-    // else log message("taille pile insuffisante");
+    else{
+        logger1->Write(&LogMessage(ERROR,"taille pile insuffisante"));
+        logger2->Write(&LogMessage(ERROR,"taille pile insuffisante"));
+    }
 }
 
 void CalculatriceModele::getDrop(){
@@ -131,5 +143,8 @@ void CalculatriceModele::getDrop(){
         //historique.push(pile.clone());
         //afficherHistorique();
     }
-    // else log message("taille pile insuffisante");
+    else{
+        logger1->Write(&LogMessage(ERROR,"taille pile insuffisante"));
+        logger2->Write(&LogMessage(ERROR,"taille pile insuffisante"));
+    }
 }
