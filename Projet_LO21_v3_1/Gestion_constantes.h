@@ -1,3 +1,8 @@
+/*
+  Hamici Mathilde
+  Suzanne Aurélie
+  Projet LO21 - Calculatrice à notation polonaise inversée
+*/
 #ifndef GESTION_CONSTANTES_H
 #define GESTION_CONSTANTES_H
 

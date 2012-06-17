@@ -1,3 +1,8 @@
+/*
+  Hamici Mathilde
+  Suzanne Aurélie
+  Projet LO21 - Calculatrice à notation polonaise inversée
+*/
 #include "CalculatriceModele.h"
 #include <typeinfo>
 #include "mainwindow.h"
@@ -77,11 +82,12 @@ void CalculatriceModele::getExpression(){
     }
 }
 
-void CalculatriceModele::getAdd(){
+void CalculatriceModele::getAdd(int type){
     if(pile.size()>=2){
         Constante* b = pile.pop();
         Constante* a = pile.pop();
 
+        // gestion des expressions
         if (typeid (*a).name()==typeid (Expression).name() && typeid (*b).name()==typeid (Expression).name()){
              Expression* e = dynamic_cast<Expression*>(a);
              Expression* f = dynamic_cast<Expression*>(b);
@@ -108,6 +114,7 @@ void CalculatriceModele::getAdd(){
              return;
         }
 
+        // gestion des autres types
         Constante* res;
 
         if(typeid (*a).name()==typeid (Entier).name()){
@@ -127,6 +134,9 @@ void CalculatriceModele::getAdd(){
              res = *e + b;
         }
 
+        FabriqueConstante fab;
+        res = fab.getType(res, type);
+
         pile.push(res);
         qDebug() << "res : " << res->ConvertChaine();
         emit finOp(res, 2);
@@ -135,7 +145,7 @@ void CalculatriceModele::getAdd(){
     }
 }
 
-void CalculatriceModele::getSous(){
+void CalculatriceModele::getSous(int type){
     if(pile.size()>=2){
         Constante* b = pile.pop();
         Constante* a = pile.pop();
@@ -185,6 +195,9 @@ void CalculatriceModele::getSous(){
              res = *e - b;
         }
 
+        FabriqueConstante fab;
+        res = fab.getType(res, type);
+
         pile.push(res);
         qDebug() << "res : " << res->ConvertChaine();
         emit finOp(res, 2);
@@ -193,7 +206,7 @@ void CalculatriceModele::getSous(){
     }
 }
 
-void CalculatriceModele::getMult(){
+void CalculatriceModele::getMult(int type){
     if(pile.size()>=2){
         Constante* b = pile.pop();
         Constante* a = pile.pop();
@@ -242,6 +255,9 @@ void CalculatriceModele::getMult(){
              Complexe* e = dynamic_cast<Complexe*>(a);
              res = *e * b;
         }
+
+        FabriqueConstante fab;
+        res = fab.getType(res, type);
 
         pile.push(res);
         qDebug() << "res : " << res->ConvertChaine();
@@ -329,7 +345,7 @@ void CalculatriceModele::getDiv(int type){
     }
 }
 
-void CalculatriceModele::getPow(){
+void CalculatriceModele::getPow(int type){
     if(pile.size()>=2){
         Constante* b = pile.pop();
         Constante* a = pile.pop();
@@ -374,6 +390,9 @@ void CalculatriceModele::getPow(){
              Reel* e = dynamic_cast<Reel*>(a);
              res = e->puissance(b);
         }
+
+        FabriqueConstante fab;
+        res = fab.getType(res, type);
 
         pile.push(res);
         qDebug() << "res : " << res->ConvertChaine();
@@ -459,7 +478,7 @@ void CalculatriceModele::getFact(){
     }
 }
 
-void CalculatriceModele::getSign(){
+void CalculatriceModele::getSign(int type){
     if(pile.size()>=1){
         Constante* a = pile.pop();
 
@@ -489,6 +508,10 @@ void CalculatriceModele::getSign(){
              Complexe* e = dynamic_cast<Complexe*>(a);
              res = new Complexe(-*e);
         }
+
+        FabriqueConstante fab;
+        res = fab.getType(res, type);
+
         pile.push(res);
         qDebug() << "res : " << res->ConvertChaine();
         emit finOp(res, 1);
@@ -778,7 +801,7 @@ void CalculatriceModele::getLog(){
     }
 }
 
-void CalculatriceModele::getInv(){
+void CalculatriceModele::getInv(int type){
     if(pile.size()>=1){
         Constante* a = pile.pop();
 
@@ -804,6 +827,10 @@ void CalculatriceModele::getInv(){
              Reel* e = dynamic_cast<Reel*>(a);
              res = new Reel(e->inv());
         }
+
+        FabriqueConstante fab;
+        res = fab.getType(res, type);
+
         pile.push(res);
         qDebug() << "res : " << res->ConvertChaine();
         emit finOp(res, 1);
@@ -845,7 +872,7 @@ void CalculatriceModele::getSqrt(){
     }
 }
 
-void CalculatriceModele::getSqr(){
+void CalculatriceModele::getSqr(int type){
     if(pile.size()>=1){
         Constante* a = pile.pop();
 
@@ -875,6 +902,10 @@ void CalculatriceModele::getSqr(){
              Complexe* e = dynamic_cast<Complexe*>(a);
              res = new Complexe(e->sqr());
         }
+
+        FabriqueConstante fab;
+        res = fab.getType(res, type);
+
         pile.push(res);
         qDebug() << "res : " << res->ConvertChaine();
         emit finOp(res, 1);
@@ -882,7 +913,7 @@ void CalculatriceModele::getSqr(){
     }
 }
 
-void CalculatriceModele::getCube(){
+void CalculatriceModele::getCube(int type){
     if(pile.size()>=1){
         Constante* a = pile.pop();
 
@@ -912,6 +943,9 @@ void CalculatriceModele::getCube(){
              Complexe* e = dynamic_cast<Complexe*>(a);
              res = new Complexe(e->cube());
         }
+
+        FabriqueConstante fab;
+        res = fab.getType(res, type);
 
         pile.push(res);
         qDebug() << "res : " << res->ConvertChaine();

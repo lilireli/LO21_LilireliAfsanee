@@ -1,3 +1,8 @@
+/*
+  Hamici Mathilde
+  Suzanne Aurélie
+  Projet LO21 - Calculatrice à notation polonaise inversée
+*/
 #include "Constantes.h"
 #include <QDebug>
 

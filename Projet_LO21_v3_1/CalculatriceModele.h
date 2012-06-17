@@ -1,3 +1,15 @@
+/*
+  Hamici Mathilde
+  Suzanne Aurélie
+  Projet LO21 - Calculatrice à notation polonaise inversée
+*/
+
+/*!
+ *  \file CalculatriceModele.h
+ *  \brief Gère la calculatrice
+ *  \author Hamici Mathilde, Suzanne Aurélie
+ */
+
 #ifndef CALCULATRICEMODELE_H
 #define CALCULATRICEMODELE_H
 #include <QDebug>
@@ -31,15 +43,15 @@ public slots:
      void getNombre(QString s, bool complexe);
      void getExpression();
 
-     void getAdd();
-     void getSous();
-     void getMult();
+     void getAdd(int type);
+     void getSous(int type);
+     void getMult(int type);
      void getDiv(int type);
 
-     void getPow();
+     void getPow(int type);
      void getMod();
      void getFact();
-     void getSign();
+     void getSign(int type);
 
      void getSin(bool degre);
      void getCos(bool degre);
@@ -51,11 +63,11 @@ public slots:
 
      void getLn();
      void getLog();
-     void getInv();
+     void getInv(int type);
 
      void getSqrt();
-     void getSqr();
-     void getCube();
+     void getSqr(int type);
+     void getCube(int type);
 
      void getSwap();
      void getSum();

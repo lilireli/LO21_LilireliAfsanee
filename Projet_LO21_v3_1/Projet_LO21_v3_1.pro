@@ -18,8 +18,7 @@ SOURCES += main.cpp\
     Entier.cpp \
     Constante_Factory.cpp \
     Complexe.cpp \
-    CalculatriceModele.cpp \
-    Expression.cpp
+    CalculatriceModele.cpp
 
 HEADERS  += mainwindow.h \
     Gestion_constantes.h \

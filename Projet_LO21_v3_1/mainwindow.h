@@ -1,3 +1,8 @@
+/*
+  Hamici Mathilde
+  Suzanne Aurélie
+  Projet LO21 - Calculatrice à notation polonaise inversée
+*/
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -100,15 +105,15 @@ signals:
     void finEntree();
     void pressEval();
 
-    void pressAdd();
-    void pressSous();
-    void pressMult();
+    void pressAdd(int typeNombre);
+    void pressSous(int typeNombre);
+    void pressMult(int typeNombre);
     void pressDiv(int typeNombre);
 
-    void pressPow();
+    void pressPow(int typeNombre);
     void pressMod();
     void pressFact();
-    void pressSign();
+    void pressSign(int typeNombre);
 
     void pressSin(bool degre);
     void pressCos(bool degre);
@@ -123,8 +128,8 @@ signals:
     void pressInv();
 
     void pressSqrt();
-    void pressSqr();
-    void pressCube();
+    void pressSqr(int typeNombre);
+    void pressCube(int typeNombre);
 
     void pressSwap();
     void pressSum();

@@ -1,3 +1,14 @@
+/*
+  Hamici Mathilde
+  Suzanne Aurélie
+  Projet LO21 - Calculatrice à notation polonaise inversée
+*/
+/*!
+ *  \file main.c
+ *  \brief Lance l'application
+ *  \author {Hamici Mathilde, Suzanne Aurélie}
+ */
+
 #include <QtGui/QApplication>
 #include "mainwindow.h"
 

@@ -1,3 +1,8 @@
+/*
+  Hamici Mathilde
+  Suzanne Aurélie
+  Projet LO21 - Calculatrice à notation polonaise inversée
+*/
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "Gestion_constantes.h"
@@ -45,12 +50,12 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(model, SIGNAL(finOp(Constante*, int)), this, SLOT(affichePile(Constante*, int)));
     connect(this, SIGNAL(pressEval()), model, SLOT(getExpression()));
 
-    connect(this, SIGNAL(pressAdd()), model, SLOT(getAdd()));
-    connect(this, SIGNAL(pressSous()), model, SLOT(getSous()));
-    connect(this, SIGNAL(pressMult()), model, SLOT(getMult()));
+    connect(this, SIGNAL(pressAdd(int)), model, SLOT(getAdd(int)));
+    connect(this, SIGNAL(pressSous(int)), model, SLOT(getSous(int)));
+    connect(this, SIGNAL(pressMult(int)), model, SLOT(getMult(int)));
     connect(this, SIGNAL(pressDiv(int)), model, SLOT(getDiv(int)));
 
-    connect(this, SIGNAL(pressPow()), model, SLOT(getPow()));
+    connect(this, SIGNAL(pressPow(int)), model, SLOT(getPow(int)));
     connect(this, SIGNAL(pressMod()), model, SLOT(getMod()));
     connect(this, SIGNAL(pressFact()), model, SLOT(getFact()));
     connect(this, SIGNAL(pressSign()), model, SLOT(getSign()));
@@ -65,11 +70,11 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(this, SIGNAL(pressLn()), model, SLOT(getLn()));
     connect(this, SIGNAL(pressLog()), model, SLOT(getLog()));
-    connect(this, SIGNAL(pressInv()), model, SLOT(getInv()));
+    connect(this, SIGNAL(pressInv(int)), model, SLOT(getInv(int)));
 
     connect(this, SIGNAL(pressSqrt()), model, SLOT(getSqrt()));
-    connect(this, SIGNAL(pressSqr()), model, SLOT(getSqr()));
-    connect(this, SIGNAL(pressCube()), model, SLOT(getCube()));
+    connect(this, SIGNAL(pressSqr(int)), model, SLOT(getSqr(int)));
+    connect(this, SIGNAL(pressCube(int)), model, SLOT(getCube(int)));
 
     connect(this, SIGNAL(pressSwap()), model, SLOT(getSwap()));
     connect(this, SIGNAL(pressSum()), model, SLOT(getSum()));
@@ -340,15 +345,15 @@ void MainWindow::EnterAction(QString s)
         emit pressEntrerN(s, complexe);
     }
     else{
-        if(s=="+"){emit pressAdd();}
-        if(s=="-"){emit pressSous();}
-        if(s=="*"){emit pressMult();}
+        if(s=="+"){emit pressAdd(typeNombre);}
+        if(s=="-"){emit pressSous(typeNombre);}
+        if(s=="*"){emit pressMult(typeNombre);}
         if(s=="/"){emit pressDiv(typeNombre);}
 
-        if(s=="pow"){emit pressPow();}
+        if(s=="pow"){emit pressPow(typeNombre);}
         if(s=="mod"){emit pressMod();}
         if(s=="fact"){emit pressFact();}
-        if(s=="sign"){emit pressSign();}
+        if(s=="sign"){emit pressSign(typeNombre);}
 
         if(s=="sin"){emit pressSin(degre);}
         if(s=="cos"){emit pressCos(degre);}
@@ -363,8 +368,8 @@ void MainWindow::EnterAction(QString s)
         if(s=="inv"){emit pressInv();}
 
         if(s=="sqrt"){emit pressSqrt();}
-        if(s=="sqr"){emit pressSqr();}
-        if(s=="cube"){emit pressCube();}
+        if(s=="sqr"){emit pressSqr(typeNombre);}
+        if(s=="cube"){emit pressCube(typeNombre);}
 
         if(s=="swap"){emit pressSwap();}
         if(s=="sum"){emit pressSum();}
