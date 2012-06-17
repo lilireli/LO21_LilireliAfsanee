@@ -8,6 +8,10 @@
  *  \brief Lance l'application
  *  \author {Hamici Mathilde, Suzanne Aurélie}
  */
+#include "Logger.h"
+
+LoggerConsole* logger1;
+LoggerFile* logger2;
 
 #include <QtGui/QApplication>
 #include "mainwindow.h"

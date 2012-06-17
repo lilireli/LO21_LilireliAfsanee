@@ -8,6 +8,10 @@
 
 #include <QString>
 #include "Constantes.h"
+#include "Logger.h"
+
+extern LoggerConsole* logger1;
+extern LoggerFile* logger2;
 
 using namespace Calcul;
 

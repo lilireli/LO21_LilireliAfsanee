@@ -526,7 +526,7 @@
       <string>CLEAR</string>
      </property>
      <property name="shortcut">
-      <string>C, L, E, A</string>
+      <string>Ctrl+C</string>
      </property>
     </widget>
    </widget>

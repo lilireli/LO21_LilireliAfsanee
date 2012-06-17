@@ -35,6 +35,10 @@ int NombreValide(QString chaine)
         else
             return 0;
     }
+    if(type==0){
+        logger1->Write(&LogMessage(ERROR,"nombre non valide"));
+        logger2->Write(&LogMessage(ERROR,"nombre non valide"));
+    }
     return type;
 }
 
@@ -55,13 +59,20 @@ int FormuleValide(QString s)
 
     if(trouve==0)return NombreValide(n);
     else if(NombreValide(n)!=0 && NombreValide(m)!=0) return 4;
-    else return 0;
+    else {
+        logger1->Write(&LogMessage(ERROR,"constante non valide"));
+        logger2->Write(&LogMessage(ERROR,"constante non valide"));
+        return 0;
+    }
 }
 
 
 int Stack::push(Constante* nb)
 {
-    if (this->isFull()){return -1;}
+    if (this->isFull()){
+        logger1->Write(&LogMessage(WARNING,"pile pleine"));
+        logger2->Write(&LogMessage(WARNING,"pile pleine"));
+        return -1;}
     else
     {
         tab[nbElements] = nb;
@@ -77,6 +88,8 @@ Constante *Stack::pop()
        nbElements --;
        return tab[nbElements];
    }
+   logger1->Write(&LogMessage(WARNING,"pile vide"));
+   logger2->Write(&LogMessage(WARNING,"pile vide"));
    return NULL;
 }
 
@@ -109,6 +122,8 @@ int Stack::Swap(Entier* x, Entier* y){
 }
 
 
+
+// utilité ?
 void Stack::afficherPile(){
     QString buffer = "";
     for (iterator it = begin(); it != end(); ++it){

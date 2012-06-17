@@ -18,12 +18,17 @@ SOURCES += main.cpp\
     Entier.cpp \
     Constante_Factory.cpp \
     Complexe.cpp \
-    CalculatriceModele.cpp
+    CalculatriceModele.cpp \
+    logger.cpp \
+    CalculatriceFonctionPile.cpp \
+    MainWindowChiffres_Operations.cpp \
+    CalculatriceOperations.cpp
 
 HEADERS  += mainwindow.h \
     Gestion_constantes.h \
     Constantes.h \
     Constante_Factory.h \
-    CalculatriceModele.h
+    CalculatriceModele.h \
+    Logger.h
 
 FORMS    += mainwindow.ui

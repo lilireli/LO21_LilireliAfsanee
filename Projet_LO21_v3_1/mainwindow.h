@@ -51,8 +51,10 @@ private slots:
     void on_EvalPressed_clicked();
     void on_opDelPressed_clicked();
     void rafraichissement();
-    void affichePile(Constante* cte, int j);
+    void affichePile(Stack* pile);
     void setTaillePile(int n);
+    void on_clickAnnul_clicked();
+    void on_clickRetablir_clicked();
 
     //opérations
     void on_opPlusPressed_clicked();
@@ -104,6 +106,11 @@ signals:
     void pressEntrerN(QString s, bool complexe);
     void finEntree();
     void pressEval();
+    void pressAnnuler();
+    void pressRetablir();
+
+    void complexeVrai();
+    void complexeFaux();
 
     void pressAdd(int typeNombre);
     void pressSous(int typeNombre);
@@ -125,15 +132,15 @@ signals:
 
     void pressLn();
     void pressLog();
-    void pressInv();
+    void pressInv(int typeNombre);
 
     void pressSqrt();
     void pressSqr(int typeNombre);
     void pressCube(int typeNombre);
 
     void pressSwap();
-    void pressSum();
-    void pressMean();
+    void pressSum(int typeNombre);
+    void pressMean(int typeNombre);
     void pressClear();
     void pressDup();
     void pressDrop();
