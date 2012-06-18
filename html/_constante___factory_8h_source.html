@@ -87,7 +87,7 @@ $(document).ready(function(){initNavTree('_constante___factory_8h.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -101,37 +101,51 @@ $(document).ready(function(){initNavTree('_constante___factory_8h.html','');});
 <div class="title">Constante_Factory.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef CONSTANTE_FACTORY_H</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define CONSTANTE_FACTORY_H</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Constantes.h&quot;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &quot;Gestion_constantes.h&quot;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">using namespace </span>Calcul;</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="code" href="class_fabrique_nombre.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_fabrique_nombre.html">FabriqueNombre</a>{</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="class_calcul_1_1_nombre.html">Nombre</a>* getNombre(QString chaine);</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="class_calcul_1_1_nombre.html">Nombre</a>* newNombre(<a class="code" href="class_calcul_1_1_nombre.html">Nombre</a>* a);</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="class_calcul_1_1_nombre.html">Nombre</a>* getType(<a class="code" href="class_calcul_1_1_nombre.html">Nombre</a>* a, <span class="keywordtype">int</span> type);</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;};</div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">  Hamici Mathilde</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">  Suzanne Aurélie</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">  Projet LO21 - Calculatrice à notation polonaise inversée</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">*/</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef CONSTANTE_FACTORY_H</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define CONSTANTE_FACTORY_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;Constantes.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;Gestion_constantes.h&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;Logger.h&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">extern</span> <a class="code" href="class_logger_console.html">LoggerConsole</a>* logger1;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">extern</span> <a class="code" href="class_logger_file.html">LoggerFile</a>* logger2;</div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00016"></a><span class="lineno"><a class="code" href="class_fabrique_constante.html">   16</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_fabrique_constante.html">FabriqueConstante</a>{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="class_calcul_1_1_constante.html">Constante</a>* getConstante(QString chaine);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="class_calcul_1_1_constante.html">Constante</a>* getComplexe(QString chaine);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <a class="code" href="class_calcul_1_1_constante.html">Constante</a>* getType(<a class="code" href="class_calcul_1_1_constante.html">Constante</a>* a, <span class="keywordtype">int</span> type);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="class_calcul_1_1_constante.html">Constante</a>* newConstante(<a class="code" href="class_calcul_1_1_constante.html">Constante</a>* a);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#endif // CONSTANTE_FACTORY_H</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="keyword">using namespace </span>Calcul;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno"><a class="code" href="class_fabrique_nombre.html">   21</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_fabrique_nombre.html" title="Utilisation du design pattern factory pour créer des objets de type Nombre.">FabriqueNombre</a>{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="class_calcul_1_1_nombre.html" title="Classe abstraite qui contiendra les nombres de type entier, rationnel et réel">Nombre</a>* getNombre(QString chaine);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="class_calcul_1_1_nombre.html" title="Classe abstraite qui contiendra les nombres de type entier, rationnel et réel">Nombre</a>* newNombre(<a class="code" href="class_calcul_1_1_nombre.html" title="Classe abstraite qui contiendra les nombres de type entier, rationnel et réel">Nombre</a>* a);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="class_calcul_1_1_nombre.html" title="Classe abstraite qui contiendra les nombres de type entier, rationnel et réel">Nombre</a>* getType(<a class="code" href="class_calcul_1_1_nombre.html" title="Classe abstraite qui contiendra les nombres de type entier, rationnel et réel">Nombre</a>* a, <span class="keywordtype">int</span> type);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="code" href="class_fabrique_constante.html">   49</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_fabrique_constante.html">FabriqueConstante</a>{</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="class_calcul_1_1_constante.html" title="Classe abstraite qui contiendra tous les types de nombres.">Constante</a>* getConstante(QString chaine);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    <a class="code" href="class_calcul_1_1_constante.html" title="Classe abstraite qui contiendra tous les types de nombres.">Constante</a>* getComplexe(QString chaine);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <a class="code" href="class_calcul_1_1_constante.html" title="Classe abstraite qui contiendra tous les types de nombres.">Constante</a>* getType(<a class="code" href="class_calcul_1_1_constante.html" title="Classe abstraite qui contiendra tous les types de nombres.">Constante</a>* a, <span class="keywordtype">int</span> type);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <a class="code" href="class_calcul_1_1_constante.html" title="Classe abstraite qui contiendra tous les types de nombres.">Constante</a>* newConstante(<a class="code" href="class_calcul_1_1_constante.html" title="Classe abstraite qui contiendra tous les types de nombres.">Constante</a>* a);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;};</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="preprocessor">#endif // CONSTANTE_FACTORY_H</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>Constante_Factory.h</b></li>
-    <li class="footer">Generated on Sun Jun 17 2012 11:34:30 for Projet Calculatrice Ã  notation polonaise inversÃ©e by
+    <li class="footer">Generated on Mon Jun 18 2012 01:59:27 for Projet Calculatrice Ã  notation polonaise inversÃ©e by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.1 </li>
   </ul>

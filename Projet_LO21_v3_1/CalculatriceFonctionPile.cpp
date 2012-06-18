@@ -47,7 +47,7 @@ void CalculatriceModele::getSum(int type){
 
             if(pile.size()>=k)
             {
-                for(int i=0; i<k; i++){
+                for(int i=0; i<k-1; i++){
                     emit getAdd(type);
                 }
 
@@ -62,10 +62,12 @@ void CalculatriceModele::getSum(int type){
 
             emit finOp(&pile);
 //            historique.push(pile.clone());
-        }
-        logger1->Write(&LogMessage(ERROR,"type non conforme"));
-        logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        }else{
+            pile.push(a);
+            logger1->Write(&LogMessage(ERROR,"type non conforme"));
+            logger2->Write(&LogMessage(ERROR,"type non conforme"));
 
+        }
     }
     else{
     logger1->Write(&LogMessage(ERROR,"taille pile insuffisante"));
@@ -96,7 +98,8 @@ void CalculatriceModele::getMean(int type){
             }
             else{
                 pile.push(a);
-                // log message("taille pile insuffisante");
+                logger1->Write(&LogMessage(ERROR,"taille pile insuffisante"));
+                logger2->Write(&LogMessage(ERROR,"taille pile insuffisante"));
             }
         }
         emit finOp(&pile);

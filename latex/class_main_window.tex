@@ -1,6 +1,15 @@
 \hypertarget{class_main_window}{\section{Main\-Window Class Reference}
 \label{class_main_window}\index{Main\-Window@{Main\-Window}}
 }
+
+
+Vue qui gère l'affichage et communique avec \hyperlink{class_calculatrice_modele}{Calculatrice\-Modele} pour effectuer les calculs et rentrer les constantes.  
+
+
+
+
+{\ttfamily \#include $<$mainwindow.\-h$>$}
+
 \subsection*{Signals}
 \begin{DoxyCompactItemize}
 \item 
@@ -13,19 +22,31 @@
 \hypertarget{class_main_window_a95d2cfe9f1036d1dbbaad6d3f6504d1e}{void {\bfseries press\-Eval} ()}\label{class_main_window_a95d2cfe9f1036d1dbbaad6d3f6504d1e}
 
 \item 
-\hypertarget{class_main_window_a83561f536fad69bc32f1988a86ef2f34}{void {\bfseries press\-Add} ()}\label{class_main_window_a83561f536fad69bc32f1988a86ef2f34}
+\hypertarget{class_main_window_aaf9db67eaf775db8b0bc1e066a844994}{void {\bfseries press\-Annuler} ()}\label{class_main_window_aaf9db67eaf775db8b0bc1e066a844994}
 
 \item 
-\hypertarget{class_main_window_adb6c880ba04d5cf65972767aa67abba6}{void {\bfseries press\-Sous} ()}\label{class_main_window_adb6c880ba04d5cf65972767aa67abba6}
+\hypertarget{class_main_window_a0e0214f53b83522b6fb4a513fdde0a56}{void {\bfseries press\-Retablir} ()}\label{class_main_window_a0e0214f53b83522b6fb4a513fdde0a56}
 
 \item 
-\hypertarget{class_main_window_a2c25b8558b1c6dcd86a2a771bdd30310}{void {\bfseries press\-Mult} ()}\label{class_main_window_a2c25b8558b1c6dcd86a2a771bdd30310}
+\hypertarget{class_main_window_ac966ffc012ed7b3df4615f4449281cec}{void {\bfseries complexe\-Vrai} ()}\label{class_main_window_ac966ffc012ed7b3df4615f4449281cec}
+
+\item 
+\hypertarget{class_main_window_aa20588e72485e9c17fcc81961296ebbf}{void {\bfseries complexe\-Faux} ()}\label{class_main_window_aa20588e72485e9c17fcc81961296ebbf}
+
+\item 
+\hypertarget{class_main_window_ad396facd02819cd66156a5229a02e6a7}{void {\bfseries press\-Add} (int type\-Nombre)}\label{class_main_window_ad396facd02819cd66156a5229a02e6a7}
+
+\item 
+\hypertarget{class_main_window_a4b349b6d265c94cb0327ea7204e89f38}{void {\bfseries press\-Sous} (int type\-Nombre)}\label{class_main_window_a4b349b6d265c94cb0327ea7204e89f38}
+
+\item 
+\hypertarget{class_main_window_a20be67f1bc010f1076d3ab1b0b7ca162}{void {\bfseries press\-Mult} (int type\-Nombre)}\label{class_main_window_a20be67f1bc010f1076d3ab1b0b7ca162}
 
 \item 
 \hypertarget{class_main_window_a97a8062c748d81bbc5462dd3cecb150d}{void {\bfseries press\-Div} (int type\-Nombre)}\label{class_main_window_a97a8062c748d81bbc5462dd3cecb150d}
 
 \item 
-\hypertarget{class_main_window_a06c480034cf6c6a60e62c1da32bd3947}{void {\bfseries press\-Pow} ()}\label{class_main_window_a06c480034cf6c6a60e62c1da32bd3947}
+\hypertarget{class_main_window_ac268a0536e2859f8622657aa8903f9dd}{void {\bfseries press\-Pow} (int type\-Nombre)}\label{class_main_window_ac268a0536e2859f8622657aa8903f9dd}
 
 \item 
 \hypertarget{class_main_window_a5f63c4865d583d26ef3315c8b14945c1}{void {\bfseries press\-Mod} ()}\label{class_main_window_a5f63c4865d583d26ef3315c8b14945c1}
@@ -34,7 +55,7 @@
 \hypertarget{class_main_window_a1f4fe23c762eb48f8316945bbef42c62}{void {\bfseries press\-Fact} ()}\label{class_main_window_a1f4fe23c762eb48f8316945bbef42c62}
 
 \item 
-\hypertarget{class_main_window_a66a8677fdf938f6f2a3a207bc4dfcfe4}{void {\bfseries press\-Sign} ()}\label{class_main_window_a66a8677fdf938f6f2a3a207bc4dfcfe4}
+\hypertarget{class_main_window_af74e5eddba09f40bb96ad3052e5f4c85}{void {\bfseries press\-Sign} (int type\-Nombre)}\label{class_main_window_af74e5eddba09f40bb96ad3052e5f4c85}
 
 \item 
 \hypertarget{class_main_window_a225c94d2051035e146f27005e87bd3b9}{void {\bfseries press\-Sin} (bool degre)}\label{class_main_window_a225c94d2051035e146f27005e87bd3b9}
@@ -61,25 +82,25 @@
 \hypertarget{class_main_window_a8414825b291dc9a4965b8302b624c77d}{void {\bfseries press\-Log} ()}\label{class_main_window_a8414825b291dc9a4965b8302b624c77d}
 
 \item 
-\hypertarget{class_main_window_a27b32f887094a5d5c3f521e2ceb150bd}{void {\bfseries press\-Inv} ()}\label{class_main_window_a27b32f887094a5d5c3f521e2ceb150bd}
+\hypertarget{class_main_window_aad913fabae24bd877c0830f8d6cbfa1b}{void {\bfseries press\-Inv} (int type\-Nombre)}\label{class_main_window_aad913fabae24bd877c0830f8d6cbfa1b}
 
 \item 
 \hypertarget{class_main_window_a1cef6e994e88446eae146ec920588c36}{void {\bfseries press\-Sqrt} ()}\label{class_main_window_a1cef6e994e88446eae146ec920588c36}
 
 \item 
-\hypertarget{class_main_window_adcb82f0557536c9d074bcc049c9dec83}{void {\bfseries press\-Sqr} ()}\label{class_main_window_adcb82f0557536c9d074bcc049c9dec83}
+\hypertarget{class_main_window_ad61a8b8a78c92453da2b55e4292e9d8c}{void {\bfseries press\-Sqr} (int type\-Nombre)}\label{class_main_window_ad61a8b8a78c92453da2b55e4292e9d8c}
 
 \item 
-\hypertarget{class_main_window_af818545c8ce818a11ce17c26ad9ed273}{void {\bfseries press\-Cube} ()}\label{class_main_window_af818545c8ce818a11ce17c26ad9ed273}
+\hypertarget{class_main_window_a3646c31c87248b33064cc83ad3b50f3c}{void {\bfseries press\-Cube} (int type\-Nombre)}\label{class_main_window_a3646c31c87248b33064cc83ad3b50f3c}
 
 \item 
 \hypertarget{class_main_window_a90f55dff8cd88ebb9ca51fbb45ff9572}{void {\bfseries press\-Swap} ()}\label{class_main_window_a90f55dff8cd88ebb9ca51fbb45ff9572}
 
 \item 
-\hypertarget{class_main_window_af8d41c17cf9ac3326d78792b4016648a}{void {\bfseries press\-Sum} ()}\label{class_main_window_af8d41c17cf9ac3326d78792b4016648a}
+\hypertarget{class_main_window_aad6db4cd90be3080ccfba45126f8314d}{void {\bfseries press\-Sum} (int type\-Nombre)}\label{class_main_window_aad6db4cd90be3080ccfba45126f8314d}
 
 \item 
-\hypertarget{class_main_window_a31a44d6c9060625aef1cb4f360d1c9b9}{void {\bfseries press\-Mean} ()}\label{class_main_window_a31a44d6c9060625aef1cb4f360d1c9b9}
+\hypertarget{class_main_window_af9af72599ae1edd0786d53b33548c02e}{void {\bfseries press\-Mean} (int type\-Nombre)}\label{class_main_window_af9af72599ae1edd0786d53b33548c02e}
 
 \item 
 \hypertarget{class_main_window_a7bfe416d75e010b19a746534be888500}{void {\bfseries press\-Clear} ()}\label{class_main_window_a7bfe416d75e010b19a746534be888500}
@@ -99,7 +120,13 @@
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+Vue qui gère l'affichage et communique avec \hyperlink{class_calculatrice_modele}{Calculatrice\-Modele} pour effectuer les calculs et rentrer les constantes. 
+
+{\itshape Fenetre\-Pile} permettra l'apparition d'une nouvelle fenêtre qui nous permettra la selection de la taille de la pile 
+
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
 mainwindow.\-h\item 
-mainwindow.\-cpp\end{DoxyCompactItemize}
+mainwindow.\-cpp\item 
+Main\-Window\-Chiffres\-\_\-\-Operations.\-cpp\end{DoxyCompactItemize}

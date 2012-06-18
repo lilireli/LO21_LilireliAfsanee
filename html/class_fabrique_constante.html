@@ -68,6 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -89,7 +90,7 @@ $(document).ready(function(){initNavTree('class_fabrique_constante.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -110,15 +111,120 @@ $(document).ready(function(){initNavTree('class_fabrique_constante.html','');});
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a7d192cf62b0c19f17d0ebdb8dac371ab"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7d192cf62b0c19f17d0ebdb8dac371ab"></a>
-<a class="el" href="class_calcul_1_1_constante.html">Constante</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getConstante</b> (QString chaine)</td></tr>
-<tr class="memitem:a05259a5b19903d8f1b640e45621d1fd4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a05259a5b19903d8f1b640e45621d1fd4"></a>
-<a class="el" href="class_calcul_1_1_constante.html">Constante</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getComplexe</b> (QString chaine)</td></tr>
-<tr class="memitem:a432cc65aa3d80402ea017963d5c06edf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a432cc65aa3d80402ea017963d5c06edf"></a>
-<a class="el" href="class_calcul_1_1_constante.html">Constante</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getType</b> (<a class="el" href="class_calcul_1_1_constante.html">Constante</a> *a, int type)</td></tr>
-<tr class="memitem:aa1f4a720e896aaeabd85b0dc042c2ecf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa1f4a720e896aaeabd85b0dc042c2ecf"></a>
-<a class="el" href="class_calcul_1_1_constante.html">Constante</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>newConstante</b> (<a class="el" href="class_calcul_1_1_constante.html">Constante</a> *a)</td></tr>
+<tr class="memitem:a7d192cf62b0c19f17d0ebdb8dac371ab"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_calcul_1_1_constante.html">Constante</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fabrique_constante.html#a7d192cf62b0c19f17d0ebdb8dac371ab">getConstante</a> (QString chaine)</td></tr>
+<tr class="memdesc:a7d192cf62b0c19f17d0ebdb8dac371ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">getConstante  <a href="#a7d192cf62b0c19f17d0ebdb8dac371ab"></a><br/></td></tr>
+<tr class="memitem:a05259a5b19903d8f1b640e45621d1fd4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_calcul_1_1_constante.html">Constante</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fabrique_constante.html#a05259a5b19903d8f1b640e45621d1fd4">getComplexe</a> (QString chaine)</td></tr>
+<tr class="memdesc:a05259a5b19903d8f1b640e45621d1fd4"><td class="mdescLeft">&#160;</td><td class="mdescRight">getComplexe  <a href="#a05259a5b19903d8f1b640e45621d1fd4"></a><br/></td></tr>
+<tr class="memitem:a432cc65aa3d80402ea017963d5c06edf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_calcul_1_1_constante.html">Constante</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fabrique_constante.html#a432cc65aa3d80402ea017963d5c06edf">getType</a> (<a class="el" href="class_calcul_1_1_constante.html">Constante</a> *a, int type)</td></tr>
+<tr class="memdesc:a432cc65aa3d80402ea017963d5c06edf"><td class="mdescLeft">&#160;</td><td class="mdescRight">getType  <a href="#a432cc65aa3d80402ea017963d5c06edf"></a><br/></td></tr>
+<tr class="memitem:aa1f4a720e896aaeabd85b0dc042c2ecf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_calcul_1_1_constante.html">Constante</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fabrique_constante.html#aa1f4a720e896aaeabd85b0dc042c2ecf">newConstante</a> (<a class="el" href="class_calcul_1_1_constante.html">Constante</a> *a)</td></tr>
+<tr class="memdesc:aa1f4a720e896aaeabd85b0dc042c2ecf"><td class="mdescLeft">&#160;</td><td class="mdescRight">newConstante  <a href="#aa1f4a720e896aaeabd85b0dc042c2ecf"></a><br/></td></tr>
 </table>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a05259a5b19903d8f1b640e45621d1fd4"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_calcul_1_1_constante.html">Constante</a> * FabriqueConstante::getComplexe </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>chaine</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getComplexe </p>
+<p>Genère un Complexe à partir d'un QString. Elle convertit tous les non Complexe en Complexe </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">QString</td><td>contenant la Constante a générer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a7d192cf62b0c19f17d0ebdb8dac371ab"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_calcul_1_1_constante.html">Constante</a> * FabriqueConstante::getConstante </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>chaine</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getConstante </p>
+<p>Genère une Constante à partir d'un QString. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">QString</td><td>contenant la Constante a générer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a432cc65aa3d80402ea017963d5c06edf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_calcul_1_1_constante.html">Constante</a> * FabriqueConstante::getType </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_calcul_1_1_constante.html">Constante</a> *&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getType </p>
+<p>Genère une Constante à partir d'une Constante, en prenant compte d'un type de sortie (entier, réel, rationnel).  Constante* à transformer  int contenant le type </p>
+
+</div>
+</div>
+<a class="anchor" id="aa1f4a720e896aaeabd85b0dc042c2ecf"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_calcul_1_1_constante.html">Constante</a> * FabriqueConstante::newConstante </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_calcul_1_1_constante.html">Constante</a> *&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>newConstante </p>
+<p>Genère une Constante à partir d'un pointeur de Constante. Permet de dupliquer une Constante. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Constante*</td><td>à dupliquer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_constante___factory_8h_source.html">Constante_Factory.h</a></li>
 <li>Constante_Factory.cpp</li>
@@ -129,7 +235,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_fabrique_constante.html">FabriqueConstante</a></li>
-    <li class="footer">Generated on Sun Jun 17 2012 11:34:30 for Projet Calculatrice Ã  notation polonaise inversÃ©e by
+    <li class="footer">Generated on Mon Jun 18 2012 01:59:27 for Projet Calculatrice Ã  notation polonaise inversÃ©e by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.1 </li>
   </ul>

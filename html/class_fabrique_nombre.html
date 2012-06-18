@@ -68,6 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -89,7 +90,7 @@ $(document).ready(function(){initNavTree('class_fabrique_nombre.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -106,17 +107,105 @@ $(document).ready(function(){initNavTree('class_fabrique_nombre.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>Utilisation du design pattern factory pour créer des objets de type Nombre.  
+ <a href="class_fabrique_nombre.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_constante___factory_8h_source.html">Constante_Factory.h</a>&gt;</code></p>
+
 <p><a href="class_fabrique_nombre-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:addd29295516c6899e5f7901595fdeddc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="addd29295516c6899e5f7901595fdeddc"></a>
-<a class="el" href="class_calcul_1_1_nombre.html">Nombre</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getNombre</b> (QString chaine)</td></tr>
-<tr class="memitem:ab2284f484135ef2bc05f9d83fc37a76f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab2284f484135ef2bc05f9d83fc37a76f"></a>
-<a class="el" href="class_calcul_1_1_nombre.html">Nombre</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>newNombre</b> (<a class="el" href="class_calcul_1_1_nombre.html">Nombre</a> *a)</td></tr>
-<tr class="memitem:a499d63c9f3da120b74a6b4a830f61aff"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a499d63c9f3da120b74a6b4a830f61aff"></a>
-<a class="el" href="class_calcul_1_1_nombre.html">Nombre</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getType</b> (<a class="el" href="class_calcul_1_1_nombre.html">Nombre</a> *a, int type)</td></tr>
+<tr class="memitem:addd29295516c6899e5f7901595fdeddc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_calcul_1_1_nombre.html">Nombre</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fabrique_nombre.html#addd29295516c6899e5f7901595fdeddc">getNombre</a> (QString chaine)</td></tr>
+<tr class="memdesc:addd29295516c6899e5f7901595fdeddc"><td class="mdescLeft">&#160;</td><td class="mdescRight">getNombre  <a href="#addd29295516c6899e5f7901595fdeddc"></a><br/></td></tr>
+<tr class="memitem:ab2284f484135ef2bc05f9d83fc37a76f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_calcul_1_1_nombre.html">Nombre</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fabrique_nombre.html#ab2284f484135ef2bc05f9d83fc37a76f">newNombre</a> (<a class="el" href="class_calcul_1_1_nombre.html">Nombre</a> *a)</td></tr>
+<tr class="memdesc:ab2284f484135ef2bc05f9d83fc37a76f"><td class="mdescLeft">&#160;</td><td class="mdescRight">newNombre  <a href="#ab2284f484135ef2bc05f9d83fc37a76f"></a><br/></td></tr>
+<tr class="memitem:a499d63c9f3da120b74a6b4a830f61aff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_calcul_1_1_nombre.html">Nombre</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_fabrique_nombre.html#a499d63c9f3da120b74a6b4a830f61aff">getType</a> (<a class="el" href="class_calcul_1_1_nombre.html">Nombre</a> *a, int type)</td></tr>
+<tr class="memdesc:a499d63c9f3da120b74a6b4a830f61aff"><td class="mdescLeft">&#160;</td><td class="mdescRight">getType  <a href="#a499d63c9f3da120b74a6b4a830f61aff"></a><br/></td></tr>
 </table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Utilisation du design pattern factory pour créer des objets de type Nombre. </p>
+<p>Utilisation du design pattern factory pour créer des objets de type Constante. </p>
+</div><hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="addd29295516c6899e5f7901595fdeddc"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_calcul_1_1_nombre.html">Nombre</a> * FabriqueNombre::getNombre </td>
+          <td>(</td>
+          <td class="paramtype">QString&#160;</td>
+          <td class="paramname"><em>chaine</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getNombre </p>
+<p>Genère un Nombre à partir d'un QString. </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">QString</td><td>contenant la Constante a générer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a499d63c9f3da120b74a6b4a830f61aff"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_calcul_1_1_nombre.html">Nombre</a> * FabriqueNombre::getType </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_calcul_1_1_nombre.html">Nombre</a> *&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>type</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>getType </p>
+<p>Genère un Nombre à partir d'un Nombre, en prenant compte d'un type de sortie (entier, réel, rationnel).  Nombre* à transformer  int contenant le type </p>
+
+</div>
+</div>
+<a class="anchor" id="ab2284f484135ef2bc05f9d83fc37a76f"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_calcul_1_1_nombre.html">Nombre</a> * FabriqueNombre::newNombre </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_calcul_1_1_nombre.html">Nombre</a> *&#160;</td>
+          <td class="paramname"><em>a</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>newNombre </p>
+<p>Genère un Nombre à partir d'un pointeur de Nombre. Permet de dupliquer un nombre </p>
+<dl class="params"><dt>Parameters:</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Nombre*</td><td>à dupliquer </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_constante___factory_8h_source.html">Constante_Factory.h</a></li>
 <li>Constante_Factory.cpp</li>
@@ -127,7 +216,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_fabrique_nombre.html">FabriqueNombre</a></li>
-    <li class="footer">Generated on Sun Jun 17 2012 11:34:30 for Projet Calculatrice Ã  notation polonaise inversÃ©e by
+    <li class="footer">Generated on Mon Jun 18 2012 01:59:27 for Projet Calculatrice Ã  notation polonaise inversÃ©e by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.1 </li>
   </ul>

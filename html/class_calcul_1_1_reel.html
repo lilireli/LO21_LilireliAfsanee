@@ -68,6 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -89,7 +90,7 @@ $(document).ready(function(){initNavTree('class_calcul_1_1_reel.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -105,14 +106,19 @@ $(document).ready(function(){initNavTree('class_calcul_1_1_reel.html','');});
 <div class="title">Calcul::Reel Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe qui permet d'implémenter un réel à l'aide d'un double.  
+ <a href="class_calcul_1_1_reel.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_constantes_8h_source.html">Constantes.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Calcul::Reel:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_calcul_1_1_reel.png" usemap="#Calcul::Reel_map" alt=""/>
   <map id="Calcul::Reel_map" name="Calcul::Reel_map">
-<area href="class_calcul_1_1_nombre.html" alt="Calcul::Nombre" shape="rect" coords="0,56,110,80"/>
-<area href="class_calcul_1_1_constante.html" alt="Calcul::Constante" shape="rect" coords="0,0,110,24"/>
+<area href="class_calcul_1_1_nombre.html" title="Classe abstraite qui contiendra les nombres de type entier, rationnel et réel" alt="Calcul::Nombre" shape="rect" coords="0,56,110,80"/>
+<area href="class_calcul_1_1_constante.html" title="Classe abstraite qui contiendra tous les types de nombres." alt="Calcul::Constante" shape="rect" coords="0,0,110,24"/>
 </map>
  </div></div>
 
@@ -138,6 +144,10 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>GetEntier</b> () const
 <a class="el" href="class_calcul_1_1_complexe.html">Complexe</a>&#160;</td><td class="memItemRight" valign="bottom"><b>toComplexe</b> ()</td></tr>
 <tr class="memitem:a92c0a269edf334bba71b08ef0e9e27e8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a92c0a269edf334bba71b08ef0e9e27e8"></a>
 const QString&#160;</td><td class="memItemRight" valign="bottom"><b>ConvertChaine</b> () const </td></tr>
+<tr class="memitem:a892118585b915fb12426c3d636166be2"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a892118585b915fb12426c3d636166be2"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isNull</b> ()</td></tr>
+<tr class="memitem:a2476f8f9eaa5f34b76cef8b3197b2809"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2476f8f9eaa5f34b76cef8b3197b2809"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isPositif</b> ()</td></tr>
 <tr class="memitem:a157b1e83c3807655d29289a1c72850a0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a157b1e83c3807655d29289a1c72850a0"></a>
 <a class="el" href="class_calcul_1_1_reel.html">Reel</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (<a class="el" href="class_calcul_1_1_reel.html">Reel</a> r1)</td></tr>
 <tr class="memitem:af9a5a6133c065863d2b2265253c3cc1c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af9a5a6133c065863d2b2265253c3cc1c"></a>
@@ -202,20 +212,22 @@ const QString&#160;</td><td class="memItemRight" valign="bottom"><b>ConvertChain
 <a class="el" href="class_calcul_1_1_reel.html">Reel</a>&#160;</td><td class="memItemRight" valign="bottom"><b>cosinush</b> ()</td></tr>
 <tr class="memitem:aecdb14568f6dd9e6660fdb7aa5fd381c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aecdb14568f6dd9e6660fdb7aa5fd381c"></a>
 <a class="el" href="class_calcul_1_1_reel.html">Reel</a>&#160;</td><td class="memItemRight" valign="bottom"><b>tangenteh</b> ()</td></tr>
-<tr class="memitem:a77b76b2ad2e0a33894e5834f6c1dd13e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a77b76b2ad2e0a33894e5834f6c1dd13e"></a>
-<a class="el" href="class_calcul_1_1_reel.html">Reel</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ln</b> ()</td></tr>
-<tr class="memitem:ad0ce58a3af4dda52ef15463978220ab0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad0ce58a3af4dda52ef15463978220ab0"></a>
-<a class="el" href="class_calcul_1_1_reel.html">Reel</a>&#160;</td><td class="memItemRight" valign="bottom"><b>logdix</b> ()</td></tr>
-<tr class="memitem:ad7c91c30fd82bfd62748cf7c0b6f6e7b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad7c91c30fd82bfd62748cf7c0b6f6e7b"></a>
-<a class="el" href="class_calcul_1_1_reel.html">Reel</a>&#160;</td><td class="memItemRight" valign="bottom"><b>inv</b> ()</td></tr>
-<tr class="memitem:a670ddda82e6d1e3cb95ef69e9cd1a11d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a670ddda82e6d1e3cb95ef69e9cd1a11d"></a>
-<a class="el" href="class_calcul_1_1_reel.html">Reel</a>&#160;</td><td class="memItemRight" valign="bottom"><b>rsqr</b> ()</td></tr>
+<tr class="memitem:ac196fa51cf2a7802c27945a8ecf0d84f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac196fa51cf2a7802c27945a8ecf0d84f"></a>
+<a class="el" href="class_calcul_1_1_reel.html">Reel</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ln</b> ()</td></tr>
+<tr class="memitem:a1ccda276d9b0c5cd3a41017b99e72f95"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1ccda276d9b0c5cd3a41017b99e72f95"></a>
+<a class="el" href="class_calcul_1_1_reel.html">Reel</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>logdix</b> ()</td></tr>
+<tr class="memitem:a343dcf27b4c579f1dbd377292e125a63"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a343dcf27b4c579f1dbd377292e125a63"></a>
+<a class="el" href="class_calcul_1_1_reel.html">Reel</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>inv</b> ()</td></tr>
+<tr class="memitem:a5fd6032ec5e7435733f9b14f4da12343"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5fd6032ec5e7435733f9b14f4da12343"></a>
+<a class="el" href="class_calcul_1_1_reel.html">Reel</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>rsqr</b> ()</td></tr>
 <tr class="memitem:ae6d0c9ed443c23647efee077d5b3bcfd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae6d0c9ed443c23647efee077d5b3bcfd"></a>
 <a class="el" href="class_calcul_1_1_reel.html">Reel</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sqr</b> ()</td></tr>
 <tr class="memitem:a9464cfe2dc6a89ff1eb98f504b200f43"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9464cfe2dc6a89ff1eb98f504b200f43"></a>
 <a class="el" href="class_calcul_1_1_reel.html">Reel</a>&#160;</td><td class="memItemRight" valign="bottom"><b>cube</b> ()</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Classe qui permet d'implémenter un réel à l'aide d'un double. </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_constantes_8h_source.html">Constantes.h</a></li>
 <li>Reel.cpp</li>
 </ul>
@@ -225,7 +237,7 @@ const QString&#160;</td><td class="memItemRight" valign="bottom"><b>ConvertChain
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>Calcul</b></li><li class="navelem"><a class="el" href="class_calcul_1_1_reel.html">Reel</a></li>
-    <li class="footer">Generated on Sun Jun 17 2012 11:34:31 for Projet Calculatrice Ã  notation polonaise inversÃ©e by
+    <li class="footer">Generated on Mon Jun 18 2012 01:59:28 for Projet Calculatrice Ã  notation polonaise inversÃ©e by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.1 </li>
   </ul>

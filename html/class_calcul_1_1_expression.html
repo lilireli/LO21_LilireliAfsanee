@@ -68,6 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -89,7 +90,7 @@ $(document).ready(function(){initNavTree('class_calcul_1_1_expression.html','');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -105,13 +106,18 @@ $(document).ready(function(){initNavTree('class_calcul_1_1_expression.html','');
 <div class="title">Calcul::Expression Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe qui permet d'implémenter une expression à l'aide d'un QString.  
+ <a href="class_calcul_1_1_expression.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_constantes_8h_source.html">Constantes.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Calcul::Expression:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_calcul_1_1_expression.png" usemap="#Calcul::Expression_map" alt=""/>
   <map id="Calcul::Expression_map" name="Calcul::Expression_map">
-<area href="class_calcul_1_1_constante.html" alt="Calcul::Constante" shape="rect" coords="0,0,116,24"/>
+<area href="class_calcul_1_1_constante.html" title="Classe abstraite qui contiendra tous les types de nombres." alt="Calcul::Constante" shape="rect" coords="0,0,116,24"/>
 </map>
  </div></div>
 
@@ -125,6 +131,8 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Expression</b> (<a class="el" href="class_calcul_1_1_expression.html">Expression</a> *e)</td></tr>
 <tr class="memitem:a8bffbb504f9348cd69790c0fe23bf67d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8bffbb504f9348cd69790c0fe23bf67d"></a>
 const QString&#160;</td><td class="memItemRight" valign="bottom"><b>ConvertChaine</b> () const </td></tr>
+<tr class="memitem:a240d6f19b3c3f3f5eebe3bddaa83f306"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a240d6f19b3c3f3f5eebe3bddaa83f306"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isNull</b> ()</td></tr>
 <tr class="memitem:af70b11f7b8fb7fc792df5628b932a117"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af70b11f7b8fb7fc792df5628b932a117"></a>
 const QString&#160;</td><td class="memItemRight" valign="bottom"><b>Tronque</b> ()</td></tr>
 <tr class="memitem:ac093ea5837a113f64be91e66b055b18b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac093ea5837a113f64be91e66b055b18b"></a>
@@ -132,7 +140,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>addCalcul</b> (QStrin
 <tr class="memitem:a0e762d07570ac388d0919a4c2053eecd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0e762d07570ac388d0919a4c2053eecd"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>calculAdd</b> (QString s)</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Classe qui permet d'implémenter une expression à l'aide d'un QString. </p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="_constantes_8h_source.html">Constantes.h</a></li>
 </ul>
 </div><!-- contents -->
@@ -141,7 +151,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>calculAdd</b> (QStrin
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>Calcul</b></li><li class="navelem"><a class="el" href="class_calcul_1_1_expression.html">Expression</a></li>
-    <li class="footer">Generated on Sun Jun 17 2012 11:34:32 for Projet Calculatrice Ã  notation polonaise inversÃ©e by
+    <li class="footer">Generated on Mon Jun 18 2012 01:59:28 for Projet Calculatrice Ã  notation polonaise inversÃ©e by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.1 </li>
   </ul>

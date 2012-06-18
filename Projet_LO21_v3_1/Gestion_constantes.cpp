@@ -104,15 +104,19 @@ int Stack::Swap(Entier* x, Entier* y){
         int a = x->GetEntier();
         int b = y->GetEntier();
 
-        if(a>=nbElements && b>=nbElements)
+        if(a<nbElements && b<nbElements)
         {
-            Entier* e1 = dynamic_cast<Entier*>(tab[a]);
-            Entier* e2 = dynamic_cast<Entier*>(tab[b]);
+           // Entier* e1 = dynamic_cast<Entier*>(tab[a]);
+           // Entier* e2 = dynamic_cast<Entier*>(tab[b]);
+            qDebug()<<"aqui";
+            Constante* tmp = tab[a-1];
+            tab[a-1]=tab[b-1];
+            tab[b-1]=tmp;
 
-            Entier* z;
-            z = e1;
-            e1 = e2;
-            e2 = z;
+           // Entier* z;
+//            z = e1;
+//            e1 = e2;
+//            e2 = z;
 
             return 1;
         }

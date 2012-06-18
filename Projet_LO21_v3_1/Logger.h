@@ -13,6 +13,9 @@
 #include <fstream>
 #include <sstream>
 
+/*! \enum Priority
+ * \brief Gère la priorité de chaque LogMessage
+ */
 enum Priority {
                DEBUG,
                CONFIG,

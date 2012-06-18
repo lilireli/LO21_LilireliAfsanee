@@ -68,6 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -89,7 +90,7 @@ $(document).ready(function(){initNavTree('class_main_window.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -107,6 +108,11 @@ $(document).ready(function(){initNavTree('class_main_window.html','');});
 </div><!--header-->
 <div class="contents">
 
+<p>Vue qui gère l'affichage et communique avec <a class="el" href="class_calculatrice_modele.html" title="Modele qui assure le fonctionnement de la calculatrice.">CalculatriceModele</a> pour effectuer les calculs et rentrer les constantes.  
+ <a href="class_main_window.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="mainwindow_8h_source.html">mainwindow.h</a>&gt;</code></p>
+
 <p><a href="class_main_window-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="signals"></a>
@@ -117,22 +123,30 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>pressEntrerN</b> (QSt
 void&#160;</td><td class="memItemRight" valign="bottom"><b>finEntree</b> ()</td></tr>
 <tr class="memitem:a95d2cfe9f1036d1dbbaad6d3f6504d1e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a95d2cfe9f1036d1dbbaad6d3f6504d1e"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>pressEval</b> ()</td></tr>
-<tr class="memitem:a83561f536fad69bc32f1988a86ef2f34"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a83561f536fad69bc32f1988a86ef2f34"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>pressAdd</b> ()</td></tr>
-<tr class="memitem:adb6c880ba04d5cf65972767aa67abba6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adb6c880ba04d5cf65972767aa67abba6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>pressSous</b> ()</td></tr>
-<tr class="memitem:a2c25b8558b1c6dcd86a2a771bdd30310"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2c25b8558b1c6dcd86a2a771bdd30310"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>pressMult</b> ()</td></tr>
+<tr class="memitem:aaf9db67eaf775db8b0bc1e066a844994"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaf9db67eaf775db8b0bc1e066a844994"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>pressAnnuler</b> ()</td></tr>
+<tr class="memitem:a0e0214f53b83522b6fb4a513fdde0a56"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0e0214f53b83522b6fb4a513fdde0a56"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>pressRetablir</b> ()</td></tr>
+<tr class="memitem:ac966ffc012ed7b3df4615f4449281cec"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac966ffc012ed7b3df4615f4449281cec"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>complexeVrai</b> ()</td></tr>
+<tr class="memitem:aa20588e72485e9c17fcc81961296ebbf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa20588e72485e9c17fcc81961296ebbf"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>complexeFaux</b> ()</td></tr>
+<tr class="memitem:ad396facd02819cd66156a5229a02e6a7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad396facd02819cd66156a5229a02e6a7"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>pressAdd</b> (int typeNombre)</td></tr>
+<tr class="memitem:a4b349b6d265c94cb0327ea7204e89f38"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4b349b6d265c94cb0327ea7204e89f38"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>pressSous</b> (int typeNombre)</td></tr>
+<tr class="memitem:a20be67f1bc010f1076d3ab1b0b7ca162"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a20be67f1bc010f1076d3ab1b0b7ca162"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>pressMult</b> (int typeNombre)</td></tr>
 <tr class="memitem:a97a8062c748d81bbc5462dd3cecb150d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a97a8062c748d81bbc5462dd3cecb150d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>pressDiv</b> (int typeNombre)</td></tr>
-<tr class="memitem:a06c480034cf6c6a60e62c1da32bd3947"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a06c480034cf6c6a60e62c1da32bd3947"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>pressPow</b> ()</td></tr>
+<tr class="memitem:ac268a0536e2859f8622657aa8903f9dd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac268a0536e2859f8622657aa8903f9dd"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>pressPow</b> (int typeNombre)</td></tr>
 <tr class="memitem:a5f63c4865d583d26ef3315c8b14945c1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5f63c4865d583d26ef3315c8b14945c1"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>pressMod</b> ()</td></tr>
 <tr class="memitem:a1f4fe23c762eb48f8316945bbef42c62"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1f4fe23c762eb48f8316945bbef42c62"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>pressFact</b> ()</td></tr>
-<tr class="memitem:a66a8677fdf938f6f2a3a207bc4dfcfe4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a66a8677fdf938f6f2a3a207bc4dfcfe4"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>pressSign</b> ()</td></tr>
+<tr class="memitem:af74e5eddba09f40bb96ad3052e5f4c85"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af74e5eddba09f40bb96ad3052e5f4c85"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>pressSign</b> (int typeNombre)</td></tr>
 <tr class="memitem:a225c94d2051035e146f27005e87bd3b9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a225c94d2051035e146f27005e87bd3b9"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>pressSin</b> (bool degre)</td></tr>
 <tr class="memitem:aa7ee81851525510a160c872725c1cfe6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa7ee81851525510a160c872725c1cfe6"></a>
@@ -149,20 +163,20 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>pressTanh</b> (bool d
 void&#160;</td><td class="memItemRight" valign="bottom"><b>pressLn</b> ()</td></tr>
 <tr class="memitem:a8414825b291dc9a4965b8302b624c77d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8414825b291dc9a4965b8302b624c77d"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>pressLog</b> ()</td></tr>
-<tr class="memitem:a27b32f887094a5d5c3f521e2ceb150bd"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a27b32f887094a5d5c3f521e2ceb150bd"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>pressInv</b> ()</td></tr>
+<tr class="memitem:aad913fabae24bd877c0830f8d6cbfa1b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aad913fabae24bd877c0830f8d6cbfa1b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>pressInv</b> (int typeNombre)</td></tr>
 <tr class="memitem:a1cef6e994e88446eae146ec920588c36"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1cef6e994e88446eae146ec920588c36"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>pressSqrt</b> ()</td></tr>
-<tr class="memitem:adcb82f0557536c9d074bcc049c9dec83"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adcb82f0557536c9d074bcc049c9dec83"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>pressSqr</b> ()</td></tr>
-<tr class="memitem:af818545c8ce818a11ce17c26ad9ed273"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af818545c8ce818a11ce17c26ad9ed273"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>pressCube</b> ()</td></tr>
+<tr class="memitem:ad61a8b8a78c92453da2b55e4292e9d8c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad61a8b8a78c92453da2b55e4292e9d8c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>pressSqr</b> (int typeNombre)</td></tr>
+<tr class="memitem:a3646c31c87248b33064cc83ad3b50f3c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3646c31c87248b33064cc83ad3b50f3c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>pressCube</b> (int typeNombre)</td></tr>
 <tr class="memitem:a90f55dff8cd88ebb9ca51fbb45ff9572"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a90f55dff8cd88ebb9ca51fbb45ff9572"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>pressSwap</b> ()</td></tr>
-<tr class="memitem:af8d41c17cf9ac3326d78792b4016648a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af8d41c17cf9ac3326d78792b4016648a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>pressSum</b> ()</td></tr>
-<tr class="memitem:a31a44d6c9060625aef1cb4f360d1c9b9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a31a44d6c9060625aef1cb4f360d1c9b9"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>pressMean</b> ()</td></tr>
+<tr class="memitem:aad6db4cd90be3080ccfba45126f8314d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aad6db4cd90be3080ccfba45126f8314d"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>pressSum</b> (int typeNombre)</td></tr>
+<tr class="memitem:af9af72599ae1edd0786d53b33548c02e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af9af72599ae1edd0786d53b33548c02e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>pressMean</b> (int typeNombre)</td></tr>
 <tr class="memitem:a7bfe416d75e010b19a746534be888500"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7bfe416d75e010b19a746534be888500"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>pressClear</b> ()</td></tr>
 <tr class="memitem:a85c203aa98a11bff2fc1c04850c487f5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a85c203aa98a11bff2fc1c04850c487f5"></a>
@@ -175,9 +189,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a8b244be8b7b7db1b08de2a2acb9409db"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8b244be8b7b7db1b08de2a2acb9409db"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>MainWindow</b> (QWidget *parent=0)</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Vue qui gère l'affichage et communique avec <a class="el" href="class_calculatrice_modele.html" title="Modele qui assure le fonctionnement de la calculatrice.">CalculatriceModele</a> pour effectuer les calculs et rentrer les constantes. </p>
+<p><em>FenetrePile</em> permettra l'apparition d'une nouvelle fenêtre qui nous permettra la selection de la taille de la pile </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="mainwindow_8h_source.html">mainwindow.h</a></li>
 <li>mainwindow.cpp</li>
+<li>MainWindowChiffres_Operations.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -185,7 +203,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_main_window.html">MainWindow</a></li>
-    <li class="footer">Generated on Sun Jun 17 2012 11:34:30 for Projet Calculatrice Ã  notation polonaise inversÃ©e by
+    <li class="footer">Generated on Mon Jun 18 2012 01:59:27 for Projet Calculatrice Ã  notation polonaise inversÃ©e by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.1 </li>
   </ul>

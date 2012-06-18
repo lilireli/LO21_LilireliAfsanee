@@ -289,10 +289,42 @@ Reel Reel::sinush(){return sinh(n);}
 Reel Reel::cosinush(){return cosh(n);}
 Reel Reel::tangenteh(){return tanh(n);}
 
-Reel Reel::ln(){return log(n);}
-Reel Reel::logdix(){return log10(n);}
-Reel Reel::inv(){return 1/n;}
-Reel Reel::rsqr(){return sqrt(n);}
+Reel* Reel::ln(){
+    if(isPositif()&&!isNull()){Reel *res = new Reel(log(n)); return res;}
+    else{
+        logger1->Write(&LogMessage(WARNING,"hors limites de la fonction"));
+        logger2->Write(&LogMessage(WARNING,"hors limites de la fonction"));
+        return NULL;
+    }
+}
+
+Reel* Reel::logdix(){
+    if(isPositif()&&!isNull()){Reel *res = new Reel(log10(n)); return res;}
+    else{
+        logger1->Write(&LogMessage(WARNING,"hors limites de la fonction"));
+        logger2->Write(&LogMessage(WARNING,"hors limites de la fonction"));
+        return NULL;
+    }
+}
+
+Reel* Reel::inv(){
+    if(!isNull()){Reel *res = new Reel(1/n); return res;}
+    else{
+        logger1->Write(&LogMessage(WARNING,"erreur division par 0"));
+        logger2->Write(&LogMessage(WARNING,"erreur division par 0"));
+        return NULL;
+    }
+}
+
+Reel* Reel::rsqr(){
+    if(isPositif()&&!isNull()){Reel *res = new Reel(sqrt(n)); return res;}
+    else{
+        logger1->Write(&LogMessage(WARNING,"hors limites de la fonction"));
+        logger2->Write(&LogMessage(WARNING,"hors limites de la fonction"));
+        return NULL;
+    }
+}
+
 Reel Reel::sqr(){return n*n;}
 Reel Reel::cube(){return n*n*n;}
 }

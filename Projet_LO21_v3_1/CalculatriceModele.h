@@ -25,6 +25,9 @@ extern LoggerFile* logger2;
 
 using namespace Calcul;
 
+/*! \class CalculatriceModele
+ * \brief Modele qui assure le fonctionnement de la calculatrice
+ */
 class CalculatriceModele : public QObject
 {
     Q_OBJECT
@@ -41,11 +44,23 @@ public:
     void afficherSuppressionHistorique();
 
 signals:
+    /*!
+     * \brief      finOp
+     * \details    renvoie un pointeur sur la pile à MainWindow afin d'actualiser la pile dans l'affichage
+     */
      void finOp(Stack* pile);
      void evalExp(QString s);
      void raffraichirUi(QString s);
 
 public slots:
+     /*!
+      * \brief getNombre
+      * \details Genère une Constante à partir d'un QString, en tenant compte du type complexe.
+      * Si la constante générée est un complexe alors que le type n'est pas complexe, sa saisie est annulée.
+      * Au contraire, si le type est complexe et la constante non complexe on la convertit en complexe.
+      * \param1 QString contenant la Constante a générer
+      * \param2 bool qui nous indique si la saisie doit s'effectuer en mode complexe ou non
+      */
      void getNombre(QString s, bool complexe);
      void getExpression();
      void annuler();

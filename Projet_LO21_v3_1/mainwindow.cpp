@@ -101,7 +101,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_buttonEntier_clicked(){
     if (typeNombre != 0){
         typeNombre = 0;
-        if (complexe == 1){
+        if (complexe == true){
             ui->opCoshPressed->setEnabled(false);
             ui->opCosPressed->setEnabled(false);
             ui->opFactPressed->setEnabled(false);
@@ -135,7 +135,7 @@ void MainWindow::on_buttonEntier_clicked(){
 void MainWindow::on_buttonReel_clicked(){
     if (typeNombre != 1) {
         typeNombre = 1;
-        if (complexe == 1){
+        if (complexe == true){
             ui->opCoshPressed->setEnabled(false);
             ui->opCosPressed->setEnabled(false);
             ui->opFactPressed->setEnabled(false);
@@ -170,7 +170,7 @@ void MainWindow::on_buttonRationnel_clicked(){
     if (typeNombre != 2) {
         typeNombre = 2;
 
-        if (complexe == 1){
+        if (complexe == true){
             ui->opCoshPressed->setEnabled(false);
             ui->opCosPressed->setEnabled(false);
             ui->opFactPressed->setEnabled(false);
@@ -217,6 +217,7 @@ void MainWindow::on_buttonComplexe_clicked(){
         ui->opSinPressed->setEnabled(false);
         ui->opTanhPressed->setEnabled(false);
         ui->opTanPressed->setEnabled(false);
+        ui->opSqrtPressed->setEnabled(false);
         emit complexeVrai();
     }
     else {
@@ -232,6 +233,7 @@ void MainWindow::on_buttonComplexe_clicked(){
         ui->opSinPressed->setEnabled(true);
         ui->opTanhPressed->setEnabled(true);
         ui->opTanPressed->setEnabled(true);
+        ui->opSqrtPressed->setEnabled(true);
 
         if (typeNombre == 0){
             ui->opFactPressed->setEnabled(true);
@@ -305,6 +307,11 @@ void MainWindow::EnterAction(QString s)
         if(s=="clear"){emit pressClear();}
         if(s=="dup"){emit pressDup();}
         if(s=="drop"){emit pressDrop();}
+
+        else{
+            logger1->Write(&LogMessage(ERROR,"formule non valide"));
+            logger2->Write(&LogMessage(ERROR,"formule non valide"));
+        }
     }
 }
 

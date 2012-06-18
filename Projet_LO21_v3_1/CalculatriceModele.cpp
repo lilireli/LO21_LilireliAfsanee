@@ -92,9 +92,25 @@ void CalculatriceModele::getExpression(){
 }
 
 void CalculatriceModele::effacerPile(){
+    while(!pile.isEmpty()){
+        pile.pop();
+    }
 }
 
 void CalculatriceModele::transformerPile(){
+    if(!pile.isEmpty()){
+        int taille = pile.size();
+        Constante** tmp = new Constante*[taille];
+        FabriqueConstante fab;
+
+        for(int i=0; i<taille; i++){tmp[taille-i-1] = pile.pop();}
+
+        for(int i=0; i<taille; i++){
+            Constante* toPop = fab.getComplexe(tmp[i]->ConvertChaine());
+            pile.push(toPop);
+        }
+        delete[] tmp;
+    }
 }
 
 

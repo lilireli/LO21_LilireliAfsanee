@@ -87,7 +87,7 @@ $(document).ready(function(){initNavTree('_calculatrice_modele_8h.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -98,7 +98,8 @@ $(document).ready(function(){initNavTree('_calculatrice_modele_8h.html','');});
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">CalculatriceModele.h File Reference</div>  </div>
 </div><!--header-->
@@ -111,23 +112,32 @@ $(document).ready(function(){initNavTree('_calculatrice_modele_8h.html','');});
 <code>#include &lt;QStack&gt;</code><br/>
 <code>#include &quot;Constantes.h&quot;</code><br/>
 <code>#include &quot;Gestion_constantes.h&quot;</code><br/>
+<code>#include &quot;Logger.h&quot;</code><br/>
 </div>
 <p><a href="_calculatrice_modele_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_calculatrice_modele.html">CalculatriceModele</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Modele qui assure le fonctionnement de la calculatrice.  <a href="class_calculatrice_modele.html#details">More...</a><br/></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a92939712e5ef7a00a998a412f3b78084"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a92939712e5ef7a00a998a412f3b78084"></a>
+<a class="el" href="class_logger_console.html">LoggerConsole</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>logger1</b></td></tr>
+<tr class="memitem:abc2f67fd2a2362d8874f063c6ab744f6"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abc2f67fd2a2362d8874f063c6ab744f6"></a>
+<a class="el" href="class_logger_file.html">LoggerFile</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>logger2</b></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Gère la calculatrice. </p>
-<dl class="section author"><dt>Author:</dt><dd>{Hamici Mathilde, Suzanne Aurélie} </dd></dl>
+<dl class="section author"><dt>Author:</dt><dd>Hamici Mathilde, Suzanne Aurélie </dd></dl>
 </div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="_calculatrice_modele_8h.html">CalculatriceModele.h</a></li>
-    <li class="footer">Generated on Sun Jun 17 2012 11:34:30 for Projet Calculatrice Ã  notation polonaise inversÃ©e by
+    <li class="footer">Generated on Mon Jun 18 2012 01:59:27 for Projet Calculatrice Ã  notation polonaise inversÃ©e by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.1 </li>
   </ul>

@@ -57,14 +57,21 @@ void CalculatriceModele::getAdd(int type){
              res = *e + b;
         }
         else if (typeid (*a).name()==typeid (Complexe).name()){
+
              Complexe* e = dynamic_cast<Complexe*>(a);
+             qDebug() << "tredq";
              res = *e + b;
+             qDebug()<<"dfdjskjdhs";
+             qDebug() << "res : " << res->ConvertChaine();
+
         }
         else {res = NULL;}
 
         if(res==NULL){
             logger1->Write(&LogMessage(ERROR,"type non conforme"));
             logger2->Write(&LogMessage(ERROR,"type non conforme"));
+            pile.push(a);
+            pile.push(b);
         }
         else{
             FabriqueConstante fab;
@@ -76,8 +83,8 @@ void CalculatriceModele::getAdd(int type){
         qDebug() << "res : " << res->ConvertChaine();
 
         emit finOp(&pile);
-        delete a;
-        delete b;
+//        delete a;
+//        delete b;
     }
     else{
         logger1->Write(&LogMessage(ERROR,"taille pile insuffisante"));
@@ -372,6 +379,8 @@ void CalculatriceModele::getPow(int type){
         else {res = NULL;}
 
         if(res==NULL){
+            pile.push(a);
+            pile.push(b);
             logger1->Write(&LogMessage(ERROR,"type non conforme"));
             logger2->Write(&LogMessage(ERROR,"type non conforme"));
         }
@@ -380,9 +389,8 @@ void CalculatriceModele::getPow(int type){
             res = fab.getType(res, type);
 
             pile.push(res);
+            qDebug() << "res : " << res->ConvertChaine();
         }
-
-        qDebug() << "res : " << res->ConvertChaine();
 
         emit finOp(&pile);
         delete a;
@@ -851,15 +859,15 @@ void CalculatriceModele::getLn(){
 
         if(typeid (*a).name()==typeid (Entier).name()){
             Entier* e = dynamic_cast<Entier*>(a);
-            res = new Reel(e->ln());
+            res = e->ln();
         }
         else if (typeid (*a).name()==typeid (Rationnel).name()){
              Rationnel* e = dynamic_cast<Rationnel*>(a);
-             res = new Reel(e->ln());
+             res = e->ln();
         }
         else if (typeid (*a).name()==typeid (Reel).name()){
              Reel* e = dynamic_cast<Reel*>(a);
-             res = new Reel(e->ln());
+             res = e->ln();
         }
         else {res = NULL;}
 
@@ -869,9 +877,10 @@ void CalculatriceModele::getLn(){
         }
         else{
             pile.push(res);
+            qDebug() << "res : " << res->ConvertChaine();
         }
 
-        qDebug() << "res : " << res->ConvertChaine();
+
 
         emit finOp(&pile);
         delete a;
@@ -898,15 +907,15 @@ void CalculatriceModele::getLog(){
 
         if(typeid (*a).name()==typeid (Entier).name()){
             Entier* e = dynamic_cast<Entier*>(a);
-            res = new Reel(e->logdix());
+            res = e->logdix();
         }
         else if (typeid (*a).name()==typeid (Rationnel).name()){
              Rationnel* e = dynamic_cast<Rationnel*>(a);
-             res = new Reel(e->logdix());
+             res = e->logdix();
         }
         else if (typeid (*a).name()==typeid (Reel).name()){
              Reel* e = dynamic_cast<Reel*>(a);
-             res = new Reel(e->logdix());
+             res = e->logdix();
         }
         else {res = NULL;}
 
@@ -916,9 +925,9 @@ void CalculatriceModele::getLog(){
         }
         else{
             pile.push(res);
+            qDebug() << "res : " << res->ConvertChaine();
         }
 
-        qDebug() << "res : " << res->ConvertChaine();
 
         emit finOp(&pile);
         delete a;
@@ -945,18 +954,18 @@ void CalculatriceModele::getInv(int type){
 
         if(typeid (*a).name()==typeid (Entier).name()){
              Entier* e = dynamic_cast<Entier*>(a);
-             if (type==1){res = new Reel(e->toReel().inv());}
-             else{res = new Rationnel(e->inv());}
+             if (type==1){res = e->toReel().inv();}
+             else{res = e->inv();}
         }
         else if (typeid (*a).name()==typeid (Rationnel).name()){
              Rationnel* e = dynamic_cast<Rationnel*>(a);
-             if (type==1){res = new Reel(e->toReel().inv());}
-             else{res = new Rationnel(e->inv());}
+             if (type==1){res = e->toReel().inv();}
+             else{res = e->inv();}
         }
         else if (typeid (*a).name()==typeid (Reel).name()){
              Reel* e = dynamic_cast<Reel*>(a);
-             if(type==1){res = new Reel(e->inv());}
-             else{res = new Rationnel(e->toRationnel().inv());}
+             if(type==1){res = e->inv();}
+             else{res = e->toRationnel().inv();}
         }
         else {res = NULL;}
 
@@ -966,9 +975,8 @@ void CalculatriceModele::getInv(int type){
         }
         else{
            pile.push(res);
+           qDebug() << "res : " << res->ConvertChaine();
         }
-
-        qDebug() << "res : " << res->ConvertChaine();
 
         emit finOp(&pile);
         delete a;
@@ -996,15 +1004,15 @@ void CalculatriceModele::getSqrt(){
 
         if(typeid (*a).name()==typeid (Entier).name()){
             Entier* e = dynamic_cast<Entier*>(a);
-            res = new Reel(e->rsqr());
+            res = e->rsqr();
         }
         else if (typeid (*a).name()==typeid (Rationnel).name()){
              Rationnel* e = dynamic_cast<Rationnel*>(a);
-             res = new Reel(e->rsqr());
+             res = e->rsqr();
         }
         else if (typeid (*a).name()==typeid (Reel).name()){
              Reel* e = dynamic_cast<Reel*>(a);
-             res = new Reel(e->rsqr());
+             res = e->rsqr();
         }
         else {res = NULL;}
 
@@ -1014,9 +1022,9 @@ void CalculatriceModele::getSqrt(){
         }
         else{
             pile.push(res);
+            qDebug() << "res : " << res->ConvertChaine();
         }
 
-        qDebug() << "res : " << res->ConvertChaine();
 
         emit finOp(&pile);
         delete a;

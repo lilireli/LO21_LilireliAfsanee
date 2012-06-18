@@ -8,6 +8,7 @@ var class_calcul_1_1_complexe =
     [ "cube", "class_calcul_1_1_complexe.html#a08d3991ff3a10788c131fdf67ac4524f", null ],
     [ "GetIm", "class_calcul_1_1_complexe.html#a07757377f6a1de6afd6364edb00784b7", null ],
     [ "GetRe", "class_calcul_1_1_complexe.html#acb9136f710db8d1d83a5a25d76fb6dfe", null ],
+    [ "isNull", "class_calcul_1_1_complexe.html#a2e153caf21e98a21ccbd02ed55896056", null ],
     [ "operator*", "class_calcul_1_1_complexe.html#a73137718dd47663a1a16636e9efbf839", null ],
     [ "operator*", "class_calcul_1_1_complexe.html#a3c6be886ae5dab4d10c3d8b1efb16409", null ],
     [ "operator*", "class_calcul_1_1_complexe.html#a31bb611985dca4960ba6618ba0728323", null ],

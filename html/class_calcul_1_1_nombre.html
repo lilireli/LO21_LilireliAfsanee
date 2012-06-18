@@ -68,6 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -89,7 +90,7 @@ $(document).ready(function(){initNavTree('class_calcul_1_1_nombre.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -105,16 +106,21 @@ $(document).ready(function(){initNavTree('class_calcul_1_1_nombre.html','');});
 <div class="title">Calcul::Nombre Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe abstraite qui contiendra les nombres de type entier, rationnel et réel  
+ <a href="class_calcul_1_1_nombre.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_constantes_8h_source.html">Constantes.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Calcul::Nombre:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_calcul_1_1_nombre.png" usemap="#Calcul::Nombre_map" alt=""/>
   <map id="Calcul::Nombre_map" name="Calcul::Nombre_map">
-<area href="class_calcul_1_1_constante.html" alt="Calcul::Constante" shape="rect" coords="120,0,230,24"/>
-<area href="class_calcul_1_1_entier.html" alt="Calcul::Entier" shape="rect" coords="0,112,110,136"/>
-<area href="class_calcul_1_1_rationnel.html" alt="Calcul::Rationnel" shape="rect" coords="120,112,230,136"/>
-<area href="class_calcul_1_1_reel.html" alt="Calcul::Reel" shape="rect" coords="240,112,350,136"/>
+<area href="class_calcul_1_1_constante.html" title="Classe abstraite qui contiendra tous les types de nombres." alt="Calcul::Constante" shape="rect" coords="120,0,230,24"/>
+<area href="class_calcul_1_1_entier.html" title="Classe qui permet d&#39;implémenter un entier à l&#39;aide d&#39;un int." alt="Calcul::Entier" shape="rect" coords="0,112,110,136"/>
+<area href="class_calcul_1_1_rationnel.html" title="Classe qui permet d&#39;implémenter un rationnel à l&#39;aide de deux int." alt="Calcul::Rationnel" shape="rect" coords="120,112,230,136"/>
+<area href="class_calcul_1_1_reel.html" title="Classe qui permet d&#39;implémenter un réel à l&#39;aide d&#39;un double." alt="Calcul::Reel" shape="rect" coords="240,112,350,136"/>
 </map>
  </div></div>
 
@@ -126,8 +132,14 @@ Public Member Functions</h2></td></tr>
 virtual <a class="el" href="class_calcul_1_1_complexe.html">Complexe</a>&#160;</td><td class="memItemRight" valign="bottom"><b>toComplexe</b> ()=0</td></tr>
 <tr class="memitem:aa2a937e5d718f73f0edf25b702c11551"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa2a937e5d718f73f0edf25b702c11551"></a>
 virtual const QString&#160;</td><td class="memItemRight" valign="bottom"><b>ConvertChaine</b> () const =0</td></tr>
+<tr class="memitem:a2e01e325172c362791e52f9c5e7058f5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2e01e325172c362791e52f9c5e7058f5"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isNull</b> ()=0</td></tr>
+<tr class="memitem:a2b41e493c8f0319ceb8de041f8759dfb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2b41e493c8f0319ceb8de041f8759dfb"></a>
+virtual bool&#160;</td><td class="memItemRight" valign="bottom"><b>isPositif</b> ()=0</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Classe abstraite qui contiendra les nombres de type entier, rationnel et réel </p>
+</div><hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="_constantes_8h_source.html">Constantes.h</a></li>
 </ul>
 </div><!-- contents -->
@@ -136,7 +148,7 @@ virtual const QString&#160;</td><td class="memItemRight" valign="bottom"><b>Conv
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>Calcul</b></li><li class="navelem"><a class="el" href="class_calcul_1_1_nombre.html">Nombre</a></li>
-    <li class="footer">Generated on Sun Jun 17 2012 11:34:31 for Projet Calculatrice Ã  notation polonaise inversÃ©e by
+    <li class="footer">Generated on Mon Jun 18 2012 01:59:27 for Projet Calculatrice Ã  notation polonaise inversÃ©e by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.1 </li>
   </ul>

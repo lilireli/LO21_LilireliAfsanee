@@ -68,6 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -89,7 +90,7 @@ $(document).ready(function(){initNavTree('class_fabrique_nombre.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -106,15 +107,15 @@ $(document).ready(function(){initNavTree('class_fabrique_nombre.html','');});
 
 <p>This is the complete list of members for <a class="el" href="class_fabrique_nombre.html">FabriqueNombre</a>, including all inherited members.</p>
 <table class="directory">
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>getNombre</b>(QString chaine) (defined in <a class="el" href="class_fabrique_nombre.html">FabriqueNombre</a>)</td><td class="entry"><a class="el" href="class_fabrique_nombre.html">FabriqueNombre</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"><td class="entry"><b>getType</b>(Nombre *a, int type) (defined in <a class="el" href="class_fabrique_nombre.html">FabriqueNombre</a>)</td><td class="entry"><a class="el" href="class_fabrique_nombre.html">FabriqueNombre</a></td><td class="entry"></td></tr>
-  <tr bgcolor="#f0f0f0"class="even"><td class="entry"><b>newNombre</b>(Nombre *a) (defined in <a class="el" href="class_fabrique_nombre.html">FabriqueNombre</a>)</td><td class="entry"><a class="el" href="class_fabrique_nombre.html">FabriqueNombre</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_fabrique_nombre.html#addd29295516c6899e5f7901595fdeddc">getNombre</a>(QString chaine)</td><td class="entry"><a class="el" href="class_fabrique_nombre.html">FabriqueNombre</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="class_fabrique_nombre.html#a499d63c9f3da120b74a6b4a830f61aff">getType</a>(Nombre *a, int type)</td><td class="entry"><a class="el" href="class_fabrique_nombre.html">FabriqueNombre</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_fabrique_nombre.html#ab2284f484135ef2bc05f9d83fc37a76f">newNombre</a>(Nombre *a)</td><td class="entry"><a class="el" href="class_fabrique_nombre.html">FabriqueNombre</a></td><td class="entry"></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sun Jun 17 2012 11:34:30 for Projet Calculatrice à notation polonaise inversée by
+    <li class="footer">Generated on Mon Jun 18 2012 01:59:27 for Projet Calculatrice à notation polonaise inversée by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.1 </li>
   </ul>

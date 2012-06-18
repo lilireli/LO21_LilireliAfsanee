@@ -23,6 +23,13 @@ namespace Ui {
 class MainWindow;
 }
 
+/*! \class MainWindow
+ * \brief Vue qui gère l'affichage et communique avec CalculatriceModele pour effectuer les calculs
+ * et rentrer les constantes
+ *
+ * \details  \a FenetrePile permettra l'apparition d'une nouvelle fenêtre qui nous permettra la
+ * selection de la taille de la pile
+ */
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -51,6 +58,15 @@ private slots:
 
     //opérations essentielles
     void on_EnterPressed_clicked();  // on vérifie que l'expression rentrée est valide
+
+    /*!
+    * \brief EnterAction
+    * Methode permettant de  qu'une chaine entrée au clavier est valide. Elle envoie un signal si
+    * la chaine est une constante (ce que l'on peut vérifier avec formuleValide) et si elle correpond au nom
+    * d'une opération (en ce cas elle envoie le signal a l'opération a appeler).
+    * \param QString représentant la chaine de caractères à évaluer
+    *
+    */
     void EnterAction(QString s);
     void on_EvalPressed_clicked();
     void on_opDelPressed_clicked();
@@ -90,6 +106,10 @@ private slots:
 
 
     //type
+    /**
+     * \brief      Permet de montrer/cacher les boutons utilisables pour chaque type de nombre
+     * \details    Interdit de cliquer sur les boutons non utilisable pour un mode défini
+     */
     void on_buttonEntier_clicked();
     void on_buttonReel_clicked();
     void on_buttonRationnel_clicked();

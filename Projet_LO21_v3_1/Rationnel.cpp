@@ -374,10 +374,34 @@ Reel Rationnel::sinush(){return sinh(this->GetRationnel());}
 Reel Rationnel::cosinush(){return cosh(this->GetRationnel());}
 Reel Rationnel::tangenteh(){return tanh(this->GetRationnel());}
 
-Reel Rationnel::ln(){return log(this->GetRationnel());}
-Reel Rationnel::logdix(){return log10(this->GetRationnel());}
-Rationnel Rationnel::inv(){Rationnel res(den, num); return res;}
-Reel Rationnel::rsqr(){return sqrt(this->GetRationnel());}
+Reel* Rationnel::ln(){
+    if(isPositif()&& !isNull()){Reel *res = new Reel(log(this->GetRationnel())); return res;}
+    else{
+        logger1->Write(&LogMessage(WARNING,"hors limites de la fonction"));
+        logger2->Write(&LogMessage(WARNING,"hors limites de la fonction"));
+        return NULL;
+    }
+}
+
+Reel* Rationnel::logdix(){
+    if(isPositif()&& !isNull()){Reel *res = new Reel(log10(this->GetRationnel())); return res;}
+    else{
+        logger1->Write(&LogMessage(WARNING,"hors limites de la fonction"));
+        logger2->Write(&LogMessage(WARNING,"hors limites de la fonction"));
+        return NULL;
+    }
+}
+
+Rationnel* Rationnel::inv(){Rationnel* res = new Rationnel(den, num); return res;}
+
+Reel* Rationnel::rsqr(){
+    if(isPositif()&&!isNull()){Reel *res = new Reel(sqrt(this->GetRationnel())); return res;}
+    else{
+        logger1->Write(&LogMessage(WARNING,"hors limites de la fonction"));
+        logger2->Write(&LogMessage(WARNING,"hors limites de la fonction"));
+        return NULL;
+    }
+}
 
 Rationnel Rationnel::sqr(){
     Rationnel res(num*num, den*den);

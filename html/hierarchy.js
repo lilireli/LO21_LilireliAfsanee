@@ -12,6 +12,12 @@ var hierarchy =
     ] ],
     [ "FabriqueConstante", "class_fabrique_constante.html", null ],
     [ "FabriqueNombre", "class_fabrique_nombre.html", null ],
+    [ "Stack::iterator", "class_stack_1_1iterator.html", null ],
+    [ "Logger", "class_logger.html", [
+      [ "LoggerConsole", "class_logger_console.html", null ],
+      [ "LoggerFile", "class_logger_file.html", null ]
+    ] ],
+    [ "LogMessage", "class_log_message.html", null ],
     [ "MainWindow", "class_main_window.html", null ],
     [ "Stack", "class_stack.html", null ]
 ];

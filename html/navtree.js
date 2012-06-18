@@ -4,7 +4,11 @@ var NAVTREE =
     [ "Classes", null, [
       [ "Class List", "annotated.html", "annotated" ],
       [ "Class Index", "classes.html", null ],
-      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ]
+      [ "Class Hierarchy", "hierarchy.html", "hierarchy" ],
+      [ "Class Members", "functions.html", [
+        [ "All", "functions.html", null ],
+        [ "Functions", "functions_func.html", null ]
+      ] ]
     ] ],
     [ "Files", null, [
       [ "File List", "files.html", "files" ]
@@ -15,7 +19,7 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 ".html",
-"class_main_window.html#a225c94d2051035e146f27005e87bd3b9",
+"class_calculatrice_modele.html#ae311466b783cc6418efeaef854df461a",
 ];
 
 var navTreeSubIndices = new Array();

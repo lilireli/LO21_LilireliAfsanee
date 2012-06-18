@@ -1,18 +1,76 @@
 \hypertarget{class_fabrique_nombre}{\section{Fabrique\-Nombre Class Reference}
 \label{class_fabrique_nombre}\index{Fabrique\-Nombre@{Fabrique\-Nombre}}
 }
+
+
+Utilisation du design pattern factory pour créer des objets de type Nombre.  
+
+
+
+
+{\ttfamily \#include $<$Constante\-\_\-\-Factory.\-h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_fabrique_nombre_addd29295516c6899e5f7901595fdeddc}{\hyperlink{class_calcul_1_1_nombre}{Nombre} $\ast$ {\bfseries get\-Nombre} (Q\-String chaine)}\label{class_fabrique_nombre_addd29295516c6899e5f7901595fdeddc}
+\hyperlink{class_calcul_1_1_nombre}{Nombre} $\ast$ \hyperlink{class_fabrique_nombre_addd29295516c6899e5f7901595fdeddc}{get\-Nombre} (Q\-String chaine)
+\begin{DoxyCompactList}\small\item\em get\-Nombre \end{DoxyCompactList}\item 
+\hyperlink{class_calcul_1_1_nombre}{Nombre} $\ast$ \hyperlink{class_fabrique_nombre_ab2284f484135ef2bc05f9d83fc37a76f}{new\-Nombre} (\hyperlink{class_calcul_1_1_nombre}{Nombre} $\ast$a)
+\begin{DoxyCompactList}\small\item\em new\-Nombre \end{DoxyCompactList}\item 
+\hyperlink{class_calcul_1_1_nombre}{Nombre} $\ast$ \hyperlink{class_fabrique_nombre_a499d63c9f3da120b74a6b4a830f61aff}{get\-Type} (\hyperlink{class_calcul_1_1_nombre}{Nombre} $\ast$a, int type)
+\begin{DoxyCompactList}\small\item\em get\-Type \end{DoxyCompactList}\end{DoxyCompactItemize}
 
-\item 
-\hypertarget{class_fabrique_nombre_ab2284f484135ef2bc05f9d83fc37a76f}{\hyperlink{class_calcul_1_1_nombre}{Nombre} $\ast$ {\bfseries new\-Nombre} (\hyperlink{class_calcul_1_1_nombre}{Nombre} $\ast$a)}\label{class_fabrique_nombre_ab2284f484135ef2bc05f9d83fc37a76f}
 
-\item 
-\hypertarget{class_fabrique_nombre_a499d63c9f3da120b74a6b4a830f61aff}{\hyperlink{class_calcul_1_1_nombre}{Nombre} $\ast$ {\bfseries get\-Type} (\hyperlink{class_calcul_1_1_nombre}{Nombre} $\ast$a, int type)}\label{class_fabrique_nombre_a499d63c9f3da120b74a6b4a830f61aff}
+\subsection{Detailed Description}
+Utilisation du design pattern factory pour créer des objets de type Nombre. 
 
-\end{DoxyCompactItemize}
+Utilisation du design pattern factory pour créer des objets de type Constante. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_fabrique_nombre_addd29295516c6899e5f7901595fdeddc}{\index{Fabrique\-Nombre@{Fabrique\-Nombre}!get\-Nombre@{get\-Nombre}}
+\index{get\-Nombre@{get\-Nombre}!FabriqueNombre@{Fabrique\-Nombre}}
+\subsubsection[{get\-Nombre}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Nombre} $\ast$ Fabrique\-Nombre\-::get\-Nombre (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{chaine}
+\end{DoxyParamCaption}
+)}}\label{class_fabrique_nombre_addd29295516c6899e5f7901595fdeddc}
+
+
+get\-Nombre 
+
+Genère un Nombre à partir d'un Q\-String. 
+\begin{DoxyParams}{Parameters}
+{\em Q\-String} & contenant la Constante a générer \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_fabrique_nombre_a499d63c9f3da120b74a6b4a830f61aff}{\index{Fabrique\-Nombre@{Fabrique\-Nombre}!get\-Type@{get\-Type}}
+\index{get\-Type@{get\-Type}!FabriqueNombre@{Fabrique\-Nombre}}
+\subsubsection[{get\-Type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Nombre} $\ast$ Fabrique\-Nombre\-::get\-Type (
+\begin{DoxyParamCaption}
+\item[{{\bf Nombre} $\ast$}]{a, }
+\item[{int}]{type}
+\end{DoxyParamCaption}
+)}}\label{class_fabrique_nombre_a499d63c9f3da120b74a6b4a830f61aff}
+
+
+get\-Type 
+
+Genère un Nombre à partir d'un Nombre, en prenant compte d'un type de sortie (entier, réel, rationnel).  Nombre$\ast$ à transformer  int contenant le type \hypertarget{class_fabrique_nombre_ab2284f484135ef2bc05f9d83fc37a76f}{\index{Fabrique\-Nombre@{Fabrique\-Nombre}!new\-Nombre@{new\-Nombre}}
+\index{new\-Nombre@{new\-Nombre}!FabriqueNombre@{Fabrique\-Nombre}}
+\subsubsection[{new\-Nombre}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Nombre} $\ast$ Fabrique\-Nombre\-::new\-Nombre (
+\begin{DoxyParamCaption}
+\item[{{\bf Nombre} $\ast$}]{a}
+\end{DoxyParamCaption}
+)}}\label{class_fabrique_nombre_ab2284f484135ef2bc05f9d83fc37a76f}
+
+
+new\-Nombre 
+
+Genère un Nombre à partir d'un pointeur de Nombre. Permet de dupliquer un nombre 
+\begin{DoxyParams}{Parameters}
+{\em Nombre$\ast$} & à dupliquer \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}

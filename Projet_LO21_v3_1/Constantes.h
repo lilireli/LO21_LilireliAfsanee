@@ -20,10 +20,15 @@ extern LoggerFile* logger2;
 
 namespace Calcul {
 
+/*! \class Constante
+ * \brief Classe abstraite qui contiendra tous les types de nombres
+ */
+
 class Constante{
 public:
     virtual ~Constante(){}
     virtual const QString ConvertChaine() const = 0;   // fonction pour l'affichage
+    virtual bool isNull() = 0;
 };
 
 class Complexe;
@@ -32,26 +37,34 @@ class Reel;
 class Rationnel;
 class Entier;
 
+/*! \class Nombre
+ * \brief Classe abstraite qui contiendra les nombres de type entier, rationnel et réel
+ */
 class Nombre : public Constante{
 public:
     virtual ~Nombre(){}
     virtual Complexe toComplexe() = 0;
     virtual const QString ConvertChaine() const = 0;
+    virtual bool isNull() = 0;
+    virtual bool isPositif() = 0;
 };
 
-
+/*! \class Complexe
+ * \brief Classe qui contiendra deux pointeurs vers des objets de type Nombre
+ */
 class Complexe : public Constante{
     Nombre* re;
     Nombre* im;
 public:
     Complexe(QString s="0$0");
     Complexe(Nombre* reel, Nombre* imaginaire=NULL);
-    Complexe(Complexe* comp);
+    Complexe(Complexe *comp);
     ~Complexe() {delete re; delete im;}
     Nombre* GetRe()const {return re;}
     Nombre* GetIm()const{return im;}
     void SetRe(Nombre* r){re = r;}
     void SetIm(Nombre* i){im = i;}
+    bool isNull() { return (re->isNull() && im->isNull());}
     const QString ConvertChaine()const {return re->ConvertChaine()+'$'+im->ConvertChaine();}
 
     // opérations de base
@@ -84,6 +97,9 @@ public:
     Complexe cube();
 };
 
+/*! \class Reel
+ * \brief Classe qui permet d'implémenter un réel à l'aide d'un double
+ */
 class Reel : public Nombre{
     double n;
 public:
@@ -97,6 +113,8 @@ public:
     Rationnel toRationnel();
     Complexe toComplexe(){Complexe c(this); return c;}
     const QString ConvertChaine()const {return QString::number(n);}
+    bool isNull() {return(n==0);}
+    bool isPositif() {return(n>=0);}
 
     // opérations de base
     Reel operator = (Reel r1){return r1;}
@@ -138,15 +156,18 @@ public:
     Reel cosinush();
     Reel tangenteh();
 
-    Reel ln();
-    Reel logdix();
-    Reel inv();
-    Reel rsqr();
+    Reel *ln();
+    Reel *logdix();
+    Reel *inv();
+    Reel *rsqr();
     Reel sqr();
     Reel cube();
 
 };
 
+/*! \class Rationnel
+ * \brief Classe qui permet d'implémenter un rationnel à l'aide de deux int
+ */
 class Rationnel : public Nombre{
     int num;
     int den;
@@ -190,6 +211,8 @@ public:
     Reel toReel(){Reel r(double(num)/den); return r;}
     Complexe toComplexe(){Complexe c(this); return c;}
     const QString ConvertChaine()const {return QString::number(num)+'/'+QString::number(den);}
+    bool isNull() { return(num==0) ;}
+    bool isPositif(){return((num > 0 && den > 0) || (num < 0 && den < 0) || (num == 0 && den == 0));}
 
     // opérations de base
     Rationnel operator + (Rationnel r1);
@@ -229,14 +252,17 @@ public:
     Reel cosinush();
     Reel tangenteh();
 
-    Reel ln();
-    Reel logdix();
-    Rationnel inv();
-    Reel rsqr();
+    Reel *ln();
+    Reel *logdix();
+    Rationnel *inv();
+    Reel *rsqr();
     Rationnel sqr();
     Rationnel cube();
 };
 
+/*! \class Entier
+ * \brief Classe qui permet d'implémenter un entier à l'aide d'un int
+ */
 class Entier : public Nombre{
     int n;
 public:
@@ -250,6 +276,8 @@ public:
     Rationnel toRationnel(){Rationnel r(n); return r;}
     Complexe toComplexe(){Complexe c(this); return c;}
     const QString ConvertChaine()const {return QString::number(n);}
+    bool isNull() {return(n==0);}
+    bool isPositif(){return(n>=0);}
 
     // opérations de base
     Entier operator + (Entier r1);
@@ -290,10 +318,10 @@ public:
     Reel cosinush();
     Reel tangenteh();
 
-    Reel ln();
-    Reel logdix();
-    Rationnel inv();  // retourne 1/x donc ne peut pas retourner un entier, retourne un rationnel car moins de pertes
-    Reel rsqr();
+    Reel *ln();
+    Reel *logdix();
+    Rationnel *inv();  // retourne 1/x donc ne peut pas retourner un entier, retourne un rationnel car moins de pertes
+    Reel *rsqr();
     Entier sqr();
     Entier cube();
 
@@ -301,7 +329,9 @@ public:
     Entier fact();
 };
 
-
+/*! \class Expression
+ * \brief Classe qui permet d'implémenter une expression à l'aide d'un QString
+ */
 class Expression : public Constante{
     QString exp;
 public:
@@ -309,6 +339,7 @@ public:
     Expression(Expression* e): exp(e->exp){}
     ~Expression(){}
     const QString ConvertChaine()const {return exp;}
+    bool isNull(){return false;}
     const QString Tronque(){exp.remove(0, 1); exp.remove(exp.length()-1, 1); return exp;}
     void addCalcul(QString s){exp.remove(exp.length()-1, 1); exp+=" "+s+"'";}
     void calculAdd(QString s){exp.remove(0, 1); exp="'"+s+" "+exp;} // ajoute avant expression une constante

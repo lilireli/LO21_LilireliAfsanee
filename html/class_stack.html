@@ -68,6 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -89,7 +90,7 @@ $(document).ready(function(){initNavTree('class_stack.html','');});
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -100,14 +101,24 @@ $(document).ready(function(){initNavTree('class_stack.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a>  </div>
   <div class="headertitle">
 <div class="title">Stack Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
+<p>Fabrication d'une pile g�rant des Constantes.  
+ <a href="class_stack.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_gestion__constantes_8h_source.html">Gestion_constantes.h</a>&gt;</code></p>
+
 <p><a href="class_stack-members.html">List of all members.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_stack_1_1iterator.html">iterator</a></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a8cf5d6fd8d89b6edbf64da16e3206a56"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8cf5d6fd8d89b6edbf64da16e3206a56"></a>
@@ -122,8 +133,24 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>size</b> () const </td
 int&#160;</td><td class="memItemRight" valign="bottom"><b>push</b> (<a class="el" href="class_calcul_1_1_constante.html">Constante</a> *nb)</td></tr>
 <tr class="memitem:ae3da45c6867f3bbafa276df693770b25"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae3da45c6867f3bbafa276df693770b25"></a>
 <a class="el" href="class_calcul_1_1_constante.html">Constante</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>pop</b> ()</td></tr>
+<tr class="memitem:adab1284b8929385d4020356fb52c8139"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adab1284b8929385d4020356fb52c8139"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr>
+<tr class="memitem:a96f913d70f6f5185d2782ac6ac5d787b"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a96f913d70f6f5185d2782ac6ac5d787b"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>Swap</b> (<a class="el" href="class_calcul_1_1_entier.html">Entier</a> *x, <a class="el" href="class_calcul_1_1_entier.html">Entier</a> *y)</td></tr>
+<tr class="memitem:aef7eba142243dda7ba09ddc2f53e72fb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aef7eba142243dda7ba09ddc2f53e72fb"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>afficherPile</b> ()</td></tr>
+<tr class="memitem:a8803f6b50bd662c27abc508a6a3f7fb3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8803f6b50bd662c27abc508a6a3f7fb3"></a>
+QString&#160;</td><td class="memItemRight" valign="bottom"><b>retournePileS</b> ()</td></tr>
+<tr class="memitem:a50571f5f80f8124311b39498a007ac5c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a50571f5f80f8124311b39498a007ac5c"></a>
+<a class="el" href="class_stack_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>begin</b> ()</td></tr>
+<tr class="memitem:a02415f89ea8988765ae889fd9778541c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a02415f89ea8988765ae889fd9778541c"></a>
+<a class="el" href="class_stack_1_1iterator.html">iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><b>end</b> ()</td></tr>
+<tr class="memitem:a2031a4e7e9d813a8b51c6498fe3180ae"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2031a4e7e9d813a8b51c6498fe3180ae"></a>
+<a class="el" href="class_stack.html">Stack</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>clone</b> ()</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Fabrication d'une pile g�rant des Constantes. </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_gestion__constantes_8h_source.html">Gestion_constantes.h</a></li>
 <li>Gestion_constantes.cpp</li>
 </ul>
@@ -133,7 +160,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>push</b> (<a class="el
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_stack.html">Stack</a></li>
-    <li class="footer">Generated on Sun Jun 17 2012 11:34:30 for Projet Calculatrice à notation polonaise inversée by
+    <li class="footer">Generated on Mon Jun 18 2012 01:59:27 for Projet Calculatrice à notation polonaise inversée by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.1 </li>
   </ul>

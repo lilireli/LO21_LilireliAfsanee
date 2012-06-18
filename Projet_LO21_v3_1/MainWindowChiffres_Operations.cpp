@@ -120,8 +120,8 @@ void MainWindow::on_opDivPressed_clicked()
 
 void MainWindow::on_opPowPressed_clicked()
 {
-    buffer += "exp";
-    ui->lineEdit->insert("exp");
+    buffer += "pow";
+    ui->lineEdit->insert("pow");
 }
 
 void MainWindow::on_opModPressed_clicked()

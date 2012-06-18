@@ -68,6 +68,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       <li><a href="annotated.html"><span>Class&#160;List</span></a></li>
       <li><a href="classes.html"><span>Class&#160;Index</span></a></li>
       <li><a href="hierarchy.html"><span>Class&#160;Hierarchy</span></a></li>
+      <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
 </div><!-- top -->
@@ -89,7 +90,7 @@ $(document).ready(function(){initNavTree('class_calcul_1_1_rationnel.html','');}
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -105,14 +106,19 @@ $(document).ready(function(){initNavTree('class_calcul_1_1_rationnel.html','');}
 <div class="title">Calcul::Rationnel Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Classe qui permet d'implémenter un rationnel à l'aide de deux int.  
+ <a href="class_calcul_1_1_rationnel.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_constantes_8h_source.html">Constantes.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for Calcul::Rationnel:</div>
 <div class="dyncontent">
  <div class="center">
   <img src="class_calcul_1_1_rationnel.png" usemap="#Calcul::Rationnel_map" alt=""/>
   <map id="Calcul::Rationnel_map" name="Calcul::Rationnel_map">
-<area href="class_calcul_1_1_nombre.html" alt="Calcul::Nombre" shape="rect" coords="0,56,110,80"/>
-<area href="class_calcul_1_1_constante.html" alt="Calcul::Constante" shape="rect" coords="0,0,110,24"/>
+<area href="class_calcul_1_1_nombre.html" title="Classe abstraite qui contiendra les nombres de type entier, rationnel et réel" alt="Calcul::Nombre" shape="rect" coords="0,56,110,80"/>
+<area href="class_calcul_1_1_constante.html" title="Classe abstraite qui contiendra tous les types de nombres." alt="Calcul::Constante" shape="rect" coords="0,0,110,24"/>
 </map>
  </div></div>
 
@@ -146,6 +152,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>Simplification</b> ()
 <a class="el" href="class_calcul_1_1_complexe.html">Complexe</a>&#160;</td><td class="memItemRight" valign="bottom"><b>toComplexe</b> ()</td></tr>
 <tr class="memitem:acfec5903b8b8b5d2b80637a938966ce8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="acfec5903b8b8b5d2b80637a938966ce8"></a>
 const QString&#160;</td><td class="memItemRight" valign="bottom"><b>ConvertChaine</b> () const </td></tr>
+<tr class="memitem:a2cd8fe172adde56d15855af2aeb31259"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2cd8fe172adde56d15855af2aeb31259"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isNull</b> ()</td></tr>
+<tr class="memitem:afbd51679a2eed2444effaee5a548e686"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afbd51679a2eed2444effaee5a548e686"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>isPositif</b> ()</td></tr>
 <tr class="memitem:a32fcf45cb9ee316a613b862ff339bf07"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a32fcf45cb9ee316a613b862ff339bf07"></a>
 <a class="el" href="class_calcul_1_1_rationnel.html">Rationnel</a>&#160;</td><td class="memItemRight" valign="bottom"><b>operator+</b> (<a class="el" href="class_calcul_1_1_rationnel.html">Rationnel</a> r1)</td></tr>
 <tr class="memitem:ac6052754e4b2ad3af337f5272a348d6d"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac6052754e4b2ad3af337f5272a348d6d"></a>
@@ -208,20 +218,22 @@ const QString&#160;</td><td class="memItemRight" valign="bottom"><b>ConvertChain
 <a class="el" href="class_calcul_1_1_reel.html">Reel</a>&#160;</td><td class="memItemRight" valign="bottom"><b>cosinush</b> ()</td></tr>
 <tr class="memitem:a8d25f43222dcf910a36cecac200ece3e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8d25f43222dcf910a36cecac200ece3e"></a>
 <a class="el" href="class_calcul_1_1_reel.html">Reel</a>&#160;</td><td class="memItemRight" valign="bottom"><b>tangenteh</b> ()</td></tr>
-<tr class="memitem:a5113ac88809796974e86ebe24162439f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5113ac88809796974e86ebe24162439f"></a>
-<a class="el" href="class_calcul_1_1_reel.html">Reel</a>&#160;</td><td class="memItemRight" valign="bottom"><b>ln</b> ()</td></tr>
-<tr class="memitem:ad3639dfccfc319238c9b4fa84410ed5e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad3639dfccfc319238c9b4fa84410ed5e"></a>
-<a class="el" href="class_calcul_1_1_reel.html">Reel</a>&#160;</td><td class="memItemRight" valign="bottom"><b>logdix</b> ()</td></tr>
-<tr class="memitem:adc850431c749f0702e530133ad577034"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adc850431c749f0702e530133ad577034"></a>
-<a class="el" href="class_calcul_1_1_rationnel.html">Rationnel</a>&#160;</td><td class="memItemRight" valign="bottom"><b>inv</b> ()</td></tr>
-<tr class="memitem:aa00a6df0e3953fb171462f41fad7fde7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa00a6df0e3953fb171462f41fad7fde7"></a>
-<a class="el" href="class_calcul_1_1_reel.html">Reel</a>&#160;</td><td class="memItemRight" valign="bottom"><b>rsqr</b> ()</td></tr>
+<tr class="memitem:ae8c11d80be50eacf53031e4638bf3025"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae8c11d80be50eacf53031e4638bf3025"></a>
+<a class="el" href="class_calcul_1_1_reel.html">Reel</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ln</b> ()</td></tr>
+<tr class="memitem:af469ec33aed69d09031c7104d8227229"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af469ec33aed69d09031c7104d8227229"></a>
+<a class="el" href="class_calcul_1_1_reel.html">Reel</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>logdix</b> ()</td></tr>
+<tr class="memitem:af532cbeab96518490c2aa521e3422cd4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af532cbeab96518490c2aa521e3422cd4"></a>
+<a class="el" href="class_calcul_1_1_rationnel.html">Rationnel</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>inv</b> ()</td></tr>
+<tr class="memitem:a6f66761f74b75ecec7cd5963777fcbb0"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6f66761f74b75ecec7cd5963777fcbb0"></a>
+<a class="el" href="class_calcul_1_1_reel.html">Reel</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>rsqr</b> ()</td></tr>
 <tr class="memitem:ab46637ec83548958a87fb7ded85c15f9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab46637ec83548958a87fb7ded85c15f9"></a>
 <a class="el" href="class_calcul_1_1_rationnel.html">Rationnel</a>&#160;</td><td class="memItemRight" valign="bottom"><b>sqr</b> ()</td></tr>
 <tr class="memitem:a663bd20d02eedbcd4bb8ab7eeab98086"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a663bd20d02eedbcd4bb8ab7eeab98086"></a>
 <a class="el" href="class_calcul_1_1_rationnel.html">Rationnel</a>&#160;</td><td class="memItemRight" valign="bottom"><b>cube</b> ()</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following files:<ul>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock"><p>Classe qui permet d'implémenter un rationnel à l'aide de deux int. </p>
+</div><hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_constantes_8h_source.html">Constantes.h</a></li>
 <li>Rationnel.cpp</li>
 </ul>
@@ -231,7 +243,7 @@ const QString&#160;</td><td class="memItemRight" valign="bottom"><b>ConvertChain
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><b>Calcul</b></li><li class="navelem"><a class="el" href="class_calcul_1_1_rationnel.html">Rationnel</a></li>
-    <li class="footer">Generated on Sun Jun 17 2012 11:34:32 for Projet Calculatrice Ã  notation polonaise inversÃ©e by
+    <li class="footer">Generated on Mon Jun 18 2012 01:59:28 for Projet Calculatrice Ã  notation polonaise inversÃ©e by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.1.1 </li>
   </ul>

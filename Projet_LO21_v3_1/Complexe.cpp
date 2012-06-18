@@ -59,7 +59,7 @@ Complexe Complexe::operator + (Complexe r1)
         logger1->Write(&LogMessage(ERROR,"type non conforme"));
         logger2->Write(&LogMessage(ERROR,"type non conforme"));
         res.re = new Entier(0);    res.im = new Entier(0);
-        return &res;
+        return res;
     }
 
     // partie imaginaire
@@ -79,8 +79,9 @@ Complexe Complexe::operator + (Complexe r1)
         logger1->Write(&LogMessage(ERROR,"type non conforme"));
         logger2->Write(&LogMessage(ERROR,"type non conforme"));
         res.re = new Entier(0);    res.im = new Entier(0);
-        return &res;
+        return res;
     }
+
     return res;
 }
 
@@ -108,13 +109,18 @@ Constante* Complexe::operator + (Constante* r1)
     }
     else if (typeid (*r1).name()==typeid (Complexe).name()){
          Complexe* e = dynamic_cast<Complexe*>(r1);
-         res = new Complexe(*this + *e);
+         qDebug() << "tredqte";
+         Complexe res_i(&(*this + *e));
+         qDebug()<<"sjhfg"<<res_i.ConvertChaine();
+         res = new Complexe(&(*this + *e));
+         qDebug() << "ertfe"<<res->ConvertChaine();
     }
     else {
         logger1->Write(&LogMessage(ERROR,"type non conforme"));
         logger2->Write(&LogMessage(ERROR,"type non conforme"));
         res = NULL;
     }
+
     return res;
 }
 

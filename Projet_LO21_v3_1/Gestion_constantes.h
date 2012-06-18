@@ -26,7 +26,9 @@ int FormuleValide(QString s);
 // 5 pour expression
 // 0 pour expression non valide
 
-
+/*! \class Stack
+ * \brief Fabrication d'une pile gérant des Constantes
+ */
 class Stack
 {
     int nbElements;

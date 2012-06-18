@@ -311,10 +311,35 @@ Reel Entier::cosinush(){return cosh(this->GetReel());}
 Reel Entier::tangenteh(){return tanh(this->GetReel());}
 
 
-Reel Entier::ln(){return log(this->GetReel());}
-Reel Entier::logdix(){return log10(this->GetReel());}
-Rationnel Entier::inv(){Rationnel res(1, n); return res;}
-Reel Entier::rsqr(){return sqrt(this->GetReel());}
+Reel* Entier::ln(){
+    if(isPositif()&&!isNull()){Reel* res = new Reel(log(this->GetReel())); return res;}
+    else{
+        logger1->Write(&LogMessage(WARNING,"hors limites de la fonction"));
+        logger2->Write(&LogMessage(WARNING,"hors limites de la fonction"));
+        return NULL;
+    }
+}
+
+Reel* Entier::logdix(){
+    if(isPositif()&&!isNull()){Reel* res = new Reel(log10(this->GetReel())); return res;}
+    else{
+        logger1->Write(&LogMessage(WARNING,"hors limites de la fonction"));
+        logger2->Write(&LogMessage(WARNING,"hors limites de la fonction"));
+        return NULL;
+    }
+}
+
+Rationnel* Entier::inv(){Rationnel *res = new Rationnel(1, n); return res;}
+
+Reel* Entier::rsqr(){
+    if(isPositif()&&!isNull()){Reel* res = new Reel(log10(sqrt(this->GetReel()))); return res;}
+    else{
+        logger1->Write(&LogMessage(WARNING,"hors limites de la fonction"));
+        logger2->Write(&LogMessage(WARNING,"hors limites de la fonction"));
+        return NULL;
+    }
+}
+
 Entier Entier::sqr(){return n*n;}
 Entier Entier::cube(){return n*n*n;}
 

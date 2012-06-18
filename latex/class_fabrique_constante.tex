@@ -4,18 +4,77 @@
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_fabrique_constante_a7d192cf62b0c19f17d0ebdb8dac371ab}{\hyperlink{class_calcul_1_1_constante}{Constante} $\ast$ {\bfseries get\-Constante} (Q\-String chaine)}\label{class_fabrique_constante_a7d192cf62b0c19f17d0ebdb8dac371ab}
+\hyperlink{class_calcul_1_1_constante}{Constante} $\ast$ \hyperlink{class_fabrique_constante_a7d192cf62b0c19f17d0ebdb8dac371ab}{get\-Constante} (Q\-String chaine)
+\begin{DoxyCompactList}\small\item\em get\-Constante \end{DoxyCompactList}\item 
+\hyperlink{class_calcul_1_1_constante}{Constante} $\ast$ \hyperlink{class_fabrique_constante_a05259a5b19903d8f1b640e45621d1fd4}{get\-Complexe} (Q\-String chaine)
+\begin{DoxyCompactList}\small\item\em get\-Complexe \end{DoxyCompactList}\item 
+\hyperlink{class_calcul_1_1_constante}{Constante} $\ast$ \hyperlink{class_fabrique_constante_a432cc65aa3d80402ea017963d5c06edf}{get\-Type} (\hyperlink{class_calcul_1_1_constante}{Constante} $\ast$a, int type)
+\begin{DoxyCompactList}\small\item\em get\-Type \end{DoxyCompactList}\item 
+\hyperlink{class_calcul_1_1_constante}{Constante} $\ast$ \hyperlink{class_fabrique_constante_aa1f4a720e896aaeabd85b0dc042c2ecf}{new\-Constante} (\hyperlink{class_calcul_1_1_constante}{Constante} $\ast$a)
+\begin{DoxyCompactList}\small\item\em new\-Constante \end{DoxyCompactList}\end{DoxyCompactItemize}
 
-\item 
-\hypertarget{class_fabrique_constante_a05259a5b19903d8f1b640e45621d1fd4}{\hyperlink{class_calcul_1_1_constante}{Constante} $\ast$ {\bfseries get\-Complexe} (Q\-String chaine)}\label{class_fabrique_constante_a05259a5b19903d8f1b640e45621d1fd4}
 
-\item 
-\hypertarget{class_fabrique_constante_a432cc65aa3d80402ea017963d5c06edf}{\hyperlink{class_calcul_1_1_constante}{Constante} $\ast$ {\bfseries get\-Type} (\hyperlink{class_calcul_1_1_constante}{Constante} $\ast$a, int type)}\label{class_fabrique_constante_a432cc65aa3d80402ea017963d5c06edf}
+\subsection{Member Function Documentation}
+\hypertarget{class_fabrique_constante_a05259a5b19903d8f1b640e45621d1fd4}{\index{Fabrique\-Constante@{Fabrique\-Constante}!get\-Complexe@{get\-Complexe}}
+\index{get\-Complexe@{get\-Complexe}!FabriqueConstante@{Fabrique\-Constante}}
+\subsubsection[{get\-Complexe}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Constante} $\ast$ Fabrique\-Constante\-::get\-Complexe (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{chaine}
+\end{DoxyParamCaption}
+)}}\label{class_fabrique_constante_a05259a5b19903d8f1b640e45621d1fd4}
 
-\item 
-\hypertarget{class_fabrique_constante_aa1f4a720e896aaeabd85b0dc042c2ecf}{\hyperlink{class_calcul_1_1_constante}{Constante} $\ast$ {\bfseries new\-Constante} (\hyperlink{class_calcul_1_1_constante}{Constante} $\ast$a)}\label{class_fabrique_constante_aa1f4a720e896aaeabd85b0dc042c2ecf}
 
-\end{DoxyCompactItemize}
+get\-Complexe 
+
+Genère un Complexe à partir d'un Q\-String. Elle convertit tous les non Complexe en Complexe 
+\begin{DoxyParams}{Parameters}
+{\em Q\-String} & contenant la Constante a générer \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_fabrique_constante_a7d192cf62b0c19f17d0ebdb8dac371ab}{\index{Fabrique\-Constante@{Fabrique\-Constante}!get\-Constante@{get\-Constante}}
+\index{get\-Constante@{get\-Constante}!FabriqueConstante@{Fabrique\-Constante}}
+\subsubsection[{get\-Constante}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Constante} $\ast$ Fabrique\-Constante\-::get\-Constante (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{chaine}
+\end{DoxyParamCaption}
+)}}\label{class_fabrique_constante_a7d192cf62b0c19f17d0ebdb8dac371ab}
+
+
+get\-Constante 
+
+Genère une Constante à partir d'un Q\-String. 
+\begin{DoxyParams}{Parameters}
+{\em Q\-String} & contenant la Constante a générer \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_fabrique_constante_a432cc65aa3d80402ea017963d5c06edf}{\index{Fabrique\-Constante@{Fabrique\-Constante}!get\-Type@{get\-Type}}
+\index{get\-Type@{get\-Type}!FabriqueConstante@{Fabrique\-Constante}}
+\subsubsection[{get\-Type}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Constante} $\ast$ Fabrique\-Constante\-::get\-Type (
+\begin{DoxyParamCaption}
+\item[{{\bf Constante} $\ast$}]{a, }
+\item[{int}]{type}
+\end{DoxyParamCaption}
+)}}\label{class_fabrique_constante_a432cc65aa3d80402ea017963d5c06edf}
+
+
+get\-Type 
+
+Genère une Constante à partir d'une Constante, en prenant compte d'un type de sortie (entier, réel, rationnel).  Constante$\ast$ à transformer  int contenant le type \hypertarget{class_fabrique_constante_aa1f4a720e896aaeabd85b0dc042c2ecf}{\index{Fabrique\-Constante@{Fabrique\-Constante}!new\-Constante@{new\-Constante}}
+\index{new\-Constante@{new\-Constante}!FabriqueConstante@{Fabrique\-Constante}}
+\subsubsection[{new\-Constante}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Constante} $\ast$ Fabrique\-Constante\-::new\-Constante (
+\begin{DoxyParamCaption}
+\item[{{\bf Constante} $\ast$}]{a}
+\end{DoxyParamCaption}
+)}}\label{class_fabrique_constante_aa1f4a720e896aaeabd85b0dc042c2ecf}
+
+
+new\-Constante 
+
+Genère une Constante à partir d'un pointeur de Constante. Permet de dupliquer une Constante. 
+\begin{DoxyParams}{Parameters}
+{\em Constante$\ast$} & à dupliquer \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
