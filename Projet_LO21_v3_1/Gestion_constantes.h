@@ -45,6 +45,7 @@ int FormuleValide(QString s);
 // 5 pour expression
 // 0 pour expression non valide
 
+
 /*! \class Stack
  * \brief Fabrication d'une pile gérant des Constantes
  */
@@ -70,6 +71,7 @@ public:
     int size() const {return nbElements;}
     int push(Constante *nb);  // retourne -1 si la pile est pleine
     Constante* pop();
+    Constante* top(){return tab[nbElements];}
     void clear();
     int Swap(Entier* x, Entier*y);
     void afficherPile();  // utile pour le debuggage
@@ -96,6 +98,10 @@ public:
     iterator end() {return iterator(tab - 1);}
     // on parcoure la pile de l'élement le plus récent au plus vieux
 
+    /*!
+     *  \brief clone
+     *  \details clone une pile, sans allouer de nouveaux pointeurs
+     */
     Stack* clone() {
         Stack* nouvellePile = new Stack(taille);
         for(iterator it = (this->end()-1); it != (this->begin()-1); --it){

@@ -127,15 +127,13 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionEnregistrer, SIGNAL(triggered()), this, SLOT(enregistrer()));
     connect(ui->actionOuvrir, SIGNAL(triggered()), this, SLOT(lire()));
 
-    connect(ui->actionQuitter, SIGNAL(triggered()), model, SLOT(getFermer()));
+    //connect(this, SIGNAL(destroyed()), model, SLOT(getFermer()));
+   // connect(ui->actionQuitter, SIGNAL(triggered()), model, SLOT(getFermer()));
 }
 
 MainWindow::~MainWindow()
 {
-    //qDebug()<<"4";
-   // model->getFermer();
-    //qDebug()<<"5";
-    emit pressFermer();
+    delete model;
     delete ui;
 }
 
@@ -413,6 +411,7 @@ void MainWindow::affichePile(Stack *pile)
     }
 }
 
+
 void MainWindow::setTaillePile(int n)
 {
     taille_pile = n;
@@ -429,6 +428,7 @@ void MainWindow::on_clickRetablir_clicked(){
 void MainWindow::verifComp(){
     emit vaVerif(complexe);
 }
+
 
 void MainWindow::enregistrer(){
     QFile file("sauvegardeParametre.txt");

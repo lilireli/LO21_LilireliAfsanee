@@ -39,6 +39,7 @@ class CalculatriceModele : public QObject
 
 public:
     explicit CalculatriceModele(QObject *parent = 0);
+    ~CalculatriceModele();
     void affichePileTaille();
     void afficherHistorique();
     void afficherSuppressionHistorique();
@@ -72,7 +73,6 @@ public slots:
      void retablir();
      void ecritureFichier();
      void lireFichier();
-     void getFermer();
 
      /*!
       * \brief      effacerPile
