@@ -126,14 +126,12 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(ui->actionEnregistrer, SIGNAL(triggered()), this, SLOT(enregistrer()));
     connect(ui->actionOuvrir, SIGNAL(triggered()), this, SLOT(lire()));
-
-    //connect(this, SIGNAL(destroyed()), model, SLOT(getFermer()));
-   // connect(ui->actionQuitter, SIGNAL(triggered()), model, SLOT(getFermer()));
 }
 
 MainWindow::~MainWindow()
 {
     delete model;
+    qDebug()<<"sjfhskjdf";
     delete ui;
 }
 

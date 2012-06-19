@@ -24,8 +24,8 @@ void CalculatriceModele::getSwap()
             Entier* e1 = dynamic_cast<Entier*>(a);
             Entier* e2 = dynamic_cast<Entier*>(b);
             if(!pile.Swap(e1, e2)){
-                logger1->Write(&LogMessage(ERROR,"type non conforme"));
-                logger2->Write(&LogMessage(ERROR,"type non conforme"));
+                pile.push(b);
+                pile.push(a);
             }
 
             emit finOp(&pile);
@@ -68,14 +68,13 @@ void CalculatriceModele::getSum(int type){
                 logger1->Write(&LogMessage(ERROR,"pas assez d'expressions"));
                 logger2->Write(&LogMessage(ERROR,"pas assez d'expressions"));
                 pile.push(a);}
-
-            emit finOp(&pile);
         }else{
             pile.push(a);
             logger1->Write(&LogMessage(ERROR,"type non conforme"));
             logger2->Write(&LogMessage(ERROR,"type non conforme"));
-
         }
+
+        emit finOp(&pile);
     }
     else{
     logger1->Write(&LogMessage(ERROR,"taille pile insuffisante"));
@@ -108,9 +107,11 @@ void CalculatriceModele::getMean(int type){
                 logger2->Write(&LogMessage(ERROR,"taille pile insuffisante"));
             }
         }
-        emit finOp(&pile);
+        else{
         logger1->Write(&LogMessage(ERROR,"type non conforme"));
         logger2->Write(&LogMessage(ERROR,"type non conforme"));
+        }
+        emit finOp(&pile);
     }
     else{
     logger1->Write(&LogMessage(ERROR,"taille pile insuffisante"));

@@ -109,7 +109,7 @@ int Stack::Swap(Entier* x, Entier* y){
         int a = x->GetEntier();
         int b = y->GetEntier();
 
-        if(a<nbElements && b<nbElements)
+        if(a<=nbElements && b<=nbElements)
         {
             Constante* tmp = tab[a-1];
             tab[a-1]=tab[b-1];

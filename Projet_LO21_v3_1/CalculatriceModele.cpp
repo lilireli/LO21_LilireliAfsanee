@@ -36,12 +36,12 @@ CalculatriceModele::~CalculatriceModele(){
     while(!historique.empty()) {
         Stack* pileDrop = historique.pop();
 
-        qDebug() << "b : " << historique.size();
         if(pileDrop!=NULL) {
-            qDebug()<<"c :"<<pile.size();
             while(!pileDrop->isEmpty()) {
-                Constante* tmp = pileDrop->pop();
-                int deja=0;
+                Constante* tmp = pileDrop->pop();   // on crée une constante* tmp pour la comparer avec les autres constantes
+                                                    // déjà stockées
+                int deja=0;                         // si on trouve la constante on pass deja a un
+                                                    // comme ça on ne la trouvera qu'une fois dans notre tableau
 
                 for(int j=0; j<i; j++){
                     if(tmp == tab[j]){deja=1;}
@@ -56,7 +56,6 @@ CalculatriceModele::~CalculatriceModele(){
 
     qDebug()<<"Il y a "<<i<<"Constantes a supprimer";
     for(int j=0; j<i; j++){
-        qDebug()<<"tab[i] "<<tab[j]->ConvertChaine();
          delete tab[j];
     }
     qDebug()<<"fin suppression de toutes les constantes";
@@ -66,6 +65,7 @@ CalculatriceModele::~CalculatriceModele(){
     }
     qDebug()<<"fin suppression de toutes les piles";
 }
+
 
 void CalculatriceModele::affichePileTaille(){
     qDebug() << "PILE : " << pile.size();
