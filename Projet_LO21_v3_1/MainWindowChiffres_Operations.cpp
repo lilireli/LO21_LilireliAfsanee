@@ -3,6 +3,11 @@
   Suzanne Aurélie
   Projet LO21 - Calculatrice à notation polonaise inversée
 */
+/*!
+ *  \file MainWindowChiffres_Operations.cpp
+ *  \brief Mettre dans le buffer les valeurs entrées
+ *  \author Hamici Mathilde, Suzanne Aurélie
+ */
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 

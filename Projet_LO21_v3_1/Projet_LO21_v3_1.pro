@@ -19,10 +19,10 @@ SOURCES += main.cpp\
     Constante_Factory.cpp \
     Complexe.cpp \
     CalculatriceModele.cpp \
-    logger.cpp \
     CalculatriceFonctionPile.cpp \
     MainWindowChiffres_Operations.cpp \
-    CalculatriceOperations.cpp
+    CalculatriceOperations.cpp \
+    Logger.cpp
 
 HEADERS  += mainwindow.h \
     Gestion_constantes.h \

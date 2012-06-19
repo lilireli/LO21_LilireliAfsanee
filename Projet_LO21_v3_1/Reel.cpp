@@ -3,6 +3,11 @@
   Suzanne Aurélie
   Projet LO21 - Calculatrice à notation polonaise inversée
 */
+/*!
+ *  \file Reel.cpp
+ *  \brief Fonctions de gestion des Reel
+ *  \author Hamici Mathilde, Suzanne Aurélie
+ */
 #include "Constantes.h"
 
 namespace Calcul{

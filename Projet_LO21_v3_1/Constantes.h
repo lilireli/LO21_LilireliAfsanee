@@ -3,6 +3,11 @@
   Suzanne Aurélie
   Projet LO21 - Calculatrice à notation polonaise inversée
 */
+/*!
+ *  \file Constantes.h
+ *  \brief Création de tous les types de Constante : Entier, Reel, Rationnel, Complexe, Expression
+ *  \author Hamici Mathilde, Suzanne Aurélie
+ */
 #ifndef CONSTANTES_H
 #define CONSTANTES_H
 
@@ -23,11 +28,14 @@ namespace Calcul {
 /*! \class Constante
  * \brief Classe abstraite qui contiendra tous les types de nombres
  */
-
 class Constante{
 public:
     virtual ~Constante(){}
-    virtual const QString ConvertChaine() const = 0;   // fonction pour l'affichage
+    /*! \brief ConvertChaine
+     *  Méthode virtuelle qui convertit une Constante en une chaine de caractères
+     *  \returns Retourne un const QString
+     */
+    virtual const QString ConvertChaine()const = 0;   // fonction pour l'affichage
     virtual bool isNull() = 0;
 };
 
@@ -43,8 +51,13 @@ class Entier;
 class Nombre : public Constante{
 public:
     virtual ~Nombre(){}
+    /*!
+     *  \brief toComplexe
+     *  \details Méthode virtuelle qui convertit un Nombre en un Complexe
+     *  \returns Retourne un complexe
+     */
     virtual Complexe toComplexe() = 0;
-    virtual const QString ConvertChaine() const = 0;
+    virtual const QString ConvertChaine()const = 0;
     virtual bool isNull() = 0;
     virtual bool isPositif() = 0;
 };
@@ -58,10 +71,10 @@ class Complexe : public Constante{
 public:
     Complexe(QString s="0$0");
     Complexe(Nombre* reel, Nombre* imaginaire=NULL);
-    Complexe(Complexe *comp);
-    ~Complexe() {delete re; delete im;}
+    Complexe(Complexe* comp);
+    ~Complexe() {/*delete re; delete im;*/}   // ne fait rien sinon erreur
     Nombre* GetRe()const {return re;}
-    Nombre* GetIm()const{return im;}
+    Nombre* GetIm()const {return im;}
     void SetRe(Nombre* r){re = r;}
     void SetIm(Nombre* i){im = i;}
     bool isNull() { return (re->isNull() && im->isNull());}
@@ -340,8 +353,22 @@ public:
     ~Expression(){}
     const QString ConvertChaine()const {return exp;}
     bool isNull(){return false;}
+    /*!
+     *  \brief Tronque
+     *  retourne une Expression, sans ses quotes
+     */
     const QString Tronque(){exp.remove(0, 1); exp.remove(exp.length()-1, 1); return exp;}
+    /*!
+     *  \brief addCalcul
+     *  \details Ajoute un QString a une expression, QString ajouté à la fin
+     *  \param Prend un QString
+     */
     void addCalcul(QString s){exp.remove(exp.length()-1, 1); exp+=" "+s+"'";}
+    /*!
+     *  \brief calculAdd
+     *  \details Ajoute un QString a une expression, QString ajouté au début
+     *  \param Prend un QString
+     */
     void calculAdd(QString s){exp.remove(0, 1); exp="'"+s+" "+exp;} // ajoute avant expression une constante
 };
 

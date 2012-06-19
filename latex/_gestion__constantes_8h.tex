@@ -1,0 +1,72 @@
+\hypertarget{_gestion__constantes_8h}{\section{Référence du fichier Projet\-\_\-\-L\-O21\-\_\-v3\-\_\-1/\-Gestion\-\_\-constantes.h}
+\label{_gestion__constantes_8h}\index{Projet\-\_\-\-L\-O21\-\_\-v3\-\_\-1/\-Gestion\-\_\-constantes.\-h@{Projet\-\_\-\-L\-O21\-\_\-v3\-\_\-1/\-Gestion\-\_\-constantes.\-h}}
+}
+
+
+Implémentation de fonction pour la gestion des constantes \-: pile et fonctions de vérification de validité de chaine de caractères.  
+
+
+{\ttfamily \#include $<$Q\-String$>$}\\*
+{\ttfamily \#include \char`\"{}Constantes.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Logger.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$Qt\-Algorithms$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_stack}{Stack}
+\begin{DoxyCompactList}\small\item\em Fabrication d'une pile gérant des Constantes. \end{DoxyCompactList}\item 
+class \hyperlink{class_stack_1_1iterator}{Stack\-::iterator}
+\begin{DoxyCompactList}\small\item\em Fabrication d'un itérateur pour parcourir la pile. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Fonctions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{_gestion__constantes_8h_ae531ae6043b17e796b91d816094c3633}{Nombre\-Valide} (Q\-String chaine)
+\begin{DoxyCompactList}\small\item\em Nombre\-Valide. \end{DoxyCompactList}\item 
+int \hyperlink{_gestion__constantes_8h_a0299068163c85c817c950232b084365b}{Formule\-Valide} (Q\-String s)
+\begin{DoxyCompactList}\small\item\em Formule\-Valide. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{_gestion__constantes_8h_a92939712e5ef7a00a998a412f3b78084}{\hyperlink{class_logger_console}{Logger\-Console} $\ast$ {\bfseries logger1}}\label{_gestion__constantes_8h_a92939712e5ef7a00a998a412f3b78084}
+
+\item 
+\hypertarget{_gestion__constantes_8h_abc2f67fd2a2362d8874f063c6ab744f6}{\hyperlink{class_logger_file}{Logger\-File} $\ast$ {\bfseries logger2}}\label{_gestion__constantes_8h_abc2f67fd2a2362d8874f063c6ab744f6}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Implémentation de fonction pour la gestion des constantes \-: pile et fonctions de vérification de validité de chaine de caractères. \begin{DoxyAuthor}{Auteur}
+Hamici Mathilde, Suzanne Aurélie 
+\end{DoxyAuthor}
+
+
+\subsection{Documentation des fonctions}
+\hypertarget{_gestion__constantes_8h_a0299068163c85c817c950232b084365b}{\index{Gestion\-\_\-constantes.\-h@{Gestion\-\_\-constantes.\-h}!Formule\-Valide@{Formule\-Valide}}
+\index{Formule\-Valide@{Formule\-Valide}!Gestion_constantes.h@{Gestion\-\_\-constantes.\-h}}
+\subsubsection[{Formule\-Valide}]{\setlength{\rightskip}{0pt plus 5cm}int Formule\-Valide (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{s}
+\end{DoxyParamCaption}
+)}}\label{_gestion__constantes_8h_a0299068163c85c817c950232b084365b}
+
+
+Formule\-Valide. 
+
+Défini si une Constante est valide \begin{DoxyReturn}{Renvoie}
+Retourne un int qui vaut 1 pour Entier, 2 pour Reel, 3 pour Rationnel, 4 pour Complexe, 5 pour Expression et zéro sinon 
+\end{DoxyReturn}
+\hypertarget{_gestion__constantes_8h_ae531ae6043b17e796b91d816094c3633}{\index{Gestion\-\_\-constantes.\-h@{Gestion\-\_\-constantes.\-h}!Nombre\-Valide@{Nombre\-Valide}}
+\index{Nombre\-Valide@{Nombre\-Valide}!Gestion_constantes.h@{Gestion\-\_\-constantes.\-h}}
+\subsubsection[{Nombre\-Valide}]{\setlength{\rightskip}{0pt plus 5cm}int Nombre\-Valide (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{chaine}
+\end{DoxyParamCaption}
+)}}\label{_gestion__constantes_8h_ae531ae6043b17e796b91d816094c3633}
+
+
+Nombre\-Valide. 
+
+Défini si un Nombre est valide \begin{DoxyReturn}{Renvoie}
+Retourne un int qui vaut 1 pour Entier, 2 pour Reel, 3 pour Rationnel et zéro sinon 
+\end{DoxyReturn}

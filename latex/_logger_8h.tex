@@ -1,0 +1,43 @@
+\hypertarget{_logger_8h}{\section{Référence du fichier Projet\-\_\-\-L\-O21\-\_\-v3\-\_\-1/\-Logger.h}
+\label{_logger_8h}\index{Projet\-\_\-\-L\-O21\-\_\-v3\-\_\-1/\-Logger.\-h@{Projet\-\_\-\-L\-O21\-\_\-v3\-\_\-1/\-Logger.\-h}}
+}
+
+
+Gestion des \hyperlink{class_log_message}{Log\-Message} pour la console et un fichier.  
+
+
+{\ttfamily \#include $<$Q\-Debug$>$}\\*
+{\ttfamily \#include $<$Q\-String$>$}\\*
+{\ttfamily \#include $<$iostream$>$}\\*
+{\ttfamily \#include $<$string$>$}\\*
+{\ttfamily \#include $<$fstream$>$}\\*
+{\ttfamily \#include $<$sstream$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_log_message}{Log\-Message}
+\begin{DoxyCompactList}\small\item\em Création d'un log\-Message contenant une priorité et du texte. \end{DoxyCompactList}\item 
+class \hyperlink{class_logger}{Logger}
+\begin{DoxyCompactList}\small\item\em Classe abstraite permettant de créer des objets qui gèrerons des \hyperlink{class_log_message}{Log\-Message}. \end{DoxyCompactList}\item 
+class \hyperlink{class_logger_console}{Logger\-Console}
+\begin{DoxyCompactList}\small\item\em Classe qui écrit des \hyperlink{class_log_message}{Log\-Message} dans la console, selon la catégorie du message elle emet un Q\-Message\-Box pour informer l'utilisateur. \end{DoxyCompactList}\item 
+class \hyperlink{class_logger_file}{Logger\-File}
+\begin{DoxyCompactList}\small\item\em Classe qui écrit des \hyperlink{class_log_message}{Log\-Message} dans un fichier. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Énumérations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{_logger_8h_a315655b1bb5848c063491adffde62b15}{Priority} \{ \\*
+{\bfseries D\-E\-B\-U\-G}, 
+{\bfseries C\-O\-N\-F\-I\-G}, 
+{\bfseries I\-N\-F\-O}, 
+{\bfseries W\-A\-R\-N\-I\-N\-G}, 
+\\*
+{\bfseries E\-R\-R\-O\-R}
+ \}
+\begin{DoxyCompactList}\small\item\em Gère la priorité de chaque \hyperlink{class_log_message}{Log\-Message}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Gestion des \hyperlink{class_log_message}{Log\-Message} pour la console et un fichier. \begin{DoxyAuthor}{Auteur}
+Hamici Mathilde, Suzanne Aurélie 
+\end{DoxyAuthor}

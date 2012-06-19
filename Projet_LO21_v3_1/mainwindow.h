@@ -3,6 +3,11 @@
   Suzanne Aurélie
   Projet LO21 - Calculatrice à notation polonaise inversée
 */
+/*!
+ *  \file MainWindow.h
+ *  \brief Affichage de la calculatrice, communication entre l'ui et CalculatriceModele
+ *  \author Hamici Mathilde, Suzanne Aurélie
+ */
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -27,7 +32,7 @@ class MainWindow;
  * \brief Vue qui gère l'affichage et communique avec CalculatriceModele pour effectuer les calculs
  * et rentrer les constantes
  *
- * \details  \a FenetrePile permettra l'apparition d'une nouvelle fenêtre qui nous permettra la
+ * \details  FenetrePile permettra l'apparition d'une nouvelle fenêtre qui nous permettra la
  * selection de la taille de la pile
  */
 class MainWindow : public QMainWindow
@@ -38,6 +43,11 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    /*!
+     *  \brief SetAttributs
+     *  \details fonction permet de remettre la calculatrice comme elle était avant
+     */
+    void setAttributs(int type, bool c, bool d, int taille);
 
 private slots:
     //numéros
@@ -61,7 +71,7 @@ private slots:
 
     /*!
     * \brief EnterAction
-    * Methode permettant de  qu'une chaine entrée au clavier est valide. Elle envoie un signal si
+    * \details Methode permettant de  qu'une chaine entrée au clavier est valide. Elle envoie un signal si
     * la chaine est une constante (ce que l'on peut vérifier avec formuleValide) et si elle correpond au nom
     * d'une opération (en ce cas elle envoie le signal a l'opération a appeler).
     * \param QString représentant la chaine de caractères à évaluer
@@ -70,11 +80,29 @@ private slots:
     void EnterAction(QString s);
     void on_EvalPressed_clicked();
     void on_opDelPressed_clicked();
+    /*!
+     *  \brief rafraichissement
+     *  \details Vide le lineEdit et le buffer, afin de pouvoir recommencer à rentrer un calcul
+     */
     void rafraichissement();
+    /*!
+     *  \brief affichePile
+     *  \details Actualise la pile avec la pile de calculatriceModele actuelle
+     */
     void affichePile(Stack* pile);
+    /*!
+     *  \brief setTaillePile
+     *  \details Ajuste la taille de la pile qui sera comprise entre 0 et 30
+     */
     void setTaillePile(int n);
     void on_clickAnnul_clicked();
     void on_clickRetablir_clicked();
+    /*!
+     *  \brief verifComp
+     *  \details Reçoit un signal dès que l'on annule ou rétablit, il renvoie un signal pour vérifier si le type rentré est Complexe ou non
+     *  Dans tous les cas, il demande à une fonction de CalculatriceModele d'actualiser la pile en fonction du booléen complexe
+     */
+    void verifComp();
 
     //opérations
     void on_opPlusPressed_clicked();
@@ -116,6 +144,7 @@ private slots:
     void on_buttonComplexe_clicked();
     void degreActif();
     void radianActif();
+    void affichClavier();
 
     //pile
     void on_opSwapPressed_clicked();
@@ -125,17 +154,50 @@ private slots:
     void on_opDupPressed_clicked();
     void on_opDropPressed_clicked();
 
+    //gestion enregistrement
+    void lire();
+    void enregistrer();
+
 
 signals:
+    // rentrer une expression
+    /*!
+     *  \brief PressEntrerN
+     *  \details Envoie a calculatrice modele une constante (dont on a déjà vérifié la validité grâce à FormuleValide)
+     *  en lui indiquant si elle doit créer un complexe ou non
+     *  \param1 Prend une chaine de caractères
+     *  \param2 Prend un booléen
+     */
     void pressEntrerN(QString s, bool complexe);
+    /*!
+     *  \brief finEntree
+     *  \details Signal qu'un bloc a été rentré, demande à rafraichir l'affichage et le buffer
+     */
     void finEntree();
     void pressEval();
+
+    //Annuler et rétablir
     void pressAnnuler();
     void pressRetablir();
+    /*!
+     *  \brief vaVerif
+     *  \details Dit au programme, va vérifier que ce qui est dans la pile correspond au mode Complexe que l'on veut
+     *  \param2 Prend un booléen
+     */
+    void vaVerif(bool complexe);
 
+    // gestion complexe
     void complexeVrai();
     void complexeFaux();
 
+    // Affichage clavier
+    void cache();
+    void montre();
+
+    // Sauvegarde contexte
+    void pressFermer();
+
+    // Opérations
     void pressAdd(int typeNombre);
     void pressSous(int typeNombre);
     void pressMult(int typeNombre);
@@ -174,9 +236,10 @@ private:
     Ui::MainWindow *ui;
     Stack affichage;
     int typeNombre;  // =0 si entier, =1 si réel, =2 si rationnel
-    bool complexe;  // =0 si non activé, =1 si activé
+    bool complexe;
     bool degre;
     int taille_pile;
+    bool hide;
 
     CalculatriceModele *model;
     QString buffer;

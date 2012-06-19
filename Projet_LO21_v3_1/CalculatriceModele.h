@@ -40,7 +40,7 @@ class CalculatriceModele : public QObject
 public:
     explicit CalculatriceModele(QObject *parent = 0);
     void affichePileTaille();
-    //void afficherHistorique();
+    void afficherHistorique();
     void afficherSuppressionHistorique();
 
 signals:
@@ -49,6 +49,8 @@ signals:
      * \details    renvoie un pointeur sur la pile à MainWindow afin d'actualiser la pile dans l'affichage
      */
      void finOp(Stack* pile);
+     void finAnRe(Stack* pile);
+     void compVF();
      void evalExp(QString s);
      void raffraichirUi(QString s);
 
@@ -62,13 +64,34 @@ public slots:
       * \param2 bool qui nous indique si la saisie doit s'effectuer en mode complexe ou non
       */
      void getNombre(QString s, bool complexe);
+
+     void ajoutHistorique(Stack* pile);
+
      void getExpression();
      void annuler();
      void retablir();
      void ecritureFichier();
-     void effacerPile();
-     void transformerPile();
+     void lireFichier();
+     void getFermer();
 
+     /*!
+      * \brief      effacerPile
+      * \details    Supprime la pile car le mode complexe est désactivé, on ne peut convertir de Complexe à Nombre
+      */
+     void effacerPile();
+     /*!
+      * \brief      transformerPile
+      * \details    transforme tous les Nombre de la pile en Complexe
+      */
+     void transformerPile();
+     /*!
+      * \brief      actualiserPile
+      * \details    Vérifie (et corrige si ce n'est pas le cas) que la pile ne contient que des constants de type adéquat
+      * après avoir effectué annuler ou rétablir
+      */
+     void actualiserPile(bool Comp);
+
+     // Opérations
      void getAdd(int type);
      void getSous(int type);
      void getMult(int type);

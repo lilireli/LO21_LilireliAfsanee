@@ -1,22 +1,22 @@
-\hypertarget{class_calcul_1_1_expression}{\section{Calcul\-:\-:Expression Class Reference}
+\hypertarget{class_calcul_1_1_expression}{\section{Référence de la classe Calcul\-:\-:Expression}
 \label{class_calcul_1_1_expression}\index{Calcul\-::\-Expression@{Calcul\-::\-Expression}}
 }
 
 
-Classe qui permet d'impl�menter une expression � l'aide d'un Q\-String.  
+Classe qui permet d'implémenter une expression à l'aide d'un Q\-String.  
 
 
 
 
 {\ttfamily \#include $<$Constantes.\-h$>$}
 
-Inheritance diagram for Calcul\-:\-:Expression\-:\begin{figure}[H]
+Graphe d'héritage de Calcul\-:\-:Expression\-:\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=2.000000cm]{class_calcul_1_1_expression}
 \end{center}
 \end{figure}
-\subsection*{Public Member Functions}
+\subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
 \hypertarget{class_calcul_1_1_expression_a756dc07653593481c4643d6a179d239b}{{\bfseries Expression} (Q\-String s)}\label{class_calcul_1_1_expression_a756dc07653593481c4643d6a179d239b}
@@ -25,26 +25,76 @@ Inheritance diagram for Calcul\-:\-:Expression\-:\begin{figure}[H]
 \hypertarget{class_calcul_1_1_expression_a28a8ce64db734d8716f120b284a7e6df}{{\bfseries Expression} (\hyperlink{class_calcul_1_1_expression}{Expression} $\ast$e)}\label{class_calcul_1_1_expression_a28a8ce64db734d8716f120b284a7e6df}
 
 \item 
-\hypertarget{class_calcul_1_1_expression_a8bffbb504f9348cd69790c0fe23bf67d}{const Q\-String {\bfseries Convert\-Chaine} () const }\label{class_calcul_1_1_expression_a8bffbb504f9348cd69790c0fe23bf67d}
-
-\item 
+const Q\-String \hyperlink{class_calcul_1_1_expression_a8bffbb504f9348cd69790c0fe23bf67d}{Convert\-Chaine} () const 
+\begin{DoxyCompactList}\small\item\em Convert\-Chaine Méthode virtuelle qui convertit une \hyperlink{class_calcul_1_1_constante}{Constante} en une chaine de caractères. \end{DoxyCompactList}\item 
 \hypertarget{class_calcul_1_1_expression_a240d6f19b3c3f3f5eebe3bddaa83f306}{bool {\bfseries is\-Null} ()}\label{class_calcul_1_1_expression_a240d6f19b3c3f3f5eebe3bddaa83f306}
 
 \item 
-\hypertarget{class_calcul_1_1_expression_af70b11f7b8fb7fc792df5628b932a117}{const Q\-String {\bfseries Tronque} ()}\label{class_calcul_1_1_expression_af70b11f7b8fb7fc792df5628b932a117}
+\hypertarget{class_calcul_1_1_expression_af70b11f7b8fb7fc792df5628b932a117}{const Q\-String \hyperlink{class_calcul_1_1_expression_af70b11f7b8fb7fc792df5628b932a117}{Tronque} ()}\label{class_calcul_1_1_expression_af70b11f7b8fb7fc792df5628b932a117}
 
+\begin{DoxyCompactList}\small\item\em Tronque retourne une \hyperlink{class_calcul_1_1_expression}{Expression}, sans ses quotes. \end{DoxyCompactList}\item 
+void \hyperlink{class_calcul_1_1_expression_ac093ea5837a113f64be91e66b055b18b}{add\-Calcul} (Q\-String s)
+\begin{DoxyCompactList}\small\item\em add\-Calcul \end{DoxyCompactList}\item 
+void \hyperlink{class_calcul_1_1_expression_a0e762d07570ac388d0919a4c2053eecd}{calcul\-Add} (Q\-String s)
+\begin{DoxyCompactList}\small\item\em calcul\-Add \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Classe qui permet d'implémenter une expression à l'aide d'un Q\-String. 
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_calcul_1_1_expression_ac093ea5837a113f64be91e66b055b18b}{\index{Calcul\-::\-Expression@{Calcul\-::\-Expression}!add\-Calcul@{add\-Calcul}}
+\index{add\-Calcul@{add\-Calcul}!Calcul::Expression@{Calcul\-::\-Expression}}
+\subsubsection[{add\-Calcul}]{\setlength{\rightskip}{0pt plus 5cm}void Calcul\-::\-Expression\-::add\-Calcul (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_calcul_1_1_expression_ac093ea5837a113f64be91e66b055b18b}
+
+
+add\-Calcul 
+
+Ajoute un Q\-String a une expression, Q\-String ajouté à la fin 
+\begin{DoxyParams}{Paramètres}
+{\em Prend} & un Q\-String \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_calcul_1_1_expression_a0e762d07570ac388d0919a4c2053eecd}{\index{Calcul\-::\-Expression@{Calcul\-::\-Expression}!calcul\-Add@{calcul\-Add}}
+\index{calcul\-Add@{calcul\-Add}!Calcul::Expression@{Calcul\-::\-Expression}}
+\subsubsection[{calcul\-Add}]{\setlength{\rightskip}{0pt plus 5cm}void Calcul\-::\-Expression\-::calcul\-Add (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_calcul_1_1_expression_a0e762d07570ac388d0919a4c2053eecd}
+
+
+calcul\-Add 
+
+Ajoute un Q\-String a une expression, Q\-String ajouté au début 
+\begin{DoxyParams}{Paramètres}
+{\em Prend} & un Q\-String \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_calcul_1_1_expression_a8bffbb504f9348cd69790c0fe23bf67d}{\index{Calcul\-::\-Expression@{Calcul\-::\-Expression}!Convert\-Chaine@{Convert\-Chaine}}
+\index{Convert\-Chaine@{Convert\-Chaine}!Calcul::Expression@{Calcul\-::\-Expression}}
+\subsubsection[{Convert\-Chaine}]{\setlength{\rightskip}{0pt plus 5cm}const Q\-String Calcul\-::\-Expression\-::\-Convert\-Chaine (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}}\label{class_calcul_1_1_expression_a8bffbb504f9348cd69790c0fe23bf67d}
+
+
+Convert\-Chaine Méthode virtuelle qui convertit une \hyperlink{class_calcul_1_1_constante}{Constante} en une chaine de caractères. 
+
+\begin{DoxyReturn}{Renvoie}
+Retourne un const Q\-String 
+\end{DoxyReturn}
+
+
+Implémente \hyperlink{class_calcul_1_1_constante_a80fb461841b16e6d5d1339802b69858e}{Calcul\-::\-Constante}.
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \-:\begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_calcul_1_1_expression_ac093ea5837a113f64be91e66b055b18b}{void {\bfseries add\-Calcul} (Q\-String s)}\label{class_calcul_1_1_expression_ac093ea5837a113f64be91e66b055b18b}
-
-\item 
-\hypertarget{class_calcul_1_1_expression_a0e762d07570ac388d0919a4c2053eecd}{void {\bfseries calcul\-Add} (Q\-String s)}\label{class_calcul_1_1_expression_a0e762d07570ac388d0919a4c2053eecd}
-
-\end{DoxyCompactItemize}
-
-
-\subsection{Detailed Description}
-Classe qui permet d'impl�menter une expression � l'aide d'un Q\-String. 
-
-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
-\item 
-Constantes.\-h\end{DoxyCompactItemize}
+Projet\-\_\-\-L\-O21\-\_\-v3\-\_\-1/\hyperlink{_constantes_8h}{Constantes.\-h}\end{DoxyCompactItemize}

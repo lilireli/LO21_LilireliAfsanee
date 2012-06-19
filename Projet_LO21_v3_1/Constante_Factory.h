@@ -3,6 +3,11 @@
   Suzanne Aurélie
   Projet LO21 - Calculatrice à notation polonaise inversée
 */
+/*!
+ *  \file Constante_Factory.h
+ *  \brief Permet la création de Constante et de Nombre depuis différents médias
+ *  \author Hamici Mathilde, Suzanne Aurélie
+ */
 #ifndef CONSTANTE_FACTORY_H
 #define CONSTANTE_FACTORY_H
 
@@ -43,7 +48,7 @@ public:
     Nombre* getType(Nombre* a, int type);
 };
 
-/*! \class FabriqueNombre
+/*! \class FabriqueConstante
  * \brief Utilisation du design pattern factory pour créer des objets de type Constante.
  */
 class FabriqueConstante{

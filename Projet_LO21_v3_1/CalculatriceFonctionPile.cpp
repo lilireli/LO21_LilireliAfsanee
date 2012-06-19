@@ -3,6 +3,11 @@
   Suzanne Aurélie
   Projet LO21 - Calculatrice à notation polonaise inversée
 */
+/*!
+ *  \file CalculatriceFonctionPile.cpp
+ *  \brief Fonctions sur la pile gérées par la calculatrice
+ *  \author Hamici Mathilde, Suzanne Aurélie
+ */
 #include "CalculatriceModele.h"
 #include <typeinfo>
 #include "mainwindow.h"
@@ -18,17 +23,19 @@ void CalculatriceModele::getSwap()
         if(typeid (*a).name()==typeid (Entier).name() && typeid (*b).name()==typeid (Entier).name()){
             Entier* e1 = dynamic_cast<Entier*>(a);
             Entier* e2 = dynamic_cast<Entier*>(b);
-            if(pile.Swap(e1, e2))
+            if(!pile.Swap(e1, e2)){
+                logger1->Write(&LogMessage(ERROR,"type non conforme"));
+                logger2->Write(&LogMessage(ERROR,"type non conforme"));
+            }
 
             emit finOp(&pile);
 
-//            historique.push(pile.clone());
         }
         else{
             pile.push(b);
             pile.push(a);
-            logger1->Write(&LogMessage(ERROR,"type non conforme"));
-            logger2->Write(&LogMessage(ERROR,"type non conforme"));
+            logger1->Write(&LogMessage(ERROR,"type non conforme, entier attendu"));
+            logger2->Write(&LogMessage(ERROR,"type non conforme, entier attendu"));
         }
     }
     else{
@@ -56,12 +63,13 @@ void CalculatriceModele::getSum(int type){
                 if(typeid (*res).name()==typeid (Expression).name()){
                     emit getExpression();
                 }
-                delete a;
             }
-            else {pile.push(a);}
+            else {
+                logger1->Write(&LogMessage(ERROR,"pas assez d'expressions"));
+                logger2->Write(&LogMessage(ERROR,"pas assez d'expressions"));
+                pile.push(a);}
 
             emit finOp(&pile);
-//            historique.push(pile.clone());
         }else{
             pile.push(a);
             logger1->Write(&LogMessage(ERROR,"type non conforme"));
@@ -93,8 +101,6 @@ void CalculatriceModele::getMean(int type){
                 Constante* res = nb_moyenne * a;
                 qDebug()<<"res :"<<res->ConvertChaine();
                 pile.push(res);
-
-                delete a;
             }
             else{
                 pile.push(a);
@@ -103,7 +109,6 @@ void CalculatriceModele::getMean(int type){
             }
         }
         emit finOp(&pile);
-//      historique.push(pile.clone());
         logger1->Write(&LogMessage(ERROR,"type non conforme"));
         logger2->Write(&LogMessage(ERROR,"type non conforme"));
     }
@@ -116,8 +121,6 @@ void CalculatriceModele::getMean(int type){
 void CalculatriceModele::getClear(){
     pile.clear();
     emit finOp(&pile);
-//    pile.afficherPile();
-//    historique.push(pile.clone());
 }
 
 void CalculatriceModele::getDup(){
@@ -128,8 +131,6 @@ void CalculatriceModele::getDup(){
         pile.push(c);
         Constante* clone = fab.newConstante(c);
         pile.push(clone);
-        //historique.push(pile.clone());
-        //afficherHistorique();
         emit finOp(&pile);
     }
     else{
@@ -141,10 +142,7 @@ void CalculatriceModele::getDup(){
 void CalculatriceModele::getDrop(){
     if(pile.size() >= 1){
         Constante* c = pile.pop();
-        delete c;
         emit finOp(&pile);
-        //historique.push(pile.clone());
-        //afficherHistorique();
     }
     else{
         logger1->Write(&LogMessage(ERROR,"taille pile insuffisante"));

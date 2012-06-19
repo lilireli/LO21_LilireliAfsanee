@@ -1,21 +1,50 @@
-\hypertarget{class_logger_file}{\section{Logger\-File Class Reference}
+\hypertarget{class_logger_file}{\section{Référence de la classe Logger\-File}
 \label{class_logger_file}\index{Logger\-File@{Logger\-File}}
 }
-Inheritance diagram for Logger\-File\-:\begin{figure}[H]
+
+
+Classe qui écrit des \hyperlink{class_log_message}{Log\-Message} dans un fichier.  
+
+
+
+
+{\ttfamily \#include $<$Logger.\-h$>$}
+
+Graphe d'héritage de Logger\-File\-:\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=2.000000cm]{class_logger_file}
 \end{center}
 \end{figure}
-\subsection*{Public Member Functions}
+\subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_logger_file_a010eb0025beb001f6c5b81adad572d21}{virtual void {\bfseries Write} (const \hyperlink{class_log_message}{Log\-Message} $\ast$message)}\label{class_logger_file_a010eb0025beb001f6c5b81adad572d21}
+virtual void \hyperlink{class_logger_file_a010eb0025beb001f6c5b81adad572d21}{Write} (const \hyperlink{class_log_message}{Log\-Message} $\ast$message)
+\begin{DoxyCompactList}\small\item\em Write. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
-\end{DoxyCompactItemize}
+
+\subsection{Description détaillée}
+Classe qui écrit des \hyperlink{class_log_message}{Log\-Message} dans un fichier. 
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_logger_file_a010eb0025beb001f6c5b81adad572d21}{\index{Logger\-File@{Logger\-File}!Write@{Write}}
+\index{Write@{Write}!LoggerFile@{Logger\-File}}
+\subsubsection[{Write}]{\setlength{\rightskip}{0pt plus 5cm}void Logger\-File\-::\-Write (
+\begin{DoxyParamCaption}
+\item[{const {\bf Log\-Message} $\ast$}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_logger_file_a010eb0025beb001f6c5b81adad572d21}
 
 
-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+Write. 
+
+fonction abstraite qui permet d'écrire un \hyperlink{class_log_message}{Log\-Message} 
+
+Implémente \hyperlink{class_logger_a11d7b1eea5db70a85b63c30d426dee56}{Logger}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \-:\begin{DoxyCompactItemize}
 \item 
-Logger.\-h\item 
-logger.\-cpp\end{DoxyCompactItemize}
+Projet\-\_\-\-L\-O21\-\_\-v3\-\_\-1/\hyperlink{_logger_8h}{Logger.\-h}\item 
+Projet\-\_\-\-L\-O21\-\_\-v3\-\_\-1/\hyperlink{_logger_8cpp}{Logger.\-cpp}\end{DoxyCompactItemize}

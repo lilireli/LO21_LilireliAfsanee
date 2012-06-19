@@ -1,30 +1,28 @@
-\hypertarget{class_calcul_1_1_nombre}{\section{Calcul\-:\-:Nombre Class Reference}
+\hypertarget{class_calcul_1_1_nombre}{\section{Référence de la classe Calcul\-:\-:Nombre}
 \label{class_calcul_1_1_nombre}\index{Calcul\-::\-Nombre@{Calcul\-::\-Nombre}}
 }
 
 
-Classe abstraite qui contiendra les nombres de type entier, rationnel et r�el  
+Classe abstraite qui contiendra les nombres de type entier, rationnel et réel.  
 
 
 
 
 {\ttfamily \#include $<$Constantes.\-h$>$}
 
-Inheritance diagram for Calcul\-:\-:Nombre\-:\begin{figure}[H]
+Graphe d'héritage de Calcul\-:\-:Nombre\-:\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=3.000000cm]{class_calcul_1_1_nombre}
 \end{center}
 \end{figure}
-\subsection*{Public Member Functions}
+\subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_calcul_1_1_nombre_a01b0c03ea3d7493e6d853768cce6f096}{virtual \hyperlink{class_calcul_1_1_complexe}{Complexe} {\bfseries to\-Complexe} ()=0}\label{class_calcul_1_1_nombre_a01b0c03ea3d7493e6d853768cce6f096}
-
-\item 
-\hypertarget{class_calcul_1_1_nombre_aa2a937e5d718f73f0edf25b702c11551}{virtual const Q\-String {\bfseries Convert\-Chaine} () const =0}\label{class_calcul_1_1_nombre_aa2a937e5d718f73f0edf25b702c11551}
-
-\item 
+virtual \hyperlink{class_calcul_1_1_complexe}{Complexe} \hyperlink{class_calcul_1_1_nombre_a01b0c03ea3d7493e6d853768cce6f096}{to\-Complexe} ()=0
+\begin{DoxyCompactList}\small\item\em to\-Complexe \end{DoxyCompactList}\item 
+virtual const Q\-String \hyperlink{class_calcul_1_1_nombre_aa2a937e5d718f73f0edf25b702c11551}{Convert\-Chaine} () const =0
+\begin{DoxyCompactList}\small\item\em Convert\-Chaine Méthode virtuelle qui convertit une \hyperlink{class_calcul_1_1_constante}{Constante} en une chaine de caractères. \end{DoxyCompactList}\item 
 \hypertarget{class_calcul_1_1_nombre_a2e01e325172c362791e52f9c5e7058f5}{virtual bool {\bfseries is\-Null} ()=0}\label{class_calcul_1_1_nombre_a2e01e325172c362791e52f9c5e7058f5}
 
 \item 
@@ -33,9 +31,52 @@ Inheritance diagram for Calcul\-:\-:Nombre\-:\begin{figure}[H]
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
-Classe abstraite qui contiendra les nombres de type entier, rationnel et r�el 
+\subsection{Description détaillée}
+Classe abstraite qui contiendra les nombres de type entier, rationnel et réel. 
 
-The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_calcul_1_1_nombre_aa2a937e5d718f73f0edf25b702c11551}{\index{Calcul\-::\-Nombre@{Calcul\-::\-Nombre}!Convert\-Chaine@{Convert\-Chaine}}
+\index{Convert\-Chaine@{Convert\-Chaine}!Calcul::Nombre@{Calcul\-::\-Nombre}}
+\subsubsection[{Convert\-Chaine}]{\setlength{\rightskip}{0pt plus 5cm}virtual const Q\-String Calcul\-::\-Nombre\-::\-Convert\-Chaine (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_calcul_1_1_nombre_aa2a937e5d718f73f0edf25b702c11551}
+
+
+Convert\-Chaine Méthode virtuelle qui convertit une \hyperlink{class_calcul_1_1_constante}{Constante} en une chaine de caractères. 
+
+\begin{DoxyReturn}{Renvoie}
+Retourne un const Q\-String 
+\end{DoxyReturn}
+
+
+Implémente \hyperlink{class_calcul_1_1_constante_a80fb461841b16e6d5d1339802b69858e}{Calcul\-::\-Constante}.
+
+
+
+Implémenté dans \hyperlink{class_calcul_1_1_entier_ae8e0b25ab85569d478cce96f02d31959}{Calcul\-::\-Entier}, \hyperlink{class_calcul_1_1_rationnel_acfec5903b8b8b5d2b80637a938966ce8}{Calcul\-::\-Rationnel}, et \hyperlink{class_calcul_1_1_reel_a92c0a269edf334bba71b08ef0e9e27e8}{Calcul\-::\-Reel}.
+
+\hypertarget{class_calcul_1_1_nombre_a01b0c03ea3d7493e6d853768cce6f096}{\index{Calcul\-::\-Nombre@{Calcul\-::\-Nombre}!to\-Complexe@{to\-Complexe}}
+\index{to\-Complexe@{to\-Complexe}!Calcul::Nombre@{Calcul\-::\-Nombre}}
+\subsubsection[{to\-Complexe}]{\setlength{\rightskip}{0pt plus 5cm}virtual {\bf Complexe} Calcul\-::\-Nombre\-::to\-Complexe (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}}\label{class_calcul_1_1_nombre_a01b0c03ea3d7493e6d853768cce6f096}
+
+
+to\-Complexe 
+
+Méthode virtuelle qui convertit un \hyperlink{class_calcul_1_1_nombre}{Nombre} en un \hyperlink{class_calcul_1_1_complexe}{Complexe} \begin{DoxyReturn}{Renvoie}
+Retourne un complexe 
+\end{DoxyReturn}
+
+
+Implémenté dans \hyperlink{class_calcul_1_1_entier_a7d0bcf436ce6517b8738f79eadda1f8a}{Calcul\-::\-Entier}, \hyperlink{class_calcul_1_1_rationnel_aad6bfa4160014c1ad603373a31383d76}{Calcul\-::\-Rationnel}, et \hyperlink{class_calcul_1_1_reel_a222b9929b24dfee2928191055f1d03fa}{Calcul\-::\-Reel}.
+
+
+
+La documentation de cette classe a été générée à partir du fichier suivant \-:\begin{DoxyCompactItemize}
 \item 
-Constantes.\-h\end{DoxyCompactItemize}
+Projet\-\_\-\-L\-O21\-\_\-v3\-\_\-1/\hyperlink{_constantes_8h}{Constantes.\-h}\end{DoxyCompactItemize}

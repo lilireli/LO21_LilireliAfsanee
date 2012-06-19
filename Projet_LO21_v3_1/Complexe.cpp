@@ -3,6 +3,11 @@
   Suzanne Aurélie
   Projet LO21 - Calculatrice à notation polonaise inversée
 */
+/*!
+ *  \file Complexe.cpp
+ *  \brief Fonctions de gestion des Complexe
+ *  \author Hamici Mathilde, Suzanne Aurélie
+ */
 #include "Constantes.h"
 #include "Constante_Factory.h"
 #include <QDebug>
@@ -26,13 +31,13 @@ Complexe::Complexe(QString s){
 
 Complexe::Complexe(Nombre* reel, Nombre* imaginaire): re(reel), im(imaginaire){
     if(im==NULL){
-        logger1->Write(&LogMessage(WARNING,"partie imaginaire nulle"));
-        logger2->Write(&LogMessage(WARNING,"partie imaginaire nulle"));
+        logger1->Write(&LogMessage(WARNING,"partie imaginaire nulle, mise à 0"));
+        logger2->Write(&LogMessage(WARNING,"partie imaginaire nulle, mise à 0"));
         im = new Entier;
     }
 }
 
-Complexe::Complexe(Complexe* comp){
+Complexe::Complexe(Complexe *comp){
     FabriqueNombre cte;
     re = cte.newNombre(comp->re);
     im = cte.newNombre(comp->im);
@@ -93,35 +98,31 @@ Complexe Complexe::operator + (Rationnel r1) {return *this+r1.toComplexe();}
 
 Constante* Complexe::operator + (Constante* r1)
 {
-    Complexe* res;
-
     if(typeid (*r1).name()==typeid (Entier).name()){
         Entier* e = dynamic_cast<Entier*>(r1);
-        res = new Complexe(*this + *e);
+        Complexe* res = new Complexe(*this + *e);
+        return res;
     }
     else if (typeid (*r1).name()==typeid (Rationnel).name()){
          Rationnel* e = dynamic_cast<Rationnel*>(r1);
-         res = new Complexe(*this + *e);
+         Complexe* res = new Complexe(*this + *e);
+         return res;
     }
     else if (typeid (*r1).name()==typeid (Reel).name()){
          Reel* e = dynamic_cast<Reel*>(r1);
-         res = new Complexe(*this + *e);
+         Complexe* res = new Complexe(*this + *e);
+         return res;
     }
     else if (typeid (*r1).name()==typeid (Complexe).name()){
          Complexe* e = dynamic_cast<Complexe*>(r1);
-         qDebug() << "tredqte";
-         Complexe res_i(&(*this + *e));
-         qDebug()<<"sjhfg"<<res_i.ConvertChaine();
-         res = new Complexe(&(*this + *e));
-         qDebug() << "ertfe"<<res->ConvertChaine();
+         Complexe* res = new Complexe(*this + *e);
+         return res;
     }
     else {
         logger1->Write(&LogMessage(ERROR,"type non conforme"));
         logger2->Write(&LogMessage(ERROR,"type non conforme"));
-        res = NULL;
+        return NULL;
     }
-
-    return res;
 }
 
 Complexe Complexe::operator - (Complexe r1)
@@ -145,7 +146,7 @@ Complexe Complexe::operator - (Complexe r1)
         logger1->Write(&LogMessage(ERROR,"type non conforme"));
         logger2->Write(&LogMessage(ERROR,"type non conforme"));
         res.re = new Entier(0);    res.im = new Entier(0);
-        return &res;
+        return res;
     }
 
     // partie imaginaire
@@ -165,7 +166,7 @@ Complexe Complexe::operator - (Complexe r1)
         logger1->Write(&LogMessage(ERROR,"type non conforme"));
         logger2->Write(&LogMessage(ERROR,"type non conforme"));
         res.re = new Entier(0);    res.im = new Entier(0);
-        return &res;
+        return res;
     }
 
     return res;
@@ -234,7 +235,7 @@ Complexe Complexe::operator * (Complexe r1)
         logger1->Write(&LogMessage(ERROR,"type non conforme"));
         logger2->Write(&LogMessage(ERROR,"type non conforme"));
         res.re = new Entier(0);    res.im = new Entier(0);
-        return &res;
+        return res;
     }
 
     // partie imaginaire de this
@@ -257,7 +258,7 @@ Complexe Complexe::operator * (Complexe r1)
         logger1->Write(&LogMessage(ERROR,"type non conforme"));
         logger2->Write(&LogMessage(ERROR,"type non conforme"));
         res.re = new Entier(0);    res.im = new Entier(0);
-        return &res;
+        return res;
     }
 
     // partie réelle
@@ -277,7 +278,7 @@ Complexe Complexe::operator * (Complexe r1)
         logger1->Write(&LogMessage(ERROR,"type non conforme"));
         logger2->Write(&LogMessage(ERROR,"type non conforme"));
         res.re = new Entier(0);    res.im = new Entier(0);
-        return &res;
+        return res;
     }
 
     // partie imaginaire
@@ -297,7 +298,7 @@ Complexe Complexe::operator * (Complexe r1)
         logger1->Write(&LogMessage(ERROR,"type non conforme"));
         logger2->Write(&LogMessage(ERROR,"type non conforme"));
         res.re = new Entier(0);    res.im = new Entier(0);
-        return &res;
+        return res;
     }
 
 
@@ -365,7 +366,7 @@ Complexe Complexe::operator / (Complexe r1)
         logger1->Write(&LogMessage(ERROR,"type non conforme"));
         logger2->Write(&LogMessage(ERROR,"type non conforme"));
         res.re = new Entier(0);    res.im = new Entier(0);
-        return &res;
+        return res;
     }
 
         // carré de b et b²+a²
@@ -385,7 +386,7 @@ Complexe Complexe::operator / (Complexe r1)
         logger1->Write(&LogMessage(ERROR,"type non conforme"));
         logger2->Write(&LogMessage(ERROR,"type non conforme"));
         res.re = new Entier(0);    res.im = new Entier(0);
-        return &res;
+        //return &res;
     }
 
         // a² + b²
@@ -405,7 +406,7 @@ Complexe Complexe::operator / (Complexe r1)
         logger1->Write(&LogMessage(ERROR,"type non conforme"));
         logger2->Write(&LogMessage(ERROR,"type non conforme"));
         res.re = new Entier(0);    res.im = new Entier(0);
-        return &res;
+        //return &res;
     }
 
     // conjugue de r1 / |r1|
@@ -426,7 +427,7 @@ Complexe Complexe::operator / (Complexe r1)
         logger1->Write(&LogMessage(ERROR,"type non conforme"));
         logger2->Write(&LogMessage(ERROR,"type non conforme"));
         res.re = new Entier(0);    res.im = new Entier(0);
-        return &res;
+        //return &res;
     }
 
         // inverse de la partie imaginaire + division par le module
@@ -446,7 +447,7 @@ Complexe Complexe::operator / (Complexe r1)
         logger1->Write(&LogMessage(ERROR,"type non conforme"));
         logger2->Write(&LogMessage(ERROR,"type non conforme"));
         res.re = new Entier(0);    res.im = new Entier(0);
-        return &res;
+        //return &res;
     }
 
     res = *this * res;

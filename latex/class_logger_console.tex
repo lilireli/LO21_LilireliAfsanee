@@ -1,21 +1,50 @@
-\hypertarget{class_logger_console}{\section{Logger\-Console Class Reference}
+\hypertarget{class_logger_console}{\section{Référence de la classe Logger\-Console}
 \label{class_logger_console}\index{Logger\-Console@{Logger\-Console}}
 }
-Inheritance diagram for Logger\-Console\-:\begin{figure}[H]
+
+
+Classe qui écrit des \hyperlink{class_log_message}{Log\-Message} dans la console, selon la catégorie du message elle emet un Q\-Message\-Box pour informer l'utilisateur.  
+
+
+
+
+{\ttfamily \#include $<$Logger.\-h$>$}
+
+Graphe d'héritage de Logger\-Console\-:\begin{figure}[H]
 \begin{center}
 \leavevmode
 \includegraphics[height=2.000000cm]{class_logger_console}
 \end{center}
 \end{figure}
-\subsection*{Public Member Functions}
+\subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_logger_console_a9ce9d2e57b1c8a097aebb518d0b40496}{virtual void {\bfseries Write} (const \hyperlink{class_log_message}{Log\-Message} $\ast$message)}\label{class_logger_console_a9ce9d2e57b1c8a097aebb518d0b40496}
+virtual void \hyperlink{class_logger_console_a9ce9d2e57b1c8a097aebb518d0b40496}{Write} (const \hyperlink{class_log_message}{Log\-Message} $\ast$message)
+\begin{DoxyCompactList}\small\item\em Write. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
-\end{DoxyCompactItemize}
+
+\subsection{Description détaillée}
+Classe qui écrit des \hyperlink{class_log_message}{Log\-Message} dans la console, selon la catégorie du message elle emet un Q\-Message\-Box pour informer l'utilisateur. 
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_logger_console_a9ce9d2e57b1c8a097aebb518d0b40496}{\index{Logger\-Console@{Logger\-Console}!Write@{Write}}
+\index{Write@{Write}!LoggerConsole@{Logger\-Console}}
+\subsubsection[{Write}]{\setlength{\rightskip}{0pt plus 5cm}void Logger\-Console\-::\-Write (
+\begin{DoxyParamCaption}
+\item[{const {\bf Log\-Message} $\ast$}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{class_logger_console_a9ce9d2e57b1c8a097aebb518d0b40496}
 
 
-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+Write. 
+
+fonction abstraite qui permet d'écrire un \hyperlink{class_log_message}{Log\-Message} 
+
+Implémente \hyperlink{class_logger_a11d7b1eea5db70a85b63c30d426dee56}{Logger}.
+
+
+
+La documentation de cette classe a été générée à partir des fichiers suivants \-:\begin{DoxyCompactItemize}
 \item 
-Logger.\-h\item 
-logger.\-cpp\end{DoxyCompactItemize}
+Projet\-\_\-\-L\-O21\-\_\-v3\-\_\-1/\hyperlink{_logger_8h}{Logger.\-h}\item 
+Projet\-\_\-\-L\-O21\-\_\-v3\-\_\-1/\hyperlink{_logger_8cpp}{Logger.\-cpp}\end{DoxyCompactItemize}

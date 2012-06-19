@@ -3,6 +3,11 @@
   Suzanne Aurélie
   Projet LO21 - Calculatrice à notation polonaise inversée
 */
+/*!
+ *  \file CalculatriceModele.cpp
+ *  \brief Toutes les fonctions de CalculatriceModele qui ne sont pas des opérations
+ *  \author Hamici Mathilde, Suzanne Aurélie
+ */
 #include "CalculatriceModele.h"
 #include <typeinfo>
 #include "mainwindow.h"
@@ -18,18 +23,11 @@ CalculatriceModele::CalculatriceModele(QObject *parent) :
     logger1->Write((new LogMessage(INFO, "Debut de log")));
     logger2 = new LoggerFile();
     logger2->Write((new LogMessage(INFO, "Debut de log")));
-    //historique.push(pile.clone());
+    historique.push(pile.clone());
 }
 
 void CalculatriceModele::affichePileTaille(){
     qDebug() << "PILE : " << pile.size();
-    //for(int i = 0;i<pile.size();i++)
-        //qDebug() << pile.at(i);
-    /*
-    for ( it = pile.begin(); it!=pile.end(); ++it) {
-        qDebug() << *it;
-    }
-    */
 }
 
 void CalculatriceModele::getNombre(QString s, bool complexe){
@@ -40,7 +38,6 @@ void CalculatriceModele::getNombre(QString s, bool complexe){
         val = cte.getConstante(s);
 
         if (typeid (*val).name()==typeid (Complexe).name()){
-            delete val;
             logger1->Write(&LogMessage(ERROR,"type complexe non autorise"));
             logger2->Write(&LogMessage(ERROR,"type complexe non autorise"));
             return;
@@ -53,6 +50,7 @@ void CalculatriceModele::getNombre(QString s, bool complexe){
     }
 
     if(val!=NULL) {pile.push(val);
+        historique.push(pile.clone());
         this->affichePileTaille();
         emit finOp(&pile);
     }else{
@@ -81,7 +79,6 @@ void CalculatriceModele::getExpression(){
                 }
             }
             emit evalExp(chaine);
-            delete a;
         }else{
             // la constante n'est pas une expression, on la remet dans la pile
             logger1->Write(&LogMessage(WARNING,"la constante n'est pas de type expression"));
@@ -92,9 +89,15 @@ void CalculatriceModele::getExpression(){
 }
 
 void CalculatriceModele::effacerPile(){
+    if(!pile.isEmpty()){
+        logger1->Write(&LogMessage(WARNING,"La pile sera effacée"));
+        logger2->Write(&LogMessage(WARNING,"La pile sera effacée"));
+    }
+
     while(!pile.isEmpty()){
         pile.pop();
     }
+    emit finOp(&pile);
 }
 
 void CalculatriceModele::transformerPile(){
@@ -109,18 +112,52 @@ void CalculatriceModele::transformerPile(){
             Constante* toPop = fab.getComplexe(tmp[i]->ConvertChaine());
             pile.push(toPop);
         }
+        qDebug()<<"transforme pile";
+        delete[] tmp;
+        logger1->Write(&LogMessage(WARNING,"La pile sera transformée en complexes"));
+        logger2->Write(&LogMessage(WARNING,"La pile sera transformée en complexes"));
+        emit finOp(&pile);
+    }
+}
+
+void CalculatriceModele::actualiserPile(bool Comp)
+{
+    if(!pile.isEmpty()){
+        int taille = pile.size();
+        Constante** tmp = new Constante*[taille];
+        FabriqueConstante fab;
+
+        for(int i=0; i<taille; i++){tmp[taille-i-1] = pile.pop();}
+
+
+        for(int i=0; i<taille; i++){
+            if(Comp){
+                Constante* toPop = fab.getComplexe(tmp[i]->ConvertChaine());
+                pile.push(toPop);
+            }else{
+                Constante* val = fab.getConstante(tmp[i]->ConvertChaine());
+
+                if (typeid (*val).name()!=typeid (Complexe).name()){
+                    pile.push(val);
+                }
+            }
+        }
+
         delete[] tmp;
     }
 }
 
+void CalculatriceModele::ajoutHistorique(Stack* pile){
+    historique.push(pile->clone());
+    afficherHistorique();
+}
 
-
-//void CalculatriceModele::afficherHistorique(){
-//    QStack<Stack*>::iterator i;
-//    for (i = historique.begin(); i !=historique.end(); ++i){
-//        (*i)->afficherPile();
-//    }
-//}
+void CalculatriceModele::afficherHistorique(){
+    QStack<Stack*>::iterator i;
+    for (i = historique.begin(); i !=historique.end(); ++i){
+        (*i)->afficherPile();
+    }
+}
 
 void CalculatriceModele::afficherSuppressionHistorique(){
     QStack<Stack*>::iterator i;
@@ -131,68 +168,109 @@ void CalculatriceModele::afficherSuppressionHistorique(){
 
 void CalculatriceModele::annuler(){
     if (historique.size() >= 2){
-        qDebug() << "Affichage de l'historique : ";
-//        afficherHistorique();
+        qDebug() << "Affichage de l'historique : (annuler)";
         Stack* p1 = historique.pop();
         qDebug() << "Affichage de l'historique : ";
-//        afficherHistorique();
         suppressionHistorique.push(p1);
-        afficherSuppressionHistorique();
-        qDebug()<<historique.size();
+
         Stack* p2 =  historique.last();
-        qDebug()<<"p2 : ";
-        p2->afficherPile();
         pile = *p2;
-        qDebug()<<"pile : ";
-        pile.afficherPile();
 
-        emit raffraichirUi(pile.retournePileS());
-        //afficherHistorique();
-        //affichePileTaille();
-
+        emit compVF();
+        emit finAnRe(&pile);
+        qDebug()<<historique.size();
+        afficherHistorique();
+    }
+    else{
+        logger1->Write(&LogMessage(WARNING,"Il n'y a rien a annuler"));
+        logger2->Write(&LogMessage(WARNING,"Il n'y a rien a annuler"));
     }
 }
 
 void CalculatriceModele::retablir(){
     if(!suppressionHistorique.empty()){
-        qDebug()<<"suppression historique : ";
-        afficherSuppressionHistorique();
         Stack* p = suppressionHistorique.pop();
-        qDebug()<<"suppression historique : ";
-        afficherSuppressionHistorique();
+
         historique.push(p);
-        qDebug()<<"historique : ";
-//        afficherHistorique();
+
         Stack* p2 =  historique.last();
-        qDebug()<<"p2 : ";
-        p2->afficherPile();
         pile = *p2;
-        qDebug()<<"pile : ";
-        pile.afficherPile();
-        emit raffraichirUi(pile.retournePileS());
+
+        qDebug()<<"historique en sorti de retablir";
+        afficherHistorique();
+        emit compVF();
+        emit finAnRe(&pile);
+        qDebug() << "historique apres le signal";
+        afficherHistorique();
+    }
+    else{
+        logger1->Write(&LogMessage(WARNING,"Il n'y a rien a rétablir"));
+        logger2->Write(&LogMessage(WARNING,"Il n'y a rien a rétablir"));
     }
 }
 
 void CalculatriceModele::ecritureFichier(){
-    std::ofstream file;
-    file.open("sauvegardeContexte", std::ios::app); //app : ajout en fin de fichier
-    file.seekp(std::ios::beg);//changer la position du pointeur au début du flux
-
-    if(!file.good()/*pret à lire ou écrire*/) return;
-    QStack<Stack*>::iterator i;
-    for (i = historique.begin(); i !=historique.end(); ++i){
+    QFile file("sauvegardeContexte.txt");
+    if (file.open(QFile::WriteOnly)){
+        QTextStream stream(&file);
         Stack::iterator it;
-        QString buffer = "";
-        for (it = (*i)->begin(); it != (*i)->end(); ++it){
-            buffer += it.getIt()->ConvertChaine() + " ";
+        //QString buffer = "";
+        QString text = "";
+        for (it = pile.begin(); it != pile.end(); ++it){
+            text = it.getIt()->ConvertChaine() + '\n' + text;
         }
-        file<<buffer.toStdString()<<"\n";
-        file.flush();
+        stream << text;
+        file.close();
     }
-    file.flush();//synchronisation
 
+}
+
+void CalculatriceModele::lireFichier(){
+    QFile file("sauvegardeContexte.txt");
+    file.open(QIODevice::ReadOnly);
+    QTextStream flux(&file);
+    while(!flux.atEnd()) {
+        QString var = flux.readLine();
+        FabriqueConstante cte;
+        Constante* val;
+        val = cte.getConstante(var);
+        pile.push(val);
+    }
+    emit finOp(&pile);
+    afficherHistorique();
     file.close();
 }
+
+void CalculatriceModele::getFermer(){
+    ////////////////////////////////////////////////// A DEBUGGER /////////////////////////////////////////
+    while(!historique.empty()) {
+        qDebug() << "a";
+        Stack* pile = historique.pop();
+
+        qDebug() << "b : " << historique.size();
+        if(pile!=0) {
+        while(!pile->isEmpty()) {
+            qDebug() << "c";
+            Constante* c;
+
+            c = pile->pop();
+            if (c != NULL){
+                  qDebug() <<c->ConvertChaine();
+                  delete c;
+                  c = NULL;
+            }
+            qDebug()<<"truc";
+        }
+        qDebug() << "d";
+
+        delete pile;
+        pile = 0;
+    }
+        else qDebug()<<"else";
+    }
+    //qDebug() <<"2";
+}
+
 
 
 

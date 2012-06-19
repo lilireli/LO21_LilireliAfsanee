@@ -1,24 +1,22 @@
-\hypertarget{class_main_window}{\section{Main\-Window Class Reference}
+\hypertarget{class_main_window}{\section{Référence de la classe Main\-Window}
 \label{class_main_window}\index{Main\-Window@{Main\-Window}}
 }
 
 
-Vue qui g�re l'affichage et communique avec \hyperlink{class_calculatrice_modele}{Calculatrice\-Modele} pour effectuer les calculs et rentrer les constantes.  
+Vue qui gère l'affichage et communique avec \hyperlink{class_calculatrice_modele}{Calculatrice\-Modele} pour effectuer les calculs et rentrer les constantes.  
 
 
 
 
 {\ttfamily \#include $<$mainwindow.\-h$>$}
 
-\subsection*{Signals}
+\subsection*{Signaux}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_main_window_ad223a3e425426fd76e3d40080096fc10}{void {\bfseries press\-Entrer\-N} (Q\-String s, bool complexe)}\label{class_main_window_ad223a3e425426fd76e3d40080096fc10}
-
-\item 
-\hypertarget{class_main_window_a7e430740aeaadb6d0d10514c979dab1a}{void {\bfseries fin\-Entree} ()}\label{class_main_window_a7e430740aeaadb6d0d10514c979dab1a}
-
-\item 
+void \hyperlink{class_main_window_ad223a3e425426fd76e3d40080096fc10}{press\-Entrer\-N} (Q\-String s, bool complexe)
+\begin{DoxyCompactList}\small\item\em Press\-Entrer\-N. \end{DoxyCompactList}\item 
+void \hyperlink{class_main_window_a7e430740aeaadb6d0d10514c979dab1a}{fin\-Entree} ()
+\begin{DoxyCompactList}\small\item\em fin\-Entree \end{DoxyCompactList}\item 
 \hypertarget{class_main_window_a95d2cfe9f1036d1dbbaad6d3f6504d1e}{void {\bfseries press\-Eval} ()}\label{class_main_window_a95d2cfe9f1036d1dbbaad6d3f6504d1e}
 
 \item 
@@ -28,10 +26,21 @@ Vue qui g�re l'affichage et communique avec \hyperlink{class_calculatrice_modele
 \hypertarget{class_main_window_a0e0214f53b83522b6fb4a513fdde0a56}{void {\bfseries press\-Retablir} ()}\label{class_main_window_a0e0214f53b83522b6fb4a513fdde0a56}
 
 \item 
+void \hyperlink{class_main_window_a66c446d0640d30361b96193e9599482b}{va\-Verif} (bool complexe)
+\begin{DoxyCompactList}\small\item\em va\-Verif \end{DoxyCompactList}\item 
 \hypertarget{class_main_window_ac966ffc012ed7b3df4615f4449281cec}{void {\bfseries complexe\-Vrai} ()}\label{class_main_window_ac966ffc012ed7b3df4615f4449281cec}
 
 \item 
 \hypertarget{class_main_window_aa20588e72485e9c17fcc81961296ebbf}{void {\bfseries complexe\-Faux} ()}\label{class_main_window_aa20588e72485e9c17fcc81961296ebbf}
+
+\item 
+\hypertarget{class_main_window_a2407dba5a9c20b1db20a562e363b32b5}{void {\bfseries cache} ()}\label{class_main_window_a2407dba5a9c20b1db20a562e363b32b5}
+
+\item 
+\hypertarget{class_main_window_afe4c03e1f0ef3dd1dc54c595f1902c08}{void {\bfseries montre} ()}\label{class_main_window_afe4c03e1f0ef3dd1dc54c595f1902c08}
+
+\item 
+\hypertarget{class_main_window_a26bec8542dd8880c5791aca9c7781969}{void {\bfseries press\-Fermer} ()}\label{class_main_window_a26bec8542dd8880c5791aca9c7781969}
 
 \item 
 \hypertarget{class_main_window_ad396facd02819cd66156a5229a02e6a7}{void {\bfseries press\-Add} (int type\-Nombre)}\label{class_main_window_ad396facd02819cd66156a5229a02e6a7}
@@ -112,21 +121,74 @@ Vue qui g�re l'affichage et communique avec \hyperlink{class_calculatrice_modele
 \hypertarget{class_main_window_a7bf431a5544caa9134f78acaf4f5be96}{void {\bfseries press\-Drop} ()}\label{class_main_window_a7bf431a5544caa9134f78acaf4f5be96}
 
 \end{DoxyCompactItemize}
-\subsection*{Public Member Functions}
+\subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
 \hypertarget{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}{{\bfseries Main\-Window} (Q\-Widget $\ast$parent=0)}\label{class_main_window_a8b244be8b7b7db1b08de2a2acb9409db}
 
-\end{DoxyCompactItemize}
-
-
-\subsection{Detailed Description}
-Vue qui g�re l'affichage et communique avec \hyperlink{class_calculatrice_modele}{Calculatrice\-Modele} pour effectuer les calculs et rentrer les constantes. 
-
-{\itshape Fenetre\-Pile} permettra l'apparition d'une nouvelle fen�tre qui nous permettra la selection de la taille de la pile 
-
-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
 \item 
-mainwindow.\-h\item 
-mainwindow.\-cpp\item 
-Main\-Window\-Chiffres\-\_\-\-Operations.\-cpp\end{DoxyCompactItemize}
+void \hyperlink{class_main_window_a3104e49937a37d38118be822d75bdb41}{set\-Attributs} (int type, bool c, bool d, int taille)
+\begin{DoxyCompactList}\small\item\em Set\-Attributs. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Description détaillée}
+Vue qui gère l'affichage et communique avec \hyperlink{class_calculatrice_modele}{Calculatrice\-Modele} pour effectuer les calculs et rentrer les constantes. 
+
+Fenetre\-Pile permettra l'apparition d'une nouvelle fenêtre qui nous permettra la selection de la taille de la pile 
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_main_window_a7e430740aeaadb6d0d10514c979dab1a}{\index{Main\-Window@{Main\-Window}!fin\-Entree@{fin\-Entree}}
+\index{fin\-Entree@{fin\-Entree}!MainWindow@{Main\-Window}}
+\subsubsection[{fin\-Entree}]{\setlength{\rightskip}{0pt plus 5cm}void Main\-Window\-::fin\-Entree (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}}\label{class_main_window_a7e430740aeaadb6d0d10514c979dab1a}
+
+
+fin\-Entree 
+
+Signal qu'un bloc a été rentré, demande à rafraichir l'affichage et le buffer \hypertarget{class_main_window_ad223a3e425426fd76e3d40080096fc10}{\index{Main\-Window@{Main\-Window}!press\-Entrer\-N@{press\-Entrer\-N}}
+\index{press\-Entrer\-N@{press\-Entrer\-N}!MainWindow@{Main\-Window}}
+\subsubsection[{press\-Entrer\-N}]{\setlength{\rightskip}{0pt plus 5cm}void Main\-Window\-::press\-Entrer\-N (
+\begin{DoxyParamCaption}
+\item[{Q\-String}]{s, }
+\item[{bool}]{complexe}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}}\label{class_main_window_ad223a3e425426fd76e3d40080096fc10}
+
+
+Press\-Entrer\-N. 
+
+Envoie a calculatrice modele une constante (dont on a déjà vérifié la validité grâce à Formule\-Valide) en lui indiquant si elle doit créer un complexe ou non  Prend une chaine de caractères  Prend un booléen \hypertarget{class_main_window_a3104e49937a37d38118be822d75bdb41}{\index{Main\-Window@{Main\-Window}!set\-Attributs@{set\-Attributs}}
+\index{set\-Attributs@{set\-Attributs}!MainWindow@{Main\-Window}}
+\subsubsection[{set\-Attributs}]{\setlength{\rightskip}{0pt plus 5cm}void Main\-Window\-::set\-Attributs (
+\begin{DoxyParamCaption}
+\item[{int}]{type, }
+\item[{bool}]{c, }
+\item[{bool}]{d, }
+\item[{int}]{taille}
+\end{DoxyParamCaption}
+)}}\label{class_main_window_a3104e49937a37d38118be822d75bdb41}
+
+
+Set\-Attributs. 
+
+fonction permet de remettre la calculatrice comme elle était avant \hypertarget{class_main_window_a66c446d0640d30361b96193e9599482b}{\index{Main\-Window@{Main\-Window}!va\-Verif@{va\-Verif}}
+\index{va\-Verif@{va\-Verif}!MainWindow@{Main\-Window}}
+\subsubsection[{va\-Verif}]{\setlength{\rightskip}{0pt plus 5cm}void Main\-Window\-::va\-Verif (
+\begin{DoxyParamCaption}
+\item[{bool}]{complexe}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [signal]}}}\label{class_main_window_a66c446d0640d30361b96193e9599482b}
+
+
+va\-Verif 
+
+Dit au programme, va vérifier que ce qui est dans la pile correspond au mode Complexe que l'on veut  Prend un booléen 
+
+La documentation de cette classe a été générée à partir des fichiers suivants \-:\begin{DoxyCompactItemize}
+\item 
+Projet\-\_\-\-L\-O21\-\_\-v3\-\_\-1/\hyperlink{mainwindow_8h}{mainwindow.\-h}\item 
+Projet\-\_\-\-L\-O21\-\_\-v3\-\_\-1/\hyperlink{mainwindow_8cpp}{mainwindow.\-cpp}\item 
+Projet\-\_\-\-L\-O21\-\_\-v3\-\_\-1/\hyperlink{_main_window_chiffres___operations_8cpp}{Main\-Window\-Chiffres\-\_\-\-Operations.\-cpp}\end{DoxyCompactItemize}

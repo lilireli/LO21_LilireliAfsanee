@@ -3,6 +3,12 @@
   Suzanne Aurélie
   Projet LO21 - Calculatrice à notation polonaise inversée
 */
+/*!
+ *  \file Gestion_constantes.cpp
+ *  \brief Implémentation de fonction pour la gestion des constantes : pile et fonctions de vérification de validité
+ *         de chaine de caractères
+ *  \author Hamici Mathilde, Suzanne Aurélie
+ */
 #include "Gestion_constantes.h"
 #include "Logger.h"
 
@@ -95,8 +101,7 @@ Constante *Stack::pop()
 
 void Stack::clear(){
     while (!isEmpty()){
-        Constante* c = pop();
-        delete c;
+        pop();
     }
 }
 
@@ -106,17 +111,9 @@ int Stack::Swap(Entier* x, Entier* y){
 
         if(a<nbElements && b<nbElements)
         {
-           // Entier* e1 = dynamic_cast<Entier*>(tab[a]);
-           // Entier* e2 = dynamic_cast<Entier*>(tab[b]);
-            qDebug()<<"aqui";
             Constante* tmp = tab[a-1];
             tab[a-1]=tab[b-1];
             tab[b-1]=tmp;
-
-           // Entier* z;
-//            z = e1;
-//            e1 = e2;
-//            e2 = z;
 
             return 1;
         }
@@ -126,8 +123,6 @@ int Stack::Swap(Entier* x, Entier* y){
 }
 
 
-
-// utilité ?
 void Stack::afficherPile(){
     QString buffer = "";
     for (iterator it = begin(); it != end(); ++it){

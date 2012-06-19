@@ -3,28 +3,41 @@
   Suzanne Aurélie
   Projet LO21 - Calculatrice à notation polonaise inversée
 */
+/*!
+ *  \file MainWindow.cpp
+ *  \brief Gestion de l'interface graphique (ce que ne fait pas, ou peu simplement, QTdesigner)
+ *  \author Hamici Mathilde, Suzanne Aurélie
+ */
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "Gestion_constantes.h"
 #include "Constante_Factory.h"
+#include <QFile>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    // initialisations
     model = new CalculatriceModele;
     buffer = "";
     ui->numCompPressed->setEnabled(false);
+    typeNombre = 0;
     degre=true;
     complexe=false;
     taille_pile = 6;
 
+    this->resize(685, 520);
+    hide = false;
+
+    // fenêtre pour selectionner la taille de la pile
     FenetrePile.setFixedSize(200, 150);
     QGroupBox *groupPile = new QGroupBox("Taille de la pile d'affichage", &FenetrePile);
 
     QSpinBox *taille = new QSpinBox(&FenetrePile);
-        taille->setMaximum(20);
+        taille->setMaximum(30);
     QPushButton *valid = new QPushButton("Valider", &FenetrePile);
         valid->setCheckable(true);
 
@@ -34,21 +47,35 @@ MainWindow::MainWindow(QWidget *parent) :
 
         groupPile->setLayout(vbox);
         groupPile->setFixedSize(160, 110);
-        groupPile->move(10,10);
+        groupPile->move(20,20);
 
     connect(taille, SIGNAL(valueChanged(int)), this, SLOT(setTaillePile(int)));
     connect(valid, SIGNAL(clicked()), &FenetrePile, SLOT(close()));
     connect(ui->actionTaille_Affich, SIGNAL(triggered()), &FenetrePile, SLOT(exec()));
 
+
+    // afficher clavier
+    connect(ui->actionAfficher_clavier, SIGNAL(triggered()), this, SLOT(affichClavier()));
+    connect(this, SIGNAL(cache()), ui->clavier, SLOT(hide()));
+    connect(this, SIGNAL(montre()), ui->clavier, SLOT(show()));
+
+
+    // mise à jour degrés / radians
     connect(ui->actionDegres, SIGNAL(triggered()), this, SLOT(degreActif()));
     connect(ui->actionRadians, SIGNAL(triggered()), this, SLOT(radianActif()));
 
+
+    // Opérations essentielles
     connect(this, SIGNAL(pressEntrerN(QString, bool)), model, SLOT(getNombre(QString, bool)));
     connect(model, SIGNAL(evalExp(QString)), this, SLOT(EnterAction(QString)));
+    connect(model, SIGNAL(finOp(Stack*)), model, SLOT(ajoutHistorique(Stack*)));
     connect(this, SIGNAL(finEntree()), this, SLOT(rafraichissement()));
     connect(model, SIGNAL(finOp(Stack*)), this, SLOT(affichePile(Stack*)));
+    connect(model, SIGNAL(finAnRe(Stack*)), this, SLOT(affichePile(Stack*)));
     connect(this, SIGNAL(pressEval()), model, SLOT(getExpression()));
 
+
+    // opérations
     connect(this, SIGNAL(pressAdd(int)), model, SLOT(getAdd(int)));
     connect(this, SIGNAL(pressSous(int)), model, SLOT(getSous(int)));
     connect(this, SIGNAL(pressMult(int)), model, SLOT(getMult(int)));
@@ -82,17 +109,33 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(this, SIGNAL(pressDup()), model, SLOT(getDup()));
     connect(this, SIGNAL(pressDrop()), model, SLOT(getDrop()));
 
+
+    // Annuler / Rétablir
     connect(this, SIGNAL(pressAnnuler()), model, SLOT(annuler()));
     connect(this, SIGNAL(pressRetablir()), model, SLOT(retablir()));
+    connect(model, SIGNAL(compVF()), this, SLOT(verifComp()));
+    connect(this, SIGNAL(vaVerif(bool)), model, SLOT(actualiserPile(bool)));
 
+    // Gérer les complexe
     connect(this, SIGNAL(complexeVrai()), model, SLOT(transformerPile()));
     connect(this, SIGNAL(complexeFaux()), model, SLOT(effacerPile()));
 
-    connect(this, SIGNAL(destroyed()), model, SLOT(ecritureFichier()));
+    // Sauvegarde de contexte
+    connect(ui->actionEnregistrer, SIGNAL(triggered()), model, SLOT(ecritureFichier()));
+    connect(ui->actionOuvrir, SIGNAL(triggered()), model, SLOT(lireFichier()));
+
+    connect(ui->actionEnregistrer, SIGNAL(triggered()), this, SLOT(enregistrer()));
+    connect(ui->actionOuvrir, SIGNAL(triggered()), this, SLOT(lire()));
+
+    connect(ui->actionQuitter, SIGNAL(triggered()), model, SLOT(getFermer()));
 }
 
 MainWindow::~MainWindow()
 {
+    //qDebug()<<"4";
+   // model->getFermer();
+    //qDebug()<<"5";
+    emit pressFermer();
     delete ui;
 }
 
@@ -257,6 +300,20 @@ void MainWindow::radianActif(){
     degre=false;
 }
 
+void MainWindow::affichClavier(){
+    qDebug()<<"la";
+    if(hide==true){
+        hide=false;
+
+        this->resize(680, 520);
+        emit montre();
+    }else{
+        hide=true;
+        this->resize(510, 520);
+        emit cache();
+    }
+}
+
 //opérations essentielles
 void MainWindow::on_EnterPressed_clicked()
 {
@@ -276,37 +333,37 @@ void MainWindow::EnterAction(QString s)
     }
     else{
         if(s=="+"){emit pressAdd(typeNombre);}
-        if(s=="-"){emit pressSous(typeNombre);}
-        if(s=="*"){emit pressMult(typeNombre);}
-        if(s=="/"){emit pressDiv(typeNombre);}
+        else if(s=="-"){emit pressSous(typeNombre);}
+        else if(s=="*"){emit pressMult(typeNombre);}
+        else if(s=="/"){emit pressDiv(typeNombre);}
 
-        if(s=="pow"){emit pressPow(typeNombre);}
-        if(s=="mod"){emit pressMod();}
-        if(s=="fact"){emit pressFact();}
-        if(s=="sign"){emit pressSign(typeNombre);}
+        else if(s=="pow"){emit pressPow(typeNombre);}
+        else if(s=="mod"){emit pressMod();}
+        else if(s=="fact"){emit pressFact();}
+        else if(s=="sign"){emit pressSign(typeNombre);}
 
-        if(s=="sin"){emit pressSin(degre);}
-        if(s=="cos"){emit pressCos(degre);}
-        if(s=="tan"){emit pressTan(degre);}
+        else if(s=="sin"){emit pressSin(degre);}
+        else if(s=="cos"){emit pressCos(degre);}
+        else if(s=="tan"){emit pressTan(degre);}
 
-        if(s=="sinh"){emit pressSinh(degre);}
-        if(s=="cosh"){emit pressCosh(degre);}
-        if(s=="tanh"){emit pressTanh(degre);}
+        else if(s=="sinh"){emit pressSinh(degre);}
+        else if(s=="cosh"){emit pressCosh(degre);}
+        else if(s=="tanh"){emit pressTanh(degre);}
 
-        if(s=="ln"){emit pressLn();}
-        if(s=="log"){emit pressLog();}
-        if(s=="inv"){emit pressInv(typeNombre);}
+        else if(s=="ln"){emit pressLn();}
+        else if(s=="log"){emit pressLog();}
+        else if(s=="inv"){emit pressInv(typeNombre);}
 
-        if(s=="sqrt"){emit pressSqrt();}
-        if(s=="sqr"){emit pressSqr(typeNombre);}
-        if(s=="cube"){emit pressCube(typeNombre);}
+        else if(s=="sqrt"){emit pressSqrt();}
+        else if(s=="sqr"){emit pressSqr(typeNombre);}
+        else if(s=="cube"){emit pressCube(typeNombre);}
 
-        if(s=="swap"){emit pressSwap();}
-        if(s=="sum"){emit pressSum(typeNombre);}
-        if(s=="mean"){emit pressMean(typeNombre);}
-        if(s=="clear"){emit pressClear();}
-        if(s=="dup"){emit pressDup();}
-        if(s=="drop"){emit pressDrop();}
+        else if(s=="swap"){emit pressSwap();}
+        else if(s=="sum"){emit pressSum(typeNombre);}
+        else if(s=="mean"){emit pressMean(typeNombre);}
+        else if(s=="clear"){emit pressClear();}
+        else if(s=="dup"){emit pressDup();}
+        else if(s=="drop"){emit pressDrop();}
 
         else{
             logger1->Write(&LogMessage(ERROR,"formule non valide"));
@@ -368,3 +425,190 @@ void MainWindow::on_clickAnnul_clicked(){
 void MainWindow::on_clickRetablir_clicked(){
     emit pressRetablir();
 }
+
+void MainWindow::verifComp(){
+    emit vaVerif(complexe);
+}
+
+void MainWindow::enregistrer(){
+    QFile file("sauvegardeParametre.txt");
+    if (file.open(QIODevice::WriteOnly | QIODevice::Truncate)){
+        QTextStream stream(&file);
+        //QString buffer = "";
+        QString text = QString::number(typeNombre) + ";" + QString::number(complexe) + ";" + QString::number(taille_pile) + ";" + QString::number(degre) +";";
+        stream << text;
+        file.close();
+    }
+    else{
+        logger1->Write(&LogMessage(ERROR,"L'ouverture du fichier a échoué"));
+        logger2->Write(&LogMessage(ERROR,"L'ouverture du fichier a échoué"));
+    }
+}
+
+void MainWindow::lire(){
+    QFile file("sauvegardeParametre.txt");
+    if(file.open(QIODevice::ReadOnly)){
+        QTextStream flux(&file);
+        QString var;
+        while(!flux.atEnd()) {
+            var += flux.readLine();
+        }
+        QStringList liste = var.split(";");
+        typeNombre = liste.at(0).toInt();
+        complexe = liste.at(1).toInt();
+        taille_pile = liste.at(2).toInt();
+        degre = liste.at(3).toInt();
+        file.close();
+
+        if (typeNombre == 0) {
+            ui->buttonEntier->setChecked(true);
+            if (complexe == true){
+                ui->opCoshPressed->setEnabled(false);
+                ui->opCosPressed->setEnabled(false);
+                ui->opFactPressed->setEnabled(false);
+                ui->opInvPressed->setEnabled(false);
+                ui->opLnPressed->setEnabled(false);
+                ui->opLogPressed->setEnabled(false);
+                ui->opModPressed->setEnabled(false);
+                ui->opPowPressed->setEnabled(false);
+                ui->opSinhPressed->setEnabled(false);
+                ui->opSinPressed->setEnabled(false);
+                ui->opTanhPressed->setEnabled(false);
+                ui->opTanPressed->setEnabled(false);
+            }
+            else {
+                ui->opCoshPressed->setEnabled(true);
+                ui->opCosPressed->setEnabled(true);
+                ui->opFactPressed->setEnabled(true);
+                ui->opInvPressed->setEnabled(true);
+                ui->opLnPressed->setEnabled(true);
+                ui->opLogPressed->setEnabled(true);
+                ui->opModPressed->setEnabled(true);
+                ui->opPowPressed->setEnabled(true);
+                ui->opSinhPressed->setEnabled(true);
+                ui->opSinPressed->setEnabled(true);
+                ui->opTanhPressed->setEnabled(true);
+                ui->opTanPressed->setEnabled(true);
+            }
+        }
+        else if (typeNombre == 1){
+            ui->buttonReel->setChecked(true);
+            if (complexe == true){
+                ui->opCoshPressed->setEnabled(false);
+                ui->opCosPressed->setEnabled(false);
+                ui->opFactPressed->setEnabled(false);
+                ui->opInvPressed->setEnabled(false);
+                ui->opLnPressed->setEnabled(false);
+                ui->opLogPressed->setEnabled(false);
+                ui->opModPressed->setEnabled(false);
+                ui->opPowPressed->setEnabled(false);
+                ui->opSinhPressed->setEnabled(false);
+                ui->opSinPressed->setEnabled(false);
+                ui->opTanhPressed->setEnabled(false);
+                ui->opTanPressed->setEnabled(false);
+            }
+            else {
+                ui->opCoshPressed->setEnabled(true);
+                ui->opCosPressed->setEnabled(true);
+                ui->opFactPressed->setEnabled(false);
+                ui->opInvPressed->setEnabled(true);
+                ui->opLnPressed->setEnabled(true);
+                ui->opLogPressed->setEnabled(true);
+                ui->opModPressed->setEnabled(false);
+                ui->opPowPressed->setEnabled(true);
+                ui->opSinhPressed->setEnabled(true);
+                ui->opSinPressed->setEnabled(true);
+                ui->opTanhPressed->setEnabled(true);
+                ui->opTanPressed->setEnabled(true);
+            }
+        }
+        else if (typeNombre == 2){
+            ui->buttonRationnel->setChecked(true);
+
+            if (complexe == true){
+                ui->opCoshPressed->setEnabled(false);
+                ui->opCosPressed->setEnabled(false);
+                ui->opFactPressed->setEnabled(false);
+                ui->opInvPressed->setEnabled(false);
+                ui->opLnPressed->setEnabled(false);
+                ui->opLogPressed->setEnabled(false);
+                ui->opModPressed->setEnabled(false);
+                ui->opPowPressed->setEnabled(false);
+                ui->opSinhPressed->setEnabled(false);
+                ui->opSinPressed->setEnabled(false);
+                ui->opTanhPressed->setEnabled(false);
+                ui->opTanPressed->setEnabled(false);
+            }
+            else{
+                ui->opCoshPressed->setEnabled(true);
+                ui->opCosPressed->setEnabled(true);
+                ui->opFactPressed->setEnabled(false);
+                ui->opInvPressed->setEnabled(true);
+                ui->opLnPressed->setEnabled(true);
+                ui->opLogPressed->setEnabled(true);
+                ui->opModPressed->setEnabled(false);
+                ui->opPowPressed->setEnabled(true);
+                ui->opSinhPressed->setEnabled(true);
+                ui->opSinPressed->setEnabled(true);
+                ui->opTanhPressed->setEnabled(true);
+                ui->opTanPressed->setEnabled(true);
+            }
+        }
+        if (complexe){
+            ui->buttonComplexe->setChecked(true);
+            ui->buttonComplexe->setChecked(true);
+            ui->numCompPressed->setEnabled(true);
+            ui->opCoshPressed->setEnabled(false);
+            ui->opCosPressed->setEnabled(false);
+            ui->opFactPressed->setEnabled(false);
+            ui->opInvPressed->setEnabled(false);
+            ui->opLnPressed->setEnabled(false);
+            ui->opLogPressed->setEnabled(false);
+            ui->opModPressed->setEnabled(false);
+            ui->opPowPressed->setEnabled(false);
+            ui->opSinhPressed->setEnabled(false);
+            ui->opSinPressed->setEnabled(false);
+            ui->opTanhPressed->setEnabled(false);
+            ui->opTanPressed->setEnabled(false);
+            ui->opSqrtPressed->setEnabled(false);
+        }
+        else {
+                ui->buttonComplexe->setChecked(false);
+                ui->numCompPressed->setEnabled(false);
+                ui->opCoshPressed->setEnabled(true);
+                ui->opCosPressed->setEnabled(true);
+                ui->opInvPressed->setEnabled(true);
+                ui->opLnPressed->setEnabled(true);
+                ui->opLogPressed->setEnabled(true);
+                ui->opPowPressed->setEnabled(true);
+                ui->opSinhPressed->setEnabled(true);
+                ui->opSinPressed->setEnabled(true);
+                ui->opTanhPressed->setEnabled(true);
+                ui->opTanPressed->setEnabled(true);
+                ui->opSqrtPressed->setEnabled(true);
+
+                if (typeNombre == 0){
+                    ui->opFactPressed->setEnabled(true);
+                    ui->opModPressed->setEnabled(true);
+                }
+                else {
+                    ui->opFactPressed->setEnabled(false);
+                    ui->opModPressed->setEnabled(false);
+                }
+            }
+
+        ui->actionTaille_Affich->setData(taille_pile);
+        if (degre) {
+            ui->actionDegres->setChecked(true);
+            ui->actionRadians->setChecked(false);
+        }
+        else {
+            ui->actionRadians->setChecked(true);
+            ui->actionDegres->setChecked(false);
+        }
+    }
+
+}
+
+
+

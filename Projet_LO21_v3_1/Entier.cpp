@@ -3,6 +3,11 @@
   Suzanne Aurélie
   Projet LO21 - Calculatrice à notation polonaise inversée
 */
+/*!
+ *  \file Entier.cpp
+ *  \brief Fonctions de gestion des Entier
+ *  \author Hamici Mathilde, Suzanne Aurélie
+ */
 #include "Constantes.h"
 #include <qDebug>
 

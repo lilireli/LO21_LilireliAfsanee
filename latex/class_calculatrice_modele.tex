@@ -1,4 +1,4 @@
-\hypertarget{class_calculatrice_modele}{\section{Calculatrice\-Modele Class Reference}
+\hypertarget{class_calculatrice_modele}{\section{Référence de la classe Calculatrice\-Modele}
 \label{class_calculatrice_modele}\index{Calculatrice\-Modele@{Calculatrice\-Modele}}
 }
 
@@ -10,11 +10,14 @@ Modele qui assure le fonctionnement de la calculatrice.
 
 {\ttfamily \#include $<$Calculatrice\-Modele.\-h$>$}
 
-\subsection*{Public Slots}
+\subsection*{Connecteurs publics}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{class_calculatrice_modele_a2214a44a1baedaaa580520967595b224}{get\-Nombre} (Q\-String s, bool complexe)
 \begin{DoxyCompactList}\small\item\em get\-Nombre \end{DoxyCompactList}\item 
+\hypertarget{class_calculatrice_modele_aaaa8b6025095b0674a9244c197351cbc}{void {\bfseries ajout\-Historique} (\hyperlink{class_stack}{Stack} $\ast$pile)}\label{class_calculatrice_modele_aaaa8b6025095b0674a9244c197351cbc}
+
+\item 
 \hypertarget{class_calculatrice_modele_a381382f5fb175a17915a057009051d4a}{void {\bfseries get\-Expression} ()}\label{class_calculatrice_modele_a381382f5fb175a17915a057009051d4a}
 
 \item 
@@ -27,12 +30,18 @@ void \hyperlink{class_calculatrice_modele_a2214a44a1baedaaa580520967595b224}{get
 \hypertarget{class_calculatrice_modele_a1e6e7fda54228e00a4a7adb17d72c0f3}{void {\bfseries ecriture\-Fichier} ()}\label{class_calculatrice_modele_a1e6e7fda54228e00a4a7adb17d72c0f3}
 
 \item 
-\hypertarget{class_calculatrice_modele_a4fbec04d2b091b471b9495496e69f2d1}{void {\bfseries effacer\-Pile} ()}\label{class_calculatrice_modele_a4fbec04d2b091b471b9495496e69f2d1}
+\hypertarget{class_calculatrice_modele_a88a694abc7df76ef3dc4beded566821f}{void {\bfseries lire\-Fichier} ()}\label{class_calculatrice_modele_a88a694abc7df76ef3dc4beded566821f}
 
 \item 
-\hypertarget{class_calculatrice_modele_af18d7c35a8847028791f9bd68e923c88}{void {\bfseries transformer\-Pile} ()}\label{class_calculatrice_modele_af18d7c35a8847028791f9bd68e923c88}
+\hypertarget{class_calculatrice_modele_a9208a45ff46f02c75e934a340763b4bf}{void {\bfseries get\-Fermer} ()}\label{class_calculatrice_modele_a9208a45ff46f02c75e934a340763b4bf}
 
 \item 
+void \hyperlink{class_calculatrice_modele_a4fbec04d2b091b471b9495496e69f2d1}{effacer\-Pile} ()
+\begin{DoxyCompactList}\small\item\em effacer\-Pile \end{DoxyCompactList}\item 
+void \hyperlink{class_calculatrice_modele_af18d7c35a8847028791f9bd68e923c88}{transformer\-Pile} ()
+\begin{DoxyCompactList}\small\item\em transformer\-Pile \end{DoxyCompactList}\item 
+void \hyperlink{class_calculatrice_modele_a1ed3eb40ed971c66cf72100b93206145}{actualiser\-Pile} (bool Comp)
+\begin{DoxyCompactList}\small\item\em actualiser\-Pile \end{DoxyCompactList}\item 
 \hypertarget{class_calculatrice_modele_a1fb665b50c86c860d6384886eb99c9bb}{void {\bfseries get\-Add} (int type)}\label{class_calculatrice_modele_a1fb665b50c86c860d6384886eb99c9bb}
 
 \item 
@@ -111,18 +120,24 @@ void \hyperlink{class_calculatrice_modele_a2214a44a1baedaaa580520967595b224}{get
 \hypertarget{class_calculatrice_modele_a7230f86783c54d8c7d609086059fc676}{void {\bfseries get\-Drop} ()}\label{class_calculatrice_modele_a7230f86783c54d8c7d609086059fc676}
 
 \end{DoxyCompactItemize}
-\subsection*{Signals}
+\subsection*{Signaux}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{class_calculatrice_modele_a17e47a75631ae25f15dfe0303ec85582}{fin\-Op} (\hyperlink{class_stack}{Stack} $\ast$pile)
 \begin{DoxyCompactList}\small\item\em fin\-Op \end{DoxyCompactList}\item 
+\hypertarget{class_calculatrice_modele_aa55d1cd9b194be54fa7b7730fada0cf4}{void {\bfseries fin\-An\-Re} (\hyperlink{class_stack}{Stack} $\ast$pile)}\label{class_calculatrice_modele_aa55d1cd9b194be54fa7b7730fada0cf4}
+
+\item 
+\hypertarget{class_calculatrice_modele_a8e13b38cbeccca64f4e440084a1a850e}{void {\bfseries comp\-V\-F} ()}\label{class_calculatrice_modele_a8e13b38cbeccca64f4e440084a1a850e}
+
+\item 
 \hypertarget{class_calculatrice_modele_ad741ddfdf7320455e53b0499bd9ec6b6}{void {\bfseries eval\-Exp} (Q\-String s)}\label{class_calculatrice_modele_ad741ddfdf7320455e53b0499bd9ec6b6}
 
 \item 
 \hypertarget{class_calculatrice_modele_a397e47d552424f90f8fe743f0fee70dd}{void {\bfseries raffraichir\-Ui} (Q\-String s)}\label{class_calculatrice_modele_a397e47d552424f90f8fe743f0fee70dd}
 
 \end{DoxyCompactItemize}
-\subsection*{Public Member Functions}
+\subsection*{Fonctions membres publiques}
 \begin{DoxyCompactItemize}
 \item 
 \hypertarget{class_calculatrice_modele_acdb374ef7094036d07dfd59241674a7c}{{\bfseries Calculatrice\-Modele} (Q\-Object $\ast$parent=0)}\label{class_calculatrice_modele_acdb374ef7094036d07dfd59241674a7c}
@@ -131,16 +146,41 @@ void \hyperlink{class_calculatrice_modele_a17e47a75631ae25f15dfe0303ec85582}{fin
 \hypertarget{class_calculatrice_modele_ae311466b783cc6418efeaef854df461a}{void {\bfseries affiche\-Pile\-Taille} ()}\label{class_calculatrice_modele_ae311466b783cc6418efeaef854df461a}
 
 \item 
+\hypertarget{class_calculatrice_modele_aa66a666b1c62f96a3f4a2c7f0a34a7c9}{void {\bfseries afficher\-Historique} ()}\label{class_calculatrice_modele_aa66a666b1c62f96a3f4a2c7f0a34a7c9}
+
+\item 
 \hypertarget{class_calculatrice_modele_a7eb04a93cb5da9eba47fe47e97c46321}{void {\bfseries afficher\-Suppression\-Historique} ()}\label{class_calculatrice_modele_a7eb04a93cb5da9eba47fe47e97c46321}
 
 \end{DoxyCompactItemize}
 
 
-\subsection{Detailed Description}
+\subsection{Description détaillée}
 Modele qui assure le fonctionnement de la calculatrice. 
 
-\subsection{Member Function Documentation}
-\hypertarget{class_calculatrice_modele_a17e47a75631ae25f15dfe0303ec85582}{\index{Calculatrice\-Modele@{Calculatrice\-Modele}!fin\-Op@{fin\-Op}}
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_calculatrice_modele_a1ed3eb40ed971c66cf72100b93206145}{\index{Calculatrice\-Modele@{Calculatrice\-Modele}!actualiser\-Pile@{actualiser\-Pile}}
+\index{actualiser\-Pile@{actualiser\-Pile}!CalculatriceModele@{Calculatrice\-Modele}}
+\subsubsection[{actualiser\-Pile}]{\setlength{\rightskip}{0pt plus 5cm}void Calculatrice\-Modele\-::actualiser\-Pile (
+\begin{DoxyParamCaption}
+\item[{bool}]{Comp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{class_calculatrice_modele_a1ed3eb40ed971c66cf72100b93206145}
+
+
+actualiser\-Pile 
+
+Vérifie (et corrige si ce n'est pas le cas) que la pile ne contient que des constants de type adéquat après avoir effectué annuler ou rétablir \hypertarget{class_calculatrice_modele_a4fbec04d2b091b471b9495496e69f2d1}{\index{Calculatrice\-Modele@{Calculatrice\-Modele}!effacer\-Pile@{effacer\-Pile}}
+\index{effacer\-Pile@{effacer\-Pile}!CalculatriceModele@{Calculatrice\-Modele}}
+\subsubsection[{effacer\-Pile}]{\setlength{\rightskip}{0pt plus 5cm}void Calculatrice\-Modele\-::effacer\-Pile (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{class_calculatrice_modele_a4fbec04d2b091b471b9495496e69f2d1}
+
+
+effacer\-Pile 
+
+Supprime la pile car le mode complexe est désactivé, on ne peut convertir de Complexe à Nombre \hypertarget{class_calculatrice_modele_a17e47a75631ae25f15dfe0303ec85582}{\index{Calculatrice\-Modele@{Calculatrice\-Modele}!fin\-Op@{fin\-Op}}
 \index{fin\-Op@{fin\-Op}!CalculatriceModele@{Calculatrice\-Modele}}
 \subsubsection[{fin\-Op}]{\setlength{\rightskip}{0pt plus 5cm}void Calculatrice\-Modele\-::fin\-Op (
 \begin{DoxyParamCaption}
@@ -151,7 +191,7 @@ Modele qui assure le fonctionnement de la calculatrice.
 
 fin\-Op 
 
-renvoie un pointeur sur la pile � {\itshape \hyperlink{class_main_window}{Main\-Window}} afin d'actualiser la pile dans l'affichage \hypertarget{class_calculatrice_modele_a2214a44a1baedaaa580520967595b224}{\index{Calculatrice\-Modele@{Calculatrice\-Modele}!get\-Nombre@{get\-Nombre}}
+renvoie un pointeur sur la pile à \hyperlink{class_main_window}{Main\-Window} afin d'actualiser la pile dans l'affichage \hypertarget{class_calculatrice_modele_a2214a44a1baedaaa580520967595b224}{\index{Calculatrice\-Modele@{Calculatrice\-Modele}!get\-Nombre@{get\-Nombre}}
 \index{get\-Nombre@{get\-Nombre}!CalculatriceModele@{Calculatrice\-Modele}}
 \subsubsection[{get\-Nombre}]{\setlength{\rightskip}{0pt plus 5cm}void Calculatrice\-Modele\-::get\-Nombre (
 \begin{DoxyParamCaption}
@@ -163,11 +203,22 @@ renvoie un pointeur sur la pile � {\itshape \hyperlink{class_main_window}{Main\-
 
 get\-Nombre 
 
-Gen�re une {\itshape Constante} � partir d'un Q\-String, en tenant compte du type complexe. Si la constante g�n�r�e est un complexe alors que le type n'est pas complexe, sa saisie est annul�e. Au contraire, si le type est complexe et la constante non complexe on la convertit en complexe.  Q\-String contenant la {\itshape Constante} a g�n�rer  bool qui nous indique si la saisie doit s'effectuer en mode complexe ou non 
+Genère une Constante à partir d'un Q\-String, en tenant compte du type complexe. Si la constante générée est un complexe alors que le type n'est pas complexe, sa saisie est annulée. Au contraire, si le type est complexe et la constante non complexe on la convertit en complexe.  Q\-String contenant la Constante a générer  bool qui nous indique si la saisie doit s'effectuer en mode complexe ou non \hypertarget{class_calculatrice_modele_af18d7c35a8847028791f9bd68e923c88}{\index{Calculatrice\-Modele@{Calculatrice\-Modele}!transformer\-Pile@{transformer\-Pile}}
+\index{transformer\-Pile@{transformer\-Pile}!CalculatriceModele@{Calculatrice\-Modele}}
+\subsubsection[{transformer\-Pile}]{\setlength{\rightskip}{0pt plus 5cm}void Calculatrice\-Modele\-::transformer\-Pile (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{class_calculatrice_modele_af18d7c35a8847028791f9bd68e923c88}
 
-The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+
+transformer\-Pile 
+
+transforme tous les Nombre de la pile en Complexe 
+
+La documentation de cette classe a été générée à partir des fichiers suivants \-:\begin{DoxyCompactItemize}
 \item 
-\hyperlink{_calculatrice_modele_8h}{Calculatrice\-Modele.\-h}\item 
-Calculatrice\-Fonction\-Pile.\-cpp\item 
-Calculatrice\-Modele.\-cpp\item 
-Calculatrice\-Operations.\-cpp\end{DoxyCompactItemize}
+Projet\-\_\-\-L\-O21\-\_\-v3\-\_\-1/\hyperlink{_calculatrice_modele_8h}{Calculatrice\-Modele.\-h}\item 
+Projet\-\_\-\-L\-O21\-\_\-v3\-\_\-1/\hyperlink{_calculatrice_fonction_pile_8cpp}{Calculatrice\-Fonction\-Pile.\-cpp}\item 
+Projet\-\_\-\-L\-O21\-\_\-v3\-\_\-1/\hyperlink{_calculatrice_modele_8cpp}{Calculatrice\-Modele.\-cpp}\item 
+Projet\-\_\-\-L\-O21\-\_\-v3\-\_\-1/\hyperlink{_calculatrice_operations_8cpp}{Calculatrice\-Operations.\-cpp}\end{DoxyCompactItemize}

@@ -3,6 +3,11 @@
   Suzanne Aurélie
   Projet LO21 - Calculatrice à notation polonaise inversée
 */
+/*!
+ *  \file Rationnel.cpp
+ *  \brief Fonctions de gestion des Rationnel
+ *  \author Hamici Mathilde, Suzanne Aurélie
+ */
 #include "Constantes.h"
 #include <QDebug>
 
