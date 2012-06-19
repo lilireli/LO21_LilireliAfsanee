@@ -66,11 +66,30 @@ public slots:
       */
      void getNombre(QString s, bool complexe);
 
-     void ajoutHistorique(Stack* pile);
-
      void getExpression();
+
+     // annuler rétablir
+     /*! \brief ajoutHistorique
+      *  Elle est appelée dès que l'on fait un changement sur la pile et est ainsi activée par finOp(). Elle va cloner une
+      * instance de pile pour la rajouter dans la pile historique.
+      */
+     void ajoutHistorique(Stack* pile);
+     /*!
+      *  \brief annuler
+      *  \details Cette fonction va utiliser la pile historique. Elle pop la première instance de pile qui est dans
+      * l'historique et l'insère dans la pile suppressionHistorique. Pile prendra alors la valeur de l'avant dernière pile
+      * dans l'historique.
+      */
      void annuler();
+     /*!
+      *  \brief retablir
+      *  \details Cette fonction va utiliser la pile suppressionHistorique. Elle pop la première instance de pile qui est dans
+      * suppressionHistorique et l'insère dans la pile historique. Pile prendra alors la valeur de la dernière pile
+      * dans suppressionHistorique.
+      */
      void retablir();
+
+     // lire écrire
      void ecritureFichier();
      void lireFichier();
 

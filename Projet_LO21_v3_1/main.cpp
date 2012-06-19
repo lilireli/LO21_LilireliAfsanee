@@ -33,7 +33,6 @@ LoggerFile* logger2;
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    qDebug()<<"que faites-vous";
     MainWindow w;
     w.show();
     

@@ -84,7 +84,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
   <div class="summary">
 <a href="#pub-slots">Connecteurs publics</a> &#124;
 <a href="#signals">Signaux</a> &#124;
-<a href="#pub-methods">Fonctions membres publiques</a>  </div>
+<a href="#pub-methods">Fonctions membres publiques</a> &#124;
+<a href="#pri-attribs">Attributs privés</a>  </div>
   <div class="headertitle">
 <div class="title">Référence de la classe CalculatriceModele</div>  </div>
 </div><!--header-->
@@ -101,20 +102,19 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 Connecteurs publics</h2></td></tr>
 <tr class="memitem:a2214a44a1baedaaa580520967595b224"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_calculatrice_modele.html#a2214a44a1baedaaa580520967595b224">getNombre</a> (QString s, bool complexe)</td></tr>
 <tr class="memdesc:a2214a44a1baedaaa580520967595b224"><td class="mdescLeft">&#160;</td><td class="mdescRight">getNombre  <a href="#a2214a44a1baedaaa580520967595b224"></a><br/></td></tr>
-<tr class="memitem:aaaa8b6025095b0674a9244c197351cbc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaaa8b6025095b0674a9244c197351cbc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>ajoutHistorique</b> (<a class="el" href="class_stack.html">Stack</a> *pile)</td></tr>
 <tr class="memitem:a381382f5fb175a17915a057009051d4a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a381382f5fb175a17915a057009051d4a"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>getExpression</b> ()</td></tr>
-<tr class="memitem:a137a2699492e9989c74d1eb04c12cd5c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a137a2699492e9989c74d1eb04c12cd5c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>annuler</b> ()</td></tr>
-<tr class="memitem:a3ed52da71ebf6915d1efa1700fc7cc5c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3ed52da71ebf6915d1efa1700fc7cc5c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>retablir</b> ()</td></tr>
+<tr class="memitem:aaaa8b6025095b0674a9244c197351cbc"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aaaa8b6025095b0674a9244c197351cbc"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_calculatrice_modele.html#aaaa8b6025095b0674a9244c197351cbc">ajoutHistorique</a> (<a class="el" href="class_stack.html">Stack</a> *pile)</td></tr>
+<tr class="memdesc:aaaa8b6025095b0674a9244c197351cbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">ajoutHistorique Elle est appelée dès que l'on fait un changement sur la pile et est ainsi activée par <a class="el" href="class_calculatrice_modele.html#a17e47a75631ae25f15dfe0303ec85582" title="finOp">finOp()</a>. Elle va cloner une instance de pile pour la rajouter dans la pile historique. <br/></td></tr>
+<tr class="memitem:a137a2699492e9989c74d1eb04c12cd5c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_calculatrice_modele.html#a137a2699492e9989c74d1eb04c12cd5c">annuler</a> ()</td></tr>
+<tr class="memdesc:a137a2699492e9989c74d1eb04c12cd5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">annuler  <a href="#a137a2699492e9989c74d1eb04c12cd5c"></a><br/></td></tr>
+<tr class="memitem:a3ed52da71ebf6915d1efa1700fc7cc5c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_calculatrice_modele.html#a3ed52da71ebf6915d1efa1700fc7cc5c">retablir</a> ()</td></tr>
+<tr class="memdesc:a3ed52da71ebf6915d1efa1700fc7cc5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">retablir  <a href="#a3ed52da71ebf6915d1efa1700fc7cc5c"></a><br/></td></tr>
 <tr class="memitem:a1e6e7fda54228e00a4a7adb17d72c0f3"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1e6e7fda54228e00a4a7adb17d72c0f3"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>ecritureFichier</b> ()</td></tr>
 <tr class="memitem:a88a694abc7df76ef3dc4beded566821f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a88a694abc7df76ef3dc4beded566821f"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>lireFichier</b> ()</td></tr>
-<tr class="memitem:a9208a45ff46f02c75e934a340763b4bf"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9208a45ff46f02c75e934a340763b4bf"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>getFermer</b> ()</td></tr>
 <tr class="memitem:a4fbec04d2b091b471b9495496e69f2d1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_calculatrice_modele.html#a4fbec04d2b091b471b9495496e69f2d1">effacerPile</a> ()</td></tr>
 <tr class="memdesc:a4fbec04d2b091b471b9495496e69f2d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">effacerPile  <a href="#a4fbec04d2b091b471b9495496e69f2d1"></a><br/></td></tr>
 <tr class="memitem:af18d7c35a8847028791f9bd68e923c88"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_calculatrice_modele.html#af18d7c35a8847028791f9bd68e923c88">transformerPile</a> ()</td></tr>
@@ -197,6 +197,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>affichePileTaille</b>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>afficherHistorique</b> ()</td></tr>
 <tr class="memitem:a7eb04a93cb5da9eba47fe47e97c46321"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7eb04a93cb5da9eba47fe47e97c46321"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>afficherSuppressionHistorique</b> ()</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2><a name="pri-attribs"></a>
+Attributs privés</h2></td></tr>
+<tr class="memitem:a1191f72cf69cd1b0681cbeb2fe8479a5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1191f72cf69cd1b0681cbeb2fe8479a5"></a>
+<a class="el" href="class_stack.html">Stack</a>&#160;</td><td class="memItemRight" valign="bottom"><b>pile</b></td></tr>
+<tr class="memitem:a2d430eaf97e624dfe38a1aea1e409cc7"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2d430eaf97e624dfe38a1aea1e409cc7"></a>
+QStack&lt; <a class="el" href="class_stack.html">Stack</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>historique</b></td></tr>
+<tr class="memitem:aa741d1072f6fab3d5afea2896ca957e1"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa741d1072f6fab3d5afea2896ca957e1"></a>
+QStack&lt; <a class="el" href="class_stack.html">Stack</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>suppressionHistorique</b></td></tr>
 </table>
 <hr/><a name="details" id="details"></a><h2>Description détaillée</h2>
 <div class="textblock"><p>Modele qui assure le fonctionnement de la calculatrice. </p>
@@ -225,6 +234,32 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>afficherSuppressionHi
 
 <p>actualiserPile </p>
 <p>Vérifie (et corrige si ce n'est pas le cas) que la pile ne contient que des constants de type adéquat après avoir effectué annuler ou rétablir </p>
+
+</div>
+</div>
+<a class="anchor" id="a137a2699492e9989c74d1eb04c12cd5c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CalculatriceModele::annuler </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>annuler </p>
+<p>Cette fonction va utiliser la pile historique. Elle pop la première instance de pile qui est dans l'historique et l'insère dans la pile suppressionHistorique. Pile prendra alors la valeur de l'avant dernière pile dans l'historique. </p>
 
 </div>
 </div>
@@ -318,6 +353,32 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>afficherSuppressionHi
 
 </div>
 </div>
+<a class="anchor" id="a3ed52da71ebf6915d1efa1700fc7cc5c"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CalculatriceModele::retablir </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">slot</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>retablir </p>
+<p>Cette fonction va utiliser la pile suppressionHistorique. Elle pop la première instance de pile qui est dans suppressionHistorique et l'insère dans la pile historique. Pile prendra alors la valeur de la dernière pile dans suppressionHistorique. </p>
+
+</div>
+</div>
 <a class="anchor" id="af18d7c35a8847028791f9bd68e923c88"></a>
 <div class="memitem">
 <div class="memproto">
@@ -353,7 +414,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>afficherSuppressionHi
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Mardi Juin 19 2012 06:00:24 pour Projet LO21 par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mardi Juin 19 2012 16:03:46 pour Projet LO21 par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

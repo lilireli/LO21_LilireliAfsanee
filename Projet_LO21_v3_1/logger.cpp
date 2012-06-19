@@ -18,7 +18,7 @@ void LoggerFile::Write(const LogMessage* message){
 }
 
 void LoggerConsole::Write(const LogMessage *message){
-    qDebug()<<message->getDegre()<<"\n";
+    qDebug()<<message->getDegre();
     qDebug()<<message->getMessage()<<"\n";
 
     if(message->getDegre()==WARNING || message->getDegre()==ERROR){

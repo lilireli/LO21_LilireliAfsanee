@@ -21,6 +21,8 @@ class \hyperlink{class_stack_1_1iterator}{iterator}
 \hypertarget{class_stack_a8cf5d6fd8d89b6edbf64da16e3206a56}{{\bfseries Stack} (int nb=50)}\label{class_stack_a8cf5d6fd8d89b6edbf64da16e3206a56}
 
 \item 
+\hyperlink{class_stack_a40bd5dff912f0e5290777c4b46d17809}{$\sim$\-Stack} ()
+\begin{DoxyCompactList}\small\item\em $\sim$\-Stack \end{DoxyCompactList}\item 
 \hypertarget{class_stack_a51464b7aa2a497ebc751862120debbda}{bool {\bfseries is\-Empty} (void) const }\label{class_stack_a51464b7aa2a497ebc751862120debbda}
 
 \item 
@@ -36,9 +38,11 @@ class \hyperlink{class_stack_1_1iterator}{iterator}
 \hypertarget{class_stack_ae3da45c6867f3bbafa276df693770b25}{\hyperlink{class_calcul_1_1_constante}{Constante} $\ast$ {\bfseries pop} ()}\label{class_stack_ae3da45c6867f3bbafa276df693770b25}
 
 \item 
-\hypertarget{class_stack_adab1284b8929385d4020356fb52c8139}{void {\bfseries clear} ()}\label{class_stack_adab1284b8929385d4020356fb52c8139}
+\hypertarget{class_stack_a8e025557db3b60c7770cfbc1891d0eba}{\hyperlink{class_calcul_1_1_constante}{Constante} $\ast$ {\bfseries top} ()}\label{class_stack_a8e025557db3b60c7770cfbc1891d0eba}
 
 \item 
+void \hyperlink{class_stack_adab1284b8929385d4020356fb52c8139}{clear} ()
+\begin{DoxyCompactList}\small\item\em clear \end{DoxyCompactList}\item 
 \hypertarget{class_stack_a96f913d70f6f5185d2782ac6ac5d787b}{int {\bfseries Swap} (\hyperlink{class_calcul_1_1_entier}{Entier} $\ast$x, \hyperlink{class_calcul_1_1_entier}{Entier} $\ast$y)}\label{class_stack_a96f913d70f6f5185d2782ac6ac5d787b}
 
 \item 
@@ -54,13 +58,63 @@ class \hyperlink{class_stack_1_1iterator}{iterator}
 \hypertarget{class_stack_a02415f89ea8988765ae889fd9778541c}{\hyperlink{class_stack_1_1iterator}{iterator} {\bfseries end} ()}\label{class_stack_a02415f89ea8988765ae889fd9778541c}
 
 \item 
-\hypertarget{class_stack_a2031a4e7e9d813a8b51c6498fe3180ae}{\hyperlink{class_stack}{Stack} $\ast$ {\bfseries clone} ()}\label{class_stack_a2031a4e7e9d813a8b51c6498fe3180ae}
+\hyperlink{class_stack}{Stack} $\ast$ \hyperlink{class_stack_a2031a4e7e9d813a8b51c6498fe3180ae}{clone} ()
+\begin{DoxyCompactList}\small\item\em clone \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_stack_abd9c5154fe016302008572ace7794ade}{int {\bfseries nb\-Elements}}\label{class_stack_abd9c5154fe016302008572ace7794ade}
+
+\item 
+\hypertarget{class_stack_ad7a0d1b6ad7d0864bc3760e650208764}{int {\bfseries taille}}\label{class_stack_ad7a0d1b6ad7d0864bc3760e650208764}
+
+\item 
+\hypertarget{class_stack_a48a73ba47f398d9aaced05b8f292e2f3}{\hyperlink{class_calcul_1_1_constante}{Constante} $\ast$$\ast$ {\bfseries tab}}\label{class_stack_a48a73ba47f398d9aaced05b8f292e2f3}
 
 \end{DoxyCompactItemize}
 
 
 \subsection{Description détaillée}
 Fabrication d'une pile gérant des Constantes. 
+
+\subsection{Documentation des constructeurs et destructeur}
+\hypertarget{class_stack_a40bd5dff912f0e5290777c4b46d17809}{\index{Stack@{Stack}!$\sim$\-Stack@{$\sim$\-Stack}}
+\index{$\sim$\-Stack@{$\sim$\-Stack}!Stack@{Stack}}
+\subsubsection[{$\sim$\-Stack}]{\setlength{\rightskip}{0pt plus 5cm}Stack\-::$\sim$\-Stack (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_stack_a40bd5dff912f0e5290777c4b46d17809}
+
+
+$\sim$\-Stack 
+
+utilise clear pour supprimer la pile 
+
+\subsection{Documentation des fonctions membres}
+\hypertarget{class_stack_adab1284b8929385d4020356fb52c8139}{\index{Stack@{Stack}!clear@{clear}}
+\index{clear@{clear}!Stack@{Stack}}
+\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}void Stack\-::clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{class_stack_adab1284b8929385d4020356fb52c8139}
+
+
+clear 
+
+pop tous les éléments de la pile sans les supprimer, pour l'historique \hypertarget{class_stack_a2031a4e7e9d813a8b51c6498fe3180ae}{\index{Stack@{Stack}!clone@{clone}}
+\index{clone@{clone}!Stack@{Stack}}
+\subsubsection[{clone}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Stack}$\ast$ Stack\-::clone (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{class_stack_a2031a4e7e9d813a8b51c6498fe3180ae}
+
+
+clone 
+
+clone une pile, sans allouer de nouveaux pointeurs, on travaille toujours sur les mêmes pointeurs pour permette aux fonctions annuler, rétablir de fonctionner 
 
 La documentation de cette classe a été générée à partir des fichiers suivants \-:\begin{DoxyCompactItemize}
 \item 

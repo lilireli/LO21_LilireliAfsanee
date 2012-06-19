@@ -20,9 +20,9 @@ CalculatriceModele::CalculatriceModele(QObject *parent) :
     QObject(parent)
 {
     logger1 = new LoggerConsole();
-    logger1->Write((new LogMessage(INFO, "Debut de log")));
+    logger1->Write((&LogMessage(INFO, "Debut de log : 1 : DEBUG, 2 : CONFIG, 3 : INFO, 4 : WARNING, 5 : ERROR")));
     logger2 = new LoggerFile();
-    logger2->Write((new LogMessage(INFO, "Debut de log")));
+    logger2->Write((&LogMessage(INFO, "Debut de log : 1 : DEBUG, 2 : CONFIG, 3 : INFO, 4 : WARNING, 5 : ERROR")));
     historique.push(pile.clone());
 }
 
@@ -64,6 +64,11 @@ CalculatriceModele::~CalculatriceModele(){
         delete[] historique.pop();
     }
     qDebug()<<"fin suppression de toutes les piles";
+
+    logger1->Write((&LogMessage(INFO, "Fin de log")));
+    delete logger1;
+    logger2->Write((&LogMessage(INFO, "Fin de log")));
+    delete logger2;
 }
 
 
@@ -92,7 +97,6 @@ void CalculatriceModele::getNombre(QString s, bool complexe){
 
     if(val!=NULL) {
         pile.push(val);
-        historique.push(pile.clone());
         this->affichePileTaille();
         emit finOp(&pile);
     }else{

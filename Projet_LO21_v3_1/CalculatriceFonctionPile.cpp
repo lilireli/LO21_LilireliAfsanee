@@ -142,7 +142,7 @@ void CalculatriceModele::getDup(){
 
 void CalculatriceModele::getDrop(){
     if(pile.size() >= 1){
-        Constante* c = pile.pop();
+        pile.pop();
         emit finOp(&pile);
     }
     else{

@@ -6,6 +6,8 @@ var searchData=
   ['calculatricemodele_2ecpp',['CalculatriceModele.cpp',['../_calculatrice_modele_8cpp.html',1,'']]],
   ['calculatricemodele_2eh',['CalculatriceModele.h',['../_calculatrice_modele_8h.html',1,'']]],
   ['calculatriceoperations_2ecpp',['CalculatriceOperations.cpp',['../_calculatrice_operations_8cpp.html',1,'']]],
+  ['clear',['clear',['../class_stack.html#adab1284b8929385d4020356fb52c8139',1,'Stack']]],
+  ['clone',['clone',['../class_stack.html#a2031a4e7e9d813a8b51c6498fe3180ae',1,'Stack']]],
   ['complexe',['Complexe',['../class_calcul_1_1_complexe.html',1,'Calcul']]],
   ['complexe_2ecpp',['Complexe.cpp',['../_complexe_8cpp.html',1,'']]],
   ['constante',['Constante',['../class_calcul_1_1_constante.html',1,'Calcul']]],

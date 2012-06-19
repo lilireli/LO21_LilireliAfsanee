@@ -125,7 +125,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(degre==CONFIG){<span class="keywordflow">return</span> <span class="stringliteral">&quot;Config&quot;</span>;}</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(degre==INFO){<span class="keywordflow">return</span> <span class="stringliteral">&quot;Info&quot;</span>;}</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(degre==WARNING){<span class="keywordflow">return</span> <span class="stringliteral">&quot;Warning&quot;</span>;}</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">else</span> <span class="keywordflow">if</span>(degre==ERROR){<span class="keywordflow">return</span> <span class="stringliteral">&quot;Erreur&quot;</span>;}</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;        <span class="keywordflow">else</span>{<span class="keywordflow">return</span> <span class="stringliteral">&quot;Erreur&quot;</span>;}</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    }</div>
 <div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keywordtype">void</span> setMessage(QString s){message = s;}</div>
 <div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> setDegre(<a class="code" href="_logger_8h.html#a315655b1bb5848c063491adffde62b15" title="Gère la priorité de chaque LogMessage.">Priority</a> p){degre = p;}</div>
@@ -143,7 +143,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;{</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keyword">public</span>:</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <a class="code" href="class_logger_console.html" title="Classe qui écrit des LogMessage dans la console, selon la catégorie du message elle emet un QMessageB...">LoggerConsole</a>() {}</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_logger_console.html#a9ce9d2e57b1c8a097aebb518d0b40496" title="Write.">Write</a>(<span class="keyword">const</span> <a class="code" href="class_log_message.html" title="Création d&#39;un logMessage contenant une priorité et du texte.">LogMessage</a>* message);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_logger_console.html#a9ce9d2e57b1c8a097aebb518d0b40496" title="Write.">Write</a>(<span class="keyword">const</span> <a class="code" href="class_log_message.html" title="Création d&#39;un logMessage contenant une priorité et du texte.">LogMessage</a>* message);</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;};</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
 <div class="line"><a name="l00090"></a><span class="lineno"><a class="code" href="class_logger_file.html">   90</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_logger_file.html" title="Classe qui écrit des LogMessage dans un fichier.">LoggerFile</a> : <span class="keyword">public</span> <a class="code" href="class_logger.html" title="Classe abstraite permettant de créer des objets qui gèrerons des LogMessage.">Logger</a></div>
@@ -160,7 +160,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 <div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;        file.flush();<span class="comment">//synchronisation</span></div>
 <div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    }</div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_logger_file.html" title="Classe qui écrit des LogMessage dans un fichier.">LoggerFile</a>(){</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    ~<a class="code" href="class_logger_file.html" title="Classe qui écrit des LogMessage dans un fichier.">LoggerFile</a>(){</div>
 <div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;        <span class="keywordflow">if</span> (!file.good()) <span class="keywordflow">return</span>;</div>
 <div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;        file&lt;&lt;<span class="stringliteral">&quot;\n Log : fin d&#39;une instance de pile&quot;</span>;</div>
 <div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;        file.flush();</div>
@@ -174,7 +174,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Recherche');
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Mardi Juin 19 2012 06:00:23 pour Projet LO21 par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Mardi Juin 19 2012 16:03:46 pour Projet LO21 par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.1.1
 </small></address>

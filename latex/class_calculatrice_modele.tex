@@ -15,25 +15,20 @@ Modele qui assure le fonctionnement de la calculatrice.
 \item 
 void \hyperlink{class_calculatrice_modele_a2214a44a1baedaaa580520967595b224}{get\-Nombre} (Q\-String s, bool complexe)
 \begin{DoxyCompactList}\small\item\em get\-Nombre \end{DoxyCompactList}\item 
-\hypertarget{class_calculatrice_modele_aaaa8b6025095b0674a9244c197351cbc}{void {\bfseries ajout\-Historique} (\hyperlink{class_stack}{Stack} $\ast$pile)}\label{class_calculatrice_modele_aaaa8b6025095b0674a9244c197351cbc}
-
-\item 
 \hypertarget{class_calculatrice_modele_a381382f5fb175a17915a057009051d4a}{void {\bfseries get\-Expression} ()}\label{class_calculatrice_modele_a381382f5fb175a17915a057009051d4a}
 
 \item 
-\hypertarget{class_calculatrice_modele_a137a2699492e9989c74d1eb04c12cd5c}{void {\bfseries annuler} ()}\label{class_calculatrice_modele_a137a2699492e9989c74d1eb04c12cd5c}
+\hypertarget{class_calculatrice_modele_aaaa8b6025095b0674a9244c197351cbc}{void \hyperlink{class_calculatrice_modele_aaaa8b6025095b0674a9244c197351cbc}{ajout\-Historique} (\hyperlink{class_stack}{Stack} $\ast$pile)}\label{class_calculatrice_modele_aaaa8b6025095b0674a9244c197351cbc}
 
-\item 
-\hypertarget{class_calculatrice_modele_a3ed52da71ebf6915d1efa1700fc7cc5c}{void {\bfseries retablir} ()}\label{class_calculatrice_modele_a3ed52da71ebf6915d1efa1700fc7cc5c}
-
-\item 
+\begin{DoxyCompactList}\small\item\em ajout\-Historique Elle est appelée dès que l'on fait un changement sur la pile et est ainsi activée par \hyperlink{class_calculatrice_modele_a17e47a75631ae25f15dfe0303ec85582}{fin\-Op()}. Elle va cloner une instance de pile pour la rajouter dans la pile historique. \end{DoxyCompactList}\item 
+void \hyperlink{class_calculatrice_modele_a137a2699492e9989c74d1eb04c12cd5c}{annuler} ()
+\begin{DoxyCompactList}\small\item\em annuler \end{DoxyCompactList}\item 
+void \hyperlink{class_calculatrice_modele_a3ed52da71ebf6915d1efa1700fc7cc5c}{retablir} ()
+\begin{DoxyCompactList}\small\item\em retablir \end{DoxyCompactList}\item 
 \hypertarget{class_calculatrice_modele_a1e6e7fda54228e00a4a7adb17d72c0f3}{void {\bfseries ecriture\-Fichier} ()}\label{class_calculatrice_modele_a1e6e7fda54228e00a4a7adb17d72c0f3}
 
 \item 
 \hypertarget{class_calculatrice_modele_a88a694abc7df76ef3dc4beded566821f}{void {\bfseries lire\-Fichier} ()}\label{class_calculatrice_modele_a88a694abc7df76ef3dc4beded566821f}
-
-\item 
-\hypertarget{class_calculatrice_modele_a9208a45ff46f02c75e934a340763b4bf}{void {\bfseries get\-Fermer} ()}\label{class_calculatrice_modele_a9208a45ff46f02c75e934a340763b4bf}
 
 \item 
 void \hyperlink{class_calculatrice_modele_a4fbec04d2b091b471b9495496e69f2d1}{effacer\-Pile} ()
@@ -152,6 +147,18 @@ void \hyperlink{class_calculatrice_modele_a17e47a75631ae25f15dfe0303ec85582}{fin
 \hypertarget{class_calculatrice_modele_a7eb04a93cb5da9eba47fe47e97c46321}{void {\bfseries afficher\-Suppression\-Historique} ()}\label{class_calculatrice_modele_a7eb04a93cb5da9eba47fe47e97c46321}
 
 \end{DoxyCompactItemize}
+\subsection*{Attributs privés}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_calculatrice_modele_a1191f72cf69cd1b0681cbeb2fe8479a5}{\hyperlink{class_stack}{Stack} {\bfseries pile}}\label{class_calculatrice_modele_a1191f72cf69cd1b0681cbeb2fe8479a5}
+
+\item 
+\hypertarget{class_calculatrice_modele_a2d430eaf97e624dfe38a1aea1e409cc7}{Q\-Stack$<$ \hyperlink{class_stack}{Stack} $\ast$ $>$ {\bfseries historique}}\label{class_calculatrice_modele_a2d430eaf97e624dfe38a1aea1e409cc7}
+
+\item 
+\hypertarget{class_calculatrice_modele_aa741d1072f6fab3d5afea2896ca957e1}{Q\-Stack$<$ \hyperlink{class_stack}{Stack} $\ast$ $>$ {\bfseries suppression\-Historique}}\label{class_calculatrice_modele_aa741d1072f6fab3d5afea2896ca957e1}
+
+\end{DoxyCompactItemize}
 
 
 \subsection{Description détaillée}
@@ -169,7 +176,18 @@ Modele qui assure le fonctionnement de la calculatrice.
 
 actualiser\-Pile 
 
-Vérifie (et corrige si ce n'est pas le cas) que la pile ne contient que des constants de type adéquat après avoir effectué annuler ou rétablir \hypertarget{class_calculatrice_modele_a4fbec04d2b091b471b9495496e69f2d1}{\index{Calculatrice\-Modele@{Calculatrice\-Modele}!effacer\-Pile@{effacer\-Pile}}
+Vérifie (et corrige si ce n'est pas le cas) que la pile ne contient que des constants de type adéquat après avoir effectué annuler ou rétablir \hypertarget{class_calculatrice_modele_a137a2699492e9989c74d1eb04c12cd5c}{\index{Calculatrice\-Modele@{Calculatrice\-Modele}!annuler@{annuler}}
+\index{annuler@{annuler}!CalculatriceModele@{Calculatrice\-Modele}}
+\subsubsection[{annuler}]{\setlength{\rightskip}{0pt plus 5cm}void Calculatrice\-Modele\-::annuler (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{class_calculatrice_modele_a137a2699492e9989c74d1eb04c12cd5c}
+
+
+annuler 
+
+Cette fonction va utiliser la pile historique. Elle pop la première instance de pile qui est dans l'historique et l'insère dans la pile suppression\-Historique. Pile prendra alors la valeur de l'avant dernière pile dans l'historique. \hypertarget{class_calculatrice_modele_a4fbec04d2b091b471b9495496e69f2d1}{\index{Calculatrice\-Modele@{Calculatrice\-Modele}!effacer\-Pile@{effacer\-Pile}}
 \index{effacer\-Pile@{effacer\-Pile}!CalculatriceModele@{Calculatrice\-Modele}}
 \subsubsection[{effacer\-Pile}]{\setlength{\rightskip}{0pt plus 5cm}void Calculatrice\-Modele\-::effacer\-Pile (
 \begin{DoxyParamCaption}
@@ -203,7 +221,18 @@ renvoie un pointeur sur la pile à \hyperlink{class_main_window}{Main\-Window} a
 
 get\-Nombre 
 
-Genère une Constante à partir d'un Q\-String, en tenant compte du type complexe. Si la constante générée est un complexe alors que le type n'est pas complexe, sa saisie est annulée. Au contraire, si le type est complexe et la constante non complexe on la convertit en complexe.  Q\-String contenant la Constante a générer  bool qui nous indique si la saisie doit s'effectuer en mode complexe ou non \hypertarget{class_calculatrice_modele_af18d7c35a8847028791f9bd68e923c88}{\index{Calculatrice\-Modele@{Calculatrice\-Modele}!transformer\-Pile@{transformer\-Pile}}
+Genère une Constante à partir d'un Q\-String, en tenant compte du type complexe. Si la constante générée est un complexe alors que le type n'est pas complexe, sa saisie est annulée. Au contraire, si le type est complexe et la constante non complexe on la convertit en complexe.  Q\-String contenant la Constante a générer  bool qui nous indique si la saisie doit s'effectuer en mode complexe ou non \hypertarget{class_calculatrice_modele_a3ed52da71ebf6915d1efa1700fc7cc5c}{\index{Calculatrice\-Modele@{Calculatrice\-Modele}!retablir@{retablir}}
+\index{retablir@{retablir}!CalculatriceModele@{Calculatrice\-Modele}}
+\subsubsection[{retablir}]{\setlength{\rightskip}{0pt plus 5cm}void Calculatrice\-Modele\-::retablir (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [slot]}}}\label{class_calculatrice_modele_a3ed52da71ebf6915d1efa1700fc7cc5c}
+
+
+retablir 
+
+Cette fonction va utiliser la pile suppression\-Historique. Elle pop la première instance de pile qui est dans suppression\-Historique et l'insère dans la pile historique. Pile prendra alors la valeur de la dernière pile dans suppression\-Historique. \hypertarget{class_calculatrice_modele_af18d7c35a8847028791f9bd68e923c88}{\index{Calculatrice\-Modele@{Calculatrice\-Modele}!transformer\-Pile@{transformer\-Pile}}
 \index{transformer\-Pile@{transformer\-Pile}!CalculatriceModele@{Calculatrice\-Modele}}
 \subsubsection[{transformer\-Pile}]{\setlength{\rightskip}{0pt plus 5cm}void Calculatrice\-Modele\-::transformer\-Pile (
 \begin{DoxyParamCaption}

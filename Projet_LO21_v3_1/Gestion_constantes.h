@@ -56,15 +56,12 @@ class Stack
     Constante** tab;
 public:
     Stack(int nb=50):taille(nb), nbElements(0), tab(new Constante*[nb]) {}
+    /*!
+     *  \brief ~Stack
+     *  \details utilise clear pour supprimer la pile
+     */
     ~Stack(){
-        for(int i=0; i<nbElements; i++){
-            if ( tab[i] != 0){
-                delete tab[i];
-                tab[i] = 0;
-            }
-            else qDebug()<<"else not normal";
-        }
-        delete[] tab;
+        clear();
     }
     bool isEmpty(void) const {return (nbElements==0);}
     bool isFull(void) const {return (taille==nbElements);}
@@ -72,6 +69,9 @@ public:
     int push(Constante *nb);  // retourne -1 si la pile est pleine
     Constante* pop();
     Constante* top(){return tab[nbElements];}
+    /*! \brief clear
+     *  \details pop tous les éléments de la pile sans les supprimer, pour l'historique
+     */
     void clear();
     int Swap(Entier* x, Entier*y);
     void afficherPile();  // utile pour le debuggage
@@ -100,7 +100,8 @@ public:
 
     /*!
      *  \brief clone
-     *  \details clone une pile, sans allouer de nouveaux pointeurs
+     *  \details clone une pile, sans allouer de nouveaux pointeurs, on travaille toujours sur les mêmes
+     *  pointeurs pour permette aux fonctions annuler, rétablir de fonctionner
      */
     Stack* clone() {
         Stack* nouvellePile = new Stack(taille);

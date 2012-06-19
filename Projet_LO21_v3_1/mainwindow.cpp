@@ -131,7 +131,6 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete model;
-    qDebug()<<"sjfhskjdf";
     delete ui;
 }
 

@@ -47,7 +47,6 @@ public:
      *  \brief SetAttributs
      *  \details fonction permet de remettre la calculatrice comme elle était avant
      */
-    void setAttributs(int type, bool c, bool d, int taille);
 
 private slots:
     //numéros
@@ -156,6 +155,12 @@ private slots:
 
     //gestion enregistrement
     void lire();
+    /*!
+     *  \brief enregistrer
+     * \details Cette fonction permet de récupérer le contexte de l'affichage de la pile. On a déjà séparé dans lire les
+     * données à l'aide point-virgule et cela nous permet de faire une liste de QString où les éléments seront déterminés par les
+     *  points-virgules. Puis elle s'occupe de cacher ou de montrer les boutons en fonction des paramètres récupérés.
+     */
     void enregistrer();
 
 
@@ -164,7 +169,7 @@ signals:
     // rentrer une expression
     /*!
      *  \brief PressEntrerN
-     *  \details Envoie a calculatrice modele une constante (dont on a déjà vérifié la validité grâce à FormuleValide)
+     *  \details Envoie a CalculatriceModele une Constante (dont on a déjà vérifié la validité grâce à FormuleValide)
      *  en lui indiquant si elle doit créer un complexe ou non
      *  \param1 Prend une chaine de caractères
      *  \param2 Prend un booléen

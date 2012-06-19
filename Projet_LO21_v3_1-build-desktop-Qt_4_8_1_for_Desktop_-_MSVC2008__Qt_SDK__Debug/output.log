@@ -1,0 +1,28 @@
+
+Log : Nouvelle instance de pile
+2Debut de log : 1 : DEBUG, 2 : CONFIG, 3 : INFO, 4 : WARNING, 5 : ERROR3La pile sera transformée en complexes3La pile sera effacée3Il n'y a rien a rétablir3La pile sera transformée en complexes3La pile sera effacée4formule non valide3La pile sera transformée en complexes3La pile sera effacée3hors limites de la fonction4type non conforme3hors limites de la fonction4type non conforme2Fin de log
+ Log : fin d'une instance de pile
+Log : Nouvelle instance de pile
+2Debut de log : 1 : DEBUG, 2 : CONFIG, 3 : INFO, 4 : WARNING, 5 : ERROR2Fin de log
+ Log : fin d'une instance de pile
+Log : Nouvelle instance de pile
+2Debut de log : 1 : DEBUG, 2 : CONFIG, 3 : INFO, 4 : WARNING, 5 : ERROR2Fin de log
+ Log : fin d'une instance de pile
+Log : Nouvelle instance de pile
+2Debut de log : 1 : DEBUG, 2 : CONFIG, 3 : INFO, 4 : WARNING, 5 : ERROR2Fin de log
+ Log : fin d'une instance de pile
+Log : Nouvelle instance de pile
+2Debut de log : 1 : DEBUG, 2 : CONFIG, 3 : INFO, 4 : WARNING, 5 : ERROR2Fin de log
+ Log : fin d'une instance de pile
+Log : Nouvelle instance de pile
+2Debut de log : 1 : DEBUG, 2 : CONFIG, 3 : INFO, 4 : WARNING, 5 : ERROR2Fin de log
+ Log : fin d'une instance de pile
+Log : Nouvelle instance de pile
+2Debut de log : 1 : DEBUG, 2 : CONFIG, 3 : INFO, 4 : WARNING, 5 : ERROR2Fin de log
+ Log : fin d'une instance de pile
+Log : Nouvelle instance de pile
+2Debut de log : 1 : DEBUG, 2 : CONFIG, 3 : INFO, 4 : WARNING, 5 : ERROR3Il n'y a rien a rétablir3La pile sera transformée en complexes4type non conforme3La pile sera effacée4type non conforme4formule non valide2Fin de log
+ Log : fin d'une instance de pile
+Log : Nouvelle instance de pile
+2Debut de log : 1 : DEBUG, 2 : CONFIG, 3 : INFO, 4 : WARNING, 5 : ERROR4formule non valide4division par 02Fin de log
+ Log : fin d'une instance de pile

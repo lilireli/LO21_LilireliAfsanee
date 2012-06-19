@@ -52,7 +52,7 @@ public:
         else if(degre==CONFIG){return "Config";}
         else if(degre==INFO){return "Info";}
         else if(degre==WARNING){return "Warning";}
-        else if(degre==ERROR){return "Erreur";}
+        else{return "Erreur";}
     }
     void setMessage(QString s){message = s;}
     void setDegre(Priority p){degre = p;}
@@ -81,7 +81,7 @@ class LoggerConsole : public Logger
 {
 public:
     LoggerConsole() {}
-    virtual void Write(const LogMessage* message);
+    void Write(const LogMessage* message);
 };
 
 /*! \class LoggerFile
@@ -101,7 +101,7 @@ public:
         file.flush();//synchronisation
     }
 
-    virtual ~LoggerFile(){
+    ~LoggerFile(){
         if (!file.good()) return;
         file<<"\n Log : fin d'une instance de pile";
         file.flush();
